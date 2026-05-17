@@ -3,33 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>my-project</title>
+  <title>中小企業診断士 学習アプリ</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       min-height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
+      padding: 2rem 1rem;
+      color: #eee;
     }
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
+
     h1 {
-      color: #333;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      color: #fff;
     }
-    p {
-      color: #666;
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aac4ff;
+      margin-bottom: 2rem;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .icon { font-size: 1.4rem; }
+
+    .subject-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .topic-btn {
+      background: rgba(100, 160, 255, 0.15);
+      border: 1px solid rgba(100, 160, 255, 0.35);
+      border-radius: 20px;
+      color: #aac4ff;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .topic-btn:hover {
+      background: #e63946;
+      border-color: #e63946;
+      color: #fff;
+    }
+
+    .topic-btn::after {
+      content: '▶';
+      font-size: 0.6rem;
+      opacity: 0.7;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>my-project</h1>
-    <p>GitHub Pages で公開されています。</p>
-  </div>
+  <h1>📚 中小企業診断士 学習アプリ</h1>
+  <p class="subtitle">トピックをクリックすると YouTube 検索が開きます</p>
+
+  <div class="subjects" id="subjects"></div>
+
+  <p class="footer">「中小企業診断士 ＜トピック＞ わかりやすい」でYouTube検索します</p>
+
+  <script>
+    const data = [
+      {
+        icon: '💴',
+        name: '財務・会計',
+        topics: ['財務会計','管理会計','損益分岐点','キャッシュフロー','財務諸表','原価計算','資金調達','企業価値評価'],
+      },
+      {
+        icon: '🏢',
+        name: '企業経営理論',
+        topics: ['経営戦略','マーケティング','組織論','リーダーシップ','イノベーション','SWOT分析','ポーターの競争戦略','ブランド戦略'],
+      },
+      {
+        icon: '⚙️',
+        name: '運営管理',
+        topics: ['生産管理','在庫管理','品質管理','店舗管理','SCM','IE手法','設備管理','物流管理'],
+      },
+      {
+        icon: '📈',
+        name: '経済学・経済政策',
+        topics: ['ミクロ経済学','マクロ経済学','市場均衡','GDP','金融政策','財政政策','国際貿易','ゲーム理論'],
+      },
+      {
+        icon: '⚖️',
+        name: '経営法務',
+        topics: ['会社法','知的財産権','契約法','労働法','民法','独占禁止法','倒産法','コーポレートガバナンス'],
+      },
+      {
+        icon: '💻',
+        name: '経営情報システム',
+        topics: ['情報システム','データベース','ネットワーク','セキュリティ','DX','AI・機械学習','システム開発','クラウド'],
+      },
+      {
+        icon: '🏭',
+        name: '中小企業経営・政策',
+        topics: ['中小企業政策','補助金制度','経営改善','事業再生','創業支援','金融支援','産業集積','小規模企業'],
+      },
+    ];
+
+    function openYouTube(topic) {
+      const query = encodeURIComponent(`中小企業診断士 ${topic} わかりやすい`);
+      window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank');
+    }
+
+    const container = document.getElementById('subjects');
+
+    data.forEach(subject => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <div class="card-header">
+          <span class="icon">${subject.icon}</span>
+          <span class="subject-name">${subject.name}</span>
+        </div>
+        <div class="topics">
+          ${subject.topics.map(t =>
+            `<button class="topic-btn" onclick="openYouTube('${t}')">${t}</button>`
+          ).join('')}
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
 </body>
 </html>
