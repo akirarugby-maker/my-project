@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中小企業診断士 YouTube検索</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:#f1f5f9;min-height:100vh;color:#1e293b}
+header{background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;padding:20px 24px;text-align:center}
+header h1{font-size:1.4rem;font-weight:700}
+header p{font-size:.85rem;opacity:.85;margin-top:6px}
+.container{max-width:700px;margin:0 auto;padding:24px 16px}
+.intro{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:24px;border-left:4px solid #dc2626;box-shadow:0 1px 4px rgba(0,0,0,.08);font-size:.9rem;color:#475569;line-height:1.7}
+.intro strong{color:#dc2626}
+.subjects{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.subj-btn{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:14px;border:none;cursor:pointer;font-size:1rem;font-weight:700;color:#fff;text-align:left;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.subj-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2);opacity:.93}
+.subj-btn:active{transform:translateY(0)}
+.subj-btn .num{background:rgba(255,255,255,.25);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.subj-btn .info{flex:1}
+.subj-btn .name{font-size:1rem;font-weight:700}
+.subj-btn .hint{font-size:.78rem;opacity:.85;font-weight:400;margin-top:2px}
+.subj-btn .arrow{font-size:1.2rem;opacity:.8}
+.custom-box{background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.custom-box h2{font-size:.95rem;font-weight:700;color:#334155;margin-bottom:12px}
+.input-row{display:flex;gap:8px}
+.input-row input{flex:1;padding:12px 14px;border-radius:10px;border:2px solid #e2e8f0;font-size:.9rem;outline:none;transition:border-color .2s}
+.input-row input:focus{border-color:#dc2626}
+.input-row input::placeholder{color:#94a3b8}
+.search-btn{padding:12px 20px;background:#dc2626;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:700;font-size:.9rem;white-space:nowrap;transition:background .2s}
+.search-btn:hover{background:#b91c1c}
+.note{text-align:center;margin-top:24px;font-size:.8rem;color:#94a3b8}
+@media(max-width:480px){
+  .subj-btn{padding:14px 16px}
+  .subj-btn .name{font-size:.92rem}
+  .input-row{flex-direction:column}
+  .search-btn{width:100%}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>📺 中小企業診断士 YouTube検索</h1>
+  <p>科目ボタンを押すだけで関連動画を検索できます</p>
+</header>
+<div class="container">
+  <div class="intro">
+    ボタンを押すと <strong>「中小企業診断士 ＜科目名＞ わかりやすい 解説」</strong> でYouTube検索が新しいタブで開きます。<br>
+    スライド学習と組み合わせて動画でも理解を深めましょう！
+  </div>
+
+  <div class="subjects">
+    <button class="subj-btn" style="background:linear-gradient(135deg,#10b981,#059669)"
+      onclick="search('経済学・経済政策')">
+      <div class="num">1</div>
+      <div class="info">
+        <div class="name">経済学・経済政策</div>
+        <div class="hint">需要と供給・GDP・財政政策・金融政策・為替</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)"
+      onclick="search('財務・会計')">
+      <div class="num">2</div>
+      <div class="info">
+        <div class="name">財務・会計</div>
+        <div class="hint">BS・PL・CF・財務分析・原価計算・損益分岐点</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)"
+      onclick="search('企業経営理論')">
+      <div class="num">3</div>
+      <div class="info">
+        <div class="name">企業経営理論</div>
+        <div class="hint">SWOT・PPM・マーケティング4P・STP・組織設計</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#d97706,#b45309)"
+      onclick="search('運営管理')">
+      <div class="num">4</div>
+      <div class="info">
+        <div class="name">運営管理</div>
+        <div class="hint">JIT・QC・在庫管理・SCM・5S・店舗管理</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#dc2626,#b91c1c)"
+      onclick="search('経営法務')">
+      <div class="num">5</div>
+      <div class="info">
+        <div class="name">経営法務</div>
+        <div class="hint">会社法・知的財産権・労働基準法・倒産手続き</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#0891b2,#0e7490)"
+      onclick="search('経営情報システム')">
+      <div class="num">6</div>
+      <div class="info">
+        <div class="name">経営情報システム</div>
+        <div class="hint">IT基礎・ネットワーク・DB・セキュリティ・ERP</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+
+    <button class="subj-btn" style="background:linear-gradient(135deg,#65a30d,#4d7c0f)"
+      onclick="search('中小企業経営・中小企業政策')">
+      <div class="num">7</div>
+      <div class="info">
+        <div class="name">中小企業経営・中小企業政策</div>
+        <div class="hint">中小企業の定義・支援機関・補助金・事業承継</div>
+      </div>
+      <div class="arrow">▶</div>
+    </button>
+  </div>
+
+  <div class="custom-box">
+    <h2>🔍 キーワードで自由検索</h2>
+    <div class="input-row">
+      <input type="text" id="customInput" placeholder="例：損益分岐点、SWOT分析、特許権..."
+        onkeydown="if(event.key==='Enter')customSearch()">
+      <button class="search-btn" onclick="customSearch()">▶ 検索</button>
+    </div>
+  </div>
+
+  <div class="note">ボタンを押すとYouTubeが新しいタブで開きます</div>
+</div>
+
+<script>
+function search(subject) {
+  const q = encodeURIComponent('中小企業診断士 ' + subject + ' わかりやすい 解説');
+  window.open('https://www.youtube.com/results?search_query=' + q, '_blank');
+}
+function customSearch() {
+  const v = document.getElementById('customInput').value.trim();
+  if (v) search(v);
+}
+</script>
+</body>
+</html>
