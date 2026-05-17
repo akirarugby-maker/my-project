@@ -126,6 +126,23 @@ nav button:hover:not(.active){background:#f8fafc;color:#334155}
   .card-face{padding:20px}
   .question-card{padding:18px}
 }
+/* YouTube Search Tab */
+.yt-intro{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;border-left:4px solid #ef4444;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.yt-intro h2{color:#ef4444;margin-bottom:6px}
+.yt-intro p{color:#64748b;font-size:.9rem;line-height:1.6}
+.yt-subject-block{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.yt-subject-block h3{font-size:1rem;font-weight:700;color:#1e293b;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.yt-subject-block .yt-desc{font-size:.82rem;color:#64748b;margin-bottom:12px}
+.yt-topics{display:flex;flex-wrap:wrap;gap:8px}
+.yt-btn{padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-size:.83rem;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:5px;color:#fff}
+.yt-btn:hover{opacity:.85;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.yt-custom{background:#fff;border-radius:12px;padding:20px;margin-top:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.yt-custom h3{font-size:.95rem;font-weight:700;color:#334155;margin-bottom:10px}
+.yt-custom-row{display:flex;gap:8px;flex-wrap:wrap}
+.yt-custom-row input{flex:1;min-width:180px;padding:10px 14px;border-radius:8px;border:2px solid #e2e8f0;font-size:.9rem;outline:none}
+.yt-custom-row input:focus{border-color:#ef4444}
+.yt-custom-row button{padding:10px 20px;background:#ef4444;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:.9rem;white-space:nowrap}
+.yt-custom-row button:hover{background:#dc2626}
 </style>
 </head>
 <body>
@@ -138,6 +155,7 @@ nav button:hover:not(.active){background:#f8fafc;color:#334155}
   <button onclick="showTab('slides')">📖 スライド学習</button>
   <button onclick="showTab('flashcards')">🃏 フラッシュカード</button>
   <button onclick="showTab('quiz')">✏️ 問題演習</button>
+  <button onclick="showTab('youtube')">📺 YouTube検索</button>
 </nav>
 
 <!-- TAB 1: ROADMAP -->
@@ -336,6 +354,127 @@ nav button:hover:not(.active){background:#f8fafc;color:#334155}
     </div>
   </div>
   <div id="quizArea"></div>
+</div>
+
+<!-- TAB 5: YOUTUBE SEARCH -->
+<div id="tab-youtube" class="tab-content">
+  <div class="yt-intro">
+    <h2>📺 YouTube動画で学ぶ</h2>
+    <p>トピックボタンを押すと「中小企業診断士 ＜トピック＞ わかりやすい 解説」でYouTube検索が開きます。スライドで基礎を学んだ後、動画で理解を深めましょう。</p>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#10b981;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">1</span> 経済学・経済政策</h3>
+    <div class="yt-desc">ミクロ・マクロ経済学、財政・金融政策、為替</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('需要と供給')">▶ 需要と供給</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('均衡価格 需要曲線 供給曲線')">▶ 均衡価格</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('GDP 景気循環')">▶ GDP・景気循環</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('財政政策 乗数効果')">▶ 財政政策</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('金融政策 日銀')">▶ 金融政策</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('為替レート 円高 円安')">▶ 為替・円高円安</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('比較優位 貿易')">▶ 比較優位</button>
+      <button class="yt-btn" style="background:#10b981" onclick="openYoutube('価格弾力性')">▶ 価格弾力性</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#2563eb;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">2</span> 財務・会計</h3>
+    <div class="yt-desc">財務三表、財務分析、原価計算</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('貸借対照表 BS 読み方')">▶ 貸借対照表（BS）</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('損益計算書 PL 読み方')">▶ 損益計算書（PL）</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('キャッシュフロー計算書')">▶ CF計算書</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('財務分析 ROE ROA 自己資本比率')">▶ 財務分析・ROE</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('損益分岐点 固定費 変動費')">▶ 損益分岐点</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('原価計算 直接原価計算')">▶ 原価計算</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('財務三表 つながり')">▶ 財務三表のつながり</button>
+      <button class="yt-btn" style="background:#2563eb" onclick="openYoutube('流動比率 当座比率 安全性分析')">▶ 安全性分析</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#8b5cf6;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">3</span> 企業経営理論</h3>
+    <div class="yt-desc">経営戦略、マーケティング、組織論</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('SWOT分析')">▶ SWOT分析</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('PPM ボストンコンサルティング')">▶ PPM</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('ポーター 競争戦略 差別化')">▶ 競争戦略</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('マーケティング 4P')">▶ マーケティング4P</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('STP セグメンテーション ターゲティング ポジショニング')">▶ STP分析</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('組織設計 機能別組織 事業部制')">▶ 組織設計</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('バリューチェーン ポーター')">▶ バリューチェーン</button>
+      <button class="yt-btn" style="background:#8b5cf6" onclick="openYoutube('コアコンピタンス 経営資源')">▶ コアコンピタンス</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#f59e0b;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">4</span> 運営管理</h3>
+    <div class="yt-desc">生産管理、QC、在庫管理、物流</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('ジャストインタイム トヨタ生産方式')">▶ JIT・トヨタ生産方式</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('品質管理 QC PDCA')">▶ 品質管理・QC</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('在庫管理 定量発注 定期発注')">▶ 在庫管理</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('ABC分析 パレート図')">▶ ABC分析</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('SCM サプライチェーン管理')">▶ SCM</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('5S活動 IE インダストリアルエンジニアリング')">▶ 5S・IE</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('マーチャンダイジング 店舗管理')">▶ 店舗管理・MD</button>
+      <button class="yt-btn" style="background:#f59e0b" onclick="openYoutube('ラインバランシング 生産計画')">▶ 生産計画</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#ef4444;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">5</span> 経営法務</h3>
+    <div class="yt-desc">会社法、知的財産権、労働法、倒産法</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('会社法 株式会社 仕組み')">▶ 会社法</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('特許権 実用新案 知的財産')">▶ 特許・実用新案</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('商標権 著作権 違い')">▶ 商標・著作権</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('労働基準法 36協定')">▶ 労働基準法</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('民事再生 会社更生 倒産')">▶ 倒産・再建手続き</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('契約 クーリングオフ 消費者保護')">▶ 契約・消費者保護</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('不正競争防止法 営業秘密')">▶ 不正競争防止法</button>
+      <button class="yt-btn" style="background:#ef4444" onclick="openYoutube('株主総会 取締役会 機関設計')">▶ 機関設計</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#0891b2;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">6</span> 経営情報システム</h3>
+    <div class="yt-desc">IT基礎、ネットワーク、DB、セキュリティ</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('コンピュータ 仕組み CPU メモリ')">▶ コンピュータ基礎</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('ネットワーク TCP IP 仕組み')">▶ ネットワーク・TCP/IP</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('データベース SQL リレーショナル')">▶ データベース・SQL</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('情報セキュリティ サイバー攻撃')">▶ 情報セキュリティ</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('システム開発 アジャイル ウォーターフォール')">▶ システム開発手法</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('ERP CRM SCM システム')">▶ ERP・CRM</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('クラウド DX デジタルトランスフォーメーション')">▶ クラウド・DX</button>
+      <button class="yt-btn" style="background:#0891b2" onclick="openYoutube('プロジェクトマネジメント WBS PERT')">▶ プロジェクト管理</button>
+    </div>
+  </div>
+
+  <div class="yt-subject-block">
+    <h3><span style="background:#65a30d;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">7</span> 中小企業経営・中小企業政策</h3>
+    <div class="yt-desc">中小企業の定義・現状・支援制度・補助金</div>
+    <div class="yt-topics">
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('中小企業 定義 中小企業基本法')">▶ 中小企業の定義</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('中小企業 現状 課題 日本経済')">▶ 中小企業の現状</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('ものづくり補助金 申請')">▶ ものづくり補助金</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('IT導入補助金 小規模事業者持続化補助金')">▶ IT・持続化補助金</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('事業承継 M&A 後継者')">▶ 事業承継</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('経営革新計画 認定')">▶ 経営革新計画</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('よろず支援拠点 商工会議所')">▶ 支援機関</button>
+      <button class="yt-btn" style="background:#65a30d" onclick="openYoutube('日本政策金融公庫 融資 創業')">▶ 政策金融・創業融資</button>
+    </div>
+  </div>
+
+  <div class="yt-custom">
+    <h3>🔍 キーワードを自由に入力して検索</h3>
+    <div class="yt-custom-row">
+      <input type="text" id="ytCustomInput" placeholder="例：損益分岐点、SWOT分析..." onkeydown="if(event.key==='Enter')openYoutubeCustom()">
+      <button onclick="openYoutubeCustom()">▶ YouTube検索</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -839,6 +978,18 @@ function showComplete() {
       </div>
     </div>
   `;
+}
+
+// ===================== YOUTUBE SEARCH =====================
+function openYoutube(topic) {
+  const query = encodeURIComponent('中小企業診断士 ' + topic + ' わかりやすい 解説');
+  window.open('https://www.youtube.com/results?search_query=' + query, '_blank');
+}
+
+function openYoutubeCustom() {
+  const val = document.getElementById('ytCustomInput').value.trim();
+  if (!val) return;
+  openYoutube(val);
 }
 
 // ===================== START =====================
