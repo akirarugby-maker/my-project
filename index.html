@@ -126,6 +126,19 @@ nav button:hover:not(.active){background:#f8fafc;color:#334155}
   .card-face{padding:20px}
   .question-card{padding:18px}
 }
+/* YouTube Quick Subject Buttons */
+.yt-quick{background:#fff;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.yt-quick h3{font-size:.95rem;font-weight:700;color:#334155;margin-bottom:14px}
+.yt-quick-btns{display:flex;flex-direction:column;gap:10px}
+.yt-subj-btn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;border:none;cursor:pointer;color:#fff;text-align:left;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.15);width:100%}
+.yt-subj-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.2);opacity:.93}
+.yt-subj-btn .sq-num{background:rgba(255,255,255,.25);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.yt-subj-btn .sq-info{flex:1}
+.yt-subj-btn .sq-name{font-size:.95rem;font-weight:700}
+.yt-subj-btn .sq-hint{font-size:.75rem;opacity:.82;font-weight:400;margin-top:1px}
+.yt-subj-btn .sq-arrow{font-size:1.1rem;opacity:.8}
+.yt-divider{display:flex;align-items:center;gap:10px;margin:20px 0 16px;color:#94a3b8;font-size:.82rem;font-weight:600}
+.yt-divider::before,.yt-divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
 /* YouTube Search Tab */
 .yt-intro{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;border-left:4px solid #ef4444;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .yt-intro h2{color:#ef4444;margin-bottom:6px}
@@ -360,8 +373,38 @@ nav button:hover:not(.active){background:#f8fafc;color:#334155}
 <div id="tab-youtube" class="tab-content">
   <div class="yt-intro">
     <h2>📺 YouTube動画で学ぶ</h2>
-    <p>トピックボタンを押すと「中小企業診断士 ＜トピック＞ わかりやすい 解説」でYouTube検索が開きます。スライドで基礎を学んだ後、動画で理解を深めましょう。</p>
+    <p>ボタンを押すと「中小企業診断士 ＜科目名／トピック＞ わかりやすい 解説」でYouTube検索が開きます。スライドで基礎を学んだ後、動画で理解を深めましょう。</p>
   </div>
+
+  <!-- QUICK: 7 subject buttons -->
+  <div class="yt-quick">
+    <h3>🚀 科目をワンタップで検索</h3>
+    <div class="yt-quick-btns">
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#10b981,#059669)" onclick="openYoutube('経済学・経済政策')">
+        <div class="sq-num">1</div><div class="sq-info"><div class="sq-name">経済学・経済政策</div><div class="sq-hint">需要と供給・GDP・財政政策・金融政策・為替</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)" onclick="openYoutube('財務・会計')">
+        <div class="sq-num">2</div><div class="sq-info"><div class="sq-name">財務・会計</div><div class="sq-hint">BS・PL・CF・財務分析・原価計算・損益分岐点</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)" onclick="openYoutube('企業経営理論')">
+        <div class="sq-num">3</div><div class="sq-info"><div class="sq-name">企業経営理論</div><div class="sq-hint">SWOT・PPM・マーケティング4P・STP・組織設計</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#d97706,#b45309)" onclick="openYoutube('運営管理')">
+        <div class="sq-num">4</div><div class="sq-info"><div class="sq-name">運営管理</div><div class="sq-hint">JIT・QC・在庫管理・SCM・5S・店舗管理</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#dc2626,#b91c1c)" onclick="openYoutube('経営法務')">
+        <div class="sq-num">5</div><div class="sq-info"><div class="sq-name">経営法務</div><div class="sq-hint">会社法・知的財産権・労働基準法・倒産手続き</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#0891b2,#0e7490)" onclick="openYoutube('経営情報システム')">
+        <div class="sq-num">6</div><div class="sq-info"><div class="sq-name">経営情報システム</div><div class="sq-hint">IT基礎・ネットワーク・DB・セキュリティ・ERP</div></div><div class="sq-arrow">▶</div>
+      </button>
+      <button class="yt-subj-btn" style="background:linear-gradient(135deg,#65a30d,#4d7c0f)" onclick="openYoutube('中小企業経営・中小企業政策')">
+        <div class="sq-num">7</div><div class="sq-info"><div class="sq-name">中小企業経営・中小企業政策</div><div class="sq-hint">中小企業の定義・支援機関・補助金・事業承継</div></div><div class="sq-arrow">▶</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="yt-divider">さらに詳しいトピックで検索</div>
 
   <div class="yt-subject-block">
     <h3><span style="background:#10b981;color:#fff;padding:2px 10px;border-radius:12px;font-size:.8rem">1</span> 経済学・経済政策</h3>
