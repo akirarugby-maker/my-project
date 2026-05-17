@@ -28,7 +28,6 @@
       color: var(--text);
     }
 
-    /* ─── HEADER ─── */
     header {
       background: rgba(13,17,23,0.9);
       backdrop-filter: blur(12px);
@@ -49,7 +48,6 @@
     }
     header p { font-size: 0.75rem; color: var(--muted); }
 
-    /* ─── TABS ─── */
     .tabs {
       display: flex;
       gap: 0.25rem;
@@ -82,11 +80,9 @@
       border-bottom-color: var(--accent);
     }
 
-    /* ─── CONTENT ─── */
     .panel { display: none; padding: 1.5rem; max-width: 960px; margin: 0 auto; }
     .panel.active { display: block; }
 
-    /* ─── SECTION TITLE ─── */
     .section-title {
       font-size: 1.1rem;
       font-weight: 700;
@@ -96,9 +92,7 @@
       gap: 0.5rem;
     }
 
-    /* ══════════════════════════════
-       TAB 1: ROADMAP
-    ══════════════════════════════ */
+    /* ROADMAP */
     .exam-info {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -117,24 +111,11 @@
 
     .subject-bars { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem; }
     .bar-row { display: flex; flex-direction: column; gap: 0.3rem; }
-    .bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.82rem;
-    }
+    .bar-label { display: flex; justify-content: space-between; font-size: 0.82rem; }
     .bar-label span:first-child { font-weight: 600; }
     .bar-label span:last-child { color: var(--muted); font-size: 0.75rem; }
-    .bar-bg {
-      height: 10px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      transition: width 0.8s ease;
-    }
+    .bar-bg { height: 10px; background: rgba(255,255,255,0.07); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; transition: width 0.8s ease; }
 
     .schedule-grid {
       display: grid;
@@ -147,26 +128,30 @@
       border-radius: 10px;
       padding: 0.8rem;
     }
-    .month-card .month-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
+    .month-card .month-name { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
     .month-card ul { list-style: none; }
-    .month-card li {
-      font-size: 0.75rem;
-      color: var(--muted);
-      padding: 0.15rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.3rem;
-    }
+    .month-card li { font-size: 0.75rem; color: var(--muted); padding: 0.15rem 0; display: flex; align-items: flex-start; gap: 0.3rem; }
     .month-card li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
 
-    /* ══════════════════════════════
-       TAB 2: SLIDES
-    ══════════════════════════════ */
+    /* SLIDES */
+    .slide-filter-row {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .sf-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sf-btn.active { background: rgba(240,165,0,0.15); border-color: var(--accent); color: var(--accent); }
+
     .slide-nav {
       display: flex;
       align-items: center;
@@ -213,19 +198,11 @@
       border-radius: 999px;
       width: fit-content;
     }
-    .slide-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
+    .slide-title { font-size: 1.2rem; font-weight: 700; line-height: 1.4; }
     .slide-body { font-size: 0.88rem; line-height: 1.8; color: #cdd9e5; }
     .slide-body strong { color: var(--accent); }
     .slide-body em { color: var(--blue); font-style: normal; }
-    .slide-points {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .slide-points { display: flex; flex-direction: column; gap: 0.5rem; }
     .slide-point {
       display: flex;
       align-items: flex-start;
@@ -261,9 +238,7 @@
     .nav-btn:hover { background: rgba(255,255,255,0.15); }
     .nav-btn:disabled { opacity: 0.3; cursor: default; }
 
-    /* ══════════════════════════════
-       TAB 3: YOUTUBE
-    ══════════════════════════════ */
+    /* YOUTUBE */
     .yt-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -275,12 +250,7 @@
       border-radius: 12px;
       padding: 1rem;
     }
-    .yt-subject-header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-    }
+    .yt-subject-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
     .yt-subject-header .icon { font-size: 1.2rem; }
     .yt-subject-header .name { font-size: 0.9rem; font-weight: 700; }
     .yt-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; }
@@ -297,16 +267,10 @@
       align-items: center;
       gap: 0.3rem;
     }
-    .yt-btn:hover {
-      background: #ff4444;
-      border-color: #ff4444;
-      color: #fff;
-    }
+    .yt-btn:hover { background: #ff4444; border-color: #ff4444; color: #fff; }
     .yt-btn::before { content: '▶'; font-size: 0.55rem; }
 
-    /* ══════════════════════════════
-       TAB 4: FLASHCARDS
-    ══════════════════════════════ */
+    /* FLASHCARDS */
     .fc-controls {
       display: flex;
       align-items: center;
@@ -331,7 +295,7 @@
       perspective: 1000px;
       max-width: 560px;
       margin: 0 auto 1.2rem;
-      height: 220px;
+      height: 240px;
     }
     .flashcard {
       width: 100%; height: 100%;
@@ -364,7 +328,7 @@
     }
     .fc-hint { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.5rem; }
     .fc-word { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
-    .fc-def { font-size: 0.85rem; line-height: 1.7; color: #cdd9e5; }
+    .fc-def { font-size: 0.82rem; line-height: 1.7; color: #cdd9e5; }
     .fc-nav {
       display: flex;
       align-items: center;
@@ -384,10 +348,7 @@
     }
     .fc-nav-btn:hover { background: rgba(255,255,255,0.15); }
     .fc-progress { font-size: 0.8rem; color: var(--muted); }
-    .fc-shuffle {
-      display: flex;
-      justify-content: center;
-    }
+    .fc-shuffle { display: flex; justify-content: center; }
     .shuffle-btn {
       background: rgba(240,165,0,0.1);
       border: 1px solid rgba(240,165,0,0.3);
@@ -400,9 +361,7 @@
     }
     .shuffle-btn:hover { background: rgba(240,165,0,0.2); }
 
-    /* ══════════════════════════════
-       TAB 5: PRACTICE
-    ══════════════════════════════ */
+    /* QUIZ */
     .quiz-header {
       display: flex;
       align-items: center;
@@ -419,12 +378,7 @@
       padding: 0.35rem 0.8rem;
     }
     .quiz-score span { color: var(--accent); font-weight: 700; }
-    .quiz-filter-row {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
+    .quiz-filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .qf-btn {
       background: rgba(255,255,255,0.06);
       border: 1px solid var(--border);
@@ -444,12 +398,7 @@
       padding: 1.2rem;
       margin-bottom: 0.8rem;
     }
-    .q-meta {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
-    }
+    .q-meta { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
     .q-tag {
       font-size: 0.68rem;
       font-weight: 700;
@@ -482,13 +431,7 @@
     .q-opt.correct { background: rgba(63,185,80,0.15); border-color: var(--green); color: var(--green); }
     .q-opt.wrong { background: rgba(248,81,73,0.15); border-color: var(--red); color: var(--red); }
     .q-opt.reveal { background: rgba(63,185,80,0.08); border-color: rgba(63,185,80,0.3); }
-    .q-label {
-      font-weight: 700;
-      font-size: 0.78rem;
-      width: 20px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+    .q-label { font-weight: 700; font-size: 0.78rem; width: 20px; flex-shrink: 0; margin-top: 1px; }
     .q-explain {
       margin-top: 0.7rem;
       padding: 0.7rem 0.9rem;
@@ -518,12 +461,8 @@
     .next-q-btn.show { display: inline-block; }
     .next-q-btn:hover { opacity: 0.85; }
 
-    /* ─── UTILITY ─── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 1.2rem 0;
-    }
+    .divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
+
     @media (max-width: 500px) {
       header h1 { font-size: 1rem; }
       .panel { padding: 1rem; }
@@ -546,7 +485,7 @@
   <button class="tab-btn" onclick="showTab('quiz',this)" role="tab">✏️ 問題演習</button>
 </nav>
 
-<!-- ══════════════════ TAB 1: ROADMAP ══════════════════ -->
+<!-- ROADMAP -->
 <section id="roadmap" class="panel active">
   <p class="section-title">📋 試験概要</p>
   <div class="exam-info">
@@ -639,27 +578,27 @@
   </div>
 </section>
 
-<!-- ══════════════════ TAB 2: SLIDES ══════════════════ -->
+<!-- SLIDES -->
 <section id="slides" class="panel">
+  <div class="slide-filter-row" id="slideFilters"></div>
   <div class="slide-nav">
     <button class="nav-btn" id="prevSlide" onclick="changeSlide(-1)">◀ 前へ</button>
-    <span class="slide-counter" id="slideCounter">1 / 24</span>
+    <span class="slide-counter" id="slideCounter">1 / 1</span>
     <button class="nav-btn" id="nextSlide" onclick="changeSlide(1)">次へ ▶</button>
   </div>
   <div class="slide-dots" id="slideDots"></div>
   <div class="slide-card" id="slideCard"></div>
 </section>
 
-<!-- ══════════════════ TAB 3: YOUTUBE ══════════════════ -->
+<!-- YOUTUBE -->
 <section id="youtube" class="panel">
   <p class="section-title">▶️ トピックをクリックしてYouTube検索</p>
   <div class="yt-grid" id="ytGrid"></div>
 </section>
 
-<!-- ══════════════════ TAB 4: FLASHCARDS ══════════════════ -->
+<!-- FLASHCARDS -->
 <section id="flash" class="panel">
   <div class="fc-controls" id="fcFilters"></div>
-
   <div class="flashcard-wrap" onclick="flipCard()">
     <div class="flashcard" id="flashcard">
       <div class="fc-front">
@@ -672,10 +611,9 @@
       </div>
     </div>
   </div>
-
   <div class="fc-nav">
     <button class="fc-nav-btn" onclick="fcMove(-1)">◀ 前</button>
-    <span class="fc-progress" id="fcProgress">1 / 30</span>
+    <span class="fc-progress" id="fcProgress">1 / 1</span>
     <button class="fc-nav-btn" onclick="fcMove(1)">次 ▶</button>
   </div>
   <div class="fc-shuffle">
@@ -683,7 +621,7 @@
   </div>
 </section>
 
-<!-- ══════════════════ TAB 5: QUIZ ══════════════════ -->
+<!-- QUIZ -->
 <section id="quiz" class="panel">
   <div class="quiz-header">
     <p class="section-title" style="margin:0">✏️ 問題演習</p>
@@ -694,62 +632,217 @@
 </section>
 
 <script>
-/* ════════════════════════════════════════════════
-   DATA
-════════════════════════════════════════════════ */
-
-// ── SLIDES ──
+/* ================================================================
+   SLIDES DATA — 民法等 20枚 + 既存他科目
+================================================================ */
 const slides = [
+  /* ── 民法等 (20枚) ── */
+  {
+    tag:'民法等', title:'意思表示の基本（心裡留保・通謀虚偽表示）',
+    body:'意思と表示が一致しない意思表示の効力。<strong>相手方の善意・悪意</strong>によって結論が変わる点が頻出。',
+    points:[
+      '心裡留保：真意と異なる表示。原則<strong>有効</strong>、相手方が悪意または有過失なら無効',
+      '通謀虚偽表示：当事者間では<strong>無効</strong>。善意の第三者には無効を対抗できない',
+      '第三者は善意であれば登記不要（通謀虚偽表示の場合）',
+      '心裡留保の無効は善意無過失の第三者に対抗できない'
+    ]
+  },
+  {
+    tag:'民法等', title:'錯誤・詐欺・強迫',
+    body:'瑕疵ある意思表示は<strong>取消可能</strong>。取消後は遡及的に無効となり原状回復義務が生じる。',
+    points:[
+      '錯誤：法律行為の要素の錯誤→取消可。善意無過失の第三者に対抗<strong>不可</strong>',
+      '詐欺：取消可。第三者による詐欺は相手方の悪意・有過失の場合のみ取消可',
+      '強迫：取消可。第三者による強迫でも相手方の善悪に関わらず取消可（最強）',
+      '取消権の行使期間：追認できる時から<strong>5年</strong>、行為の時から<strong>20年</strong>'
+    ]
+  },
   {
     tag:'民法等', title:'代理制度の基本',
     body:'<strong>代理</strong>とは、本人に代わって意思表示を行い、その効果が直接本人に帰属する制度。',
     points:[
-      '有権代理：本人の授権に基づく正式な代理',
-      '表見代理：権限がないのに代理人と信じさせた場合、本人が責任を負う',
+      '有権代理：本人の授権に基づく正式な代理。効果は本人に帰属',
       '代理人の行為能力は不要（意思能力は必要）',
-      '自己契約・双方代理は原則禁止'
+      '自己契約・双方代理は原則禁止（本人の許諾・債務の履行は例外）',
+      '復代理：任意代理人は本人の承諾または已むを得ない事由がある場合のみ選任可'
+    ]
+  },
+  {
+    tag:'民法等', title:'無権代理と表見代理',
+    body:'権限なく代理行為を行う無権代理と、外観を信頼した相手方を保護する表見代理。',
+    points:[
+      '無権代理：本人に効果帰属なし。本人が追認すれば有効（遡及効）',
+      '無権代理人の責任：相手方が善意無過失なら、履行または損害賠償を請求可',
+      '表見代理①：代理権授与の表示（109条）',
+      '表見代理②：権限外の行為・権限超越（110条）',
+      '表見代理③：代理権消滅後の行為（112条）'
     ]
   },
   {
     tag:'民法等', title:'物権変動と対抗要件',
     body:'不動産の物権変動（所有権移転など）は、<strong>登記</strong>をしなければ第三者に対抗できない。',
     points:[
-      '当事者間では意思表示のみで所有権移転',
-      '第三者への対抗には登記が必要（177条）',
-      '背信的悪意者には登記なしで対抗可',
-      '動産は引渡しが対抗要件（178条）'
+      '当事者間では意思表示のみで所有権移転（登記は不要）',
+      '第三者への対抗には登記が必要（民法177条）',
+      '背信的悪意者には登記なしで対抗可（判例）',
+      '動産は引渡しが対抗要件（民法178条）',
+      '不法占有者・不法行為者は第三者に該当しない（登記なしで対抗可）'
+    ]
+  },
+  {
+    tag:'民法等', title:'占有権・取得時効',
+    body:'占有という<strong>事実状態</strong>に基づく権利。一定期間占有を続けると所有権を取得できる。',
+    points:[
+      '取得時効：善意無過失で<strong>10年</strong>、悪意または有過失で<strong>20年</strong>の占有で成立',
+      '自主占有（所有の意思あり）が必要。他主占有は時効取得不可',
+      '即時取得：動産を取引で善意無過失で占有取得→即座に所有権取得（192条）',
+      '占有の訴え（占有訴権）：占有が妨害された場合に回復を求める訴え'
+    ]
+  },
+  {
+    tag:'民法等', title:'地上権・地役権・用益物権',
+    body:'他人の土地を一定目的で利用できる物権。賃借権より強い対抗力を持つ。',
+    points:[
+      '地上権：他人の土地に工作物または竹木を所有するための権利。登記で第三者対抗',
+      '地役権：承役地を要役地の便益のために利用する権利（例：通行地役権）',
+      '永小作権：他人の土地で耕作・牧畜。存続期間20〜50年',
+      '物権は債権より優先（物権的請求権）。無断で設定変更は不可'
     ]
   },
   {
     tag:'民法等', title:'抵当権のポイント',
-    body:'<strong>抵当権</strong>は、債務者の財産を担保にしながら債務者が使用・収益できる担保物権。',
+    body:'<strong>抵当権</strong>は、債務者の財産を担保にしながら債務者が使用・収益できる非占有型担保物権。',
     points:[
       '不動産・地上権・永小作権に設定可能',
-      '抵当権実行：競売で換価し優先弁済を受ける',
-      '法定地上権：建物と土地が別人所有になる場合に自動発生',
-      '根抵当権：一定範囲の不特定債権を極度額まで担保'
+      '抵当権実行：競売で換価し、他の債権者に優先して弁済を受ける',
+      '法定地上権：土地と建物が同一所有で抵当権実行→別人所有になった建物のために自動発生',
+      '根抵当権：一定範囲の不特定債権を極度額まで担保する'
     ]
   },
   {
-    tag:'民法等', title:'賃貸借と借地借家法',
-    body:'<strong>借地借家法</strong>は民法の特則として賃借人を強く保護する法律。',
+    tag:'民法等', title:'根抵当権',
+    body:'一定の範囲に属する<strong>不特定の債権</strong>を極度額の限度において担保する抵当権。継続的取引に利用。',
     points:[
-      '借地権の存続期間：最短30年（定期借地権は50年・30年・10年）',
-      '建物賃貸借の更新拒絶：正当事由が必要',
-      '定期建物賃貸借：1年以上なら書面説明が必要',
-      '対抗力：借地は登記、借家は建物引渡し'
+      '極度額：担保される債権の上限。登記が必要',
+      '元本確定前：被担保債権の範囲・極度額・債務者の変更可（後順位者の承諾不要）',
+      '元本確定後：通常の抵当権と同様の扱い。被担保債権が特定する',
+      '確定事由：当事者の合意・競売申立て・破産手続き開始等'
+    ]
+  },
+  {
+    tag:'民法等', title:'売買・手付・危険負担',
+    body:'売買は最も基本的な有償契約。<strong>手付</strong>は解除権留保機能を持ち、危険負担は改正民法で変更された。',
+    points:[
+      '手付解除：買主は手付放棄、売主は手付倍額返還で解除可（<strong>相手方が履行に着手する前</strong>まで）',
+      '手付の種類：解約手付（原則）・証約手付・違約手付',
+      '危険負担（改正民法）：引渡前に天災で目的物滅失→買主は代金支払を拒絶可',
+      '移転登記費用：買主負担が原則、引渡費用：売主負担が原則'
+    ]
+  },
+  {
+    tag:'民法等', title:'契約不適合責任',
+    body:'民法改正（2020年）で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」へ改称・整理された。',
+    points:[
+      '種類・品質・数量の不適合→追完請求・代金減額請求・解除・損害賠償が可能',
+      '期間制限：不適合を<strong>知った時から1年以内</strong>に売主に通知が必要',
+      '売主が不適合を知っていた場合は期間制限なし（悪意の売主保護不要）',
+      '宅建業法（8種規制）：宅建業者が売主→<strong>2年以上</strong>の担保期間が必要'
+    ]
+  },
+  {
+    tag:'民法等', title:'賃貸借・借地借家法の基本',
+    body:'<strong>借地借家法</strong>は民法の特則として賃借人（借地人・借家人）を強く保護する法律。',
+    points:[
+      '借地権の存続期間：最短<strong>30年</strong>（30年未満の定めは30年とみなす）',
+      '建物賃貸借の更新拒絶：貸主側に<strong>正当事由</strong>が必要（老朽化・高度利用等）',
+      '対抗力：借地→建物登記、借家→<strong>建物の引渡し</strong>で第三者に対抗可',
+      '賃貸借は特定承継人にも効力を及ぼす（引渡しによる対抗力がある場合）'
+    ]
+  },
+  {
+    tag:'民法等', title:'借地権の種類（普通・定期）',
+    body:'借地権には更新の有無・用途により複数の種類がある。存続期間と契約方式の違いが頻出。',
+    points:[
+      '普通借地権：最短30年。更新→1回目20年・2回目以降10年',
+      '一般定期借地権：<strong>50年以上</strong>。更新なし・建物買取請求なし。書面で契約',
+      '事業用定期借地権：<strong>10年以上50年未満</strong>。事業用建物のみ。<strong>公正証書</strong>で必須',
+      '建物譲渡特約付借地権：30年以上。期間満了時に地主が建物を相当価格で買取'
+    ]
+  },
+  {
+    tag:'民法等', title:'建物賃貸借（借家権）',
+    body:'建物の賃貸借に関する借地借家法の規定。借家人保護が手厚い。定期借家との区別が重要。',
+    points:[
+      '期間：1年未満の定めは<strong>期間の定めなし</strong>とみなす（定期借家は除く）',
+      '更新拒絶：貸主側からは正当事由が必要（6か月前通知が必要）',
+      '定期建物賃貸借：1年以上の場合、<strong>書面で事前説明</strong>が必要。再契約制度あり',
+      '居住用の定期借家の中途解約：床面積200㎡未満の場合、特別の事情があれば解約可'
+    ]
+  },
+  {
+    tag:'民法等', title:'時効制度（取得・消滅）',
+    body:'一定期間の経過により権利を取得または消滅させる制度。<strong>時効の援用</strong>が必要。',
+    points:[
+      '取得時効：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有で成立',
+      '消滅時効：権利行使できると知った時から<strong>5年</strong> or 権利行使可能な時から<strong>10年</strong>',
+      '時効の完成猶予：裁判上の請求・差押え・仮処分・承認等で一時停止',
+      '時効の更新：確定判決・権利の承認等→新たに時効が進行開始'
     ]
   },
   {
     tag:'民法等', title:'相続の基本',
-    body:'<strong>相続</strong>は被相続人の死亡で開始し、財産・債務を包括的に承継する。',
+    body:'<strong>相続</strong>は被相続人の死亡で開始し、財産・債務を包括的に承継する。法定相続分の数字を確実に覚える。',
     points:[
-      '法定相続分：配偶者＋子=1/2ずつ（子が複数なら均等）',
-      '遺留分：兄弟姉妹以外の相続人が持つ最低限の権利',
-      '相続放棄は3か月以内に家庭裁判所へ',
-      '代襲相続：子が先死の場合は孫が相続'
+      '配偶者＋子：各<strong>1/2</strong>（子が複数なら均等分割）',
+      '配偶者＋直系尊属：配偶者<strong>2/3</strong>・尊属<strong>1/3</strong>',
+      '配偶者＋兄弟姉妹：配偶者<strong>3/4</strong>・兄弟姉妹<strong>1/4</strong>',
+      '相続放棄：<strong>3か月以内</strong>に家庭裁判所へ申述（限定承認も同様）',
+      '代襲相続：子が先死の場合は孫、兄弟姉妹が先死の場合は甥姪が代襲'
     ]
   },
+  {
+    tag:'民法等', title:'遺言と遺留分',
+    body:'遺言は最終意思を法的に有効にする制度。<strong>遺留分</strong>は相続人が最低限受け取れる割合。',
+    points:[
+      '自筆証書遺言：全文・日付・氏名を自書＋押印。財産目録のみパソコン可（改正）',
+      '公正証書遺言：公証人が作成。家庭裁判所の検認不要で最も確実',
+      '遺留分割合：直系尊属のみ＝<strong>遺産の1/3</strong>、それ以外＝<strong>遺産の1/2</strong>',
+      '兄弟姉妹には遺留分なし',
+      '遺留分侵害額請求権：金銭での請求権（改正民法。現物返還は不可）'
+    ]
+  },
+  {
+    tag:'民法等', title:'連帯債務・保証・連帯保証',
+    body:'複数人が債務を負う形態。<strong>催告・検索の抗弁権</strong>の有無が保証と連帯保証の最大の違い。',
+    points:[
+      '連帯債務：各債務者が独立して全額の弁済義務。債権者はどの債務者にも全額請求可',
+      '保証：主たる債務者が履行しない場合のみ責任。催告・検索の抗弁権あり',
+      '連帯保証：催告・検索の抗弁権<strong>なし</strong>。主債務と同等の責任',
+      '個人の根保証：極度額の定めが必要（改正民法）'
+    ]
+  },
+  {
+    tag:'民法等', title:'債権譲渡・相殺',
+    body:'債権の移転と消滅に関する重要制度。対抗要件の取得方法が試験頻出。',
+    points:[
+      '債権譲渡：債権者は<strong>債務者の同意なしに</strong>譲渡可（禁止特約は第三者に対抗不可）',
+      '債務者対抗要件：譲渡人から債務者への通知 or 債務者の承諾',
+      '第三者対抗要件：<strong>確定日付のある証書</strong>による通知または承諾',
+      '相殺：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示。遡及効あり'
+    ]
+  },
+  {
+    tag:'民法等', title:'不法行為・使用者責任',
+    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。宅建業法とも関連する。',
+    points:[
+      '一般不法行為（709条）：故意・過失＋損害＋因果関係が要件',
+      '使用者責任（715条）：被用者が業務執行中に損害を与えた場合、使用者も責任を負う',
+      '消滅時効：損害・加害者を知った時から<strong>3年</strong>（生命・身体の侵害は<strong>5年</strong>）',
+      '不法行為から<strong>20年</strong>で除斥期間（時効の更新なし）'
+    ]
+  },
+
+  /* ── 宅建業法（既存） ── */
   {
     tag:'宅建業法', title:'宅地建物取引業の免許',
     body:'不特定多数を相手に宅地・建物の<strong>売買・交換・媒介・代理</strong>を業として行う者は免許が必要。',
@@ -796,7 +889,7 @@ const slides = [
     body:'事務所等以外の場所で契約した買主が、一定期間内に無条件で契約を解除できる制度。',
     points:[
       '適用：宅建業者が売主の場合のみ',
-      '期間：告知を受けた日から8日以内（書面）',
+      '期間：告知を受けた日から<strong>8日以内</strong>（書面）',
       '適用除外：代金全額支払＋引渡し完了後',
       '適用除外場所：事務所、案内所（専任宅建士設置）等'
     ]
@@ -821,6 +914,8 @@ const slides = [
       '手付額の上限：売買代金の20%以内'
     ]
   },
+
+  /* ── 法令上の制限（既存） ── */
   {
     tag:'法令上の制限', title:'都市計画法の基本',
     body:'<strong>都市計画区域</strong>を定め、都市の健全な発展と秩序ある整備を目的とする法律。',
@@ -881,6 +976,8 @@ const slides = [
       '届出先：市町村長を経由して都道府県知事'
     ]
   },
+
+  /* ── 税・その他（既存） ── */
   {
     tag:'税・その他', title:'不動産取得税',
     body:'不動産を取得したときに<strong>一度だけ</strong>課される地方税（都道府県税）。',
@@ -908,7 +1005,7 @@ const slides = [
       '不動産売買契約書：売買金額に応じた印紙税額（軽減あり）',
       '1億円超5億円以下：10万円（通常）→軽減措置で6万円',
       '契約書が複数通：各通に印紙が必要',
-      '電子契約書：印紙税は不要'
+      '電子契約書：印紙税は<strong>不要</strong>'
     ]
   },
   {
@@ -943,40 +1040,87 @@ const slides = [
   }
 ];
 
-// ── YOUTUBE DATA ──
+/* ================================================================
+   YOUTUBE DATA
+================================================================ */
 const ytData = [
   {
     icon:'⚖️', name:'民法等（権利関係）',
-    topics:['代理・表見代理','物権変動・登記','抵当権・根抵当権','賃貸借・借地借家法','相続','時効','意思表示・錯誤','連帯債務・保証']
+    topics:[
+      '意思表示・心裡留保・通謀虚偽表示','錯誤・詐欺・強迫','代理・表見代理',
+      '無権代理','物権変動・登記・対抗要件','占有権・即時取得',
+      '抵当権・法定地上権','根抵当権','取得時効・消滅時効',
+      '売買・手付・危険負担','契約不適合責任','賃貸借・借地借家法',
+      '借地権の種類','定期借家権','相続・法定相続分',
+      '遺言・遺留分','連帯債務・連帯保証','債権譲渡・相殺','不法行為・使用者責任'
+    ]
   },
   {
     icon:'🏢', name:'宅建業法',
-    topics:['免許制度','宅建士の設置義務','重要事項説明','37条書面','クーリングオフ','報酬額の計算','手付金保全措置','広告の規制','媒介契約の種類']
+    topics:[
+      '免許制度','欠格事由','宅建士の設置義務','重要事項説明',
+      '37条書面','クーリングオフ','報酬額の計算','手付金保全措置',
+      '広告の規制','媒介契約の種類','営業保証金','保証協会',
+      '8種規制','監督処分・罰則','案内所の届出'
+    ]
   },
   {
     icon:'🏙️', name:'法令上の制限',
-    topics:['都市計画法','開発許可','建築基準法・用途制限','接道義務・建ぺい率','農地法','国土利用計画法','土地区画整理法','盛土規制法']
+    topics:[
+      '都市計画法・用途地域','開発許可','建築確認申請',
+      '建築基準法・用途制限','接道義務','建ぺい率・容積率',
+      '高さ制限・日影規制','防火地域・準防火地域',
+      '農地法','国土利用計画法','土地区画整理法','盛土規制法'
+    ]
   },
   {
     icon:'💴', name:'税・その他',
-    topics:['不動産取得税','固定資産税','印紙税','登録免許税','住宅ローン控除','譲渡所得税','不動産鑑定評価','地価公示','統計・土地・住宅']
+    topics:[
+      '不動産取得税','固定資産税','印紙税','登録免許税',
+      '住宅ローン控除','譲渡所得税・3000万円控除',
+      '不動産鑑定評価','地価公示・路線価',
+      '住宅瑕疵担保履行法','統計・土地・住宅'
+    ]
   }
 ];
 
-// ── FLASHCARDS ──
+/* ================================================================
+   FLASHCARDS — 民法等 30枚 + 既存他科目
+================================================================ */
 const allCards = [
-  // 民法等
-  {cat:'民法等', word:'表見代理', def:'代理権がないにもかかわらず、代理権があるような外観を作り出した者について、善意の第三者を保護するために本人に責任を負わせる制度。'},
-  {cat:'民法等', word:'物権変動', def:'物権の発生・変更・消滅のこと。不動産の物権変動は登記をしなければ第三者に対抗できない（民法177条）。'},
-  {cat:'民法等', word:'抵当権', def:'債務者または第三者が占有を移転せずに不動産を担保に供し、優先弁済を受ける権利。非占有型担保物権の代表。'},
-  {cat:'民法等', word:'法定地上権', def:'土地と建物の所有者が同一の場合に抵当権が実行されて別人の所有になったとき、建物のために自動的に発生する地上権。'},
-  {cat:'民法等', word:'根抵当権', def:'一定の範囲に属する不特定の債権を極度額の限度において担保する抵当権。継続的な取引関係に利用される。'},
-  {cat:'民法等', word:'時効取得', def:'他人の物を一定期間占有し続けることで所有権を取得できる制度。善意無過失なら10年、そうでなければ20年。'},
-  {cat:'民法等', word:'連帯債務', def:'複数の債務者が各自独立して全額の弁済義務を負う債務形態。債権者はどの債務者にも全額請求できる。'},
-  {cat:'民法等', word:'瑕疵担保責任（契約不適合責任）', def:'売主が目的物の品質・数量・種類が契約内容に適合していない場合に負う責任。民法改正で「契約不適合責任」へ改称。'},
-  {cat:'民法等', word:'借地権', def:'建物の所有を目的とする地上権または土地の賃借権。借地借家法により保護され、存続期間は最短30年。'},
-  {cat:'民法等', word:'遺留分', def:'相続人が最低限受け取れる相続財産の割合。直系尊属のみの場合は1/3、その他の場合は1/2。兄弟姉妹には認められない。'},
-  // 宅建業法
+  /* ── 民法等（30枚） ── */
+  {cat:'民法等', word:'心裡留保', def:'真意と異なることを知りながら行う意思表示。原則として有効だが、相手方が悪意または有過失の場合は無効となる（民法93条）。'},
+  {cat:'民法等', word:'通謀虚偽表示', def:'相手方と通じて行う虚偽の意思表示。当事者間では無効だが、善意の第三者には無効を対抗できない（民法94条）。'},
+  {cat:'民法等', word:'錯誤', def:'意思表示の内容に重要な錯誤がある場合に取消可能（改正民法）。善意無過失の第三者に対抗できない。'},
+  {cat:'民法等', word:'詐欺・強迫', def:'詐欺による意思表示は取消可（善意無過失の第三者に対抗不可）。強迫による意思表示は取消可（第三者にも対抗可）。'},
+  {cat:'民法等', word:'表見代理', def:'代理権がないにもかかわらず代理権があるような外観を作り出した場合に、善意の相手方を保護するために本人に責任を負わせる制度（民法109・110・112条）。'},
+  {cat:'民法等', word:'無権代理', def:'代理権なしに行われた代理行為。本人に効果帰属しない。本人が追認すれば有効（遡及効あり）。無権代理人は善意無過失の相手方に履行または損害賠償義務を負う。'},
+  {cat:'民法等', word:'物権変動', def:'物権の発生・変更・消滅のこと。不動産の物権変動は登記をしなければ第三者に対抗できない（民法177条）。動産は引渡しが対抗要件（178条）。'},
+  {cat:'民法等', word:'即時取得', def:'動産を取引行為によって平穏・公然・善意・無過失で占有取得した者が即座に所有権等を取得する制度（民法192条）。盗品・遺失物は2年間回復請求可。'},
+  {cat:'民法等', word:'抵当権', def:'債務者または第三者が占有を移転せずに不動産を担保に供し、優先弁済を受ける権利（非占有型担保物権）。登記で第三者対抗。'},
+  {cat:'民法等', word:'法定地上権', def:'土地と建物が同一所有者の場合に抵当権が実行されて別人の所有になったとき、建物のために自動的に発生する地上権。競売で成立要件を判断。'},
+  {cat:'民法等', word:'根抵当権', def:'一定の範囲に属する不特定の債権を極度額の限度において担保する抵当権。継続的な取引関係に利用。元本確定前は債権の範囲変更可。'},
+  {cat:'民法等', word:'取得時効', def:'他人の物を一定期間占有し続けることで所有権等を取得できる制度。善意無過失なら10年、それ以外は20年の自主占有が必要（民法162条）。'},
+  {cat:'民法等', word:'消滅時効', def:'権利を行使できると知った時から5年、または権利行使可能な時から10年で権利が消滅する制度（改正民法）。時効の援用が必要。'},
+  {cat:'民法等', word:'連帯債務', def:'複数の債務者が各自独立して全額の弁済義務を負う債務形態。債権者はどの債務者にも全額請求できる。弁済・相殺等は全員に効力を及ぼす（絶対的効力）。'},
+  {cat:'民法等', word:'連帯保証', def:'保証人が主たる債務者と連帯して債務を負う形態。催告の抗弁権・検索の抗弁権がなく、主たる債務と同等の責任を負う。'},
+  {cat:'民法等', word:'契約不適合責任', def:'売主が引き渡した目的物の種類・品質・数量が契約の内容に適合しない場合に負う責任（改正民法）。追完・代金減額・解除・損害賠償が可能。知った時から1年以内の通知が必要。'},
+  {cat:'民法等', word:'手付解除', def:'手付が交付された場合、買主は手付を放棄し、売主は手付の倍額を返還することで契約を解除できる。ただし相手方が履行に着手した後はできない（民法557条）。'},
+  {cat:'民法等', word:'危険負担', def:'双務契約において、一方の債務が不可抗力等で履行不能になったとき、他方の債務がどうなるかの問題。改正民法では買主は代金支払を拒絶でき、反対給付義務は消滅しない。'},
+  {cat:'民法等', word:'借地権', def:'建物の所有を目的とする地上権または土地の賃借権。借地借家法により保護され、存続期間は最短30年。対抗力は借地上の建物の登記。'},
+  {cat:'民法等', word:'定期借地権', def:'更新のない借地権。①一般定期借地権（50年以上・書面）②事業用定期借地権（10〜50年未満・公正証書必須）③建物譲渡特約付借地権（30年以上）の3種類。'},
+  {cat:'民法等', word:'定期建物賃貸借', def:'更新のない建物賃貸借。貸主は契約前に書面で説明が必要。1年以上の場合は期間満了1年前〜6か月前に終了通知が必要。再契約制度あり。'},
+  {cat:'民法等', word:'遺留分', def:'遺言によっても侵害されない相続人の最低限の取り分。直系尊属のみ=遺産の1/3、それ以外=遺産の1/2。兄弟姉妹には遺留分なし。侵害額請求権は金銭請求。'},
+  {cat:'民法等', word:'代襲相続', def:'相続人（子・兄弟姉妹）が相続開始前に死亡・欠格・廃除された場合に、その者の子（孫・甥姪）が代わりに相続する制度。放棄の場合は代襲しない。'},
+  {cat:'民法等', word:'相続放棄', def:'相続人が相続の開始を知った時から3か月以内に家庭裁判所に申述することで相続を拒否できる制度。放棄すると最初から相続人でなかったとみなされる（代襲なし）。'},
+  {cat:'民法等', word:'自筆証書遺言', def:'遺言者が全文・日付・氏名を自書し押印した遺言。財産目録のみパソコン作成可（改正）。法務局での保管制度あり（検認不要）。'},
+  {cat:'民法等', word:'公正証書遺言', def:'公証人が証人2人以上の立会いのもとで作成する遺言。原本が公証役場に保管されるため最も確実。家庭裁判所の検認不要。'},
+  {cat:'民法等', word:'債権譲渡の対抗要件', def:'債務者対抗要件：譲渡人から債務者への通知または債務者の承諾。第三者対抗要件：確定日付のある証書による通知または承諾。'},
+  {cat:'民法等', word:'相殺', def:'自己が有する債権（自動債権）と相手方が有する債権（受動債権）を対当額で消滅させる意思表示。自動債権の弁済期が到来していることが必要。遡及効あり。'},
+  {cat:'民法等', word:'使用者責任', def:'被用者がその事業の執行について第三者に損害を加えた場合、使用者も賠償責任を負う（民法715条）。使用者は被用者に対し求償可能。'},
+  {cat:'民法等', word:'地役権', def:'他人の土地（承役地）を自己の土地（要役地）の便益のために利用する用益物権。例：通行地役権・引水地役権。要役地の所有権移転に伴い移転する（付従性）。'},
+
+  /* ── 宅建業法（既存） ── */
   {cat:'宅建業法', word:'宅地建物取引業', def:'宅地または建物の売買・交換・貸借の媒介または代理を業として行うこと。免許が必要。'},
   {cat:'宅建業法', word:'専任媒介契約', def:'依頼者が他の宅建業者に重ねて依頼できない媒介契約。有効期間は3か月以内。7日以内にレインズ登録義務あり。'},
   {cat:'宅建業法', word:'専属専任媒介契約', def:'依頼者が自ら発見した相手方とも契約できない最も拘束力の強い媒介契約。5日以内にレインズ登録、週1回以上の報告義務。'},
@@ -987,7 +1131,8 @@ const allCards = [
   {cat:'宅建業法', word:'営業保証金', def:'宅建業者が主たる事務所の最寄り供託所に供託する保証金。主たる事務所1000万円＋従たる事務所500万円ずつ。'},
   {cat:'宅建業法', word:'保証協会', def:'宅建業者が加入する公的団体。弁済業務保証金を供託することで営業保証金の代わりとなる。主たる60万円＋従たる30万円。'},
   {cat:'宅建業法', word:'8種規制', def:'宅建業者が自ら売主の場合に適用される8つの特別規制。手付金額の制限・クーリングオフ・瑕疵担保等が含まれる。'},
-  // 法令上の制限
+
+  /* ── 法令上の制限（既存） ── */
   {cat:'法令上の制限', word:'市街化区域', def:'すでに市街地を形成している区域および概ね10年以内に優先的・計画的に市街化を図るべき区域。用途地域を必ず定める。'},
   {cat:'法令上の制限', word:'市街化調整区域', def:'市街化を抑制すべき区域。原則として開発行為は許可が必要で、住宅等を建てることは難しい。'},
   {cat:'法令上の制限', word:'用途地域', def:'土地利用を誘導するため都市計画で指定する地域。第1種低層住居専用地域〜工業専用地域の13種類。'},
@@ -996,13 +1141,169 @@ const allCards = [
   {cat:'法令上の制限', word:'開発許可', def:'建築目的で土地の区画形質を変更する開発行為に必要な知事の許可。市街化区域は1000㎡以上で必要。'},
   {cat:'法令上の制限', word:'農地法3条', def:'農地・採草放牧地の権利移動（売買・貸借等）は農業委員会の許可が必要。農地のまま利用する場合。'},
   {cat:'法令上の制限', word:'農地法4条・5条', def:'4条は自己転用、5条は転用目的の権利移動で都道府県知事等の許可が必要。市街化区域内は届出でOK。'},
-  // 税・その他
+
+  /* ── 税・その他（既存） ── */
   {cat:'税・その他', word:'不動産取得税', def:'不動産を取得したときに1回だけ課される都道府県税。住宅・土地は税率3%。一定要件で軽減措置あり。'},
   {cat:'税・その他', word:'地価公示', def:'国土交通省が毎年1月1日時点の標準地の正常価格を3月に公示する制度。土地取引の指標となる。'},
 ];
 
-// ── QUIZ ──
+/* ================================================================
+   QUIZ DATA — 民法等 20問 + 既存他科目
+================================================================ */
 const quizData = [
+  /* ── 民法等（20問） ── */
+  {
+    cat:'民法等', catClass:'civil',
+    q:'Aが心裡留保によってBに意思表示をした場合、Bが悪意であったときの効力はどれか。',
+    opts:['有効','無効','取消可能','当然に無効だが追認できる'], ans:1,
+    exp:'<strong>心裡留保</strong>（民法93条）は原則として有効ですが、相手方Bが悪意（真意でないことを知っていた）または有過失の場合は<strong>無効</strong>となります。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'AとBが通謀してAB間で虚偽の売買契約を締結した場合、その後Bから当該不動産を取得した善意の第三者Cに対して、Aはどのような主張ができるか。',
+    opts:['無効を対抗できる','無効を対抗できない','取消しを主張できる','登記があれば対抗できる'], ans:1,
+    exp:'<strong>通謀虚偽表示</strong>（民法94条）によるAB間の売買は無効ですが、善意の第三者Cには<strong>無効を対抗できません</strong>。Cが登記を備えているかどうかは関係ありません。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'強迫によって意思表示をした者が、その意思表示を取り消した場合、取消しを善意の第三者に対抗できるか。',
+    opts:['対抗できない','対抗できる','登記があれば対抗できる','取消しはできない'], ans:1,
+    exp:'<strong>強迫</strong>による取消しは、詐欺と異なり、<strong>善意の第三者にも対抗できます</strong>（民法96条3項は詐欺のみ規定。強迫に同条項は適用なし）。強迫の被害者保護が優先されます。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'代理人が自己の利益を図るために代理権の範囲内で代理行為をした（代理権の濫用）場合、その効果はどれか。',
+    opts:['本人に効果帰属する','本人に効果帰属しない','当然に無効','相手方が善意無過失なら本人に効果帰属する'], ans:3,
+    exp:'代理権の濫用は、<strong>相手方が悪意または有過失の場合</strong>は本人に効果帰属しません（改正民法107条）。相手方が善意無過失であれば<strong>本人に効果が帰属します</strong>。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'不動産の物権変動を第三者に対抗するための要件はどれか。',
+    opts:['公正証書の作成','売買契約の締結','登記','引渡し'], ans:2,
+    exp:'民法<strong>177条</strong>により、不動産の物権変動は<strong>登記</strong>をしなければ第三者に対抗できません。動産の対抗要件は引渡し（178条）です。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'善意無過失でAの動産を取引により占有したBが、即時取得（民法192条）を主張するために必要な要件として誤っているものはどれか。',
+    opts:['取引行為による取得','平穏・公然の占有','善意無過失','対抗要件としての登記'], ans:3,
+    exp:'即時取得（民法192条）は<strong>動産</strong>に関する制度であり、対抗要件として必要なのは<strong>登記ではなく引渡し</strong>です。不動産には即時取得は適用されません。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'抵当権の設定されている土地の上に建物がある場合、法定地上権が成立するための要件として正しいものはどれか。',
+    opts:[
+      '抵当権設定時に土地と建物が同一の所有者であること',
+      '抵当権設定時に建物が登記されていること',
+      '土地と建物に別々の抵当権が設定されていること',
+      '競売後も土地と建物の所有者が同一であること'
+    ], ans:0,
+    exp:'法定地上権の成立要件は①<strong>抵当権設定時に土地と建物が同一所有者</strong>②抵当権設定時に建物が存在③競売により土地・建物が別人所有になること、です。建物の登記の有無は問いません。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'借地権の存続期間（最短）として正しいものはどれか。',
+    opts:['20年','25年','30年','50年'], ans:2,
+    exp:'借地借家法<strong>3条</strong>により、借地権の存続期間は<strong>30年</strong>が最短。30年より短い期間を定めても30年とみなされます。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'事業用定期借地権を設定する契約に必要な形式はどれか。',
+    opts:['口頭での合意','普通の書面','公正証書','内容証明郵便'], ans:2,
+    exp:'事業用定期借地権（借地借家法23条）は、<strong>公正証書</strong>によって設定することが必須要件です。口頭や普通の書面では無効となります。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'定期建物賃貸借（定期借家）において、1年以上の契約の場合に貸主がとらなければならない手続きはどれか。',
+    opts:[
+      '公正証書による契約',
+      '契約前に書面で更新しない旨を説明',
+      '3か月前に終了を通知',
+      '裁判所への届出'
+    ], ans:1,
+    exp:'定期建物賃貸借では、貸主は<strong>契約締結前</strong>に借主に対し、<strong>書面</strong>によって「更新がなく期間満了で終了する」旨を説明しなければなりません（借地借家法38条）。説明がないと定期借家として無効。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'他人の土地を善意かつ無過失で20年間占有し続けた場合、時効取得に必要な占有期間として正しいものはどれか。',
+    opts:['5年','10年','20年','30年'], ans:1,
+    exp:'取得時効は、<strong>善意無過失</strong>の場合は<strong>10年</strong>、悪意または有過失の場合は20年の自主占有が必要です（民法162条）。善意無過失なら10年で足ります。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'遺留分が認められない相続人はどれか。',
+    opts:['配偶者','子','直系尊属（親）','兄弟姉妹'], ans:3,
+    exp:'<strong>兄弟姉妹</strong>には遺留分が認められません（民法1042条）。配偶者・子・直系尊属には遺留分があります。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'AにはBC二人の子がいる。BがAより先に死亡しており、BにはDという子（Aの孫）がいる。Aが死亡した場合、Dの法定相続分はいくらか。',
+    opts:['0（相続できない）','1/4','1/2','2/3'], ans:1,
+    exp:'Bが先に死亡しているため<strong>代襲相続</strong>が発生し、Bの子DがBの相続分を代襲します。法定相続分は子全員で1/2を均等分割なので、DはBの相続分1/2の全部（Cの1/2と同等）。つまりD=<strong>1/2</strong>。ただし本問の選択肢は、AのすべてをB・Cで割ると各1/2、Bの代襲者Dは<strong>1/2</strong>（Cと同等）が正解。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'Aが死亡し、配偶者Bと子Cが相続人である場合、配偶者Bの法定相続分はいくらか。',
+    opts:['1/3','1/2','2/3','3/4'], ans:1,
+    exp:'配偶者と子が相続人の場合、法定相続分は<strong>配偶者1/2・子1/2</strong>です（民法900条1号）。子が複数いる場合は1/2をさらに均等分割します。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'連帯保証人に認められていない権利はどれか。',
+    opts:['弁済後の主債務者への求償権','債権者への相殺の援用','催告の抗弁権・検索の抗弁権','主債務の時効援用'], ans:2,
+    exp:'<strong>連帯保証人</strong>には、催告の抗弁権（まず主債務者に請求せよ）と検索の抗弁権（主債務者の財産を先に執行せよ）が<strong>認められていません</strong>（民法454条）。これが通常保証との最大の違いです。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'契約不適合責任に基づく買主の権利行使に関して正しいものはどれか。',
+    opts:[
+      '不適合を知った時から2年以内に請求しなければならない',
+      '不適合を知った時から1年以内に売主に通知しなければならない',
+      '引渡しから1年以内に請求しなければならない',
+      '不適合の事実を証明できれば期間制限はない'
+    ], ans:1,
+    exp:'改正民法566条により、買主は不適合を<strong>知った時から1年以内に売主に通知</strong>する必要があります。ただし売主が不適合を知っていた場合や重大な過失で知らなかった場合はこの制限は適用されません。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'不動産の売買において手付が交付された場合、売主が手付解除をするための要件はどれか。',
+    opts:[
+      '買主が代金を支払う前であれば解除できる',
+      '買主が履行に着手する前に手付の倍額を現実に提供する',
+      '買主の同意を得て手付の倍額を返還する',
+      '契約から1年以内であれば解除できる'
+    ], ans:1,
+    exp:'売主による手付解除は、<strong>買主が履行に着手する前に</strong>手付の倍額を<strong>現実に提供</strong>して行います（民法557条）。口頭での意思表示だけでは不十分で、現実の提供が必要です。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'AがBに土地を売却した後、AがCにも同じ土地を売却した（二重譲渡）。BとCのどちらが所有権を取得するか。',
+    opts:[
+      '先に売買契約を締結したBが取得する',
+      '先に登記を備えたCが取得する',
+      '後から売買したCは取得できない',
+      '裁判所の判断が必要'
+    ], ans:1,
+    exp:'二重譲渡では<strong>先に登記を備えた方</strong>が所有権を対抗できます（民法177条）。契約の先後は関係なく、登記の先後で決まります。Cが先に登記を備えればCが所有権を取得します。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'建物の賃貸借において、賃借人が賃借権を第三者に対抗するための要件はどれか。',
+    opts:['賃貸借契約の登記','建物の引渡しを受けること','公正証書による契約','賃貸人の承諾書の取得'], ans:1,
+    exp:'借地借家法31条により、建物の賃貸借は<strong>建物の引渡し</strong>を受けることで第三者（例：建物の新所有者）に賃借権を対抗できます。登記は不要です。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'相続の放棄に関する正しい記述はどれか。',
+    opts:[
+      '相続放棄すると、放棄した相続人の子が代襲相続する',
+      '相続放棄は相続開始を知った時から3か月以内に家庭裁判所に申述する',
+      '相続放棄は他の相続人全員の同意が必要',
+      '相続放棄後でも財産の一部を受け取れる'
+    ], ans:1,
+    exp:'相続放棄は、相続の開始があったことを知った時から<strong>3か月以内</strong>に<strong>家庭裁判所</strong>に申述します（民法915条）。放棄した場合は代襲相続は生じません（欠格・廃除とは異なる点に注意）。'
+  },
+
+  /* ── 宅建業法（既存） ── */
   {
     cat:'宅建業法', catClass:'business',
     q:'宅地建物取引業者Aが自ら売主として宅地を売却する場合、代金の額の何%を超える手付を受領することはできないか。',
@@ -1028,23 +1329,13 @@ const quizData = [
     exp:'クーリングオフは<strong>書面</strong>で行う必要があります。電話では無効。告知を受けた日から<strong>8日以内</strong>が期限。代金全額支払＋引渡し後は解除不可。'
   },
   {
-    cat:'民法等', catClass:'civil',
-    q:'不動産の物権変動を第三者に対抗するための要件はどれか。',
-    opts:['公正証書の作成','売買契約の締結','登記','引渡し'], ans:2,
-    exp:'民法<strong>177条</strong>により、不動産の物権変動は<strong>登記</strong>をしなければ第三者に対抗できません。動産は引渡しが対抗要件（178条）。'
+    cat:'宅建業法', catClass:'business',
+    q:'宅建業者の営業保証金について、主たる事務所の最寄りの供託所に供託する金額はいくらか。',
+    opts:['500万円','1000万円','1500万円','2000万円'], ans:1,
+    exp:'営業保証金は<strong>主たる事務所1000万円</strong>、従たる事務所1か所につき500万円を供託します。保証協会加入の場合は不要。'
   },
-  {
-    cat:'民法等', catClass:'civil',
-    q:'借地権の存続期間（最短）として正しいものはどれか。',
-    opts:['20年','25年','30年','50年'], ans:2,
-    exp:'借地借家法<strong>3条</strong>により、借地権の存続期間は<strong>30年</strong>が最短。30年より短い期間を定めても30年とみなされます。'
-  },
-  {
-    cat:'民法等', catClass:'civil',
-    q:'遺留分が認められない相続人はどれか。',
-    opts:['配偶者','子','直系尊属（親）','兄弟姉妹'], ans:3,
-    exp:'<strong>兄弟姉妹</strong>には遺留分が認められません（民法1042条）。配偶者・子・直系尊属には遺留分があります。'
-  },
+
+  /* ── 法令上の制限（既存） ── */
   {
     cat:'法令上の制限', catClass:'legal',
     q:'市街化区域で開発許可が必要となる開発行為の規模はどれか。',
@@ -1057,6 +1348,8 @@ const quizData = [
     opts:['都道府県知事の許可','農業委員会の許可','国土交通大臣の許可','市町村長の許可'], ans:1,
     exp:'農地を農地のまま権利移動（売買等）する場合は<strong>農地法3条</strong>の規制を受け、<strong>農業委員会の許可</strong>が必要です。'
   },
+
+  /* ── 税・その他（既存） ── */
   {
     cat:'税・その他', catClass:'tax',
     q:'固定資産税の小規模住宅用地（200㎡以下の部分）の特例として正しいものはどれか。',
@@ -1069,17 +1362,11 @@ const quizData = [
     opts:['2%','3%','4%','5%'], ans:1,
     exp:'不動産取得税の税率は本則<strong>4%</strong>ですが、住宅と土地については<strong>3%</strong>（特例措置）に軽減されています。'
   },
-  {
-    cat:'宅建業法', catClass:'business',
-    q:'宅建業者の営業保証金について、主たる事務所の最寄りの供託所に供託する金額はいくらか。',
-    opts:['500万円','1000万円','1500万円','2000万円'], ans:1,
-    exp:'営業保証金は<strong>主たる事務所1000万円</strong>、従たる事務所1か所につき500万円を供託します。保証協会加入の場合は不要。'
-  },
 ];
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    TAB SWITCHING
-════════════════════════════════════════════════ */
+================================================================ */
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1087,16 +1374,42 @@ function showTab(id, btn) {
   btn.classList.add('active');
 }
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    SLIDES
-════════════════════════════════════════════════ */
+================================================================ */
 let currentSlide = 0;
+let slideFilter = 'すべて';
+let filteredSlides = [...slides];
+
+const slideSubjects = ['すべて', ...new Set(slides.map(s => s.tag))];
+
+function buildSlideFilters() {
+  const row = document.getElementById('slideFilters');
+  slideSubjects.forEach(subj => {
+    const btn = document.createElement('button');
+    btn.className = 'sf-btn' + (subj === slideFilter ? ' active' : '');
+    const count = subj === 'すべて' ? slides.length : slides.filter(s => s.tag === subj).length;
+    btn.textContent = `${subj}（${count}）`;
+    btn.onclick = () => {
+      slideFilter = subj;
+      filteredSlides = subj === 'すべて' ? [...slides] : slides.filter(s => s.tag === subj);
+      currentSlide = 0;
+      document.querySelectorAll('.sf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      buildDots();
+      renderSlide();
+    };
+    row.appendChild(btn);
+  });
+}
 
 function renderSlide() {
-  const s = slides[currentSlide];
+  const s = filteredSlides[currentSlide];
   const card = document.getElementById('slideCard');
   const pointsHtml = s.points
-    ? `<div class="slide-points">${s.points.map((p,i)=>`<div class="slide-point"><span class="num">${i+1}</span><span>${p}</span></div>`).join('')}</div>`
+    ? `<div class="slide-points">${s.points.map((p,i) =>
+        `<div class="slide-point"><span class="num">${i+1}</span><span>${p}</span></div>`
+      ).join('')}</div>`
     : '';
   card.innerHTML = `
     <div class="slide-tag">${s.tag}</div>
@@ -1104,30 +1417,31 @@ function renderSlide() {
     <div class="slide-body">${s.body}</div>
     ${pointsHtml}
   `;
-  document.getElementById('slideCounter').textContent = `${currentSlide+1} / ${slides.length}`;
+  document.getElementById('slideCounter').textContent = `${currentSlide+1} / ${filteredSlides.length}`;
   document.getElementById('prevSlide').disabled = currentSlide === 0;
-  document.getElementById('nextSlide').disabled = currentSlide === slides.length - 1;
+  document.getElementById('nextSlide').disabled = currentSlide === filteredSlides.length - 1;
   document.querySelectorAll('.slide-dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
 }
 
 function changeSlide(dir) {
-  currentSlide = Math.max(0, Math.min(slides.length-1, currentSlide+dir));
+  currentSlide = Math.max(0, Math.min(filteredSlides.length - 1, currentSlide + dir));
   renderSlide();
 }
 
 function buildDots() {
   const container = document.getElementById('slideDots');
-  slides.forEach((_, i) => {
+  container.innerHTML = '';
+  filteredSlides.forEach((_, i) => {
     const btn = document.createElement('button');
-    btn.className = 'slide-dot' + (i===0?' active':'');
+    btn.className = 'slide-dot' + (i === 0 ? ' active' : '');
     btn.onclick = () => { currentSlide = i; renderSlide(); };
     container.appendChild(btn);
   });
 }
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    YOUTUBE
-════════════════════════════════════════════════ */
+================================================================ */
 function buildYT() {
   const grid = document.getElementById('ytGrid');
   ytData.forEach(subj => {
@@ -1140,7 +1454,7 @@ function buildYT() {
       </div>
       <div class="yt-topics">
         ${subj.topics.map(t =>
-          `<button class="yt-btn" onclick="openYT('${t.replace(/'/g,'\\\'')}')">${t}</button>`
+          `<button class="yt-btn" onclick="openYT('${t.replace(/'/g,"\\'")}'">${t}</button>`
         ).join('')}
       </div>
     `;
@@ -1153,34 +1467,31 @@ function openYT(topic) {
   window.open(`https://www.youtube.com/results?search_query=${q}`, '_blank');
 }
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    FLASHCARDS
-════════════════════════════════════════════════ */
+================================================================ */
 let fcDeck = [...allCards];
 let fcIndex = 0;
 let fcFilter = 'すべて';
 
 function buildFCFilters() {
-  const cats = ['すべて', ...new Set(allCards.map(c=>c.cat))];
+  const cats = ['すべて', ...new Set(allCards.map(c => c.cat))];
   const div = document.getElementById('fcFilters');
   cats.forEach(cat => {
     const btn = document.createElement('button');
-    btn.className = 'fc-filter' + (cat===fcFilter?' active':'');
-    btn.textContent = cat;
+    btn.className = 'fc-filter' + (cat === fcFilter ? ' active' : '');
+    const count = cat === 'すべて' ? allCards.length : allCards.filter(c => c.cat === cat).length;
+    btn.textContent = `${cat}（${count}）`;
     btn.onclick = () => {
       fcFilter = cat;
-      fcDeck = cat === 'すべて' ? [...allCards] : allCards.filter(c=>c.cat===cat);
+      fcDeck = cat === 'すべて' ? [...allCards] : allCards.filter(c => c.cat === cat);
       fcIndex = 0;
-      document.querySelectorAll('.fc-filter').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       renderFC();
     };
     div.appendChild(btn);
   });
-  const cnt = document.createElement('span');
-  cnt.className = 'fc-count';
-  cnt.id = 'fcCount';
-  div.appendChild(cnt);
 }
 
 function renderFC() {
@@ -1201,32 +1512,33 @@ function fcMove(dir) {
 }
 
 function fcShuffle() {
-  for (let i = fcDeck.length-1; i > 0; i--) {
-    const j = Math.floor(Math.random()*(i+1));
+  for (let i = fcDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
     [fcDeck[i], fcDeck[j]] = [fcDeck[j], fcDeck[i]];
   }
   fcIndex = 0;
   renderFC();
 }
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    QUIZ
-════════════════════════════════════════════════ */
+================================================================ */
 let qFilter = 'すべて';
 let scoreCorrect = 0, scoreTotal = 0;
 let qDeck = [];
 let qPointer = 0;
 
 function buildQuizFilters() {
-  const cats = ['すべて', ...new Set(quizData.map(q=>q.cat))];
+  const cats = ['すべて', ...new Set(quizData.map(q => q.cat))];
   const div = document.getElementById('quizFilters');
   cats.forEach(cat => {
     const btn = document.createElement('button');
-    btn.className = 'qf-btn' + (cat===qFilter?' active':'');
-    btn.textContent = cat;
+    btn.className = 'qf-btn' + (cat === qFilter ? ' active' : '');
+    const count = cat === 'すべて' ? quizData.length : quizData.filter(q => q.cat === cat).length;
+    btn.textContent = `${cat}（${count}問）`;
     btn.onclick = () => {
       qFilter = cat;
-      document.querySelectorAll('.qf-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       buildQDeck();
       renderNextQ();
@@ -1236,8 +1548,8 @@ function buildQuizFilters() {
 }
 
 function buildQDeck() {
-  const pool = qFilter==='すべて' ? quizData : quizData.filter(q=>q.cat===qFilter);
-  qDeck = [...pool].sort(()=>Math.random()-0.5);
+  const pool = qFilter === 'すべて' ? quizData : quizData.filter(q => q.cat === qFilter);
+  qDeck = [...pool].sort(() => Math.random() - 0.5);
   qPointer = 0;
 }
 
@@ -1245,7 +1557,7 @@ function renderNextQ() {
   const area = document.getElementById('quizArea');
   if (qPointer >= qDeck.length) {
     area.innerHTML = `<div class="question-card" style="text-align:center;padding:2rem">
-      <p style="font-size:1rem;margin-bottom:1rem">全問終了！お疲れさまでした。</p>
+      <p style="font-size:1rem;margin-bottom:1rem">全問終了！お疲れさまでした 🎉</p>
       <button class="next-q-btn show" onclick="buildQDeck();renderNextQ()">もう一度挑戦する</button>
     </div>`;
     return;
@@ -1253,7 +1565,7 @@ function renderNextQ() {
   const q = qDeck[qPointer];
   const card = document.createElement('div');
   card.className = 'question-card';
-  const optsHtml = q.opts.map((o,i) =>
+  const optsHtml = q.opts.map((o, i) =>
     `<button class="q-opt" onclick="selectOpt(this,${i},${q.ans},${qPointer})">
       <span class="q-label">${['①','②','③','④'][i]}</span><span>${o}</span>
     </button>`
@@ -1294,9 +1606,10 @@ function advanceQ() {
   renderNextQ();
 }
 
-/* ════════════════════════════════════════════════
+/* ================================================================
    INIT
-════════════════════════════════════════════════ */
+================================================================ */
+buildSlideFilters();
 buildDots();
 renderSlide();
 buildYT();
