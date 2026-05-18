@@ -2229,8 +2229,8 @@ const allCards = [
   {cat:'民法等', word:'共有物の管理', slideKeyword:'共有（変更・管理', def:'共有物の管理行為（賃貸借の締結・解除等）は持分価格の過半数で決定できる。変更には全員の同意が必要。保存行為（修繕等）は各共有者が単独でできる。'},
   {cat:'民法等', word:'留置権', slideKeyword:'担保物権（留置権', def:'他人の物を占有する者が、その物に関して生じた債権の弁済を受けるまでその物を留置できる法定担保物権（民法295条）。優先弁済権はない。'},
   {cat:'民法等', word:'先取特権', slideKeyword:'担保物権（留置権', def:'法律が定める一定の場合に、特定の債権者が他の債権者に優先して弁済を受けられる法定担保物権（民法303条以下）。一般・動産・不動産の先取特権がある。'},
-  {cat:'民法等', word:'区分所有法の改正（2026年）', slideKeyword:'区分所有法改正', def:'2026年施行の大改正。①所在不明区分所有者を頭数から除外して建替え決議の母数を計算可、②区分所有関係解消決議の新設（4/5以上）、③国内管理人制度の創設。老朽マンション再生促進が目的。'},
-  {cat:'民法等', word:'住所・氏名変更登記の義務化', slideKeyword:'住所変更登記義務化', def:'2026年4月1日施行。住所・氏名変更を知った日から2年以内に変更登記申請が義務。違反すると5万円以下の過料（民事罰）。施行前の未登記も施行日から2年以内に申請が必要。'},
+  {cat:'民法等', word:'区分所有法の改正（2026年）', slideKeyword:'区分所有法の改正', def:'2026年施行の大改正。①所在不明区分所有者を頭数から除外して建替え決議の母数を計算可、②区分所有関係解消決議の新設（4/5以上）、③国内管理人制度の創設。老朽マンション再生促進が目的。'},
+  {cat:'民法等', word:'住所・氏名変更登記の義務化', slideKeyword:'住所・氏名変更登記', def:'2026年4月1日施行。住所・氏名変更を知った日から2年以内に変更登記申請が義務。違反すると5万円以下の過料（民事罰）。施行前の未登記も施行日から2年以内に申請が必要。'},
   {cat:'民法等', word:'背信的悪意者', slideKeyword:'判例で覚える「第三者」の範囲', def:'177条の「第三者」から除外される者。登記の欠缺を主張することが信義則に反すると認められる者（妨害目的等）。単なる悪意者は第三者に含まれるが、背信的悪意者は含まれない（判例）。'},
   {cat:'民法等', word:'94条2項の類推適用', slideKeyword:'判例で覚える「第三者」の範囲', def:'外観作出に本人の帰責性がある場合、通謀虚偽表示の規定（94条2項）を類推して善意無過失の第三者を保護する判例法理。権利証・実印を渡した場合等が典型例。'},
   {cat:'民法等', word:'共同不法行為（719条）', slideKeyword:'不法行為の重要判例・共同不法行為', def:'数人が共同して不法行為をした場合、各自が連帯して全額の損害賠償責任を負う（民法719条）。被害者は加害者全員に対して全額請求可。加害者間では負担割合に応じた求償が可能。'},
@@ -4704,13 +4704,30 @@ function _navigateToSlide(cat, keyword) {
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
-  const idx = keyword
-    ? filteredSlides.findIndex(s => s.title.includes(keyword) || (s.keywords && s.keywords.some(k => keyword.includes(k))))
-    : -1;
+  const idx = keyword ? _findSlideIdx(filteredSlides, keyword) : 0;
   currentSlide = idx >= 0 ? idx : 0;
   buildDots();
   renderSlide();
   _updateReturnBar();
+}
+
+function _findSlideIdx(list, keyword) {
+  // 1. タイトルが完全一致
+  let i = list.findIndex(s => s.title === keyword);
+  if (i >= 0) return i;
+  // 2. タイトルがキーワードで始まる
+  i = list.findIndex(s => s.title.startsWith(keyword));
+  if (i >= 0) return i;
+  // 3. タイトルにキーワードが含まれる
+  i = list.findIndex(s => s.title.includes(keyword));
+  if (i >= 0) return i;
+  // 4. スライドのkeywordsにキーワードが完全一致で含まれる
+  i = list.findIndex(s => s.keywords && s.keywords.includes(keyword));
+  if (i >= 0) return i;
+  // 5. スライドのkeywordsのいずれかがキーワードを含む（前方一致優先）
+  i = list.findIndex(s => s.keywords && s.keywords.some(k => k.startsWith(keyword)));
+  if (i >= 0) return i;
+  return -1;
 }
 
 function _updateReturnBar() {
