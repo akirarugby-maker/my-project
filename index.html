@@ -360,6 +360,11 @@
       transition: background 0.2s;
     }
     .shuffle-btn:hover { background: rgba(240,165,0,0.2); }
+    .fc-weak-row { display: flex; justify-content: center; margin-top: 0.5rem; }
+    .fc-weak-btn { background: none; border: 1px solid rgba(248,81,73,0.35); border-radius: 20px; color: var(--red); font-size: 0.75rem; padding: 0.25rem 0.85rem; cursor: pointer; transition: all 0.15s; }
+    .fc-weak-btn.marked { background: rgba(248,81,73,0.12); border-color: var(--red); font-weight: 700; }
+    .fc-filter.weak-fc { border-color: rgba(248,81,73,0.3); color: var(--red); }
+    .fc-filter.weak-fc.active { background: rgba(248,81,73,0.12); border-color: var(--red); }
 
     /* QUIZ */
     .quiz-header {
@@ -390,6 +395,15 @@
       transition: all 0.15s;
     }
     .qf-btn.active { background: rgba(240,165,0,0.15); border-color: var(--accent); color: var(--accent); }
+    .qf-btn.weak-btn { border-color: rgba(248,81,73,0.3); color: var(--red); }
+    .qf-btn.weak-btn.active { background: rgba(248,81,73,0.12); border-color: var(--red); color: var(--red); }
+    .q-weak-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+    .q-weak-btn { background: none; border: 1px solid rgba(248,81,73,0.35); border-radius: 20px; color: var(--red); font-size: 0.75rem; padding: 0.25rem 0.75rem; cursor: pointer; transition: all 0.15s; display: none; }
+    .q-weak-btn.show { display: inline-block; }
+    .q-weak-btn.marked { background: rgba(248,81,73,0.12); border-color: var(--red); font-weight: 700; }
+    .q-accuracy { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
+    .q-accuracy.good { color: var(--green); }
+    .q-accuracy.poor { color: var(--red); }
 
     .question-card {
       background: rgba(0,0,0,0.02);
@@ -961,6 +975,9 @@
   </div>
   <div class="fc-shuffle">
     <button class="shuffle-btn" onclick="fcShuffle()">🔀 シャッフル</button>
+  </div>
+  <div class="fc-weak-row">
+    <button class="fc-weak-btn" id="fcWeakBtn" onclick="toggleFCWeak()">🔴 苦手に追加</button>
   </div>
 </section>
 
@@ -4710,6 +4727,11 @@ function openYT(topic) {
 /* ================================================================
    FLASHCARDS
 ================================================================ */
+const FC_WEAK_KEY = 'takken_fc_weak';
+let fcWeakSet = new Set(JSON.parse(localStorage.getItem(FC_WEAK_KEY) || '[]'));
+function saveFCWeak() { localStorage.setItem(FC_WEAK_KEY, JSON.stringify([...fcWeakSet])); }
+function getFCIdx(card) { return allCards.indexOf(card); }
+
 let fcDeck = [...allCards];
 let fcIndex = 0;
 let fcFilter = 'すべて';
@@ -4717,6 +4739,7 @@ let fcFilter = 'すべて';
 function buildFCFilters() {
   const cats = ['すべて', ...new Set(allCards.map(c => c.cat))];
   const div = document.getElementById('fcFilters');
+  div.innerHTML = '';
   cats.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = 'fc-filter' + (cat === fcFilter ? ' active' : '');
@@ -4732,9 +4755,31 @@ function buildFCFilters() {
     };
     div.appendChild(btn);
   });
+  // 苦手フィルタ
+  const weakBtn = document.createElement('button');
+  weakBtn.className = 'fc-filter weak-fc' + (fcFilter === '🔴苦手' ? ' active' : '');
+  weakBtn.textContent = `🔴 苦手（${fcWeakSet.size}）`;
+  weakBtn.onclick = () => {
+    fcFilter = '🔴苦手';
+    fcDeck = allCards.filter((c, i) => fcWeakSet.has(i));
+    fcIndex = 0;
+    document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
+    weakBtn.classList.add('active');
+    renderFC();
+  };
+  div.appendChild(weakBtn);
 }
 
 function renderFC() {
+  if (fcDeck.length === 0) {
+    document.getElementById('fcWord').textContent = '苦手カードがありません';
+    document.getElementById('fcDef').textContent = 'カードを見ながら🔴ボタンで苦手に追加しましょう';
+    document.getElementById('fcProgress').textContent = '0 / 0';
+    document.getElementById('fcSlideLink').innerHTML = '';
+    document.getElementById('fcWeakBtn').className = 'fc-weak-btn';
+    document.getElementById('fcWeakBtn').textContent = '🔴 苦手に追加';
+    return;
+  }
   const card = fcDeck[fcIndex];
   document.getElementById('fcWord').textContent = card.word;
   document.getElementById('fcDef').textContent = card.def;
@@ -4746,6 +4791,30 @@ function renderFC() {
   } else {
     linkArea.innerHTML = '';
   }
+  const cardIdx = getFCIdx(card);
+  const isWeak = fcWeakSet.has(cardIdx);
+  const wb = document.getElementById('fcWeakBtn');
+  wb.className = 'fc-weak-btn' + (isWeak ? ' marked' : '');
+  wb.textContent = isWeak ? '🔴 苦手登録済み' : '🔴 苦手に追加';
+}
+
+function toggleFCWeak() {
+  if (fcDeck.length === 0) return;
+  const card = fcDeck[fcIndex];
+  const cardIdx = getFCIdx(card);
+  if (fcWeakSet.has(cardIdx)) {
+    fcWeakSet.delete(cardIdx);
+  } else {
+    fcWeakSet.add(cardIdx);
+  }
+  saveFCWeak();
+  const isWeak = fcWeakSet.has(cardIdx);
+  const wb = document.getElementById('fcWeakBtn');
+  wb.className = 'fc-weak-btn' + (isWeak ? ' marked' : '');
+  wb.textContent = isWeak ? '🔴 苦手登録済み' : '🔴 苦手に追加';
+  // フィルタボタンのカウントを更新
+  const wBtn = document.querySelector('.fc-filter.weak-fc');
+  if (wBtn) wBtn.textContent = `🔴 苦手（${fcWeakSet.size}）`;
 }
 
 function goToSlide(cat, keyword) {
@@ -4818,8 +4887,21 @@ function fcShuffle() {
 }
 
 /* ================================================================
-   QUIZ
+   QUIZ  (苦手復習 + 正答率記録)
 ================================================================ */
+const WEAK_KEY = 'takken_weak';
+const ACC_KEY  = 'takken_acc';
+
+// weakSet: Set of quizData indices marked as weak
+// accMap:  Map<quizDataIdx, {c:correct, t:total}>
+let weakSet = new Set(JSON.parse(localStorage.getItem(WEAK_KEY) || '[]'));
+let accMap  = new Map(Object.entries(JSON.parse(localStorage.getItem(ACC_KEY) || '{}')).map(([k,v]) => [Number(k),v]));
+
+function saveWeak() { localStorage.setItem(WEAK_KEY, JSON.stringify([...weakSet])); }
+function saveAcc()  { const obj = {}; accMap.forEach((v,k) => { obj[k] = v; }); localStorage.setItem(ACC_KEY, JSON.stringify(obj)); }
+
+function getQuizIdx(q) { return quizData.indexOf(q); }
+
 let qFilter = 'すべて';
 let scoreCorrect = 0, scoreTotal = 0;
 let qDeck = [];
@@ -4828,6 +4910,7 @@ let qPointer = 0;
 function buildQuizFilters() {
   const cats = ['すべて', ...new Set(quizData.map(q => q.cat))];
   const div = document.getElementById('quizFilters');
+  div.innerHTML = '';
   cats.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = 'qf-btn' + (cat === qFilter ? ' active' : '');
@@ -4842,66 +4925,143 @@ function buildQuizFilters() {
     };
     div.appendChild(btn);
   });
+  // 苦手フィルタボタン
+  const weakBtn = document.createElement('button');
+  const weakCount = weakSet.size;
+  weakBtn.className = 'qf-btn weak-btn' + (qFilter === '🔴苦手' ? ' active' : '');
+  weakBtn.textContent = `🔴 苦手（${weakCount}問）`;
+  weakBtn.onclick = () => {
+    qFilter = '🔴苦手';
+    document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+    weakBtn.classList.add('active');
+    buildQDeck();
+    renderNextQ();
+  };
+  div.appendChild(weakBtn);
 }
 
 function buildQDeck() {
-  const pool = qFilter === 'すべて' ? quizData : quizData.filter(q => q.cat === qFilter);
-  qDeck = [...pool].sort(() => Math.random() - 0.5);
+  let pool;
+  if (qFilter === '🔴苦手') {
+    pool = quizData.filter((q, i) => weakSet.has(i));
+  } else if (qFilter === 'すべて') {
+    pool = quizData;
+  } else {
+    pool = quizData.filter(q => q.cat === qFilter);
+  }
+  // 間違いが多い問題を優先（正答率の低い順）
+  qDeck = [...pool].sort((a, b) => {
+    const ai = getQuizIdx(a), bi = getQuizIdx(b);
+    const aa = accMap.get(ai), ba = accMap.get(bi);
+    const ar = aa ? aa.c / aa.t : 0.5;
+    const br = ba ? ba.c / ba.t : 0.5;
+    return ar - br + (Math.random() - 0.5) * 0.3;
+  });
   qPointer = 0;
 }
 
 function renderNextQ() {
   const area = document.getElementById('quizArea');
-  if (qPointer >= qDeck.length) {
+  if (qDeck.length === 0) {
     area.innerHTML = `<div class="question-card" style="text-align:center;padding:2rem">
-      <p style="font-size:1rem;margin-bottom:1rem">全問終了！お疲れさまでした 🎉</p>
+      <p style="font-size:1rem;margin-bottom:1rem">🔴 苦手問題がまだありません。<br>問題を解いて「苦手に追加」してみましょう。</p>
+    </div>`;
+    return;
+  }
+  if (qPointer >= qDeck.length) {
+    const pct = scoreTotal > 0 ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
+    area.innerHTML = `<div class="question-card" style="text-align:center;padding:2rem">
+      <p style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">全問終了！お疲れさまでした 🎉</p>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1.2rem">今回の正答率: <strong style="color:${pct>=70?'var(--green)':'var(--red)'}">${pct}%</strong>（${scoreCorrect}/${scoreTotal}問）</p>
       <button class="next-q-btn show" onclick="buildQDeck();renderNextQ()">もう一度挑戦する</button>
     </div>`;
     return;
   }
   const q = qDeck[qPointer];
+  const qIdx = getQuizIdx(q);
   const card = document.createElement('div');
   card.className = 'question-card';
   const optsHtml = q.opts.map((o, i) =>
-    `<button class="q-opt" onclick="selectOpt(this,${i},${q.ans},${qPointer})">
+    `<button class="q-opt" onclick="selectOpt(this,${i},${q.ans},${qPointer},${qIdx})">
       <span class="q-label">${['①','②','③','④'][i]}</span><span>${o}</span>
     </button>`
   ).join('');
   const slideKeyword = q.slideKeyword || '';
-  const slideLink = `<div class="q-slide-link" id="qSlideLink-${qPointer}">
-    <button class="q-slide-btn" onclick="goToSlideFromQuiz('${q.cat}','${slideKeyword.replace(/'/g,"\\'")}')">📖 スライドで確認</button>
-  </div>`;
+  const acc = accMap.get(qIdx);
+  const accHtml = acc
+    ? `<span class="q-accuracy ${acc.c/acc.t >= 0.7 ? 'good' : acc.c/acc.t < 0.4 ? 'poor' : ''}">正答率 ${Math.round(acc.c/acc.t*100)}%（${acc.c}/${acc.t}回）</span>`
+    : '';
+  const isWeak = weakSet.has(qIdx);
   card.innerHTML = `
     <div class="q-meta">
       <span class="q-tag ${q.catClass}">${q.cat}</span>
       <span class="q-tag" style="color:var(--muted);border-color:rgba(0,0,0,0.12);background:rgba(0,0,0,0.04)">Q${qPointer+1}/${qDeck.length}</span>
+      ${accHtml}
     </div>
     <div class="q-text">${q.q}</div>
     <div class="q-options">${optsHtml}</div>
     <div class="q-explain" id="exp-${qPointer}">${q.exp}</div>
-    ${slideLink}
+    <div class="q-slide-link" id="qSlideLink-${qPointer}">
+      <button class="q-slide-btn" onclick="goToSlideFromQuiz('${q.cat}','${slideKeyword.replace(/'/g,"\\'")}')">📖 スライドで確認</button>
+    </div>
+    <div class="q-weak-row">
+      <button class="q-weak-btn${isWeak ? ' marked' : ''}" id="weakBtn-${qPointer}" onclick="toggleWeak(${qIdx},${qPointer})">
+        ${isWeak ? '🔴 苦手登録済み' : '🔴 苦手に追加'}
+      </button>
+    </div>
     <button class="next-q-btn" id="nextBtn-${qPointer}" onclick="advanceQ()">次の問題 →</button>
   `;
   area.innerHTML = '';
   area.appendChild(card);
 }
 
-function selectOpt(btn, idx, ans, qIdx) {
+function selectOpt(btn, idx, ans, qIdx, dataIdx) {
   const opts = btn.closest('.q-options').querySelectorAll('.q-opt');
   opts.forEach(b => b.disabled = true);
   scoreTotal++;
-  if (idx === ans) {
+  const correct = idx === ans;
+  if (correct) {
     btn.classList.add('correct');
     scoreCorrect++;
   } else {
     btn.classList.add('wrong');
     opts[ans].classList.add('reveal');
+    // 不正解時に自動で苦手に追加
+    weakSet.add(dataIdx);
+    saveWeak();
   }
+  // 正答率記録
+  const prev = accMap.get(dataIdx) || { c: 0, t: 0 };
+  accMap.set(dataIdx, { c: prev.c + (correct ? 1 : 0), t: prev.t + 1 });
+  saveAcc();
+
   document.getElementById('scoreCorrect').textContent = scoreCorrect;
   document.getElementById('scoreTotal').textContent = scoreTotal;
   document.getElementById(`exp-${qIdx}`).classList.add('show');
   document.getElementById(`qSlideLink-${qIdx}`).classList.add('show');
+  const wb = document.getElementById(`weakBtn-${qIdx}`);
+  if (wb) {
+    wb.classList.add('show');
+    if (!correct) { wb.classList.add('marked'); wb.textContent = '🔴 苦手登録済み'; }
+  }
   document.getElementById(`nextBtn-${qIdx}`).classList.add('show');
+}
+
+function toggleWeak(dataIdx, qIdx) {
+  if (weakSet.has(dataIdx)) {
+    weakSet.delete(dataIdx);
+  } else {
+    weakSet.add(dataIdx);
+  }
+  saveWeak();
+  const btn = document.getElementById(`weakBtn-${qIdx}`);
+  if (btn) {
+    btn.classList.toggle('marked', weakSet.has(dataIdx));
+    btn.textContent = weakSet.has(dataIdx) ? '🔴 苦手登録済み' : '🔴 苦手に追加';
+  }
+  // フィルタボタンのカウントを更新
+  const wBtn = document.querySelector('.qf-btn.weak-btn');
+  if (wBtn) wBtn.textContent = `🔴 苦手（${weakSet.size}問）`;
 }
 
 function advanceQ() {
