@@ -117,22 +117,6 @@
     .bar-bg { height: 10px; background: rgba(0,0,0,0.05); border-radius: 999px; overflow: hidden; }
     .bar-fill { height: 100%; border-radius: 999px; transition: width 0.8s ease; }
 
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 0.7rem;
-    }
-    .month-card {
-      background: rgba(0,0,0,0.02);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.8rem;
-    }
-    .month-card .month-name { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
-    .month-card ul { list-style: none; }
-    .month-card li { font-size: 0.75rem; color: var(--muted); padding: 0.15rem 0; display: flex; align-items: flex-start; gap: 0.3rem; }
-    .month-card li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
-
     /* SLIDES */
     .slide-filter-row {
       display: flex;
@@ -828,109 +812,15 @@
 </header>
 
 <nav class="tabs" role="tablist">
-  <button class="tab-btn active" onclick="showTab('roadmap',this)" role="tab">🗺️ ロードマップ</button>
-  <button class="tab-btn" onclick="showTab('slides',this)" role="tab">📖 スライド学習</button>
+  <button class="tab-btn active" onclick="showTab('slides',this)" role="tab">📖 スライド学習</button>
   <button class="tab-btn" onclick="showTab('youtube',this)" role="tab">▶️ YouTube検索</button>
   <button class="tab-btn" onclick="showTab('flash',this)" role="tab">🃏 フラッシュカード</button>
   <button class="tab-btn" onclick="showTab('quiz',this)" role="tab">✏️ 問題演習</button>
   <button class="tab-btn" onclick="showTab('scheduler',this)" role="tab">📅 スケジューラ</button>
 </nav>
 
-<!-- ROADMAP -->
-<section id="roadmap" class="panel active">
-  <p class="section-title">📋 試験概要</p>
-  <div class="exam-info">
-    <div class="info-card"><div class="label">試験日</div><div class="value">2025年10月19日</div></div>
-    <div class="info-card"><div class="label">合格ライン目安</div><div class="value">37点 / 50点</div></div>
-    <div class="info-card"><div class="label">合格率</div><div class="value">約15〜17%</div></div>
-    <div class="info-card"><div class="label">試験時間</div><div class="value">2時間（120分）</div></div>
-    <div class="info-card"><div class="label">問題数</div><div class="value">50問（四択）</div></div>
-    <div class="info-card"><div class="label">推奨学習時間</div><div class="value">300〜400時間</div></div>
-  </div>
-
-  <div class="divider"></div>
-  <p class="section-title">📊 科目別 出題数・重要度</p>
-  <div class="subject-bars">
-    <div class="bar-row">
-      <div class="bar-label"><span>⚖️ 民法等（権利関係）</span><span>14問｜目標 8〜10点</span></div>
-      <div class="bar-bg"><div class="bar-fill" style="width:28%;background:var(--purple)"></div></div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label"><span>🏢 宅建業法</span><span>20問｜目標 18〜20点 ★最重要★</span></div>
-      <div class="bar-bg"><div class="bar-fill" style="width:40%;background:var(--accent)"></div></div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label"><span>🏙️ 法令上の制限</span><span>8問｜目標 5〜6点</span></div>
-      <div class="bar-bg"><div class="bar-fill" style="width:16%;background:var(--green)"></div></div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label"><span>💴 税・その他</span><span>8問｜目標 5〜6点</span></div>
-      <div class="bar-bg"><div class="bar-fill" style="width:16%;background:var(--blue)"></div></div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-  <p class="section-title">📅 月別学習スケジュール（5〜10月）</p>
-  <div class="schedule-grid">
-    <div class="month-card">
-      <div class="month-name">5月</div>
-      <ul>
-        <li>試験全体像を把握</li>
-        <li>民法：契約・代理</li>
-        <li>テキスト1周目開始</li>
-        <li>毎日1〜2時間ペース確立</li>
-      </ul>
-    </div>
-    <div class="month-card">
-      <div class="month-name">6月</div>
-      <ul>
-        <li>民法：物権・担保物権</li>
-        <li>宅建業法：免許制度</li>
-        <li>過去問を科目ごとに解く</li>
-        <li>弱点ノート作成開始</li>
-      </ul>
-    </div>
-    <div class="month-card">
-      <div class="month-name">7月</div>
-      <ul>
-        <li>宅建業法：重要事項説明</li>
-        <li>法令上の制限：都市計画法</li>
-        <li>テキスト2周目</li>
-        <li>模擬試験1回目</li>
-      </ul>
-    </div>
-    <div class="month-card">
-      <div class="month-name">8月</div>
-      <ul>
-        <li>宅建業法：37条書面・報酬</li>
-        <li>建築基準法・農地法</li>
-        <li>税・不動産取得税・固定資産税</li>
-        <li>過去問 年度別を解く</li>
-      </ul>
-    </div>
-    <div class="month-card">
-      <div class="month-name">9月</div>
-      <ul>
-        <li>全科目総復習</li>
-        <li>模擬試験 2〜3回</li>
-        <li>弱点科目の集中強化</li>
-        <li>法改正・統計の確認</li>
-      </ul>
-    </div>
-    <div class="month-card">
-      <div class="month-name">10月</div>
-      <ul>
-        <li>直前総まとめ</li>
-        <li>過去問の間違い見直し</li>
-        <li>統計・免除科目の最終確認</li>
-        <li>試験前日：早めに休む</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- SLIDES -->
-<section id="slides" class="panel">
+<section id="slides" class="panel active">
   <div class="slide-return-bar" id="slideReturnBar">
     <span id="slideReturnLabel"></span>
     <button class="slide-return-btn" id="slideReturnBtn" onclick="returnFromSlide()"></button>
@@ -997,6 +887,31 @@
 
 <!-- SCHEDULER -->
 <section id="scheduler" class="panel">
+  <div class="exam-info" style="margin-bottom:1rem">
+    <div class="info-card"><div class="label">合格ライン目安</div><div class="value">37点 / 50点</div></div>
+    <div class="info-card"><div class="label">合格率</div><div class="value">約15〜17%</div></div>
+    <div class="info-card"><div class="label">試験時間</div><div class="value">2時間（120分）</div></div>
+    <div class="info-card"><div class="label">問題数</div><div class="value">50問（四択）</div></div>
+  </div>
+  <div class="subject-bars" style="margin-bottom:1.2rem">
+    <div class="bar-row">
+      <div class="bar-label"><span>⚖️ 民法等</span><span>14問｜目標 8〜10点</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:28%;background:var(--purple)"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🏢 宅建業法</span><span>20問｜目標 18〜20点 ★最重要★</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:40%;background:var(--accent)"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>🏙️ 法令上の制限</span><span>8問｜目標 5〜6点</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:16%;background:var(--green)"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>💴 税・その他</span><span>8問｜目標 5〜6点</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:16%;background:var(--blue)"></div></div>
+    </div>
+  </div>
+  <div class="divider"></div>
   <div class="sched-hero">
     <div class="sched-countdown">
       <div class="sched-days" id="schedDays">—</div>
@@ -4634,7 +4549,7 @@ function goToRelatedQuiz(cat, keys) {
   // 戻り先のスライド情報を保存
   quizFromSlide = { cat: slideFilter, slideIdx: currentSlide };
   // quiz タブへ移動し、catフィルタを設定
-  showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
   qFilter = cat;
   document.querySelectorAll('.qf-btn').forEach(b => b.classList.toggle('active', b.textContent === cat));
   // 関連問題のみを先頭に並べ替えて出題
@@ -4653,7 +4568,7 @@ function returnToSlideFromQuiz() {
   const { cat, slideIdx } = quizFromSlide;
   quizFromSlide = null;
   document.getElementById('quizReturnBar').classList.remove('show');
-  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+  showTab('slides', document.querySelector('.tab-btn:nth-child(1)'));
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
@@ -4810,7 +4725,7 @@ function goToSlideFromQuiz(cat, keyword) {
 }
 
 function _navigateToSlide(cat, keyword) {
-  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+  showTab('slides', document.querySelector('.tab-btn:nth-child(1)'));
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
@@ -4844,9 +4759,9 @@ function returnFromSlide() {
   slideReturnContext = null;
   _updateReturnBar();
   if (from === 'flash') {
-    showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
+    showTab('flash', document.querySelector('.tab-btn:nth-child(3)'));
   } else {
-    showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
+    showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
   }
 }
 
