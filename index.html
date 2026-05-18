@@ -637,6 +637,173 @@
       .panel { padding: 1rem; }
       .slide-card { padding: 1rem; }
     }
+
+    /* SLIDE ACTION BUTTONS (YouTube / 関連過去問) */
+    .slide-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+    .slide-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+      border: 1px solid;
+      text-decoration: none;
+    }
+    .slide-action-btn.yt {
+      background: rgba(200,0,0,0.07);
+      border-color: rgba(200,0,0,0.25);
+      color: #cc2222;
+    }
+    .slide-action-btn.yt:hover { background: rgba(200,0,0,0.16); }
+    .slide-action-btn.quiz {
+      background: rgba(130,80,223,0.07);
+      border-color: rgba(130,80,223,0.25);
+      color: var(--purple);
+    }
+    .slide-action-btn.quiz:hover { background: rgba(130,80,223,0.16); }
+    .slide-action-btn.quiz.none { opacity: 0.4; cursor: default; }
+
+    /* SCHEDULER TAB */
+    .sched-hero {
+      background: linear-gradient(135deg, rgba(212,146,10,0.08), rgba(9,105,218,0.06));
+      border: 1px solid rgba(212,146,10,0.2);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .sched-countdown {
+      text-align: center;
+      min-width: 90px;
+    }
+    .sched-days {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .sched-days-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+    .sched-info { flex: 1; }
+    .sched-info h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .sched-info p { font-size: 0.8rem; color: var(--muted); }
+    .sched-date-form {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .sched-date-input {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      background: var(--bg2);
+    }
+    .sched-date-btn {
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      cursor: pointer;
+    }
+
+    .sched-progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .sched-prog-card {
+      background: rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+    }
+    .sched-prog-card .label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+    .sched-prog-card .label strong { color: var(--text); }
+    .sched-prog-bar { height: 8px; background: rgba(0,0,0,0.07); border-radius: 999px; overflow: hidden; }
+    .sched-prog-fill { height: 100%; border-radius: 999px; transition: width 0.5s; }
+
+    .sched-weekly {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .sched-day {
+      border-radius: 10px;
+      padding: 0.6rem 0.3rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .sched-day:hover { background: rgba(0,0,0,0.05); }
+    .sched-day.today { border-color: var(--accent); background: rgba(212,146,10,0.08); }
+    .sched-day.done { background: rgba(26,127,55,0.08); border-color: var(--green); }
+    .sched-day .day-name { font-size: 0.62rem; color: var(--muted); }
+    .sched-day .day-num { font-size: 0.9rem; font-weight: 700; margin: 0.1rem 0; }
+    .sched-day .day-check { font-size: 0.7rem; color: var(--green); }
+    .sched-day.today .day-name { color: var(--accent); font-weight: 700; }
+
+    .sched-tasks { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .sched-task {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      background: rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .sched-task:hover { background: rgba(0,0,0,0.05); }
+    .sched-task.done-task { opacity: 0.55; }
+    .sched-task.done-task .task-title { text-decoration: line-through; }
+    .sched-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: var(--green);
+      background: rgba(0,0,0,0.02);
+      transition: all 0.2s;
+    }
+    .sched-task.done-task .sched-check { background: var(--green); border-color: var(--green); color: #fff; }
+    .task-title { font-size: 0.85rem; font-weight: 600; }
+    .task-desc { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+    .task-tag {
+      margin-left: auto;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -652,6 +819,7 @@
   <button class="tab-btn" onclick="showTab('youtube',this)" role="tab">▶️ YouTube検索</button>
   <button class="tab-btn" onclick="showTab('flash',this)" role="tab">🃏 フラッシュカード</button>
   <button class="tab-btn" onclick="showTab('quiz',this)" role="tab">✏️ 問題演習</button>
+  <button class="tab-btn" onclick="showTab('scheduler',this)" role="tab">📅 スケジューラ</button>
 </nav>
 
 <!-- ROADMAP -->
@@ -761,6 +929,7 @@
   </div>
   <div class="slide-dots" id="slideDots"></div>
   <div class="slide-card" id="slideCard"></div>
+  <div class="slide-actions" id="slideActions"></div>
 </section>
 
 <!-- YOUTUBE -->
@@ -803,6 +972,35 @@
   </div>
   <div class="quiz-filter-row" id="quizFilters"></div>
   <div id="quizArea"></div>
+</section>
+
+<!-- SCHEDULER -->
+<section id="scheduler" class="panel">
+  <div class="sched-hero">
+    <div class="sched-countdown">
+      <div class="sched-days" id="schedDays">—</div>
+      <div class="sched-days-label">日後に試験</div>
+    </div>
+    <div class="sched-info">
+      <h2 id="schedExamLabel">試験日を設定してください</h2>
+      <p id="schedExamDate"></p>
+      <div class="sched-date-form">
+        <input type="date" id="schedDateInput" class="sched-date-input">
+        <button class="sched-date-btn" onclick="setExamDate()">設定</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">📊 科目別学習進捗</p>
+  <div class="sched-progress-grid" id="schedProgGrid"></div>
+
+  <div class="divider"></div>
+  <p class="section-title">📆 今週のカレンダー</p>
+  <div class="sched-weekly" id="schedWeekly"></div>
+
+  <div class="divider"></div>
+  <p class="section-title">✅ 今日のタスク</p>
+  <div class="sched-tasks" id="schedTasks"></div>
 </section>
 
 <script>
@@ -4423,6 +4621,46 @@ function renderSlide() {
   document.getElementById('prevSlide').disabled = currentSlide === 0;
   document.getElementById('nextSlide').disabled = currentSlide === filteredSlides.length - 1;
   document.querySelectorAll('.slide-dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
+  renderSlideActions(s);
+}
+
+function renderSlideActions(s) {
+  const area = document.getElementById('slideActions');
+  // YouTube検索URL
+  const ytQuery = encodeURIComponent(`宅建 ${s.title} わかりやすい 解説`);
+  const ytUrl = `https://www.youtube.com/results?search_query=${ytQuery}`;
+  // 関連過去問を探す（キーワードまたはタイトルで quizData とマッチ）
+  const keys = (s.keywords || []).concat(s.title.split(/[・（）\s]/)).filter(k => k.length > 1);
+  const relatedCount = quizData.filter(q =>
+    q.cat === s.tag && keys.some(k => q.q.includes(k) || (q.exp && q.exp.includes(k)))
+  ).length;
+  const quizBtnClass = relatedCount > 0 ? 'quiz' : 'quiz none';
+  const quizClick = relatedCount > 0
+    ? `onclick="goToRelatedQuiz('${s.tag.replace(/'/g,"\\'")}',${JSON.stringify(keys).replace(/"/g,"'")})"` : '';
+  area.innerHTML = `
+    <a class="slide-action-btn yt" href="${ytUrl}" target="_blank" rel="noopener">▶ YouTubeで解説を見る</a>
+    <button class="slide-action-btn ${quizBtnClass}" ${quizClick}>
+      📝 関連過去問${relatedCount > 0 ? `（${relatedCount}問）` : '（なし）'}
+    </button>
+  `;
+}
+
+function goToRelatedQuiz(cat, keys) {
+  slideReturnContext = { from: 'quiz' };
+  _updateReturnBar();
+  // quiz タブへ移動し、catフィルタを設定
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
+  qFilter = cat;
+  document.querySelectorAll('.qf-btn').forEach(b => b.classList.toggle('active', b.textContent === cat));
+  // 関連問題のみを先頭に並べ替えて出題
+  const pool = quizData.filter(q => q.cat === cat);
+  const related = pool.filter(q => keys.some(k => k.length > 1 && (q.q.includes(k) || (q.exp && q.exp.includes(k)))));
+  const rest = pool.filter(q => !related.includes(q));
+  qDeck = [...related, ...rest.sort(() => Math.random() - 0.5)];
+  qPointer = 0;
+  renderNextQ();
+  // 「スライドに戻る」バーの文言を更新
+  slideReturnContext = { from: 'slide_quiz' };
 }
 
 function changeSlide(dir) {
@@ -4539,7 +4777,8 @@ function _updateReturnBar() {
   const label = document.getElementById('slideReturnLabel');
   const btn = document.getElementById('slideReturnBtn');
   if (slideReturnContext) {
-    const isFlash = slideReturnContext.from === 'flash';
+    const from = slideReturnContext.from;
+    const isFlash = from === 'flash';
     label.textContent = isFlash ? 'フラッシュカードから移動中' : '問題演習から移動中';
     btn.textContent = isFlash ? '← フラッシュカードに戻る' : '← 問題演習に戻る';
     bar.classList.add('show');
@@ -4550,11 +4789,14 @@ function _updateReturnBar() {
 
 function returnFromSlide() {
   if (!slideReturnContext) return;
-  const dest = slideReturnContext.from === 'flash' ? 'flash' : 'quiz';
+  const from = slideReturnContext.from;
   slideReturnContext = null;
   _updateReturnBar();
-  const tabIndex = dest === 'flash' ? 4 : 5;
-  showTab(dest, document.querySelector(`.tab-btn:nth-child(${tabIndex})`));
+  if (from === 'flash') {
+    showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
+  } else {
+    showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
+  }
 }
 
 function flipCard() {
@@ -4668,6 +4910,169 @@ function advanceQ() {
 }
 
 /* ================================================================
+   SCHEDULER
+================================================================ */
+const SCHED_KEY = 'takken_sched';
+const EXAM_KEY  = 'takken_exam_date';
+const WEEK_KEY  = 'takken_week_done';
+const TASK_KEY  = 'takken_tasks_done';
+
+function getExamDate() {
+  const saved = localStorage.getItem(EXAM_KEY);
+  if (saved) return new Date(saved);
+  // デフォルト：2025年10月19日（第3日曜）
+  return new Date('2025-10-19');
+}
+
+function setExamDate() {
+  const val = document.getElementById('schedDateInput').value;
+  if (!val) return;
+  localStorage.setItem(EXAM_KEY, val);
+  buildScheduler();
+}
+
+function buildScheduler() {
+  const exam = getExamDate();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  exam.setHours(0,0,0,0);
+  const diffMs = exam - today;
+  const diffDays = Math.ceil(diffMs / 86400000);
+
+  // カウントダウン
+  document.getElementById('schedDays').textContent = diffDays > 0 ? diffDays : '試験日当日/終了';
+  document.getElementById('schedExamLabel').textContent =
+    `宅建士試験まであと${diffDays > 0 ? diffDays+'日' : '0日'}`;
+  document.getElementById('schedExamDate').textContent =
+    `試験日：${exam.getFullYear()}年${exam.getMonth()+1}月${exam.getDate()}日`;
+  // input に現在値を設定
+  const examStr = exam.toISOString().split('T')[0];
+  document.getElementById('schedDateInput').value = examStr;
+
+  buildSchedProgress(diffDays);
+  buildSchedWeekly(today);
+  buildSchedTasks(today, diffDays);
+}
+
+function buildSchedProgress(daysLeft) {
+  const total = 150; // 学習期間の想定日数
+  const elapsed = Math.max(0, total - daysLeft);
+  const pct = Math.min(100, Math.round(elapsed / total * 100));
+
+  const subjects = [
+    { name:'⚖️ 民法等', slides:27, quiz:65, color:'var(--purple)' },
+    { name:'🏢 宅建業法', slides:20, quiz:62, color:'var(--accent)' },
+    { name:'🏙️ 法令上の制限', slides:22, quiz:60, color:'var(--green)' },
+    { name:'💴 税・その他', slides:18, quiz:60, color:'var(--blue)' },
+  ];
+  const grid = document.getElementById('schedProgGrid');
+  grid.innerHTML = subjects.map(s => `
+    <div class="sched-prog-card">
+      <div class="label"><strong>${s.name}</strong><span>スライド${s.slides}枚 / ${s.quiz}問</span></div>
+      <div class="sched-prog-bar">
+        <div class="sched-prog-fill" style="width:${pct}%;background:${s.color}"></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function buildSchedWeekly(today) {
+  const container = document.getElementById('schedWeekly');
+  const dayNames = ['日','月','火','水','木','金','土'];
+  const doneDays = JSON.parse(localStorage.getItem(WEEK_KEY) || '{}');
+  container.innerHTML = '';
+  // 今週月〜日 を表示
+  const mon = new Date(today);
+  mon.setDate(today.getDate() - ((today.getDay() + 6) % 7));
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(mon);
+    d.setDate(mon.getDate() + i);
+    const key = d.toISOString().split('T')[0];
+    const isToday = d.getTime() === today.getTime();
+    const isDone = !!doneDays[key];
+    const div = document.createElement('div');
+    div.className = 'sched-day' + (isToday ? ' today' : '') + (isDone ? ' done' : '');
+    div.innerHTML = `
+      <div class="day-name">${dayNames[d.getDay()]}</div>
+      <div class="day-num">${d.getDate()}</div>
+      <div class="day-check">${isDone ? '✓' : ''}</div>
+    `;
+    div.onclick = () => {
+      doneDays[key] = !doneDays[key];
+      if (!doneDays[key]) delete doneDays[key];
+      localStorage.setItem(WEEK_KEY, JSON.stringify(doneDays));
+      buildSchedWeekly(today);
+    };
+    container.appendChild(div);
+  }
+}
+
+function buildSchedTasks(today, daysLeft) {
+  const doneTasks = JSON.parse(localStorage.getItem(TASK_KEY) || '{}');
+  const todayKey = today.toISOString().split('T')[0];
+
+  // 残り日数に応じてタスクを動的生成
+  let tasks = [];
+  if (daysLeft > 90) {
+    tasks = [
+      { id:'t1', title:'民法等スライドを5枚読む', desc:'意思表示〜代理を中心に', tag:'民法等', tagCls:'civil' },
+      { id:'t2', title:'宅建業法フラッシュカード10枚', desc:'免許・宅建士の基本をシャッフルで', tag:'宅建業法', tagCls:'business' },
+      { id:'t3', title:'問題演習：民法等10問', desc:'本日のスライドの確認問題', tag:'問題演習', tagCls:'legal' },
+    ];
+  } else if (daysLeft > 60) {
+    tasks = [
+      { id:'t1', title:'法令上の制限スライドを3枚読む', desc:'都市計画法・建築基準法を優先', tag:'法令上の制限', tagCls:'legal' },
+      { id:'t2', title:'宅建業法問題演習15問', desc:'個数問題を含む形式で', tag:'宅建業法', tagCls:'business' },
+      { id:'t3', title:'苦手フラッシュカードを復習', desc:'間違えたカードに集中', tag:'フラッシュカード', tagCls:'civil' },
+      { id:'t4', title:'税・その他スライドを2枚読む', desc:'不動産取得税・登録免許税', tag:'税・その他', tagCls:'tax' },
+    ];
+  } else if (daysLeft > 30) {
+    tasks = [
+      { id:'t1', title:'問題演習：全科目30問', desc:'弱点科目を中心にランダム出題', tag:'問題演習', tagCls:'legal' },
+      { id:'t2', title:'宅建業法フラッシュカード全枚復習', desc:'専任宅建士・37条書面・報酬額', tag:'宅建業法', tagCls:'business' },
+      { id:'t3', title:'個数問題を5問解く', desc:'「正しいものはいくつあるか」形式', tag:'宅建業法', tagCls:'business' },
+      { id:'t4', title:'スケジュール確認・進捗チェック', desc:'残り日数でペース調整', tag:'管理', tagCls:'tax' },
+    ];
+  } else {
+    tasks = [
+      { id:'t1', title:'問題演習：全科目50問', desc:'本番形式で時間を意識して', tag:'総仕上げ', tagCls:'legal' },
+      { id:'t2', title:'苦手分野のスライド再確認', desc:'理解度が低い分野を重点復習', tag:'復習', tagCls:'civil' },
+      { id:'t3', title:'個数問題を10問解く', desc:'宅建業法の個数問題を集中練習', tag:'宅建業法', tagCls:'business' },
+      { id:'t4', title:'趣旨フィールドを読み直す', desc:'リーガルマインド対策', tag:'民法等', tagCls:'civil' },
+      { id:'t5', title:'法改正ポイントの確認', desc:'区分所有法改正・住所変更登記義務化', tag:'2026年改正', tagCls:'tax' },
+    ];
+  }
+
+  const tagColors = { civil:'var(--purple)', business:'var(--accent)', legal:'var(--green)', tax:'var(--blue)' };
+  const container = document.getElementById('schedTasks');
+  container.innerHTML = tasks.map(t => {
+    const doneKey = `${todayKey}_${t.id}`;
+    const isDone = !!doneTasks[doneKey];
+    return `
+      <div class="sched-task${isDone ? ' done-task' : ''}" onclick="toggleTask('${doneKey}')">
+        <div class="sched-check">${isDone ? '✓' : ''}</div>
+        <div>
+          <div class="task-title">${t.title}</div>
+          <div class="task-desc">${t.desc}</div>
+        </div>
+        <span class="task-tag" style="color:${tagColors[t.tagCls]};border-color:${tagColors[t.tagCls]};background:${tagColors[t.tagCls]}18">${t.tag}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleTask(key) {
+  const done = JSON.parse(localStorage.getItem(TASK_KEY) || '{}');
+  done[key] = !done[key];
+  if (!done[key]) delete done[key];
+  localStorage.setItem(TASK_KEY, JSON.stringify(done));
+  const today = new Date(); today.setHours(0,0,0,0);
+  const exam = getExamDate();
+  const daysLeft = Math.ceil((exam - today) / 86400000);
+  buildSchedTasks(today, daysLeft);
+}
+
+/* ================================================================
    INIT
 ================================================================ */
 buildSlideFilters();
@@ -4679,6 +5084,7 @@ renderFC();
 buildQuizFilters();
 buildQDeck();
 renderNextQ();
+buildScheduler();
 </script>
 </body>
 </html>
