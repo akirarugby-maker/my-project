@@ -983,6 +983,10 @@
 
 <!-- QUIZ -->
 <section id="quiz" class="panel">
+  <div class="slide-return-bar" id="quizReturnBar">
+    <span>スライドから移動中</span>
+    <button class="slide-return-btn" onclick="returnToSlideFromQuiz()">← スライドに戻る</button>
+  </div>
   <div class="quiz-header">
     <p class="section-title" style="margin:0">✏️ 問題演習</p>
     <div class="quiz-score">正解: <span id="scoreCorrect">0</span> / 挑戦: <span id="scoreTotal">0</span></div>
@@ -4567,6 +4571,8 @@ const quizData = [
 ================================================================ */
 let slideReturnContext = null;
 
+let quizFromSlide = null; // { cat, slideIdx } — スライド→問題演習の戻り先
+
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -4576,6 +4582,11 @@ function showTab(id, btn) {
     slideReturnContext = null;
     const bar = document.getElementById('slideReturnBar');
     if (bar) bar.classList.remove('show');
+  }
+  if (id !== 'quiz') {
+    quizFromSlide = null;
+    const qbar = document.getElementById('quizReturnBar');
+    if (qbar) qbar.classList.remove('show');
   }
 }
 
@@ -4663,8 +4674,8 @@ function renderSlideActions(s) {
 }
 
 function goToRelatedQuiz(cat, keys) {
-  slideReturnContext = { from: 'quiz' };
-  _updateReturnBar();
+  // 戻り先のスライド情報を保存
+  quizFromSlide = { cat: slideFilter, slideIdx: currentSlide };
   // quiz タブへ移動し、catフィルタを設定
   showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   qFilter = cat;
@@ -4676,8 +4687,22 @@ function goToRelatedQuiz(cat, keys) {
   qDeck = [...related, ...rest.sort(() => Math.random() - 0.5)];
   qPointer = 0;
   renderNextQ();
-  // 「スライドに戻る」バーの文言を更新
-  slideReturnContext = { from: 'slide_quiz' };
+  // 戻るバーを表示
+  document.getElementById('quizReturnBar').classList.add('show');
+}
+
+function returnToSlideFromQuiz() {
+  if (!quizFromSlide) return;
+  const { cat, slideIdx } = quizFromSlide;
+  quizFromSlide = null;
+  document.getElementById('quizReturnBar').classList.remove('show');
+  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+  slideFilter = cat;
+  filteredSlides = slides.filter(s => s.tag === cat);
+  document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+  currentSlide = Math.min(slideIdx, filteredSlides.length - 1);
+  buildDots();
+  renderSlide();
 }
 
 function changeSlide(dir) {
