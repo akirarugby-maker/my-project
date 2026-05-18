@@ -463,6 +463,98 @@
 
     .divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
 
+    /* SLIDE EXAMPLE & DIAGRAM */
+    .slide-example {
+      background: rgba(63,185,80,0.07);
+      border: 1px solid rgba(63,185,80,0.3);
+      border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 0.8rem 1rem;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: #cdd9e5;
+    }
+    .slide-example-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .slide-example strong { color: var(--green); }
+    .slide-example em { color: #79c0ff; font-style: normal; }
+    .slide-diagram {
+      background: rgba(88,166,255,0.06);
+      border: 1px solid rgba(88,166,255,0.2);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      font-size: 0.8rem;
+    }
+    .slide-diagram-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .diagram-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      justify-content: center;
+    }
+    .diagram-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .diagram-box.person { border-color: rgba(88,166,255,0.5); color: var(--blue); background: rgba(88,166,255,0.08); }
+    .diagram-box.result-ok { border-color: rgba(63,185,80,0.5); color: var(--green); background: rgba(63,185,80,0.08); }
+    .diagram-box.result-ng { border-color: rgba(248,81,73,0.5); color: var(--red); background: rgba(248,81,73,0.08); }
+    .diagram-box.highlight { border-color: rgba(240,165,0,0.5); color: var(--accent); background: rgba(240,165,0,0.08); }
+    .diagram-arrow { color: var(--muted); font-size: 1rem; flex-shrink: 0; }
+    .diagram-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .diagram-table th { background: rgba(255,255,255,0.07); padding: 0.3rem 0.5rem; text-align: center; font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); }
+    .diagram-table td { padding: 0.3rem 0.5rem; text-align: center; border: 1px solid var(--border); }
+    .ok { color: var(--green); font-weight: 700; }
+    .ng { color: var(--red); font-weight: 700; }
+    .warn { color: var(--accent); font-weight: 700; }
+
+    /* FLASHCARD SLIDE LINK */
+    .fc-slide-link {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+    }
+    .fc-slide-btn {
+      background: rgba(240,165,0,0.12);
+      border: 1px solid rgba(240,165,0,0.35);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .fc-slide-btn:hover { background: rgba(240,165,0,0.25); }
+
     @media (max-width: 500px) {
       header h1 { font-size: 1rem; }
       .panel { padding: 1rem; }
@@ -608,6 +700,7 @@
       <div class="fc-back">
         <div class="fc-hint">用語の意味</div>
         <div class="fc-def" id="fcDef"></div>
+        <div class="fc-slide-link" id="fcSlideLink"></div>
       </div>
     </div>
   </div>
@@ -639,207 +732,278 @@ const slides = [
   /* ── 民法等 (20枚) ── */
   {
     tag:'民法等', title:'意思表示の基本（心裡留保・通謀虚偽表示）',
-    body:'意思と表示が一致しない意思表示の効力。<strong>相手方の善意・悪意</strong>によって結論が変わる点が頻出。',
+    keywords:['心裡留保','通謀虚偽表示'],
+    body:'意思と表示が一致しない意思表示の効力。<strong>相手方の善意・悪意</strong>によって結論が変わる。「知っていたか、知らなかったか」を軸に整理しよう。',
     points:[
-      '心裡留保：真意と異なる表示。原則<strong>有効</strong>、相手方が悪意または有過失なら無効',
-      '通謀虚偽表示：当事者間では<strong>無効</strong>。善意の第三者には無効を対抗できない',
-      '第三者は善意であれば登記不要（通謀虚偽表示の場合）',
-      '心裡留保の無効は善意無過失の第三者に対抗できない'
-    ]
+      '<strong>心裡留保（93条）</strong>：本音と違うことを言う（例：冗談で「売ります」と言う）→原則<strong>有効</strong>、相手方が悪意または有過失なら<strong>無効</strong>',
+      '<strong>通謀虚偽表示（94条）</strong>：相手方とグルで嘘の意思表示（例：財産隠しのための仮装売買）→当事者間では<strong>無効</strong>',
+      '通謀虚偽表示：善意の第三者には無効を<strong>主張できない</strong>（善意の第三者は登記不要で保護）',
+      '心裡留保の無効：善意無過失の第三者にも主張できない'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>当事者間</th><th>善意の第三者</th><th>悪意の第三者</th></tr></thead><tbody><tr><td>心裡留保</td><td class="ok">有効（原則）</td><td class="ok">有効（保護）</td><td class="ng">無効主張可</td></tr><tr><td>通謀虚偽表示</td><td class="ng">無効</td><td class="ok">有効（保護）</td><td class="ng">無効主張可</td></tr></tbody></table>',
+    example:'<strong>心裡留保の例：</strong>AがBに冗談のつもりで「この土地を10万円で売る」と言い、BがAの冗談と気づかずに「買う」と答えた場合 → <em>Bは善意なので契約は有効。Aは「冗談だった」と主張できない。</em><br><br><strong>通謀虚偽表示の例：</strong>AがBと組んで「Bに土地を売った」と仮装し、その後Cがその土地をBから善意で購入した場合 → <em>CはAとBの虚偽表示を知らない（善意）ので保護され、AはCに「実は無効だった」と言えない。</em>'
   },
   {
-    tag:'民法等', title:'錯誤・詐欺・強迫',
-    body:'瑕疵ある意思表示は<strong>取消可能</strong>。取消後は遡及的に無効となり原状回復義務が生じる。',
+    tag:'民法等', title:'錯誤・詐欺・強迫による意思表示',
+    keywords:['錯誤','詐欺','強迫'],
+    body:'だまされたり（詐欺）、脅されたり（強迫）、勘違いしたり（錯誤）してした意思表示は<strong>取消可能</strong>。3つの違いを比較して覚えよう。強迫が最も強い取消原因。',
     points:[
-      '錯誤：法律行為の要素の錯誤→取消可。善意無過失の第三者に対抗<strong>不可</strong>',
-      '詐欺：取消可。第三者による詐欺は相手方の悪意・有過失の場合のみ取消可',
-      '強迫：取消可。第三者による強迫でも相手方の善悪に関わらず取消可（最強）',
+      '<strong>錯誤（95条）</strong>：重要な勘違いで意思表示→取消可。善意無過失の第三者に対抗<strong>不可</strong>',
+      '<strong>詐欺（96条）</strong>：だまされた→取消可。第三者詐欺は相手方が悪意・有過失の場合のみ取消可。善意無過失の第三者に対抗<strong>不可</strong>',
+      '<strong>強迫（96条）</strong>：脅された→取消可。第三者強迫でも<em>常に</em>取消可（最強）。善意の第三者にも対抗<strong>可</strong>',
       '取消権の行使期間：追認できる時から<strong>5年</strong>、行為の時から<strong>20年</strong>'
-    ]
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>取消</th><th>第三者関与</th><th>善意第三者への対抗</th></tr></thead><tbody><tr><td>錯誤</td><td class="ok">可</td><td>—</td><td class="ng">不可</td></tr><tr><td>詐欺</td><td class="ok">可</td><td class="warn">相手悪意・有過失のみ</td><td class="ng">不可</td></tr><tr><td>強迫</td><td class="ok">可</td><td class="ok">常に可（最強）</td><td class="ok">可</td></tr></tbody></table>',
+    example:'<strong>詐欺の例：</strong>Bが「この土地は近く値上がりする」と嘘をついてAに土地を売らせた。その後Cがその土地をBから善意無過失で購入した場合 → <em>CはAの取消を対抗されない（善意無過失の第三者として保護）。</em><br><br><strong>強迫の例：</strong>BがAを脅して土地を売らせた。その後Cがその土地を購入した場合 → <em>Cが善意でも、Aは取消可。強迫は第三者にも対抗できる最強の取消原因。</em>'
   },
   {
     tag:'民法等', title:'代理制度の基本',
-    body:'<strong>代理</strong>とは、本人に代わって意思表示を行い、その効果が直接本人に帰属する制度。',
+    keywords:['代理','復代理','自己契約'],
+    body:'<strong>代理</strong>とは、BがAの代わりに意思表示をして、その効果がAに帰属する制度。「本人・代理人・相手方」の3者関係で整理しよう。',
     points:[
-      '有権代理：本人の授権に基づく正式な代理。効果は本人に帰属',
-      '代理人の行為能力は不要（意思能力は必要）',
-      '自己契約・双方代理は原則禁止（本人の許諾・債務の履行は例外）',
-      '復代理：任意代理人は本人の承諾または已むを得ない事由がある場合のみ選任可'
-    ]
+      '<strong>有権代理</strong>：本人（A）の授権あり → 代理行為の効果が直接<strong>本人（A）</strong>に帰属',
+      '代理人に<strong>行為能力は不要</strong>（未成年者でも代理人になれる）。ただし意思能力は必要',
+      '<strong>自己契約・双方代理は原則禁止</strong>（例外：本人が許諾した場合、債務の履行）',
+      '<strong>復代理</strong>：法定代理人はいつでも選任可。任意代理人は本人の<strong>承諾または已むを得ない事由</strong>がある場合のみ'
+    ],
+    diagram:'<div class="diagram-flow"><div class="diagram-box person">A（本人）</div><span class="diagram-arrow">①委任</span><div class="diagram-box person">B（代理人）</div><span class="diagram-arrow">②意思表示</span><div class="diagram-box person">C（相手方）</div></div><div style="text-align:center;margin-top:0.5rem;font-size:0.78rem;color:var(--green)">▼ 効果は直接Aに帰属（法律上はAとCが契約したことになる）</div>',
+    example:'<strong>具体例：</strong>A（海外出張中）がB（息子）に「自宅マンションをCに売ってよい」と委任状を渡した。BがCと売買契約を締結した場合 → <em>BとCが契約したが、法律上はAとCが契約したことになり、登記・代金の受渡しもAとCの間で行われる。</em><br><strong>禁止例：</strong>BがAの代理人でありながら自分自身がCとして買う（自己契約）はA本人の許諾がないと禁止。BとAどちらの利益も守れないから。'
   },
   {
     tag:'民法等', title:'無権代理と表見代理',
-    body:'権限なく代理行為を行う無権代理と、外観を信頼した相手方を保護する表見代理。',
+    keywords:['無権代理','表見代理'],
+    body:'代理権のない者が代理人として契約した場合（無権代理）。外観を信頼した相手方を保護する仕組みが<strong>表見代理</strong>。普通の無権代理との違いがポイント。',
     points:[
-      '無権代理：本人に効果帰属なし。本人が追認すれば有効（遡及効）',
-      '無権代理人の責任：相手方が善意無過失なら、履行または損害賠償を請求可',
-      '表見代理①：代理権授与の表示（109条）',
-      '表見代理②：権限外の行為・権限超越（110条）',
-      '表見代理③：代理権消滅後の行為（112条）'
-    ]
+      '<strong>無権代理</strong>：本人が<strong>追認</strong>すれば有効（行為時に遡及）。追認を拒絶すると無効確定',
+      '無権代理人の責任：相手方が<strong>善意無過失</strong>の場合、相手方の選択で<strong>履行または損害賠償</strong>を請求可',
+      '<strong>表見代理①（109条）</strong>：代理権授与の表示があった場合',
+      '<strong>表見代理②（110条）</strong>：権限外の行為（代理権を超えた行為）',
+      '<strong>表見代理③（112条）</strong>：代理権消滅後の行為'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-box highlight" style="margin-bottom:0.5rem;text-align:center">Bが無権代理でCと契約（AはBに代理権を与えていない）</div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok">Aが追認<br>→有効（遡及）</div><div class="diagram-box result-ng">Aが拒絶<br>→無効確定</div><div class="diagram-box result-ok">表見代理成立<br>→Aに効果帰属</div></div></div>',
+    example:'<strong>無権代理の例：</strong>Bが勝手に「Aの代理人」として、AのマンションをCに売却した。AはBに代理権を与えていなかった。<br>→ <em>AがCとの契約を追認すれば売買は有効。追認拒絶なら無効。Cが善意無過失ならBに損害賠償請求可。</em><br><br><strong>表見代理（112条）の例：</strong>AがBに「土地売買の代理権を与えたが後に撤回」したのに、BがCと売買契約した場合 → <em>Cが善意かつ無過失なら表見代理成立→AにCとの契約効果が帰属。</em>'
   },
   {
     tag:'民法等', title:'物権変動と対抗要件',
-    body:'不動産の物権変動（所有権移転など）は、<strong>登記</strong>をしなければ第三者に対抗できない。',
+    keywords:['物権変動','登記','対抗要件'],
+    body:'不動産の所有権は<strong>意思表示だけで移転</strong>するが、それを第三者に主張するには<strong>登記</strong>が必要（民法177条）。二重譲渡が最頻出テーマ。',
     points:[
-      '当事者間では意思表示のみで所有権移転（登記は不要）',
-      '第三者への対抗には登記が必要（民法177条）',
-      '背信的悪意者には登記なしで対抗可（判例）',
-      '動産は引渡しが対抗要件（民法178条）',
-      '不法占有者・不法行為者は第三者に該当しない（登記なしで対抗可）'
-    ]
+      '当事者間：登記なしで所有権移転（売買契約締結と同時）',
+      '第三者への対抗：<strong>先に登記</strong>した方が勝つ（善悪は問わない）',
+      '<strong>背信的悪意者</strong>：単なる悪意では負けない。妨害目的の背信的悪意者には登記なしで対抗可（判例）',
+      '動産：引渡しが対抗要件（178条）',
+      '不法占有者・不法行為者は「第三者」に該当しない'
+    ],
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.4rem"><span class="diagram-box person" style="display:inline-block">A（土地の元所有者）</span></div><div style="display:flex;justify-content:center;gap:1rem;margin-bottom:0.4rem"><div><span class="diagram-box">①B に売却（登記未了）</span></div><div><span class="diagram-box">②C にも売却（登記済）</span></div></div><div class="diagram-box result-ok">先に登記したCが勝つ → Bは所有権を主張できない</div></div>',
+    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>'
   },
   {
-    tag:'民法等', title:'占有権・取得時効',
-    body:'占有という<strong>事実状態</strong>に基づく権利。一定期間占有を続けると所有権を取得できる。',
+    tag:'民法等', title:'占有権と取得時効',
+    keywords:['取得時効','即時取得','占有'],
+    body:'他人の物を占有し続けると所有権を取得できる<strong>取得時効</strong>と、取引で動産を取得した場合に即座に所有権を得る<strong>即時取得</strong>。時効期間の数字を確実に覚えよう。',
     points:[
-      '取得時効：善意無過失で<strong>10年</strong>、悪意または有過失で<strong>20年</strong>の占有で成立',
-      '自主占有（所有の意思あり）が必要。他主占有は時効取得不可',
-      '即時取得：動産を取引で善意無過失で占有取得→即座に所有権取得（192条）',
-      '占有の訴え（占有訴権）：占有が妨害された場合に回復を求める訴え'
-    ]
+      '<strong>取得時効（162条）</strong>：<em>自主占有</em>（所有の意思あり）が必要',
+      '善意無過失：<strong>10年</strong>の占有で成立。悪意または有過失：<strong>20年</strong>で成立',
+      '<strong>即時取得（192条）</strong>：動産を取引で平穏・公然・善意・無過失で占有→即座に所有権等を取得',
+      '即時取得の例外：盗品・遺失物は<em>2年以内</em>なら被害者が回復請求可（競売・公市では代価弁償が必要）',
+      '占有の訴え（占有訴権）：妨害回復・妨害排除・妨害予防の3種類'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>善意無過失</th><th>悪意/有過失</th><th>対象</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">10年</td><td class="warn">20年</td><td>不動産・動産</td></tr><tr><td>即時取得</td><td class="ok">即座に取得</td><td class="ng">不可</td><td>動産のみ</td></tr></tbody></table>',
+    example:'<strong>取得時効の例：</strong>Aが20年間、隣のBの土地を自分の土地と思い込んで（善意無過失で）畑として使ってきた場合（10年で成立）。時効を援用すれば所有権取得。<br><br><strong>即時取得の例：</strong>中古車販売店でCが善意・無過失で車を購入したが、実はその車は盗難車だった → <em>Cは即時取得で所有権を取得。ただし被害者は2年以内なら回復請求可。</em>'
   },
   {
     tag:'民法等', title:'地上権・地役権・用益物権',
-    body:'他人の土地を一定目的で利用できる物権。賃借権より強い対抗力を持つ。',
+    keywords:['地上権','地役権','用益物権'],
+    body:'他人の土地を一定の目的のために使える<strong>用益物権</strong>。賃借権（債権）と異なり物権なので、登記すれば誰にでも主張できる強い権利。',
     points:[
-      '地上権：他人の土地に工作物または竹木を所有するための権利。登記で第三者対抗',
-      '地役権：承役地を要役地の便益のために利用する権利（例：通行地役権）',
-      '永小作権：他人の土地で耕作・牧畜。存続期間20〜50年',
-      '物権は債権より優先（物権的請求権）。無断で設定変更は不可'
-    ]
+      '<strong>地上権</strong>：他人の土地に<strong>工作物や竹木を所有</strong>するための権利。登記で第三者対抗',
+      '<strong>地役権</strong>：他人の土地（承役地）を自分の土地（要役地）の便益のために使う権利（例：通行・引水）',
+      '地役権は要役地の所有権移転に伴い移転する（<strong>付従性</strong>）。独立した譲渡は不可',
+      '<strong>永小作権</strong>：他人の土地で耕作・牧畜を行う権利（存続期間20〜50年）',
+      '用益物権は物権なので<strong>物権的請求権</strong>がある（妨害排除・返還請求等）'
+    ],
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.5rem">【通行地役権のイメージ】</div><div class="diagram-flow" style="justify-content:center"><div class="diagram-box person">A（要役地）<br>公道に出られない</div><span class="diagram-arrow">─通行地役権─</span><div class="diagram-box highlight">B（承役地）<br>AがBの土地を通行可</div><span class="diagram-arrow">→</span><div class="diagram-box">公道</div></div><div style="color:var(--muted);margin-top:0.4rem;font-size:0.72rem">地役権は登記すれば承役地の新所有者にも主張可</div></div>',
+    example:'<strong>地役権（通行地役権）の例：</strong>AさんのB土地は公道に面していない（袋地）。隣のC土地（承役地）を通らないと外に出られない。AがCと通行地役権の設定契約をし登記した場合 → <em>その後CがDに土地を売ってもDはAの通行を拒否できない（地役権の付従性・登記による対抗）。</em>'
   },
   {
-    tag:'民法等', title:'抵当権のポイント',
-    body:'<strong>抵当権</strong>は、債務者の財産を担保にしながら債務者が使用・収益できる非占有型担保物権。',
+    tag:'民法等', title:'抵当権のポイントと法定地上権',
+    keywords:['抵当権','法定地上権'],
+    body:'<strong>抵当権</strong>は不動産を担保にしながら、債務者が住み続けられる非占有型の担保物権。競売になった時に生じる<strong>法定地上権</strong>が最頻出。',
     points:[
-      '不動産・地上権・永小作権に設定可能',
-      '抵当権実行：競売で換価し、他の債権者に優先して弁済を受ける',
-      '法定地上権：土地と建物が同一所有で抵当権実行→別人所有になった建物のために自動発生',
-      '根抵当権：一定範囲の不特定債権を極度額まで担保する'
-    ]
+      '設定できるもの：不動産・地上権・永小作権（<strong>動産には設定不可</strong>）',
+      '抵当権実行：期限の利益喪失後→競売申立→換価→優先弁済',
+      '<strong>法定地上権（388条）の成立要件</strong>：①設定時に土地・建物が同一所有者 ②土地または建物に抵当権設定 ③競売で土地と建物が別人所有になった',
+      '3要件すべて満たすと建物のために地上権が<strong>自動発生</strong>（契約不要）'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">Aが土地に抵当権設定（3000万）</div><span class="diagram-arrow">→返済不能</span><div class="diagram-box result-ng">競売実行</div></div><div style="display:flex;gap:0.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap"><div class="diagram-box result-ng">土地→Bが購入</div><div class="diagram-box highlight">建物→Aのまま</div></div><div class="diagram-box result-ok">法定地上権自動発生 → AはBの土地に建物を置ける</div></div>',
+    example:'<strong>法定地上権の例：</strong>AはA所有の土地と建物のうち、<em>土地にのみ</em>銀行の抵当権を設定した。返済できず競売になり、Bが土地を競落した。<br>→ <em>建物（Aのまま）のために法定地上権が自動発生。AはBの土地を使えるので建物を取り壊す必要がない。</em><br><strong>不成立の例：</strong>抵当権設定時に建物が存在しなかった場合は法定地上権不成立。'
   },
   {
     tag:'民法等', title:'根抵当権',
-    body:'一定の範囲に属する<strong>不特定の債権</strong>を極度額の限度において担保する抵当権。継続的取引に利用。',
+    keywords:['根抵当権'],
+    body:'特定の取引から生じる<strong>不特定の債権</strong>を、あらかじめ決めた上限（極度額）まで担保する抵当権。銀行と企業の継続取引でよく使われる。普通抵当権との違いを整理しよう。',
     points:[
-      '極度額：担保される債権の上限。登記が必要',
-      '元本確定前：被担保債権の範囲・極度額・債務者の変更可（後順位者の承諾不要）',
-      '元本確定後：通常の抵当権と同様の扱い。被担保債権が特定する',
-      '確定事由：当事者の合意・競売申立て・破産手続き開始等'
-    ]
+      '<strong>極度額</strong>：担保の上限額。登記が必要（登記なしは無効）',
+      '元本確定前：被担保債権の範囲・極度額・債務者を<strong>変更可</strong>（後順位抵当権者の承諾不要）',
+      '元本確定後：通常の抵当権と同様に扱われる（債権額が特定）',
+      '<strong>確定事由</strong>：当事者の合意・3年後の確定請求・競売申立・差押え・破産開始決定等',
+      '極度額の変更：後順位抵当権者等の利害関係人の<strong>承諾が必要</strong>'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通抵当権</th><th>根抵当権</th></tr></thead><tbody><tr><td>担保する債権</td><td>特定の1つの債権</td><td>不特定（範囲内で何度でも）</td></tr><tr><td>極度額</td><td>なし</td><td class="warn">あり（登記必要）</td></tr><tr><td>弁済後の消滅</td><td class="ok">消滅（付従性）</td><td class="ng">消滅しない</td></tr><tr><td>元本確定前の変更</td><td>—</td><td class="ok">変更可</td></tr></tbody></table>',
+    example:'<strong>根抵当権の例：</strong>A会社がB銀行から継続的に運転資金を借りる場合、毎回抵当権を設定し直すのは手間。そこでA会社の工場に<em>極度額5000万円の根抵当権</em>をB銀行のために設定。→ <em>5000万円の範囲内なら、何度借りても担保として機能。返済しても根抵当権は消えず、また借りられる（普通抵当権とは異なる）。</em>'
   },
   {
     tag:'民法等', title:'売買・手付・危険負担',
-    body:'売買は最も基本的な有償契約。<strong>手付</strong>は解除権留保機能を持ち、危険負担は改正民法で変更された。',
+    keywords:['手付解除','危険負担'],
+    body:'売買契約の基本ルールと、手付による解除、天災などで目的物が滅失した場合の扱い（危険負担）。<strong>手付解除のタイミング</strong>が最頻出。',
     points:[
-      '手付解除：買主は手付放棄、売主は手付倍額返還で解除可（<strong>相手方が履行に着手する前</strong>まで）',
+      '手付（解約手付）：買主は<strong>手付を放棄</strong>して解除可。売主は<strong>手付の倍額を現実提供</strong>して解除可',
+      '<strong>相手方が履行に着手した後</strong>は手付解除不可（重要！）',
       '手付の種類：解約手付（原則）・証約手付・違約手付',
-      '危険負担（改正民法）：引渡前に天災で目的物滅失→買主は代金支払を拒絶可',
-      '移転登記費用：買主負担が原則、引渡費用：売主負担が原則'
-    ]
+      '<strong>危険負担（改正民法）</strong>：引渡前に天災で目的物が滅失→買主は代金支払を<strong>拒絶可</strong>（反対給付拒絶権）',
+      '移転登記費用：買主負担。引渡し費用：売主負担'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow" style="justify-content:center;margin-bottom:0.5rem"><div class="diagram-box highlight">手付200万を払って土地1000万売買契約</div></div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.72rem">買主から解除<br>→手付200万を放棄</div><div class="diagram-box result-ng" style="font-size:0.72rem">売主から解除<br>→200万×2＝400万返す</div></div><div class="diagram-box result-ng" style="margin-top:0.5rem;font-size:0.72rem">⚠ 相手方が「履行に着手」した後は手付解除 ✕</div></div>',
+    example:'<strong>手付解除の例：</strong>AがBに土地（1000万円）を売り、BがAに手付金100万円を払った。その後Aが「やっぱり売りたくない」と言い出した場合 → <em>Aが解除するなら100万×2＝200万をBに返還して解除可。ただしBがすでに残金の準備をして（履行の着手）いたら解除不可。</em>'
   },
   {
     tag:'民法等', title:'契約不適合責任',
-    body:'民法改正（2020年）で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」へ改称・整理された。',
+    keywords:['契約不適合責任'],
+    body:'2020年民法改正で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」に変わった。買った物が契約通りでない場合に使える<strong>4つの救済手段</strong>を覚えよう。',
     points:[
-      '種類・品質・数量の不適合→追完請求・代金減額請求・解除・損害賠償が可能',
-      '期間制限：不適合を<strong>知った時から1年以内</strong>に売主に通知が必要',
-      '売主が不適合を知っていた場合は期間制限なし（悪意の売主保護不要）',
-      '宅建業法（8種規制）：宅建業者が売主→<strong>2年以上</strong>の担保期間が必要'
-    ]
+      '適用される不適合：種類・品質・数量の不適合（契約内容と違う）',
+      '4つの救済手段：①<strong>追完請求</strong>（修補・代替物引渡等）②<strong>代金減額請求</strong>③<strong>解除</strong>④<strong>損害賠償</strong>',
+      '<strong>通知期間：</strong>不適合を<em>知った時から1年以内</em>に売主に通知が必要',
+      '売主が悪意・重過失の場合は期間制限なし',
+      '<strong>宅建業法（8種規制）</strong>：宅建業者が売主なら最低<strong>2年以上</strong>の担保期間が必要（1年以下の特約は無効）'
+    ],
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div class="diagram-box highlight" style="margin-bottom:0.5rem">引き渡された物が契約内容と違う（不適合）</div><div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center"><div class="diagram-box result-ok" style="font-size:0.7rem">①追完請求<br>修理/取替</div><div class="diagram-box result-ok" style="font-size:0.7rem">②代金減額<br>請求</div><div class="diagram-box result-ok" style="font-size:0.7rem">③解除<br>帰責事由不要</div><div class="diagram-box result-ok" style="font-size:0.7rem">④損害賠償<br>売主の過失必要</div></div></div>',
+    example:'<strong>具体例：</strong>AがBから「雨漏りなし・築10年」の説明でマンションを2000万円で購入した。入居後に大雨で雨漏りが発覚。実は築15年で長年雨漏りがあった場合 → <em>Aは修繕をBに請求（追完請求）・代金減額・損害賠償ができる。不適合を知った時から1年以内にBに通知が必要。</em>'
   },
   {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
-    body:'<strong>借地借家法</strong>は民法の特則として賃借人（借地人・借家人）を強く保護する法律。',
+    keywords:['借地権','賃貸借','対抗力'],
+    body:'<strong>借地借家法</strong>は民法のルールを上書きして、弱い立場の借地人・借家人を保護する法律。「貸主から追い出されにくくする」仕組みを理解しよう。',
     points:[
-      '借地権の存続期間：最短<strong>30年</strong>（30年未満の定めは30年とみなす）',
-      '建物賃貸借の更新拒絶：貸主側に<strong>正当事由</strong>が必要（老朽化・高度利用等）',
-      '対抗力：借地→建物登記、借家→<strong>建物の引渡し</strong>で第三者に対抗可',
-      '賃貸借は特定承継人にも効力を及ぼす（引渡しによる対抗力がある場合）'
-    ]
+      '<strong>借地権</strong>（建物の所有目的で土地を借りる）：最短<strong>30年</strong>。30年未満の特約は無効',
+      '対抗力：借地権は<em>借地上の建物の登記</em>があれば第三者に対抗可（土地の登記は不要！）',
+      '<strong>借家権</strong>（建物を借りる）：対抗力は<em>建物の引渡し</em>（鍵をもらうだけでOK）',
+      '貸主からの更新拒絶・解約：<strong>正当事由</strong>が必要（自分で使う必要性・高度利用等）',
+      '造作買取請求権：借家人が造作（エアコン等）を設置した場合、退去時に買取請求可'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>借地権</th><th>借家権</th></tr></thead><tbody><tr><td>最短存続期間</td><td class="warn">30年</td><td>制限なし</td></tr><tr><td>対抗力の取得方法</td><td><strong>借地上の建物の登記</strong></td><td><strong>建物の引渡し</strong></td></tr><tr><td>貸主からの更新拒絶</td><td colspan="2" class="warn">正当事由が必要</td></tr></tbody></table>',
+    example:'<strong>借地の対抗力の例：</strong>AがBの土地を借りて自分で建物を建て、建物をA名義で登記した。その後BがCに土地を売った場合 → <em>AはCに対して借地権を主張できる（建物の登記があるため）。土地の賃借権自体の登記がなくてもOK。</em>'
   },
   {
     tag:'民法等', title:'借地権の種類（普通・定期）',
-    body:'借地権には更新の有無・用途により複数の種類がある。存続期間と契約方式の違いが頻出。',
+    keywords:['定期借地権','借地権'],
+    body:'借地権には<strong>普通借地権</strong>（更新あり）と<strong>定期借地権</strong>（更新なし）の2系統がある。更新の有無・存続期間・契約方式の違いをしっかり区別しよう。',
     points:[
-      '普通借地権：最短30年。更新→1回目20年・2回目以降10年',
-      '一般定期借地権：<strong>50年以上</strong>。更新なし・建物買取請求なし。書面で契約',
-      '事業用定期借地権：<strong>10年以上50年未満</strong>。事業用建物のみ。<strong>公正証書</strong>で必須',
-      '建物譲渡特約付借地権：30年以上。期間満了時に地主が建物を相当価格で買取'
-    ]
+      '<strong>普通借地権</strong>：最短30年。期間満了後は更新可（1回目20年、2回目以降10年）',
+      '<strong>一般定期借地権</strong>：<em>50年以上</em>。書面で契約。更新なし・建物買取請求なし',
+      '<strong>事業用定期借地権</strong>：<em>10年以上50年未満</em>。<strong>公正証書</strong>で契約必須。事業用建物のみ（住居不可）',
+      '<strong>建物譲渡特約付借地権</strong>：30年以上。期間満了時に地主が建物を相当対価で買取'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>期間</th><th>更新</th><th>契約方式</th></tr></thead><tbody><tr><td>普通借地権</td><td>30年〜</td><td class="ok">あり</td><td>制限なし</td></tr><tr><td>一般定期</td><td class="warn">50年以上</td><td class="ng">なし</td><td>書面</td></tr><tr><td>事業用定期</td><td class="warn">10〜50年未満</td><td class="ng">なし</td><td class="warn">公正証書必須</td></tr><tr><td>建物譲渡特約</td><td>30年以上</td><td class="ng">なし</td><td>制限なし</td></tr></tbody></table>',
+    example:'<strong>事業用定期借地権の例：</strong>コンビニが土地を20年間借りてコンビニ店舗を建てるケース。住居ではなく事業用なので、<em>公正証書での契約が必須</em>。20年後には確実に土地が返ってくる（更新なし）ため、地主にとってメリットが大きい。'
   },
   {
     tag:'民法等', title:'建物賃貸借（借家権）',
-    body:'建物の賃貸借に関する借地借家法の規定。借家人保護が手厚い。定期借家との区別が重要。',
+    keywords:['定期建物賃貸借'],
+    body:'建物の賃貸借に関するルール。<strong>普通借家</strong>（貸主から解約しにくい）と<strong>定期借家</strong>（期間満了で終了）の違いが最重要。定期借家の手続きを正確に覚えよう。',
     points:[
-      '期間：1年未満の定めは<strong>期間の定めなし</strong>とみなす（定期借家は除く）',
-      '更新拒絶：貸主側からは正当事由が必要（6か月前通知が必要）',
-      '定期建物賃貸借：1年以上の場合、<strong>書面で事前説明</strong>が必要。再契約制度あり',
-      '居住用の定期借家の中途解約：床面積200㎡未満の場合、特別の事情があれば解約可'
-    ]
+      '<strong>普通借家</strong>：期間1年未満の定めは「期間の定めなし」とみなす',
+      '貸主からの更新拒絶：正当事由が必要＋<strong>6か月前</strong>通知',
+      '<strong>定期建物賃貸借</strong>：更新なし。<em>書面</em>（公正証書でなくてもよい）で事前説明が必要',
+      '1年以上の定期借家：期間満了の<strong>1年前〜6か月前</strong>に貸主から終了通知が必要',
+      '<strong>居住用で床面積200㎡未満</strong>の定期借家：やむを得ない事情があれば借家人から中途解約可'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通借家</th><th>定期借家</th></tr></thead><tbody><tr><td>更新</td><td class="ok">あり（正当事由必要）</td><td class="ng">なし（再契約制度あり）</td></tr><tr><td>契約方式</td><td>制限なし</td><td class="warn">書面＋事前説明必須</td></tr><tr><td>1年未満の定め</td><td class="warn">期間の定めなしとみなす</td><td class="ok">有効</td></tr></tbody></table>',
+    example:'<strong>定期借家の注意点：</strong>貸主が「1年後には必ず返してほしい」と思うなら定期借家契約にすべき。普通借家だと正当事由がないと解約できない。<br>→ <em>定期借家は契約前に「この契約は更新がない」と書面で説明しなければならない。口頭だけでは定期借家の効力がなく普通借家になってしまう（重要！）。</em>'
   },
   {
-    tag:'民法等', title:'時効制度（取得・消滅）',
-    body:'一定期間の経過により権利を取得または消滅させる制度。<strong>時効の援用</strong>が必要。',
+    tag:'民法等', title:'時効制度（取得時効・消滅時効）',
+    keywords:['消滅時効','取得時効'],
+    body:'<strong>時効</strong>は「一定期間経過＋援用」で権利の得喪が確定する制度。時効は自動では成立せず、<strong>援用（主張）</strong>が必要。数字を正確に覚えよう。',
     points:[
-      '取得時効：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有で成立',
-      '消滅時効：権利行使できると知った時から<strong>5年</strong> or 権利行使可能な時から<strong>10年</strong>',
-      '時効の完成猶予：裁判上の請求・差押え・仮処分・承認等で一時停止',
-      '時効の更新：確定判決・権利の承認等→新たに時効が進行開始'
-    ]
+      '<strong>取得時効</strong>：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有',
+      '<strong>消滅時効</strong>：権利を行使できると<em>知った時から5年</em>（主観） or <em>行使可能な時から10年</em>（客観）のどちらか早い方',
+      '<strong>時効の完成猶予</strong>：裁判上の請求・差押え・仮処分・承認→時効の進行が一時停止',
+      '<strong>時効の更新</strong>：確定判決・権利の承認→ゼロから新たに時効が進行',
+      '時効の利益の放棄：時効完成後は可、完成前は不可'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>短期（善意/主観）</th><th>長期（悪意/客観）</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">善意無過失: 10年</td><td class="warn">それ以外: 20年</td></tr><tr><td>消滅時効</td><td class="ok">知った時から: 5年</td><td class="warn">行使可能から: 10年</td></tr></tbody></table>',
+    example:'<strong>消滅時効の例：</strong>AがBに100万円を貸した（返済期限：2020年4月1日）。Aが返済請求できると知りながら5年間放置した場合 → <em>2025年4月1日にBが消滅時効を援用すれば、Aの貸金債権は消滅。</em><br>Bが「払います」と認めた（権利の承認）場合→時効が更新されゼロから再スタート。'
   },
   {
-    tag:'民法等', title:'相続の基本',
-    body:'<strong>相続</strong>は被相続人の死亡で開始し、財産・債務を包括的に承継する。法定相続分の数字を確実に覚える。',
+    tag:'民法等', title:'相続の基本（法定相続分）',
+    keywords:['代襲相続','相続放棄'],
+    body:'被相続人が死亡すると相続が開始し、財産と負債を一括で引き継ぐ。<strong>法定相続分の数字</strong>（1/2・1/3・1/4）は試験に必ず出る。表で整理しよう。',
     points:[
-      '配偶者＋子：各<strong>1/2</strong>（子が複数なら均等分割）',
-      '配偶者＋直系尊属：配偶者<strong>2/3</strong>・尊属<strong>1/3</strong>',
-      '配偶者＋兄弟姉妹：配偶者<strong>3/4</strong>・兄弟姉妹<strong>1/4</strong>',
-      '相続放棄：<strong>3か月以内</strong>に家庭裁判所へ申述（限定承認も同様）',
-      '代襲相続：子が先死の場合は孫、兄弟姉妹が先死の場合は甥姪が代襲'
-    ]
+      '第1順位：子（なければ孫→ひ孫）＋配偶者 → 各<strong>1/2</strong>',
+      '第2順位：直系尊属（親・祖父母）＋配偶者 → 配偶者<strong>2/3</strong>・尊属<strong>1/3</strong>',
+      '第3順位：兄弟姉妹＋配偶者 → 配偶者<strong>3/4</strong>・兄弟姉妹<strong>1/4</strong>',
+      '<strong>代襲相続</strong>：子が先死・欠格・廃除の場合→その子（孫）が代襲。放棄は代襲不可',
+      '<strong>相続放棄</strong>：相続開始を知った時から<strong>3か月</strong>以内に家裁へ申述'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>相続人の組合せ</th><th>配偶者の取り分</th><th>その他の取り分</th></tr></thead><tbody><tr><td>配偶者＋子</td><td class="warn">1/2</td><td class="warn">1/2（子で均等割）</td></tr><tr><td>配偶者＋直系尊属</td><td class="warn">2/3</td><td class="warn">1/3</td></tr><tr><td>配偶者＋兄弟姉妹</td><td class="warn">3/4</td><td class="warn">1/4</td></tr></tbody></table>',
+    example:'<strong>法定相続分の例：</strong>Aが遺言なしで死亡。遺産は3000万円。相続人は配偶者B・子C・子D（Cは先死しており孫Eがいる）の場合。<br>→ <em>B（配偶者）が1500万円。C・Dで残り1500万円を均等割→各750万円のはずだが、Cは死亡のため孫Eが代襲相続で750万円取得。</em>'
   },
   {
     tag:'民法等', title:'遺言と遺留分',
-    body:'遺言は最終意思を法的に有効にする制度。<strong>遺留分</strong>は相続人が最低限受け取れる割合。',
+    keywords:['自筆証書遺言','公正証書遺言','遺留分'],
+    body:'遺言は自分の財産を自由に分配するための制度。ただし相続人には最低限の取り分（<strong>遺留分</strong>）が保障されており、遺言でも侵害できない。',
     points:[
-      '自筆証書遺言：全文・日付・氏名を自書＋押印。財産目録のみパソコン可（改正）',
-      '公正証書遺言：公証人が作成。家庭裁判所の検認不要で最も確実',
-      '遺留分割合：直系尊属のみ＝<strong>遺産の1/3</strong>、それ以外＝<strong>遺産の1/2</strong>',
-      '兄弟姉妹には遺留分なし',
-      '遺留分侵害額請求権：金銭での請求権（改正民法。現物返還は不可）'
-    ]
+      '<strong>自筆証書遺言</strong>：全文・日付・氏名を自書＋押印。財産目録のみパソコン可。法務局保管→検認不要',
+      '<strong>公正証書遺言</strong>：公証人が作成＋証人2人。最も確実。検認不要',
+      '秘密証書遺言：自書でなくてもよいが家裁の<strong>検認が必要</strong>',
+      '<strong>遺留分</strong>：直系尊属のみが相続人＝遺産の<strong>1/3</strong>、それ以外＝遺産の<strong>1/2</strong>',
+      '兄弟姉妹には<strong>遺留分なし</strong>。遺留分侵害額請求権は金銭支払を求める請求権（改正民法）'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>自筆証書</th><th>公正証書</th><th>秘密証書</th></tr></thead><tbody><tr><td>自書</td><td class="ok">必須（目録除く）</td><td class="ng">不要</td><td class="ng">不要</td></tr><tr><td>証人</td><td class="ng">不要</td><td class="ok">2人以上</td><td class="ok">2人以上</td></tr><tr><td>家裁の検認</td><td class="warn">原則必要<br>（法務局保管は不要）</td><td class="ok">不要</td><td class="ng">必要</td></tr></tbody></table>',
+    example:'<strong>遺留分の例：</strong>Aが「全財産6000万円を愛人Dに遺贈する」という遺言を残して死亡。相続人は配偶者Bと子C。<br>→ <em>B・Cには遺留分（遺産の1/2）がある。B：6000万×1/2×1/2＝1500万円、C：同じく1500万円分を遺留分侵害額請求でDに金銭請求できる。</em>'
   },
   {
     tag:'民法等', title:'連帯債務・保証・連帯保証',
-    body:'複数人が債務を負う形態。<strong>催告・検索の抗弁権</strong>の有無が保証と連帯保証の最大の違い。',
+    keywords:['連帯債務','連帯保証'],
+    body:'複数の人が同じ債務を負う形態。<strong>普通保証</strong>は「まず本人に請求してくれ」と言えるが、<strong>連帯保証</strong>は言えない。この違いが試験の核心。',
     points:[
-      '連帯債務：各債務者が独立して全額の弁済義務。債権者はどの債務者にも全額請求可',
-      '保証：主たる債務者が履行しない場合のみ責任。催告・検索の抗弁権あり',
-      '連帯保証：催告・検索の抗弁権<strong>なし</strong>。主債務と同等の責任',
-      '個人の根保証：極度額の定めが必要（改正民法）'
-    ]
+      '<strong>連帯債務</strong>：複数人が各自独立して全額の弁済義務。弁済・相殺・更改・混同は<strong>絶対的効力</strong>（全員に影響）',
+      '<strong>普通保証</strong>：主債務者が払わない場合のみ責任。<em>催告の抗弁権・検索の抗弁権</em>あり',
+      '<strong>連帯保証</strong>：催告・検索の抗弁権<strong>なし</strong>。主債務者と全く同じ責任を負う',
+      '保証債務の附従性：主債務が消滅→保証債務も消滅',
+      '<strong>個人の根保証</strong>：極度額の定めが必要（ないと保証契約が無効）'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通保証</th><th>連帯保証</th></tr></thead><tbody><tr><td>催告の抗弁権</td><td class="ok">あり<br>（まず本人に請求して）</td><td class="ng">なし</td></tr><tr><td>検索の抗弁権</td><td class="ok">あり<br>（本人の財産から取って）</td><td class="ng">なし</td></tr><tr><td>実質的負担</td><td>補充的</td><td class="ng">主債務者と同等</td></tr></tbody></table>',
+    example:'<strong>連帯保証の怖さの例：</strong>友人Aが銀行から3000万円を借り、Bが連帯保証人になった。Aが返済できなくなり銀行がBに請求した場合 → <em>連帯保証人Bは「まずAに請求してくれ」と言えない。銀行は最初からBに3000万円を全額請求できる。</em>'
   },
   {
-    tag:'民法等', title:'債権譲渡・相殺',
-    body:'債権の移転と消滅に関する重要制度。対抗要件の取得方法が試験頻出。',
+    tag:'民法等', title:'債権譲渡と相殺',
+    keywords:['債権譲渡の対抗要件','相殺'],
+    body:'<strong>債権譲渡</strong>は債権者が変わること。<strong>相殺</strong>はお互いの債権をチャラにすること。いずれも第三者への主張方法（対抗要件）がポイント。',
     points:[
-      '債権譲渡：債権者は<strong>債務者の同意なしに</strong>譲渡可（禁止特約は第三者に対抗不可）',
-      '債務者対抗要件：譲渡人から債務者への通知 or 債務者の承諾',
-      '第三者対抗要件：<strong>確定日付のある証書</strong>による通知または承諾',
-      '相殺：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示。遡及効あり'
-    ]
+      '債権譲渡：債務者の同意は不要（禁止特約があっても悪意の第三者以外は有効に取得）',
+      '<strong>債務者対抗要件</strong>：譲渡人から<em>債務者への通知</em> または <em>債務者の承諾</em>',
+      '<strong>第三者対抗要件</strong>：<em>確定日付のある証書</em>による通知または承諾（内容証明郵便等）',
+      '<strong>相殺</strong>：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示',
+      '相殺の効果：意思表示時に遡って消滅（<strong>遡及効</strong>）'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">A（元の債権者）</div><span class="diagram-arrow">→債権を譲渡→</span><div class="diagram-box person">C（新しい債権者）</div></div><div style="text-align:center;margin:0.4rem 0;color:var(--muted)">↑ B（債務者）への通知が対抗要件</div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.7rem">確定日付ある証書で通知<br>→ B・第三者への対抗可</div><div class="diagram-box result-ng" style="font-size:0.7rem">口頭の通知のみ<br>→ Bには対抗可、第三者は不可</div></div></div>',
+    example:'<strong>二重譲渡の例：</strong>AがBへの売掛金100万円の債権をCとDの両方に譲渡した（二重譲渡）。CがBに内容証明郵便（確定日付）で通知し、DはBへの口頭通知のみだった場合 → <em>確定日付のある通知が先のCが優先（Bにとっても第三者Dにとっても）。</em>'
   },
   {
     tag:'民法等', title:'不法行為・使用者責任',
-    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。宅建業法とも関連する。',
+    keywords:['使用者責任'],
+    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。会社員が業務中に事故を起こした場合、<strong>会社（使用者）も責任を負う</strong>のが使用者責任。',
     points:[
-      '一般不法行為（709条）：故意・過失＋損害＋因果関係が要件',
-      '使用者責任（715条）：被用者が業務執行中に損害を与えた場合、使用者も責任を負う',
-      '消滅時効：損害・加害者を知った時から<strong>3年</strong>（生命・身体の侵害は<strong>5年</strong>）',
-      '不法行為から<strong>20年</strong>で除斥期間（時効の更新なし）'
-    ]
+      '<strong>一般不法行為（709条）</strong>：①故意または過失 ②権利・利益の侵害 ③損害の発生 ④因果関係 のすべてが必要',
+      '<strong>使用者責任（715条）</strong>：被用者が<em>事業の執行について</em>第三者に損害→使用者も連帯責任',
+      '使用者の免責：相当の注意をしたか、注意をしても損害が生じた場合（立証が困難）',
+      '<strong>消滅時効</strong>：損害・加害者を知った時から<em>3年</em>（生命・身体は<em>5年</em>）',
+      '不法行為の時から<strong>20年</strong>（除斥期間）'
+    ],
+    diagram:'<div class="diagram-flow" style="flex-direction:column;gap:0.5rem"><div class="diagram-flow"><div class="diagram-box person">会社員B（被用者）</div><span class="diagram-arrow">業務中に事故</span><div class="diagram-box result-ng">被害者C</div></div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ng" style="font-size:0.72rem">B → 709条不法行為責任</div><div class="diagram-box result-ng" style="font-size:0.72rem">A会社 → 715条使用者責任<br>（Cへの賠償義務、BへはA社が求償可）</div></div></div>',
+    example:'<strong>使用者責任の例：</strong>宅建業者A社の従業員Bが、業務中（顧客の案内中）に自動車で交通事故を起こし歩行者Cに重傷を負わせた場合 → <em>Bはもちろんのこと、A社もCへの損害賠償責任を負う（使用者責任）。A社は賠償後、Bへの求償が可能。</em>'
   },
 
   /* ── 宅建業法（20枚） ── */
@@ -1524,36 +1688,36 @@ const ytData = [
 ================================================================ */
 const allCards = [
   /* ── 民法等（30枚） ── */
-  {cat:'民法等', word:'心裡留保', def:'真意と異なることを知りながら行う意思表示。原則として有効だが、相手方が悪意または有過失の場合は無効となる（民法93条）。'},
-  {cat:'民法等', word:'通謀虚偽表示', def:'相手方と通じて行う虚偽の意思表示。当事者間では無効だが、善意の第三者には無効を対抗できない（民法94条）。'},
-  {cat:'民法等', word:'錯誤', def:'意思表示の内容に重要な錯誤がある場合に取消可能（改正民法）。善意無過失の第三者に対抗できない。'},
-  {cat:'民法等', word:'詐欺・強迫', def:'詐欺による意思表示は取消可（善意無過失の第三者に対抗不可）。強迫による意思表示は取消可（第三者にも対抗可）。'},
-  {cat:'民法等', word:'表見代理', def:'代理権がないにもかかわらず代理権があるような外観を作り出した場合に、善意の相手方を保護するために本人に責任を負わせる制度（民法109・110・112条）。'},
-  {cat:'民法等', word:'無権代理', def:'代理権なしに行われた代理行為。本人に効果帰属しない。本人が追認すれば有効（遡及効あり）。無権代理人は善意無過失の相手方に履行または損害賠償義務を負う。'},
-  {cat:'民法等', word:'物権変動', def:'物権の発生・変更・消滅のこと。不動産の物権変動は登記をしなければ第三者に対抗できない（民法177条）。動産は引渡しが対抗要件（178条）。'},
-  {cat:'民法等', word:'即時取得', def:'動産を取引行為によって平穏・公然・善意・無過失で占有取得した者が即座に所有権等を取得する制度（民法192条）。盗品・遺失物は2年間回復請求可。'},
-  {cat:'民法等', word:'抵当権', def:'債務者または第三者が占有を移転せずに不動産を担保に供し、優先弁済を受ける権利（非占有型担保物権）。登記で第三者対抗。'},
-  {cat:'民法等', word:'法定地上権', def:'土地と建物が同一所有者の場合に抵当権が実行されて別人の所有になったとき、建物のために自動的に発生する地上権。競売で成立要件を判断。'},
-  {cat:'民法等', word:'根抵当権', def:'一定の範囲に属する不特定の債権を極度額の限度において担保する抵当権。継続的な取引関係に利用。元本確定前は債権の範囲変更可。'},
-  {cat:'民法等', word:'取得時効', def:'他人の物を一定期間占有し続けることで所有権等を取得できる制度。善意無過失なら10年、それ以外は20年の自主占有が必要（民法162条）。'},
-  {cat:'民法等', word:'消滅時効', def:'権利を行使できると知った時から5年、または権利行使可能な時から10年で権利が消滅する制度（改正民法）。時効の援用が必要。'},
-  {cat:'民法等', word:'連帯債務', def:'複数の債務者が各自独立して全額の弁済義務を負う債務形態。債権者はどの債務者にも全額請求できる。弁済・相殺等は全員に効力を及ぼす（絶対的効力）。'},
-  {cat:'民法等', word:'連帯保証', def:'保証人が主たる債務者と連帯して債務を負う形態。催告の抗弁権・検索の抗弁権がなく、主たる債務と同等の責任を負う。'},
-  {cat:'民法等', word:'契約不適合責任', def:'売主が引き渡した目的物の種類・品質・数量が契約の内容に適合しない場合に負う責任（改正民法）。追完・代金減額・解除・損害賠償が可能。知った時から1年以内の通知が必要。'},
-  {cat:'民法等', word:'手付解除', def:'手付が交付された場合、買主は手付を放棄し、売主は手付の倍額を返還することで契約を解除できる。ただし相手方が履行に着手した後はできない（民法557条）。'},
-  {cat:'民法等', word:'危険負担', def:'双務契約において、一方の債務が不可抗力等で履行不能になったとき、他方の債務がどうなるかの問題。改正民法では買主は代金支払を拒絶でき、反対給付義務は消滅しない。'},
-  {cat:'民法等', word:'借地権', def:'建物の所有を目的とする地上権または土地の賃借権。借地借家法により保護され、存続期間は最短30年。対抗力は借地上の建物の登記。'},
-  {cat:'民法等', word:'定期借地権', def:'更新のない借地権。①一般定期借地権（50年以上・書面）②事業用定期借地権（10〜50年未満・公正証書必須）③建物譲渡特約付借地権（30年以上）の3種類。'},
-  {cat:'民法等', word:'定期建物賃貸借', def:'更新のない建物賃貸借。貸主は契約前に書面で説明が必要。1年以上の場合は期間満了1年前〜6か月前に終了通知が必要。再契約制度あり。'},
-  {cat:'民法等', word:'遺留分', def:'遺言によっても侵害されない相続人の最低限の取り分。直系尊属のみ=遺産の1/3、それ以外=遺産の1/2。兄弟姉妹には遺留分なし。侵害額請求権は金銭請求。'},
-  {cat:'民法等', word:'代襲相続', def:'相続人（子・兄弟姉妹）が相続開始前に死亡・欠格・廃除された場合に、その者の子（孫・甥姪）が代わりに相続する制度。放棄の場合は代襲しない。'},
-  {cat:'民法等', word:'相続放棄', def:'相続人が相続の開始を知った時から3か月以内に家庭裁判所に申述することで相続を拒否できる制度。放棄すると最初から相続人でなかったとみなされる（代襲なし）。'},
-  {cat:'民法等', word:'自筆証書遺言', def:'遺言者が全文・日付・氏名を自書し押印した遺言。財産目録のみパソコン作成可（改正）。法務局での保管制度あり（検認不要）。'},
-  {cat:'民法等', word:'公正証書遺言', def:'公証人が証人2人以上の立会いのもとで作成する遺言。原本が公証役場に保管されるため最も確実。家庭裁判所の検認不要。'},
-  {cat:'民法等', word:'債権譲渡の対抗要件', def:'債務者対抗要件：譲渡人から債務者への通知または債務者の承諾。第三者対抗要件：確定日付のある証書による通知または承諾。'},
-  {cat:'民法等', word:'相殺', def:'自己が有する債権（自動債権）と相手方が有する債権（受動債権）を対当額で消滅させる意思表示。自動債権の弁済期が到来していることが必要。遡及効あり。'},
-  {cat:'民法等', word:'使用者責任', def:'被用者がその事業の執行について第三者に損害を加えた場合、使用者も賠償責任を負う（民法715条）。使用者は被用者に対し求償可能。'},
-  {cat:'民法等', word:'地役権', def:'他人の土地（承役地）を自己の土地（要役地）の便益のために利用する用益物権。例：通行地役権・引水地役権。要役地の所有権移転に伴い移転する（付従性）。'},
+  {cat:'民法等', word:'心裡留保', slideKeyword:'心裡留保', def:'真意と異なることを知りながら行う意思表示。原則として有効だが、相手方が悪意または有過失の場合は無効となる（民法93条）。'},
+  {cat:'民法等', word:'通謀虚偽表示', slideKeyword:'通謀虚偽表示', def:'相手方と通じて行う虚偽の意思表示。当事者間では無効だが、善意の第三者には無効を対抗できない（民法94条）。'},
+  {cat:'民法等', word:'錯誤', slideKeyword:'錯誤', def:'意思表示の内容に重要な錯誤がある場合に取消可能（改正民法）。善意無過失の第三者に対抗できない。'},
+  {cat:'民法等', word:'詐欺・強迫', slideKeyword:'詐欺', def:'詐欺による意思表示は取消可（善意無過失の第三者に対抗不可）。強迫による意思表示は取消可（第三者にも対抗可）。'},
+  {cat:'民法等', word:'表見代理', slideKeyword:'表見代理', def:'代理権がないにもかかわらず代理権があるような外観を作り出した場合に、善意の相手方を保護するために本人に責任を負わせる制度（民法109・110・112条）。'},
+  {cat:'民法等', word:'無権代理', slideKeyword:'無権代理', def:'代理権なしに行われた代理行為。本人に効果帰属しない。本人が追認すれば有効（遡及効あり）。無権代理人は善意無過失の相手方に履行または損害賠償義務を負う。'},
+  {cat:'民法等', word:'物権変動', slideKeyword:'物権変動', def:'物権の発生・変更・消滅のこと。不動産の物権変動は登記をしなければ第三者に対抗できない（民法177条）。動産は引渡しが対抗要件（178条）。'},
+  {cat:'民法等', word:'即時取得', slideKeyword:'占有権', def:'動産を取引行為によって平穏・公然・善意・無過失で占有取得した者が即座に所有権等を取得する制度（民法192条）。盗品・遺失物は2年間回復請求可。'},
+  {cat:'民法等', word:'抵当権', slideKeyword:'抵当権', def:'債務者または第三者が占有を移転せずに不動産を担保に供し、優先弁済を受ける権利（非占有型担保物権）。登記で第三者対抗。'},
+  {cat:'民法等', word:'法定地上権', slideKeyword:'法定地上権', def:'土地と建物が同一所有者の場合に抵当権が実行されて別人の所有になったとき、建物のために自動的に発生する地上権。競売で成立要件を判断。'},
+  {cat:'民法等', word:'根抵当権', slideKeyword:'根抵当権', def:'一定の範囲に属する不特定の債権を極度額の限度において担保する抵当権。継続的な取引関係に利用。元本確定前は債権の範囲変更可。'},
+  {cat:'民法等', word:'取得時効', slideKeyword:'時効制度', def:'他人の物を一定期間占有し続けることで所有権等を取得できる制度。善意無過失なら10年、それ以外は20年の自主占有が必要（民法162条）。'},
+  {cat:'民法等', word:'消滅時効', slideKeyword:'時効制度', def:'権利を行使できると知った時から5年、または権利行使可能な時から10年で権利が消滅する制度（改正民法）。時効の援用が必要。'},
+  {cat:'民法等', word:'連帯債務', slideKeyword:'連帯債務', def:'複数の債務者が各自独立して全額の弁済義務を負う債務形態。債権者はどの債務者にも全額請求できる。弁済・相殺等は全員に効力を及ぼす（絶対的効力）。'},
+  {cat:'民法等', word:'連帯保証', slideKeyword:'連帯債務', def:'保証人が主たる債務者と連帯して債務を負う形態。催告の抗弁権・検索の抗弁権がなく、主たる債務と同等の責任を負う。'},
+  {cat:'民法等', word:'契約不適合責任', slideKeyword:'契約不適合', def:'売主が引き渡した目的物の種類・品質・数量が契約の内容に適合しない場合に負う責任（改正民法）。追完・代金減額・解除・損害賠償が可能。知った時から1年以内の通知が必要。'},
+  {cat:'民法等', word:'手付解除', slideKeyword:'売買・手付', def:'手付が交付された場合、買主は手付を放棄し、売主は手付の倍額を返還することで契約を解除できる。ただし相手方が履行に着手した後はできない（民法557条）。'},
+  {cat:'民法等', word:'危険負担', slideKeyword:'売買・手付', def:'双務契約において、一方の債務が不可抗力等で履行不能になったとき、他方の債務がどうなるかの問題。改正民法では買主は代金支払を拒絶でき、反対給付義務は消滅しない。'},
+  {cat:'民法等', word:'借地権', slideKeyword:'借地借家法', def:'建物の所有を目的とする地上権または土地の賃借権。借地借家法により保護され、存続期間は最短30年。対抗力は借地上の建物の登記。'},
+  {cat:'民法等', word:'定期借地権', slideKeyword:'借地権の種類', def:'更新のない借地権。①一般定期借地権（50年以上・書面）②事業用定期借地権（10〜50年未満・公正証書必須）③建物譲渡特約付借地権（30年以上）の3種類。'},
+  {cat:'民法等', word:'定期建物賃貸借', slideKeyword:'建物賃貸借', def:'更新のない建物賃貸借。貸主は契約前に書面で説明が必要。1年以上の場合は期間満了1年前〜6か月前に終了通知が必要。再契約制度あり。'},
+  {cat:'民法等', word:'遺留分', slideKeyword:'遺言と遺留分', def:'遺言によっても侵害されない相続人の最低限の取り分。直系尊属のみ=遺産の1/3、それ以外=遺産の1/2。兄弟姉妹には遺留分なし。侵害額請求権は金銭請求。'},
+  {cat:'民法等', word:'代襲相続', slideKeyword:'相続の基本', def:'相続人（子・兄弟姉妹）が相続開始前に死亡・欠格・廃除された場合に、その者の子（孫・甥姪）が代わりに相続する制度。放棄の場合は代襲しない。'},
+  {cat:'民法等', word:'相続放棄', slideKeyword:'相続の基本', def:'相続人が相続の開始を知った時から3か月以内に家庭裁判所に申述することで相続を拒否できる制度。放棄すると最初から相続人でなかったとみなされる（代襲なし）。'},
+  {cat:'民法等', word:'自筆証書遺言', slideKeyword:'遺言と遺留分', def:'遺言者が全文・日付・氏名を自書し押印した遺言。財産目録のみパソコン作成可（改正）。法務局での保管制度あり（検認不要）。'},
+  {cat:'民法等', word:'公正証書遺言', slideKeyword:'遺言と遺留分', def:'公証人が証人2人以上の立会いのもとで作成する遺言。原本が公証役場に保管されるため最も確実。家庭裁判所の検認不要。'},
+  {cat:'民法等', word:'債権譲渡の対抗要件', slideKeyword:'債権譲渡', def:'債務者対抗要件：譲渡人から債務者への通知または債務者の承諾。第三者対抗要件：確定日付のある証書による通知または承諾。'},
+  {cat:'民法等', word:'相殺', slideKeyword:'債権譲渡', def:'自己が有する債権（自動債権）と相手方が有する債権（受動債権）を対当額で消滅させる意思表示。自動債権の弁済期が到来していることが必要。遡及効あり。'},
+  {cat:'民法等', word:'使用者責任', slideKeyword:'不法行為', def:'被用者がその事業の執行について第三者に損害を加えた場合、使用者も賠償責任を負う（民法715条）。使用者は被用者に対し求償可能。'},
+  {cat:'民法等', word:'地役権', slideKeyword:'地上権', def:'他人の土地（承役地）を自己の土地（要役地）の便益のために利用する用益物権。例：通行地役権・引水地役権。要役地の所有権移転に伴い移転する（付従性）。'},
 
   /* ── 宅建業法（30枚） ── */
   {cat:'宅建業法', word:'宅地建物取引業', def:'宅地または建物の売買・交換・貸借の媒介または代理を業として行うこと。免許が必要。'},
@@ -2322,11 +2486,19 @@ function renderSlide() {
         `<div class="slide-point"><span class="num">${i+1}</span><span>${p}</span></div>`
       ).join('')}</div>`
     : '';
+  const exampleHtml = s.example
+    ? `<div class="slide-example"><div class="slide-example-label">💡 具体例</div>${s.example}</div>`
+    : '';
+  const diagramHtml = s.diagram
+    ? `<div class="slide-diagram"><div class="slide-diagram-label">📊 図解</div>${s.diagram}</div>`
+    : '';
   card.innerHTML = `
     <div class="slide-tag">${s.tag}</div>
     <div class="slide-title">${s.title}</div>
     <div class="slide-body">${s.body}</div>
     ${pointsHtml}
+    ${diagramHtml}
+    ${exampleHtml}
   `;
   document.getElementById('slideCounter').textContent = `${currentSlide+1} / ${filteredSlides.length}`;
   document.getElementById('prevSlide').disabled = currentSlide === 0;
@@ -2411,6 +2583,23 @@ function renderFC() {
   document.getElementById('fcDef').textContent = card.def;
   document.getElementById('fcProgress').textContent = `${fcIndex+1} / ${fcDeck.length}`;
   document.getElementById('flashcard').classList.remove('flipped');
+  const linkArea = document.getElementById('fcSlideLink');
+  if (card.slideKeyword) {
+    linkArea.innerHTML = `<button class="fc-slide-btn" onclick="goToSlide('${card.cat}','${card.slideKeyword.replace(/'/g,"\\'")}');event.stopPropagation()">📖 スライドで復習</button>`;
+  } else {
+    linkArea.innerHTML = '';
+  }
+}
+
+function goToSlide(cat, keyword) {
+  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+  slideFilter = cat;
+  filteredSlides = slides.filter(s => s.tag === cat);
+  document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+  const idx = filteredSlides.findIndex(s => s.title.includes(keyword) || (s.keywords && s.keywords.some(k => keyword.includes(k))));
+  currentSlide = idx >= 0 ? idx : 0;
+  buildDots();
+  renderSlide();
 }
 
 function flipCard() {
