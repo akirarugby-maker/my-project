@@ -555,6 +555,59 @@
     }
     .fc-slide-btn:hover { background: rgba(240,165,0,0.25); }
 
+    /* SLIDE RETURN BAR */
+    .slide-return-bar {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(9,105,218,0.07);
+      border: 1px solid rgba(9,105,218,0.2);
+      border-radius: 10px;
+      padding: 0.55rem 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.82rem;
+      color: var(--blue);
+    }
+    .slide-return-bar.show { display: flex; }
+    .slide-return-btn {
+      background: rgba(9,105,218,0.12);
+      border: 1px solid rgba(9,105,218,0.3);
+      border-radius: 20px;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+    .slide-return-btn:hover { background: rgba(9,105,218,0.22); }
+
+    /* QUIZ SLIDE LINK */
+    .q-slide-link {
+      margin-top: 0.5rem;
+      display: none;
+    }
+    .q-slide-link.show { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .q-slide-btn {
+      background: rgba(9,105,218,0.08);
+      border: 1px solid rgba(9,105,218,0.25);
+      border-radius: 20px;
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .q-slide-btn:hover { background: rgba(9,105,218,0.18); }
+
     /* SLIDE REASON (趣旨) */
     .slide-reason {
       background: rgba(130,80,223,0.07);
@@ -696,6 +749,10 @@
 
 <!-- SLIDES -->
 <section id="slides" class="panel">
+  <div class="slide-return-bar" id="slideReturnBar">
+    <span id="slideReturnLabel"></span>
+    <button class="slide-return-btn" id="slideReturnBtn" onclick="returnFromSlide()"></button>
+  </div>
   <div class="slide-filter-row" id="slideFilters"></div>
   <div class="slide-nav">
     <button class="nav-btn" id="prevSlide" onclick="changeSlide(-1)">◀ 前へ</button>
@@ -3949,11 +4006,18 @@ const quizData = [
 /* ================================================================
    TAB SWITCHING
 ================================================================ */
+let slideReturnContext = null;
+
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+  if (id !== 'slides') {
+    slideReturnContext = null;
+    const bar = document.getElementById('slideReturnBar');
+    if (bar) bar.classList.remove('show');
+  }
 }
 
 /* ================================================================
@@ -4103,14 +4167,50 @@ function renderFC() {
 }
 
 function goToSlide(cat, keyword) {
+  slideReturnContext = { from: 'flash' };
+  _navigateToSlide(cat, keyword);
+}
+
+function goToSlideFromQuiz(cat, keyword) {
+  slideReturnContext = { from: 'quiz' };
+  _navigateToSlide(cat, keyword);
+}
+
+function _navigateToSlide(cat, keyword) {
   showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
-  const idx = filteredSlides.findIndex(s => s.title.includes(keyword) || (s.keywords && s.keywords.some(k => keyword.includes(k))));
+  const idx = keyword
+    ? filteredSlides.findIndex(s => s.title.includes(keyword) || (s.keywords && s.keywords.some(k => keyword.includes(k))))
+    : -1;
   currentSlide = idx >= 0 ? idx : 0;
   buildDots();
   renderSlide();
+  _updateReturnBar();
+}
+
+function _updateReturnBar() {
+  const bar = document.getElementById('slideReturnBar');
+  const label = document.getElementById('slideReturnLabel');
+  const btn = document.getElementById('slideReturnBtn');
+  if (slideReturnContext) {
+    const isFlash = slideReturnContext.from === 'flash';
+    label.textContent = isFlash ? 'フラッシュカードから移動中' : '問題演習から移動中';
+    btn.textContent = isFlash ? '← フラッシュカードに戻る' : '← 問題演習に戻る';
+    bar.classList.add('show');
+  } else {
+    bar.classList.remove('show');
+  }
+}
+
+function returnFromSlide() {
+  if (!slideReturnContext) return;
+  const dest = slideReturnContext.from === 'flash' ? 'flash' : 'quiz';
+  slideReturnContext = null;
+  _updateReturnBar();
+  const tabIndex = dest === 'flash' ? 4 : 5;
+  showTab(dest, document.querySelector(`.tab-btn:nth-child(${tabIndex})`));
 }
 
 function flipCard() {
@@ -4181,6 +4281,10 @@ function renderNextQ() {
       <span class="q-label">${['①','②','③','④'][i]}</span><span>${o}</span>
     </button>`
   ).join('');
+  const slideKeyword = q.slideKeyword || '';
+  const slideLink = `<div class="q-slide-link" id="qSlideLink-${qPointer}">
+    <button class="q-slide-btn" onclick="goToSlideFromQuiz('${q.cat}','${slideKeyword.replace(/'/g,"\\'")}')">📖 スライドで確認</button>
+  </div>`;
   card.innerHTML = `
     <div class="q-meta">
       <span class="q-tag ${q.catClass}">${q.cat}</span>
@@ -4189,6 +4293,7 @@ function renderNextQ() {
     <div class="q-text">${q.q}</div>
     <div class="q-options">${optsHtml}</div>
     <div class="q-explain" id="exp-${qPointer}">${q.exp}</div>
+    ${slideLink}
     <button class="next-q-btn" id="nextBtn-${qPointer}" onclick="advanceQ()">次の問題 →</button>
   `;
   area.innerHTML = '';
@@ -4209,6 +4314,7 @@ function selectOpt(btn, idx, ans, qIdx) {
   document.getElementById('scoreCorrect').textContent = scoreCorrect;
   document.getElementById('scoreTotal').textContent = scoreTotal;
   document.getElementById(`exp-${qIdx}`).classList.add('show');
+  document.getElementById(`qSlideLink-${qIdx}`).classList.add('show');
   document.getElementById(`nextBtn-${qIdx}`).classList.add('show');
 }
 
