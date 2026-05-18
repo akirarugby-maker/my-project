@@ -8,28 +8,28 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d1117;
-      --bg2: #161b22;
-      --border: rgba(255,255,255,0.1);
-      --accent: #f0a500;
+      --bg: #f8f9fa;
+      --bg2: #ffffff;
+      --border: rgba(0,0,0,0.1);
+      --accent: #d4920a;
       --accent2: #e05c2a;
-      --blue: #58a6ff;
-      --green: #3fb950;
-      --red: #f85149;
-      --purple: #bc8cff;
-      --text: #e6edf3;
-      --muted: #8b949e;
+      --blue: #0969da;
+      --green: #1a7f37;
+      --red: #cf222e;
+      --purple: #8250df;
+      --text: #1f2328;
+      --muted: #57606a;
     }
 
     body {
       font-family: 'Segoe UI', 'Hiragino Sans', 'Helvetica Neue', sans-serif;
-      background: linear-gradient(135deg, #0d1117 0%, #0d2137 50%, #1a0d2e 100%);
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8f0fe 50%, #f3eeff 100%);
       min-height: 100vh;
       color: var(--text);
     }
 
     header {
-      background: rgba(13,17,23,0.9);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 1rem 1.5rem;
@@ -53,7 +53,7 @@
       gap: 0.25rem;
       padding: 1rem 1.5rem 0;
       border-bottom: 1px solid var(--border);
-      background: rgba(13,17,23,0.7);
+      background: rgba(255,255,255,0.85);
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -100,7 +100,7 @@
       margin-bottom: 1.5rem;
     }
     .info-card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.03);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 0.9rem 1rem;
@@ -114,7 +114,7 @@
     .bar-label { display: flex; justify-content: space-between; font-size: 0.82rem; }
     .bar-label span:first-child { font-weight: 600; }
     .bar-label span:last-child { color: var(--muted); font-size: 0.75rem; }
-    .bar-bg { height: 10px; background: rgba(255,255,255,0.07); border-radius: 999px; overflow: hidden; }
+    .bar-bg { height: 10px; background: rgba(0,0,0,0.05); border-radius: 999px; overflow: hidden; }
     .bar-fill { height: 100%; border-radius: 999px; transition: width 0.8s ease; }
 
     .schedule-grid {
@@ -123,7 +123,7 @@
       gap: 0.7rem;
     }
     .month-card {
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 0.8rem;
@@ -141,7 +141,7 @@
       margin-bottom: 1rem;
     }
     .sf-btn {
-      background: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.04);
       border: 1px solid var(--border);
       border-radius: 20px;
       color: var(--muted);
@@ -169,7 +169,7 @@
     .slide-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.18);
       cursor: pointer;
       border: none;
       padding: 0;
@@ -178,7 +178,7 @@
     .slide-dot.active { background: var(--accent); transform: scale(1.3); }
 
     .slide-card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.03);
       border: 1px solid rgba(240,165,0,0.25);
       border-radius: 14px;
       padding: 1.5rem;
@@ -199,7 +199,7 @@
       width: fit-content;
     }
     .slide-title { font-size: 1.2rem; font-weight: 700; line-height: 1.4; }
-    .slide-body { font-size: 0.88rem; line-height: 1.8; color: #cdd9e5; }
+    .slide-body { font-size: 0.88rem; line-height: 1.8; color: var(--text); }
     .slide-body strong { color: var(--accent); }
     .slide-body em { color: var(--blue); font-style: normal; }
     .slide-points { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -208,7 +208,7 @@
       align-items: flex-start;
       gap: 0.6rem;
       font-size: 0.85rem;
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border-radius: 8px;
       padding: 0.5rem 0.7rem;
     }
@@ -223,7 +223,7 @@
       flex-shrink: 0;
     }
     .nav-btn {
-      background: rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.06);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: var(--text);
@@ -235,7 +235,7 @@
       align-items: center;
       gap: 0.4rem;
     }
-    .nav-btn:hover { background: rgba(255,255,255,0.15); }
+    .nav-btn:hover { background: rgba(0,0,0,0.08); }
     .nav-btn:disabled { opacity: 0.3; cursor: default; }
 
     /* YOUTUBE */
@@ -245,7 +245,7 @@
       gap: 1rem;
     }
     .yt-subject-card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.03);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem;
@@ -255,10 +255,10 @@
     .yt-subject-header .name { font-size: 0.9rem; font-weight: 700; }
     .yt-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .yt-btn {
-      background: rgba(255,0,0,0.1);
-      border: 1px solid rgba(255,80,80,0.3);
+      background: rgba(200,0,0,0.07);
+      border: 1px solid rgba(200,0,0,0.25);
       border-radius: 20px;
-      color: #ff8080;
+      color: #cc2222;
       font-size: 0.76rem;
       padding: 0.3rem 0.7rem;
       cursor: pointer;
@@ -267,7 +267,7 @@
       align-items: center;
       gap: 0.3rem;
     }
-    .yt-btn:hover { background: #ff4444; border-color: #ff4444; color: #fff; }
+    .yt-btn:hover { background: #cc2222; border-color: #cc2222; color: #fff; }
     .yt-btn::before { content: '▶'; font-size: 0.55rem; }
 
     /* FLASHCARDS */
@@ -279,7 +279,7 @@
       flex-wrap: wrap;
     }
     .fc-filter {
-      background: rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.05);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: var(--text);
@@ -328,7 +328,7 @@
     }
     .fc-hint { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.5rem; }
     .fc-word { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
-    .fc-def { font-size: 0.82rem; line-height: 1.7; color: #cdd9e5; }
+    .fc-def { font-size: 0.82rem; line-height: 1.7; color: var(--text); }
     .fc-nav {
       display: flex;
       align-items: center;
@@ -337,7 +337,7 @@
       margin-bottom: 1rem;
     }
     .fc-nav-btn {
-      background: rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.06);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: var(--text);
@@ -346,7 +346,7 @@
       cursor: pointer;
       transition: background 0.2s;
     }
-    .fc-nav-btn:hover { background: rgba(255,255,255,0.15); }
+    .fc-nav-btn:hover { background: rgba(0,0,0,0.08); }
     .fc-progress { font-size: 0.8rem; color: var(--muted); }
     .fc-shuffle { display: flex; justify-content: center; }
     .shuffle-btn {
@@ -372,7 +372,7 @@
     }
     .quiz-score {
       font-size: 0.82rem;
-      background: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.04);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 0.35rem 0.8rem;
@@ -380,7 +380,7 @@
     .quiz-score span { color: var(--accent); font-weight: 700; }
     .quiz-filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .qf-btn {
-      background: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.04);
       border: 1px solid var(--border);
       border-radius: 20px;
       color: var(--muted);
@@ -392,7 +392,7 @@
     .qf-btn.active { background: rgba(240,165,0,0.15); border-color: var(--accent); color: var(--accent); }
 
     .question-card {
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1.2rem;
@@ -413,7 +413,7 @@
     .q-text { font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.9rem; }
     .q-options { display: flex; flex-direction: column; gap: 0.5rem; }
     .q-opt {
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: var(--text);
@@ -426,7 +426,7 @@
       align-items: flex-start;
       gap: 0.5rem;
     }
-    .q-opt:hover:not(:disabled) { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+    .q-opt:hover:not(:disabled) { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.2); }
     .q-opt:disabled { cursor: default; }
     .q-opt.correct { background: rgba(63,185,80,0.15); border-color: var(--green); color: var(--green); }
     .q-opt.wrong { background: rgba(248,81,73,0.15); border-color: var(--red); color: var(--red); }
@@ -435,12 +435,12 @@
     .q-explain {
       margin-top: 0.7rem;
       padding: 0.7rem 0.9rem;
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border-left: 3px solid var(--accent);
       border-radius: 0 8px 8px 0;
       font-size: 0.82rem;
       line-height: 1.7;
-      color: #cdd9e5;
+      color: var(--text);
       display: none;
     }
     .q-explain.show { display: block; }
@@ -465,14 +465,14 @@
 
     /* SLIDE EXAMPLE & DIAGRAM */
     .slide-example {
-      background: rgba(63,185,80,0.07);
-      border: 1px solid rgba(63,185,80,0.3);
+      background: rgba(26,127,55,0.06);
+      border: 1px solid rgba(26,127,55,0.25);
       border-left: 4px solid var(--green);
       border-radius: 0 10px 10px 0;
       padding: 0.8rem 1rem;
       font-size: 0.84rem;
       line-height: 1.7;
-      color: #cdd9e5;
+      color: var(--text);
     }
     .slide-example-label {
       font-size: 0.68rem;
@@ -486,10 +486,10 @@
       gap: 0.3rem;
     }
     .slide-example strong { color: var(--green); }
-    .slide-example em { color: #79c0ff; font-style: normal; }
+    .slide-example em { color: var(--blue); font-style: normal; }
     .slide-diagram {
-      background: rgba(88,166,255,0.06);
-      border: 1px solid rgba(88,166,255,0.2);
+      background: rgba(9,105,218,0.04);
+      border: 1px solid rgba(9,105,218,0.2);
       border-radius: 10px;
       padding: 0.9rem 1rem;
       font-size: 0.8rem;
@@ -511,7 +511,7 @@
       justify-content: center;
     }
     .diagram-box {
-      background: rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.05);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 8px;
       padding: 0.35rem 0.7rem;
@@ -527,7 +527,7 @@
     .diagram-box.highlight { border-color: rgba(240,165,0,0.5); color: var(--accent); background: rgba(240,165,0,0.08); }
     .diagram-arrow { color: var(--muted); font-size: 1rem; flex-shrink: 0; }
     .diagram-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
-    .diagram-table th { background: rgba(255,255,255,0.07); padding: 0.3rem 0.5rem; text-align: center; font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); }
+    .diagram-table th { background: rgba(0,0,0,0.05); padding: 0.3rem 0.5rem; text-align: center; font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); }
     .diagram-table td { padding: 0.3rem 0.5rem; text-align: center; border: 1px solid var(--border); }
     .ok { color: var(--green); font-weight: 700; }
     .ng { color: var(--red); font-weight: 700; }
@@ -554,6 +554,30 @@
       gap: 0.35rem;
     }
     .fc-slide-btn:hover { background: rgba(240,165,0,0.25); }
+
+    /* SLIDE REASON (趣旨) */
+    .slide-reason {
+      background: rgba(130,80,223,0.07);
+      border: 1px solid rgba(130,80,223,0.25);
+      border-left: 4px solid var(--purple);
+      border-radius: 0 10px 10px 0;
+      padding: 0.8rem 1rem;
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .slide-reason-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .slide-reason strong { color: var(--purple); }
 
     @media (max-width: 500px) {
       header h1 { font-size: 1rem; }
@@ -741,7 +765,8 @@ const slides = [
       '心裡留保の無効：善意無過失の第三者にも主張できない'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>当事者間</th><th>善意の第三者</th><th>悪意の第三者</th></tr></thead><tbody><tr><td>心裡留保</td><td class="ok">有効（原則）</td><td class="ok">有効（保護）</td><td class="ng">無効主張可</td></tr><tr><td>通謀虚偽表示</td><td class="ng">無効</td><td class="ok">有効（保護）</td><td class="ng">無効主張可</td></tr></tbody></table>',
-    example:'<strong>心裡留保の例：</strong>AがBに冗談のつもりで「この土地を10万円で売る」と言い、BがAの冗談と気づかずに「買う」と答えた場合 → <em>Bは善意なので契約は有効。Aは「冗談だった」と主張できない。</em><br><br><strong>通謀虚偽表示の例：</strong>AがBと組んで「Bに土地を売った」と仮装し、その後Cがその土地をBから善意で購入した場合 → <em>CはAとBの虚偽表示を知らない（善意）ので保護され、AはCに「実は無効だった」と言えない。</em>'
+    example:'<strong>心裡留保の例：</strong>AがBに冗談のつもりで「この土地を10万円で売る」と言い、BがAの冗談と気づかずに「買う」と答えた場合 → <em>Bは善意なので契約は有効。Aは「冗談だった」と主張できない。</em><br><br><strong>通謀虚偽表示の例：</strong>AがBと組んで「Bに土地を売った」と仮装し、その後Cがその土地をBから善意で購入した場合 → <em>CはAとBの虚偽表示を知らない（善意）ので保護され、AはCに「実は無効だった」と言えない。</em>',
+    reason:'<strong>趣旨：</strong>取引の安全と相手方の信頼保護のバランス。表意者が「言ったこと」と「思っていたこと」が違う場合、相手方が知らなかったなら（善意）取引を有効として保護する。善意の第三者まで保護するのは<strong>取引安全の確保・市場の信頼維持</strong>のため。'
   },
   {
     tag:'民法等', title:'錯誤・詐欺・強迫による意思表示',
@@ -754,7 +779,8 @@ const slides = [
       '取消権の行使期間：追認できる時から<strong>5年</strong>、行為の時から<strong>20年</strong>'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>取消</th><th>第三者関与</th><th>善意第三者への対抗</th></tr></thead><tbody><tr><td>錯誤</td><td class="ok">可</td><td>—</td><td class="ng">不可</td></tr><tr><td>詐欺</td><td class="ok">可</td><td class="warn">相手悪意・有過失のみ</td><td class="ng">不可</td></tr><tr><td>強迫</td><td class="ok">可</td><td class="ok">常に可（最強）</td><td class="ok">可</td></tr></tbody></table>',
-    example:'<strong>詐欺の例：</strong>Bが「この土地は近く値上がりする」と嘘をついてAに土地を売らせた。その後Cがその土地をBから善意無過失で購入した場合 → <em>CはAの取消を対抗されない（善意無過失の第三者として保護）。</em><br><br><strong>強迫の例：</strong>BがAを脅して土地を売らせた。その後Cがその土地を購入した場合 → <em>Cが善意でも、Aは取消可。強迫は第三者にも対抗できる最強の取消原因。</em>'
+    example:'<strong>詐欺の例：</strong>Bが「この土地は近く値上がりする」と嘘をついてAに土地を売らせた。その後Cがその土地をBから善意無過失で購入した場合 → <em>CはAの取消を対抗されない（善意無過失の第三者として保護）。</em><br><br><strong>強迫の例：</strong>BがAを脅して土地を売らせた。その後Cがその土地を購入した場合 → <em>Cが善意でも、Aは取消可。強迫は第三者にも対抗できる最強の取消原因。</em>',
+    reason:'<strong>趣旨：</strong>強迫は被害者の意思の自由を完全に奪うため、第三者保護より被害者救済を優先。詐欺は被害者にも落ち度がある場合があるため、善意無過失の第三者を保護して取引安全を図る。<strong>被害の深刻さに応じて保護の重みを変えるという均衡の原理。</strong>'
   },
   {
     tag:'民法等', title:'代理制度の基本',
@@ -795,7 +821,8 @@ const slides = [
       '不法占有者・不法行為者は「第三者」に該当しない'
     ],
     diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.4rem"><span class="diagram-box person" style="display:inline-block">A（土地の元所有者）</span></div><div style="display:flex;justify-content:center;gap:1rem;margin-bottom:0.4rem"><div><span class="diagram-box">①B に売却（登記未了）</span></div><div><span class="diagram-box">②C にも売却（登記済）</span></div></div><div class="diagram-box result-ok">先に登記したCが勝つ → Bは所有権を主張できない</div></div>',
-    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>'
+    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>',
+    reason:'<strong>趣旨：</strong>不動産取引の安全と公示原則。登記は誰でも確認できる公示手段であり、「登記した者が権利者」という公示を信頼して取引できる環境を作ることで<strong>市場取引の安全・円滑を確保する</strong>。悪意を問わないのは「登記したかどうか」という客観的基準を重視するため。'
   },
   {
     tag:'民法等', title:'占有権と取得時効',
@@ -836,7 +863,8 @@ const slides = [
       '3要件すべて満たすと建物のために地上権が<strong>自動発生</strong>（契約不要）'
     ],
     diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">Aが土地に抵当権設定（3000万）</div><span class="diagram-arrow">→返済不能</span><div class="diagram-box result-ng">競売実行</div></div><div style="display:flex;gap:0.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap"><div class="diagram-box result-ng">土地→Bが購入</div><div class="diagram-box highlight">建物→Aのまま</div></div><div class="diagram-box result-ok">法定地上権自動発生 → AはBの土地に建物を置ける</div></div>',
-    example:'<strong>法定地上権の例：</strong>AはA所有の土地と建物のうち、<em>土地にのみ</em>銀行の抵当権を設定した。返済できず競売になり、Bが土地を競落した。<br>→ <em>建物（Aのまま）のために法定地上権が自動発生。AはBの土地を使えるので建物を取り壊す必要がない。</em><br><strong>不成立の例：</strong>抵当権設定時に建物が存在しなかった場合は法定地上権不成立。'
+    example:'<strong>法定地上権の例：</strong>AはA所有の土地と建物のうち、<em>土地にのみ</em>銀行の抵当権を設定した。返済できず競売になり、Bが土地を競落した。<br>→ <em>建物（Aのまま）のために法定地上権が自動発生。AはBの土地を使えるので建物を取り壊す必要がない。</em><br><strong>不成立の例：</strong>抵当権設定時に建物が存在しなかった場合は法定地上権不成立。',
+    reason:'<strong>趣旨：</strong>抵当権設定時に土地と建物が同一所有者だった場合、競売後に建物所有者が土地を使えなくなると建物を取り壊さざるを得なくなる（社会的損失）。<strong>既存の建物を保護し社会経済上の損失を防ぐ</strong>ために法律が自動的に地上権を発生させる。'
   },
   {
     tag:'民法等', title:'根抵当権',
@@ -905,7 +933,8 @@ const slides = [
       '<strong>建物譲渡特約付借地権</strong>：30年以上。期間満了時に地主が建物を相当対価で買取'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>期間</th><th>更新</th><th>契約方式</th></tr></thead><tbody><tr><td>普通借地権</td><td>30年〜</td><td class="ok">あり</td><td>制限なし</td></tr><tr><td>一般定期</td><td class="warn">50年以上</td><td class="ng">なし</td><td>書面</td></tr><tr><td>事業用定期</td><td class="warn">10〜50年未満</td><td class="ng">なし</td><td class="warn">公正証書必須</td></tr><tr><td>建物譲渡特約</td><td>30年以上</td><td class="ng">なし</td><td>制限なし</td></tr></tbody></table>',
-    example:'<strong>事業用定期借地権の例：</strong>コンビニが土地を20年間借りてコンビニ店舗を建てるケース。住居ではなく事業用なので、<em>公正証書での契約が必須</em>。20年後には確実に土地が返ってくる（更新なし）ため、地主にとってメリットが大きい。'
+    example:'<strong>事業用定期借地権の例：</strong>コンビニが土地を20年間借りてコンビニ店舗を建てるケース。住居ではなく事業用なので、<em>公正証書での契約が必須</em>。20年後には確実に土地が返ってくる（更新なし）ため、地主にとってメリットが大きい。',
+    reason:'<strong>趣旨：</strong>普通借地権は借地人（建物を建てた者）保護が強すぎて地主が土地を貸しにくくなる問題があった。定期借地権は「必ず返ってくる」ことを保証することで<strong>土地の有効活用・土地供給の促進</strong>を図る制度。公正証書要件は「後で言った言わない」のトラブルを防ぐため。'
   },
   {
     tag:'民法等', title:'建物賃貸借（借家権）',
@@ -947,7 +976,8 @@ const slides = [
       '<strong>相続放棄</strong>：相続開始を知った時から<strong>3か月</strong>以内に家裁へ申述'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>相続人の組合せ</th><th>配偶者の取り分</th><th>その他の取り分</th></tr></thead><tbody><tr><td>配偶者＋子</td><td class="warn">1/2</td><td class="warn">1/2（子で均等割）</td></tr><tr><td>配偶者＋直系尊属</td><td class="warn">2/3</td><td class="warn">1/3</td></tr><tr><td>配偶者＋兄弟姉妹</td><td class="warn">3/4</td><td class="warn">1/4</td></tr></tbody></table>',
-    example:'<strong>法定相続分の例：</strong>Aが遺言なしで死亡。遺産は3000万円。相続人は配偶者B・子C・子D（Cは先死しており孫Eがいる）の場合。<br>→ <em>B（配偶者）が1500万円。C・Dで残り1500万円を均等割→各750万円のはずだが、Cは死亡のため孫Eが代襲相続で750万円取得。</em>'
+    example:'<strong>法定相続分の例：</strong>Aが遺言なしで死亡。遺産は3000万円。相続人は配偶者B・子C・子D（Cは先死しており孫Eがいる）の場合。<br>→ <em>B（配偶者）が1500万円。C・Dで残り1500万円を均等割→各750万円のはずだが、Cは死亡のため孫Eが代襲相続で750万円取得。</em>',
+    reason:'<strong>趣旨：</strong>被相続人の財産は家族全員で協力して形成されたものという観点から、配偶者・子等の近い血族に優先的に分配する。<strong>遺族の生活保障と財産分散の防止</strong>（家業や資産の継承）が目的。法定相続分は「遺言がない場合のデフォルトルール」であり、当事者の意思で変更可能。'
   },
   {
     tag:'民法等', title:'遺言と遺留分',
@@ -1049,6 +1079,37 @@ const slides = [
     example:'<strong>留置権の例：</strong>時計修理店Aが顧客Bの時計を修理したが、Bが修理代を払わない場合 → Aは修理代を受け取るまで時計を留置（返さない）ことができる。これが留置権。修理という「その物に関して生じた債権」があるのがポイント。'
   },
 
+  {
+    tag:'民法等', title:'区分所有法の改正（2026年施行）',
+    keywords:['区分所有法改正','集会決議','所在不明区分所有者','国内管理人'],
+    body:'<strong>2026年施行予定の区分所有法大改正</strong>は、老朽化マンションの再生を促進するために決議要件を大幅に緩和した。「人が見つからなくて決議できない」問題を解消するのが主眼。',
+    points:[
+      '<strong>集会決議の要件緩和</strong>：建替え決議は従来「5分の4以上」→改正後も<em>5分の4</em>（変更なし）だが、<strong>所在不明・連絡不能の区分所有者を頭数から除外</strong>して計算できるようになった',
+      '<strong>所在不明区分所有者の除外手続き</strong>：裁判所の決定により、催告しても連絡が取れない区分所有者を集会決議の<strong>議決権・頭数の母数から除外</strong>できる',
+      '<strong>国内管理人制度の創設</strong>：外国在住の区分所有者は、国内管理人を定めなければならない義務が新設（所在不明対策）',
+      '<strong>区分所有建物の解消決議</strong>：新たに「区分所有関係解消決議」制度が創設され、<strong>5分の4以上</strong>の賛成で区分所有を解消し土地・建物を共有状態に戻すことが可能に',
+      '<strong>大規模修繕・建替え以外の多数決要件</strong>：一部の共用部分変更等について、区分所有者・議決権の<em>4分の3以上</em>に緩和される方向'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>決議の種類</th><th>改正前</th><th>改正後</th></tr></thead><tbody><tr><td>普通決議（管理行為）</td><td class="ok">過半数</td><td class="ok">過半数（変更なし）</td></tr><tr><td>規約変更・大規模修繕</td><td class="warn">3/4以上</td><td class="warn">3/4以上（変更なし）</td></tr><tr><td>建替え決議</td><td class="ng">4/5以上</td><td class="warn">4/5以上（所在不明者除外可）</td></tr><tr><td>区分所有解消決議</td><td class="ng">制度なし</td><td class="ok">4/5以上で新設</td></tr></tbody></table>',
+    example:'<strong>改正の効果例：</strong>100戸のマンションで20戸が所在不明の区分所有者だった場合。改正前は100戸中80戸（4/5）の賛成が必要。改正後は裁判所の決定を経て所在不明20戸を除外し、80戸中64戸（4/5）の賛成で建替え決議が可能になる。<em>→ 老朽化マンションの再生が現実的に。</em>',
+    reason:'<strong>趣旨：</strong>高度経済成長期に建設されたマンションの老朽化が社会問題化。区分所有者の所在不明・高齢化・無関心により集会が成立せず、建替えや大規模修繕が進まない。<strong>所有者不明問題を解消して、マンションの適正管理・再生を促進する</strong>ことが改正の目的。'
+  },
+  {
+    tag:'民法等', title:'住所・氏名変更登記の義務化（2026年4月施行）',
+    keywords:['住所変更登記義務化','氏名変更登記','変更登記','2年以内','過料'],
+    body:'<strong>2026年4月1日施行</strong>。不動産の所有者が住所や氏名を変更した場合、<strong>2年以内</strong>に変更登記を申請することが義務となった。相続登記義務化（2024年）に続く登記制度の大改革。',
+    points:[
+      '<strong>義務の内容</strong>：住所・氏名の変更を知った日から<strong>2年以内</strong>に変更登記を申請しなければならない',
+      '<strong>違反時の制裁</strong>：正当な理由なく申請しない場合、<strong>5万円以下の過料</strong>（民事罰。刑事罰ではない）',
+      '<strong>施行日前の未登記も対象</strong>：施行日（2026年4月1日）時点で既に変更登記をしていない場合も、施行日から<strong>2年以内</strong>に申請が必要',
+      '<strong>職権更新制度</strong>：住民票・戸籍の情報を法務局が活用し、本人の申請なしに登記を更新できる新制度も創設（義務履行の支援策）',
+      '相続登記義務化（3年以内・10万円以下の過料）との違いに注意：変更登記は<strong>2年以内・5万円以下</strong>'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>期限</th><th>過料</th><th>施行日</th></tr></thead><tbody><tr><td>相続登記の義務化</td><td class="warn">3年以内</td><td class="ng">10万円以下</td><td>2024年4月1日</td></tr><tr><td>住所・氏名変更登記</td><td class="warn">2年以内</td><td class="ng">5万円以下</td><td class="ok">2026年4月1日</td></tr></tbody></table>',
+    example:'<strong>具体例：</strong>AさんはBマンション（登記上の住所：東京都渋谷区）の所有者だったが、2026年5月に横浜市に引っ越した。<br>→ <em>住所変更を知った日（引越し日）から2年以内、つまり2028年5月までに住所変更登記の申請が必要。怠ると5万円以下の過料。</em><br><br><strong>既存未登記の例：</strong>Bさんは10年前に引越したが変更登記をしていなかった。2026年4月1日施行時点で未登記のまま。<br>→ <em>施行日から2年以内（2028年3月31日まで）に申請が必要。</em>',
+    reason:'<strong>趣旨：</strong>不動産登記の住所・氏名が古いまま放置され、所有者の連絡先がわからない「所有者不明不動産」が増加。隣地との境界問題・老朽建物の解体・都市開発等に支障をきたしている。<strong>登記情報を常に最新に保ち、所有者不明不動産問題を予防する</strong>ことが目的。'
+  },
+
   /* ── 宅建業法（20枚） ── */
   {
     tag:'宅建業法', title:'宅地建物取引業の免許',
@@ -1090,7 +1151,8 @@ const slides = [
       '説明を受けるのは<strong>個人・法人どちらも同じ</strong>義務（法人でも説明が必要）'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>取引種別</th><th>説明が必要な相手方</th><th>不要な者</th></tr></thead><tbody><tr><td>売買・交換</td><td class="ok">買主（取得者）</td><td class="ng">売主（譲渡人）</td></tr><tr><td>貸借</td><td class="ok">借主（賃借人）</td><td class="ng">貸主（賃貸人）</td></tr></tbody></table><div style="margin-top:0.4rem;font-size:0.72rem;color:var(--muted)">宅建業者が買主・借主でも説明が必要（宅建業者相互取引でも同様）</div>',
-    example:'<strong>重要事項説明の場面：</strong>A社（仲介）がBさんにマンションを紹介し、いよいよ売買契約という段階。契約書に署名する<em>前</em>に、宅建士Cが宅建士証を提示しながらBさん（買主）に重要事項を説明した。<br>→ <em>これが正しい手順。重要事項説明は必ず「契約前」に行う。</em>'
+    example:'<strong>重要事項説明の場面：</strong>A社（仲介）がBさんにマンションを紹介し、いよいよ売買契約という段階。契約書に署名する<em>前</em>に、宅建士Cが宅建士証を提示しながらBさん（買主）に重要事項を説明した。<br>→ <em>これが正しい手順。重要事項説明は必ず「契約前」に行う。</em>',
+    reason:'<strong>趣旨：</strong>不動産取引は高額で複雑な法律知識を要する。買主・借主は情報量で業者より不利な立場にある（情報の非対称性）。<strong>専門家（宅建士）が契約前に重要情報を説明することで、消費者が判断材料を得た上で契約できるようにする</strong>ためのルール。知識がなければ後から「知らなかった」ではすまない大きな損害を被る可能性があるから。'
   },
   {
     tag:'宅建業法', title:'37条書面（契約書）',
@@ -1118,7 +1180,8 @@ const slides = [
       '業者が告知をしない場合：いつでもクーリングオフ可能'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>申込み・契約の場所</th><th>クーリングオフ</th></tr></thead><tbody><tr><td>路上・喫茶店・買主の自宅（業者が勧誘）</td><td class="ok">可</td></tr><tr><td>業者の事務所・案内所（専任宅建士あり）</td><td class="ng">不可</td></tr><tr><td>買主が自ら申し出た自宅・勤務先</td><td class="ng">不可</td></tr><tr><td>ホテルのロビー（業者が指定）</td><td class="ok">可</td></tr></tbody></table>',
-    example:'<strong>クーリングオフ可の例：</strong>路上で声をかけられたAさんが近くのカフェでマンション購入の申込みをした。翌日「やっぱりやめたい」と思った場合 → <em>申込み場所が事務所等以外なので、告知を受けた日から8日以内に書面を発送してクーリングオフ可。</em><br><strong>不可の例：</strong>Aさんが業者の事務所を訪れて契約した場合 → <em>事務所での契約なのでクーリングオフ不可。</em>'
+    example:'<strong>クーリングオフ可の例：</strong>路上で声をかけられたAさんが近くのカフェでマンション購入の申込みをした。翌日「やっぱりやめたい」と思った場合 → <em>申込み場所が事務所等以外なので、告知を受けた日から8日以内に書面を発送してクーリングオフ可。</em><br><strong>不可の例：</strong>Aさんが業者の事務所を訪れて契約した場合 → <em>事務所での契約なのでクーリングオフ不可。</em>',
+    reason:'<strong>趣旨：</strong>突然の勧誘・心理的プレッシャー下での申込みは、本来の意思決定ではない可能性が高い。<strong>消費者が冷静に判断する機会を保障する</strong>ために、一定期間は無条件で撤回できるようにした。事務所での申込みは自ら出向いた意思的行為なので保護の必要性が低い。'
   },
   {
     tag:'宅建業法', title:'報酬額の上限',
@@ -1400,7 +1463,8 @@ const slides = [
       '3条は市街化区域でも届出不可→必ず<strong>農業委員会の許可</strong>が必要'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>条文</th><th>内容</th><th>許可権者</th><th>市街化区域</th></tr></thead><tbody><tr><td>3条</td><td>農地のまま権利移動</td><td class="warn">農業委員会</td><td class="ng">届出不可・許可必要</td></tr><tr><td>4条</td><td>自己転用（農→非農）</td><td class="warn">知事等</td><td class="ok">届出でOK</td></tr><tr><td>5条</td><td>転用＋権利移動</td><td class="warn">知事等</td><td class="ok">届出でOK</td></tr></tbody></table>',
-    example:'<strong>5条の例：</strong>農地所有者Aが、デベロッパーBに「農地を売って住宅地にしてよい」と売買した場合 → <em>農地を農地以外に転用（4条的要素）＋権利移動（3条的要素）の両方なので5条の許可が必要。市街化区域内なら農業委員会への届出だけでOK。</em>'
+    example:'<strong>5条の例：</strong>農地所有者Aが、デベロッパーBに「農地を売って住宅地にしてよい」と売買した場合 → <em>農地を農地以外に転用（4条的要素）＋権利移動（3条的要素）の両方なので5条の許可が必要。市街化区域内なら農業委員会への届出だけでOK。</em>',
+    reason:'<strong>趣旨：</strong>農地は一度転用すると農業生産の基盤が失われ、食糧安全保障に影響する。<strong>食料生産の基盤となる農地を保護・確保する</strong>ために、農地の売買・転用を許可制にしている。市街化区域は既に都市的利用が決まっているので届出で足りる（農地保護より都市形成を優先）。'
   },
   {
     tag:'法令上の制限', title:'国土利用計画法（事後届出）',
@@ -1696,7 +1760,8 @@ const slides = [
       '3000万円控除と軽減税率特例は<strong>併用可</strong>、買換え特例とは<strong>選択適用</strong>'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>特例</th><th>要件</th><th>効果</th><th>3000万控除との関係</th></tr></thead><tbody><tr><td>3000万円特別控除</td><td>居住用財産の売却</td><td class="ok">3000万円控除</td><td>—</td></tr><tr><td>10年超軽減税率</td><td>居住用＋保有10年超</td><td class="ok">6000万以下は14%</td><td class="ok">併用可</td></tr><tr><td>買換え特例</td><td>居住用の買換え</td><td class="warn">課税繰延べ</td><td class="ng">選択適用</td></tr></tbody></table>',
-    example:'<strong>例：</strong>Aが12年居住のマイホームを6000万円で売却（取得費2000万円、譲渡費用200万円）。譲渡所得＝3800万円。3000万円控除適用後＝800万円。さらに10年超軽減税率（14%）で税額＝800万円×14%＝<strong>112万円</strong>。'
+    example:'<strong>例：</strong>Aが12年居住のマイホームを6000万円で売却（取得費2000万円、譲渡費用200万円）。譲渡所得＝3800万円。3000万円控除適用後＝800万円。さらに10年超軽減税率（14%）で税額＝800万円×14%＝<strong>112万円</strong>。',
+    reason:'<strong>趣旨：</strong>居住用の住宅は単なる資産ではなく生活の基盤。住み替えのたびに多額の税負担が生じると<strong>国民の住宅取得・移動を阻害する</strong>。自己居住用不動産に対して税負担を軽くすることで、住宅市場の流通を促進し、国民が適切な住環境を選択しやすくする。'
   },
   {
     tag:'税・その他', title:'住宅ローン控除（所得税）',
@@ -1850,7 +1915,8 @@ const slides = [
       '住所変更登記の義務化：2026年4月施行予定。住所変更から<strong>2年以内</strong>に登記義務'
     ],
     diagram:'<div class="diagram-flow"><div class="diagram-box person">相続発生</div><div class="diagram-arrow">→</div><div class="diagram-box highlight">相続を知った日から3年以内</div><div class="diagram-arrow">→</div><div class="diagram-box result-ok">登記申請（義務）</div></div><div style="margin-top:0.5rem"><div class="diagram-flow"><div class="diagram-box person">義務違反</div><div class="diagram-arrow">→</div><div class="diagram-box result-ng">10万円以下の過料</div></div></div>',
-    example:'<strong>例：</strong>父が2022年3月に死亡し、子Aが相続で土地を取得した（未登記）。2024年4月1日施行後、Aは施行日から3年以内（2027年3月31日まで）に登記申請が必要。正当な理由なく怠ると過料の対象となる。'
+    example:'<strong>例：</strong>父が2022年3月に死亡し、子Aが相続で土地を取得した（未登記）。2024年4月1日施行後、Aは施行日から3年以内（2027年3月31日まで）に登記申請が必要。正当な理由なく怠ると過料の対象となる。',
+    reason:'<strong>趣旨：</strong>相続登記が放置され「所有者が誰かわからない土地」が全国に増加。インフラ整備・災害復旧・空き家対策等の公共事業が滞る原因となっていた。<strong>登記情報を相続のたびに更新させることで所有者不明土地問題を根本から解消する</strong>ことが目的。'
   },
   {
     tag:'税・その他', title:'固定資産税の詳細（数値整理）',
@@ -1952,6 +2018,8 @@ const allCards = [
   {cat:'民法等', word:'共有物の管理', slideKeyword:'共有（変更・管理', def:'共有物の管理行為（賃貸借の締結・解除等）は持分価格の過半数で決定できる。変更には全員の同意が必要。保存行為（修繕等）は各共有者が単独でできる。'},
   {cat:'民法等', word:'留置権', slideKeyword:'担保物権（留置権', def:'他人の物を占有する者が、その物に関して生じた債権の弁済を受けるまでその物を留置できる法定担保物権（民法295条）。優先弁済権はない。'},
   {cat:'民法等', word:'先取特権', slideKeyword:'担保物権（留置権', def:'法律が定める一定の場合に、特定の債権者が他の債権者に優先して弁済を受けられる法定担保物権（民法303条以下）。一般・動産・不動産の先取特権がある。'},
+  {cat:'民法等', word:'区分所有法の改正（2026年）', slideKeyword:'区分所有法改正', def:'2026年施行の大改正。①所在不明区分所有者を頭数から除外して建替え決議の母数を計算可、②区分所有関係解消決議の新設（4/5以上）、③国内管理人制度の創設。老朽マンション再生促進が目的。'},
+  {cat:'民法等', word:'住所・氏名変更登記の義務化', slideKeyword:'住所変更登記義務化', def:'2026年4月1日施行。住所・氏名変更を知った日から2年以内に変更登記申請が義務。違反すると5万円以下の過料（民事罰）。施行前の未登記も施行日から2年以内に申請が必要。'},
 
   /* ── 宅建業法（30枚） ── */
   {cat:'宅建業法', word:'宅地建物取引業', slideKeyword:'宅地建物取引業', def:'宅地または建物の売買・交換・貸借の媒介または代理を業として行うこと。免許が必要。'},
@@ -3756,6 +3824,126 @@ const quizData = [
     opts:['2000万円','3000万円','4500万円','無制限'], ans:2,
     exp:'ZEH水準省エネ住宅の住宅ローン控除の借入限度額は<strong>4500万円</strong>（認定長期優良住宅・認定低炭素住宅は5000万円）です。一般新築住宅は3000万円、中古住宅は最大3000万円となっており、省エネ性能等が高いほど限度額が優遇されます。'
   },
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     個数問題（「正しいものはいくつあるか」形式）
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* ── 民法等 個数問題 ── */
+  {
+    cat:'民法等', catClass:'civil',
+    q:'次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．心裡留保による意思表示は、相手方が表意者の真意を知り、または知ることができた場合には無効となる。\nイ．通謀虚偽表示による意思表示は、当事者間では無効であるが、善意の第三者には無効を主張できない。\nウ．詐欺による意思表示の取消しは、善意無過失の第三者には対抗することができない。\nエ．強迫による意思表示の取消しは、善意の第三者にも対抗することができる。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので、正解は<strong>四つ</strong>です。ア：心裡留保は原則有効だが相手方が悪意・有過失なら無効（93条）。イ：通謀虚偽表示は当事者間無効、善意第三者保護（94条）。ウ：詐欺取消しは善意無過失の第三者に対抗不可（96条3項）。エ：強迫取消しは善意の第三者にも対抗可（96条2項は詐欺のみ制限）。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．未成年者が法定代理人の同意なく締結した売買契約は、法定代理人が取消すことができる。\nイ．成年被後見人が行った法律行為は、日常生活に関する行為であっても取消すことができる。\nウ．被保佐人が保佐人の同意を得ずに不動産の売買を行った場合、当該行為は取消すことができる。\nエ．制限行為能力者が詐術を用いて相手方を誤信させた場合、その行為の取消しは主張できない。',
+    opts:['一つ','二つ','三つ','四つ'], ans:2,
+    exp:'正しいのはア・ウ・エの<strong>三つ</strong>です。ア○：未成年者の無断行為は取消可（法定代理人・本人の追認・取消可）。イ×：成年被後見人の日常生活に関する行為は<strong>取消不可</strong>（民法9条ただし書）。ウ○：被保佐人が不動産売買等の重要行為を保佐人の同意なく行った場合取消可（民法13条）。エ○：詐術を使った場合は取消権を失う（民法21条）。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'取得時効に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．他人の不動産を20年間自主占有した者は、悪意であっても取得時効を主張できる。\nイ．他人の不動産を10年間占有した者は、占有開始時に善意かつ無過失であれば取得時効を主張できる。\nウ．取得時効が完成しても、登記を備えなければ第三者に対抗することができない。\nエ．占有は、他人のためにする意思（他主占有）でも取得時効の要件を満たす。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはア・イ・ウの<strong>三つ</strong>です。ア○：悪意または有過失の場合でも20年の占有で取得時効が成立（民法162条2項）。イ○：善意無過失なら10年で成立（同条1項）。ウ○：時効完成後の第三者には登記が対抗要件（判例）。エ×：取得時効には<strong>自主占有</strong>（所有の意思）が必要。他主占有（管理・保管等）では成立しない。'
+  },
+  {
+    cat:'民法等', catClass:'civil',
+    q:'区分所有法の改正（2026年施行）に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．建替え決議の議決要件は、区分所有者及び議決権の各5分の4以上という点は改正前後で変わっていない。\nイ．所在不明の区分所有者を頭数から除外するためには、裁判所の決定が必要である。\nウ．改正により、区分所有関係を解消して土地・建物を共有状態に戻す「解消決議」制度が新設された。\nエ．外国に居住する区分所有者は、国内管理人を置かなければならない義務が新設された。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：建替え決議の要件「4/5以上」は改正前後で同じ。ただし所在不明者を除外して計算できるようになった。イ○：除外には裁判所の決定（催告等の手続き）が必要。ウ○：「区分所有関係解消決議」は改正で新設（4/5以上）。エ○：国内管理人制度が新設された。2026年試験最重要改正。'
+  },
+
+  /* ── 宅建業法 個数問題 ── */
+  {
+    cat:'宅建業法', catClass:'business',
+    q:'次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．宅建業者が媒介により売買契約を成立させた場合、売主・買主の双方から報酬を受領することができる。\nイ．宅建業者が売主・買主双方の代理人となる場合、双方から受領できる報酬の合計額は、一方の依頼者から受領できる上限額の2倍が上限となる。\nウ．400万円を超える売買の媒介報酬の上限は、売買代金の3%＋6万円（＋消費税）である。\nエ．居住用建物の貸借媒介の場合、借主・貸主の双方からの報酬合計額は賃料1か月分（＋消費税）が上限である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：媒介では売主・買主双方から報酬受領可。イ○：代理の場合、双方合計で依頼者一方の限度額の2倍以内。ウ○：400万円超の売買報酬上限は3%＋6万円（低廉物件特例で800万円以下は上限が異なる）。エ○：居住用建物の貸借媒介では双方合計1か月分（＋消費税）が上限。'
+  },
+  {
+    cat:'宅建業法', catClass:'business',
+    q:'宅建業法の媒介契約に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．専属専任媒介契約を締結した宅建業者は、媒介契約締結日から5日以内にレインズへの登録が義務づけられている（休業日を除く）。\nイ．専任媒介契約を締結した宅建業者は、2週間に1回以上の業務報告義務がある。\nウ．一般媒介契約の有効期間の上限は3か月である。\nエ．専任媒介契約において、依頼者が自ら発見した相手方と直接契約することは認められる。',
+    opts:['一つ','二つ','三つ','四つ'], ans:2,
+    exp:'正しいのはア・エの<strong>二つ</strong>です。ア○：専属専任媒介契約は<strong>5日以内</strong>（休業日除く）にレインズ登録義務。イ×：専任媒介は<strong>2週間に1回以上</strong>の報告義務（専属専任は1週間に1回以上）。ウ×：一般媒介契約には法定の有効期間の制限<strong>なし</strong>（行政指導では3か月推奨）。エ○：専任媒介では依頼者が自ら発見した相手方との直接契約は可（できないのは専属専任）。'
+  },
+  {
+    cat:'宅建業法', catClass:'business',
+    q:'宅建業者が自ら売主となる場合の8種規制に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．宅建業者は、自ら売主として宅地の売買において、代金の20%を超える手付を受領することができない。\nイ．クーリングオフは、事務所等において買受けの申込みをした場合でも適用される。\nウ．損害賠償額の予定は、代金の20%を超える定めをすることができない。\nエ．宅建業者が自ら売主の場合、未完成物件で代金の5%超かつ1000万円超の手付金等を受領するには保全措置が必要である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはア・ウ・エの<strong>三つ</strong>です。ア○：手付金の上限は代金の20%（宅建業法39条）。イ×：クーリングオフは<strong>事務所等以外</strong>で申込んだ場合に適用（事務所等での申込みは適用外）。ウ○：損害賠償額の予定は代金の20%超は無効（宅建業法38条）。エ○：未完成物件の手付金等保全措置は5%超かつ1000万円超が要件（完成物件は10%超かつ1000万円超）。'
+  },
+  {
+    cat:'宅建業法', catClass:'business',
+    q:'重要事項説明（35条書面）に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．重要事項の説明は、取引の相手方が宅建業者である場合でも省略することができない。\nイ．重要事項説明書への記名は、専任の宅建士でなくても宅建士であればよい。\nウ．売買の場合、飲用水・電気・ガスの整備状況は重要事項として説明しなければならない。\nエ．重要事項の説明は、電磁的方法（オンライン）でも行うことができる。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはイ・ウ・エの<strong>三つ</strong>です。ア×：取引の相手方が宅建業者の場合、<strong>説明を省略できる</strong>（書面交付は必要。2022年改正で緩和）。イ○：記名は「宅建士」であればよく専任の宅建士である必要はない。ウ○：飲用水・電気・ガスの整備状況は売買の重要事項（借貸借でも同様）。エ○：2022年5月改正により、相手方の承諾があれば電磁的方法（オンライン）での説明が可能。'
+  },
+  {
+    cat:'宅建業法', catClass:'business',
+    q:'宅建士の登録・宅建士証に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．宅建士試験に合格した者は、合格後直ちに宅建士として登録することができる。\nイ．宅建士証の有効期間は5年であり、更新には法定講習の受講が必要である。\nウ．宅建士が住所を変更した場合、宅建士証の書換え交付申請が必要である。\nエ．宅建士は、取引の相手方から請求がなくても、重要事項説明時に宅建士証を提示しなければならない。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはイ・エの<strong>二つ</strong>です。ア×：試験合格後、宅建士として登録するには<strong>2年以上の実務経験</strong>または登録実務講習が必要。イ○：宅建士証の有効期間は5年、更新には法定講習受講が必要（合格後1年以内の申請は不要）。ウ×：住所変更は届出が必要だが宅建士証の書換え交付申請は<strong>不要</strong>（氏名変更は必要）。エ○：重要事項説明時は相手方の請求がなくても提示が義務（宅建業法35条4項）。'
+  },
+
+  /* ── 法令上の制限 個数問題 ── */
+  {
+    cat:'法令上の制限', catClass:'legal',
+    q:'都市計画法に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．市街化区域は、すでに市街地を形成している区域、及びおおむね10年以内に優先的かつ計画的に市街化を図るべき区域である。\nイ．市街化調整区域では、開発許可を受ければ建築物の建築は自由にできる。\nウ．第一種低層住居専用地域では、住宅以外の建物は一切建築できない。\nエ．準住居地域は、道路の沿道としての地域の特性にふさわしい業務の利便の増進を図りつつ、これと調和した住居の環境を保護するために定める地域である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはア・エの<strong>二つ</strong>です。ア○：市街化区域の定義は都市計画法7条のとおり。イ×：市街化調整区域では開発許可を受けても<strong>建築物の建築は自由ではない</strong>（知事許可が別途必要な場合が多い）。ウ×：第一種低層住居専用地域でも、<strong>小規模な店舗兼用住宅・幼稚園・学校・神社等</strong>は建築可能。エ○：準住居地域の定義は都市計画法9条12項のとおり。'
+  },
+  {
+    cat:'法令上の制限', catClass:'legal',
+    q:'建築基準法の建蔽率・容積率に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．建蔽率の制限は、防火地域内の耐火建築物については、10%加算される。\nイ．容積率の計算において、前面道路幅員が12m未満の場合、道路幅員に一定の係数を乗じた数値と指定容積率のいずれか低い方が適用される。\nウ．建蔽率80%の地域内にある防火地域内の耐火建築物は、建蔽率の制限が適用されない。\nエ．敷地が2以上の用途地域にまたがる場合、建蔽率は敷地全体に対して最も厳しい用途地域の建蔽率が適用される。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはイ・ウの<strong>二つ</strong>です。ア×：防火地域内の耐火建築物への建蔽率加算は<strong>10%ではなく+10%</strong>加算されるのは正しいが、角地かつ防火地域内耐火建築物では+20%となる点に注意。本選択肢は「10%加算」が正しいのでア○…と判断しがちだが、問題文の厳密解釈では正しい。実際にはイ・ウも正。イ○：前面道路幅員12m未満では幅員×係数と指定値の低い方適用。ウ○：建蔽率80%区域の防火地域内耐火建築物は制限が適用外（100%扱い）。エ×：敷地が複数用途地域にまたがる場合は<strong>加重平均</strong>による按分計算（最も厳しいものではない）。'
+  },
+  {
+    cat:'法令上の制限', catClass:'legal',
+    q:'農地法に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．農地を農地のまま売買する場合、農地法3条の許可が必要である。\nイ．農地を農地以外の目的（転用）に供するため売買する場合、農地法5条の許可が必要である。\nウ．自己の農地を転用する場合、都道府県知事（または農業委員会）の許可が必要である（農地法4条）。\nエ．市街化区域内の農地を転用する場合、農地法の許可は不要であり、農業委員会への届出も不要である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはア・イ・ウの<strong>三つ</strong>です。ア○：農地を農地のまま売買（権利移動）するには農地法3条許可。イ○：農地を転用目的で売買するには農地法5条許可（転用+権利移動の組合せ）。ウ○：自己農地の転用は農地法4条許可が必要。エ×：市街化区域内でも農地法の許可は必要。ただし<strong>農業委員会への届出</strong>で許可が不要になる（届出は必要）。'
+  },
+  {
+    cat:'法令上の制限', catClass:'legal',
+    q:'盛土規制法（宅地造成及び特定盛土等規制法）に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．宅地造成等工事規制区域内において、宅地造成等に関する工事を行う場合、工事主は都道府県知事の許可を受けなければならない。\nイ．切土で高さ2mを超える崖を生じる場合は、宅地造成等工事の許可が必要である。\nウ．盛土で高さ1mを超える崖を生じる場合は、宅地造成等工事の許可が必要である。\nエ．土地の形質の変更で面積が500㎡を超えるものは、崖の高さに関係なく許可が必要である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：規制区域内での工事は都道府県知事の許可が必要。イ○：切土で高さ2m超の崖が生じる場合は許可要。ウ○：盛土で高さ1m超の崖が生じる場合は許可要（切土より厳しい基準）。エ○：面積500㎡超の形質変更は崖の高さに関係なく許可要。'
+  },
+  {
+    cat:'法令上の制限', catClass:'legal',
+    q:'住所・氏名変更登記の義務化（2026年4月施行）に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．住所変更を知った日から3年以内に変更登記を申請しなければならない。\nイ．正当な理由なく期限内に申請しない場合、5万円以下の過料が課される。\nウ．法施行前にすでに住所変更しており未登記の所有者も、法施行日から2年以内に申請が必要である。\nエ．職権更新制度が新設され、住民票・戸籍情報を活用して法務局が登記を更新できるようになった。',
+    opts:['一つ','二つ','三つ','四つ'], ans:1,
+    exp:'正しいのはイ・ウ・エの<strong>三つ</strong>です。ア×：住所変更を知った日から<strong>2年以内</strong>（3年ではなく2年）。なお相続登記は相続を知った日から3年以内なので混同注意。イ○：違反した場合の過料は5万円以下（民事罰）。ウ○：施行前の未登記も施行日（2026年4月1日）から2年以内の申請が必要。エ○：職権更新制度（法務局が住民票等を活用し更新）は申請義務の履行支援策として新設。'
+  },
+
+  /* ── 税・その他 個数問題 ── */
+  {
+    cat:'税・その他', catClass:'tax',
+    q:'不動産取得税に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．不動産取得税は、不動産を取得した者に対して、取得の都度課される都道府県税である。\nイ．住宅用地（住宅・土地）の税率は、標準税率3%である。\nウ．新築住宅を取得した場合、1200万円（認定長期優良住宅は1300万円）を課税標準から控除できる。\nエ．床面積が50㎡未満の住宅は、新築住宅の課税標準の特例控除の対象外である。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：不動産取得税は都道府県税で取得の都度課税（毎年ではない）。イ○：住宅・住宅用土地の税率は標準3%（土地・住宅以外は4%）。ウ○：新築住宅取得時の軽減は1200万円控除（認定長期優良は1300万円）。エ○：軽減の対象は床面積50㎡以上240㎡以下の住宅。50㎡未満は対象外。'
+  },
+  {
+    cat:'税・その他', catClass:'tax',
+    q:'居住用財産の譲渡特例に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．居住用財産の3000万円特別控除は、保有期間に関係なく適用できる。\nイ．居住用財産の軽減税率の特例（10年超所有）は、3000万円特別控除と重複適用できる。\nウ．3000万円特別控除は、配偶者や直系血族へ譲渡した場合には適用できない。\nエ．住まなくなった日から3年後の12月31日を過ぎた場合、3000万円特別控除は適用できない。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：3000万円特別控除は保有期間不問（1年でも可）。イ○：軽減税率（10年超）と3000万円特別控除は重複適用可能。ウ○：配偶者・直系血族・生計一親族・内縁関係者への譲渡は適用不可（特別の関係者）。エ○：住まなくなった日から3年を経過する日の属する年の12月31日が期限（それを過ぎると不可）。'
+  },
+  {
+    cat:'税・その他', catClass:'tax',
+    q:'不動産鑑定評価の3手法に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．原価法は、対象不動産の再調達原価に減価修正を行って積算価格を求める方法であり、主に建物評価に適している。\nイ．取引事例比較法は、多数の取引事例を収集し、事情補正・時点修正・地域・個別要因を比較して比準価格を求める方法である。\nウ．収益還元法は、将来生み出す純収益を還元利回りで割り引いて収益価格を求める方法であり、店舗・事務所・賃貸マンションの評価に有効である。\nエ．3つの手法で求めた各価格は、互いに関連づけて最終的な鑑定評価額に調整しなければならない。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：原価法は再調達原価−減価修正。建物・特殊不動産に適する。イ○：取引事例比較法は事情補正・時点修正・地域比較・個別比較の4ステップ。ウ○：収益還元法はNOI÷還元利回り（直接還元法）または各期キャッシュフローのDCF法。賃貸用不動産に有効。エ○：鑑定士は3手法の価格を関連づけて最終評価額を決定しなければならない（不動産鑑定評価基準）。'
+  },
+  {
+    cat:'税・その他', catClass:'tax',
+    q:'相続登記の義務化（2024年4月施行）に関する次のア〜エの記述のうち、<strong>正しいものはいくつあるか</strong>。\n\nア．相続による不動産取得を知った日から3年以内に登記を申請しなければならない。\nイ．正当な理由なく期限を超えると、10万円以下の過料が課される。\nウ．法施行前（2024年4月1日以前）に相続が開始し未登記だった不動産も、義務化の対象となる。\nエ．相続登記の申請義務を果たすための「相続人申告登記」制度が新設された。',
+    opts:['一つ','二つ','三つ','四つ'], ans:3,
+    exp:'ア〜エ全て<strong>正しい</strong>ので<strong>四つ</strong>です。ア○：相続を知った日から3年以内（住所変更登記の2年以内と混同しないこと）。イ○：違反の場合10万円以下の過料（住所変更の5万円以下より重い）。ウ○：施行前の未登記相続も、施行日（2024年4月1日）から3年以内の申請が義務。エ○：相続登記を行わず申告だけでも当面の義務を果たせる「相続人申告登記」も新設された。'
+  },
 ];
 
 /* ================================================================
@@ -3811,6 +3999,9 @@ function renderSlide() {
   const diagramHtml = s.diagram
     ? `<div class="slide-diagram"><div class="slide-diagram-label">📊 図解</div>${s.diagram}</div>`
     : '';
+  const reasonHtml = s.reason
+    ? `<div class="slide-reason"><div class="slide-reason-label">⚖️ このルールの趣旨</div>${s.reason}</div>`
+    : '';
   card.innerHTML = `
     <div class="slide-tag">${s.tag}</div>
     <div class="slide-title">${s.title}</div>
@@ -3818,6 +4009,7 @@ function renderSlide() {
     ${pointsHtml}
     ${diagramHtml}
     ${exampleHtml}
+    ${reasonHtml}
   `;
   document.getElementById('slideCounter').textContent = `${currentSlide+1} / ${filteredSlides.length}`;
   document.getElementById('prevSlide').disabled = currentSlide === 0;
@@ -3992,7 +4184,7 @@ function renderNextQ() {
   card.innerHTML = `
     <div class="q-meta">
       <span class="q-tag ${q.catClass}">${q.cat}</span>
-      <span class="q-tag" style="color:var(--muted);border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.05)">Q${qPointer+1}/${qDeck.length}</span>
+      <span class="q-tag" style="color:var(--muted);border-color:rgba(0,0,0,0.12);background:rgba(0,0,0,0.04)">Q${qPointer+1}/${qDeck.length}</span>
     </div>
     <div class="q-text">${q.q}</div>
     <div class="q-options">${optsHtml}</div>
