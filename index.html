@@ -457,9 +457,8 @@
       cursor: pointer;
       margin-top: 0.7rem;
       transition: opacity 0.2s;
-      display: none;
+      display: inline-block;
     }
-    .next-q-btn.show { display: inline-block; }
     .next-q-btn:hover { opacity: 0.85; }
 
     .divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
@@ -4971,7 +4970,7 @@ function renderNextQ() {
         ${isWeak ? '🔴 苦手登録済み' : '🔴 苦手に追加'}
       </button>
     </div>
-    <button class="next-q-btn" id="nextBtn-${qPointer}" onclick="advanceQ()">次の問題 →</button>
+    <button class="next-q-btn" id="nextBtn-${qPointer}" onclick="advanceQ()">次へ →</button>
   `;
   area.innerHTML = '';
   area.appendChild(card);
@@ -5006,7 +5005,8 @@ function selectOpt(btn, idx, ans, qIdx, dataIdx) {
     wb.classList.add('show');
     if (!correct) { wb.classList.add('marked'); wb.textContent = '🔴 苦手登録済み'; }
   }
-  document.getElementById(`nextBtn-${qIdx}`).classList.add('show');
+  const nb = document.getElementById(`nextBtn-${qIdx}`);
+  if (nb) nb.textContent = '次の問題 →';
 }
 
 function toggleWeak(dataIdx, qIdx) {
