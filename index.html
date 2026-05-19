@@ -347,6 +347,9 @@
     .fc-weak-row { display: flex; justify-content: center; margin-top: 0.5rem; }
     .fc-weak-btn { background: none; border: 1px solid rgba(248,81,73,0.35); border-radius: 20px; color: var(--red); font-size: 0.75rem; padding: 0.25rem 0.85rem; cursor: pointer; transition: all 0.15s; }
     .fc-weak-btn.marked { background: rgba(248,81,73,0.12); border-color: var(--red); font-weight: 700; }
+    .fc-quiz-row { display: flex; justify-content: center; margin-top: 0.6rem; }
+    .fc-quiz-btn { background: rgba(130,80,223,0.07); border: 1px solid rgba(130,80,223,0.25); border-radius: 20px; color: var(--purple); font-size: 0.75rem; padding: 0.25rem 0.85rem; cursor: pointer; transition: all 0.15s; }
+    .fc-quiz-btn:hover { background: rgba(130,80,223,0.16); }
     .fc-filter.weak-fc { border-color: rgba(248,81,73,0.3); color: var(--red); }
     .fc-filter.weak-fc.active { background: rgba(248,81,73,0.12); border-color: var(--red); }
 
@@ -671,6 +674,13 @@
     }
     .slide-action-btn.quiz:hover { background: rgba(130,80,223,0.16); }
     .slide-action-btn.quiz.none { opacity: 0.4; cursor: default; }
+    .slide-action-btn.flash {
+      background: rgba(9,105,218,0.07);
+      border-color: rgba(9,105,218,0.25);
+      color: var(--blue);
+    }
+    .slide-action-btn.flash:hover { background: rgba(9,105,218,0.16); }
+    .slide-action-btn.flash.none { opacity: 0.4; cursor: default; }
 
     /* SCHEDULER TAB */
     .sched-hero {
@@ -868,6 +878,9 @@
   </div>
   <div class="fc-weak-row">
     <button class="fc-weak-btn" id="fcWeakBtn" onclick="toggleFCWeak()">🔴 苦手に追加</button>
+  </div>
+  <div class="fc-quiz-row">
+    <button class="fc-quiz-btn" onclick="goToQuizFromFlash()">✏️ 関連問題を解く</button>
   </div>
 </section>
 
@@ -4501,21 +4514,29 @@ function renderSlide() {
 
 function renderSlideActions(s) {
   const area = document.getElementById('slideActions');
-  // YouTube検索URL
   const ytQuery = encodeURIComponent(`宅建 ${s.title} わかりやすい 解説`);
   const ytUrl = `https://www.youtube.com/results?search_query=${ytQuery}`;
-  // 関連過去問を探す（キーワードまたはタイトルで quizData とマッチ）
   const keys = (s.keywords || []).concat(s.title.split(/[・（）\s]/)).filter(k => k.length > 1);
+  // 関連過去問
   const relatedCount = quizData.filter(q =>
     q.cat === s.tag && keys.some(k => q.q.includes(k) || (q.exp && q.exp.includes(k)))
   ).length;
   const quizBtnClass = relatedCount > 0 ? 'quiz' : 'quiz none';
   const quizClick = relatedCount > 0
     ? `onclick="goToRelatedQuiz('${s.tag.replace(/'/g,"\\'")}',${JSON.stringify(keys).replace(/"/g,"'")})"` : '';
+  // 関連フラッシュカード
+  const fcRelated = relatedFlashCards(s);
+  const fcBtnClass = fcRelated.length > 0 ? 'flash' : 'flash none';
+  const titleCore = s.title.split('（')[0].replace(/'/g, "\\'");
+  const fcClick = fcRelated.length > 0
+    ? `onclick="goToFlashFromSlide('${s.tag.replace(/'/g,"\\'")}','${titleCore}')"` : '';
   area.innerHTML = `
     <a class="slide-action-btn yt" href="${ytUrl}" target="_blank" rel="noopener">▶ YouTubeで解説を見る</a>
     <button class="slide-action-btn ${quizBtnClass}" ${quizClick}>
       📝 関連過去問${relatedCount > 0 ? `（${relatedCount}問）` : '（なし）'}
+    </button>
+    <button class="slide-action-btn ${fcBtnClass}" ${fcClick}>
+      🃏 関連フラッシュカード${fcRelated.length > 0 ? `（${fcRelated.length}枚）` : '（なし）'}
     </button>
   `;
 }
@@ -4555,6 +4576,58 @@ function returnToSlideFromQuiz() {
 function changeSlide(dir) {
   currentSlide = Math.max(0, Math.min(filteredSlides.length - 1, currentSlide + dir));
   renderSlide();
+}
+
+// 問題演習の問題文・解説から最適スライドを自動検出
+function autoSlideKeyword(q) {
+  if (q.slideKeyword) return q.slideKeyword;
+  const pool = slides.filter(s => s.tag === q.cat);
+  const text = q.q + ' ' + (q.exp || '');
+  let best = null, bestScore = 0;
+  pool.forEach(s => {
+    let score = 0;
+    const titleCore = s.title.split('（')[0];
+    if (text.includes(titleCore)) score += titleCore.length * 3;
+    (s.keywords || []).forEach(k => {
+      if (k.length >= 3 && text.includes(k)) score += k.length;
+    });
+    if (score > bestScore) { bestScore = score; best = titleCore; }
+  });
+  return best || '';
+}
+
+// スライドに関連するフラッシュカードを返す
+function relatedFlashCards(s) {
+  const keys = [s.title.split('（')[0], ...(s.keywords || [])].filter(k => k.length >= 2);
+  return allCards.filter(c => c.cat === s.tag && keys.some(k => c.slideKeyword && c.slideKeyword.includes(k)));
+}
+
+// スライドからフラッシュカードへ移動
+function goToFlashFromSlide(cat, keyword) {
+  const pool = allCards.filter(c => c.cat === cat &&
+    c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
+  fcFilter = cat;
+  fcDeck = pool.length > 0 ? pool : allCards.filter(c => c.cat === cat);
+  fcIndex = 0;
+  showTab('flash', document.querySelector('.tab-btn:nth-child(3)'));
+  document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
+  renderFC();
+}
+
+// フラッシュカードから問題演習へ移動
+function goToQuizFromFlash() {
+  const card = fcDeck[fcIndex];
+  if (!card) return;
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
+  qFilter = card.cat;
+  document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+  const kw = card.slideKeyword || card.word;
+  const pool = quizData.filter(q => q.cat === card.cat);
+  const related = pool.filter(q => kw.length > 1 && (q.q.includes(kw) || (q.exp && q.exp.includes(kw))));
+  const rest = pool.filter(q => !related.includes(q));
+  qDeck = [...related, ...rest.sort(() => Math.random() - 0.5)];
+  qPointer = 0;
+  renderNextQ();
 }
 
 function buildDots() {
@@ -4875,7 +4948,7 @@ function renderNextQ() {
       <span class="q-label">${['①','②','③','④'][i]}</span><span>${o}</span>
     </button>`
   ).join('');
-  const slideKeyword = q.slideKeyword || '';
+  const slideKeyword = autoSlideKeyword(q);
   const acc = accMap.get(qIdx);
   const accHtml = acc
     ? `<span class="q-accuracy ${acc.c/acc.t >= 0.7 ? 'good' : acc.c/acc.t < 0.4 ? 'poor' : ''}">正答率 ${Math.round(acc.c/acc.t*100)}%（${acc.c}/${acc.t}回）</span>`
