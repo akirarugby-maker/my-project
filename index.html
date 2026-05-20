@@ -4885,8 +4885,10 @@ function relatedFlashCards(s) {
 function goToFlashFromSlide(cat, keyword) {
   const matchSlide = slides.find(s => s.tag === cat && s.title.startsWith(keyword));
   if (matchSlide && autoCheckActivity(matchSlide.title, 'flash')) buildProgressChecklist();
-  const pool = allCards.filter(c => c.cat === cat &&
-    c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
+  const pool = matchSlide
+    ? relatedFlashCards(matchSlide)
+    : allCards.filter(c => c.cat === cat &&
+        c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
   fcFilter = cat;
   fcDeck = pool;
   fcIndex = 0;
