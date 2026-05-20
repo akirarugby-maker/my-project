@@ -4660,27 +4660,35 @@ function renderSlideActions(s) {
   const ytQuery = encodeURIComponent(`宅建 ${s.title} わかりやすい 解説`);
   const ytUrl = `https://www.youtube.com/results?search_query=${ytQuery}`;
   const keys = (s.keywords || []).concat(s.title.split(/[・（）\s]/)).filter(k => k.length > 1);
-  // 関連過去問
-  const relatedCount = quizData.filter(q =>
+
+  // 関連過去問：キーワードが問題文または解説に含まれるものだけ
+  const relatedQuiz = quizData.filter(q =>
     q.cat === s.tag && keys.some(k => q.q.includes(k) || (q.exp && q.exp.includes(k)))
-  ).length;
-  const quizBtnClass = relatedCount > 0 ? 'quiz' : 'quiz none';
-  const quizClick = relatedCount > 0
-    ? `onclick="goToRelatedQuiz('${s.tag.replace(/'/g,"\\'")}',${JSON.stringify(keys).replace(/"/g,"'")})"` : '';
-  // 関連フラッシュカード
+  );
+
+  // 関連フラッシュカード：slideKeywordがスライドのキーワードと一致するものだけ
   const fcRelated = relatedFlashCards(s);
-  const fcBtnClass = fcRelated.length > 0 ? 'flash' : 'flash none';
+
   const titleCore = s.title.split('（')[0].replace(/'/g, "\\'");
-  const fcClick = fcRelated.length > 0
-    ? `onclick="goToFlashFromSlide('${s.tag.replace(/'/g,"\\'")}','${titleCore}')"` : '';
+  const catEsc = s.tag.replace(/'/g, "\\'");
+  const keysJson = JSON.stringify(keys).replace(/"/g, "'");
+
+  const quizBtn = relatedQuiz.length > 0
+    ? `<button class="slide-action-btn quiz" onclick="goToRelatedQuiz('${catEsc}',${keysJson})">
+         📝 関連過去問（${relatedQuiz.length}問）
+       </button>`
+    : '';
+
+  const fcBtn = fcRelated.length > 0
+    ? `<button class="slide-action-btn flash" onclick="goToFlashFromSlide('${catEsc}','${titleCore}')">
+         🃏 関連フラッシュカード（${fcRelated.length}枚）
+       </button>`
+    : '';
+
   area.innerHTML = `
     <a class="slide-action-btn yt" href="${ytUrl}" target="_blank" rel="noopener">▶ YouTubeで解説を見る</a>
-    <button class="slide-action-btn ${quizBtnClass}" ${quizClick}>
-      📝 関連過去問${relatedCount > 0 ? `（${relatedCount}問）` : '（なし）'}
-    </button>
-    <button class="slide-action-btn ${fcBtnClass}" ${fcClick}>
-      🃏 関連フラッシュカード${fcRelated.length > 0 ? `（${fcRelated.length}枚）` : '（なし）'}
-    </button>
+    ${quizBtn}
+    ${fcBtn}
   `;
 }
 
@@ -4747,14 +4755,14 @@ function relatedFlashCards(s) {
   return allCards.filter(c => c.cat === s.tag && keys.some(k => c.slideKeyword && c.slideKeyword.includes(k)));
 }
 
-// スライドからフラッシュカードへ移動
+// スライドからフラッシュカードへ移動（関連キーワードで絞り込み済みのものだけ表示）
 function goToFlashFromSlide(cat, keyword) {
   const matchSlide = slides.find(s => s.tag === cat && s.title.startsWith(keyword));
   if (matchSlide && autoCheckActivity(matchSlide.title, 'flash')) buildProgressChecklist();
   const pool = allCards.filter(c => c.cat === cat &&
     c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
   fcFilter = cat;
-  fcDeck = pool.length > 0 ? pool : allCards.filter(c => c.cat === cat);
+  fcDeck = pool;
   fcIndex = 0;
   showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
   document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
