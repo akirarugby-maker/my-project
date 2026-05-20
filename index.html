@@ -1129,7 +1129,7 @@
   <div class="fc-weak-row">
     <button class="fc-weak-btn" id="fcWeakBtn" onclick="toggleFCWeak()">🔴 苦手に追加</button>
   </div>
-  <div class="fc-quiz-row">
+  <div class="fc-quiz-row" id="fcQuizRow">
     <button class="fc-quiz-btn" onclick="goToQuizFromFlash()">✏️ 関連問題を解く</button>
   </div>
 </section>
@@ -4874,19 +4874,58 @@ function goToFlashFromSlide(cat, keyword) {
   renderFC();
 }
 
-// フラッシュカードから問題演習へ移動
+// フラッシュカードの多段階キーワード抽出
+function fcKeywords(card) {
+  const kws = new Set();
+  // slideKeyword と その「（」前の核心部
+  if (card.slideKeyword) {
+    kws.add(card.slideKeyword);
+    const skCore = card.slideKeyword.split(/[（(・\s]/)[0];
+    if (skCore.length >= 2) kws.add(skCore);
+  }
+  // word 本体と括弧除去形
+  kws.add(card.word);
+  const wStripped = card.word.replace(/（[^）]*）/g,'').replace(/\([^)]*\)/g,'').trim();
+  if (wStripped.length >= 2) kws.add(wStripped);
+  // 区切り文字（の を含む）でパーツ分割
+  [card.word, wStripped].forEach(w => {
+    w.split(/[（）()・\sの]/g).forEach(p => { if (p.length >= 2) kws.add(p); });
+  });
+  // 漢字2文字bigram（区切りなし複合語を分解: 連帯債務→連帯・帯債・債務）
+  const kanjiRe = /^[一-龯々]{2}$/;
+  for (let i = 0; i < wStripped.length - 1; i++) {
+    const bi = wStripped.slice(i, i+2);
+    if (kanjiRe.test(bi)) kws.add(bi);
+  }
+  return [...kws].filter(k => k.length >= 2);
+}
+
+// フラッシュカードに関連する問題演習を返す
+function fcRelatedQuiz(card) {
+  const keywords = fcKeywords(card);
+  const pool = quizData.filter(q => q.cat === card.cat);
+  return pool.filter(q => {
+    const text = q.q + ' ' + (q.exp || '');
+    return keywords.some(kw => text.includes(kw));
+  });
+}
+
+// フラッシュカードから問題演習へ移動（関連問題のみ先頭に）
 function goToQuizFromFlash() {
   const card = fcDeck[fcIndex];
   if (!card) return;
+  const related = fcRelatedQuiz(card);
+  if (related.length === 0) return;
   showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   qFilter = card.cat;
   document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
-  const kw = card.slideKeyword || card.word;
   const pool = quizData.filter(q => q.cat === card.cat);
-  const related = pool.filter(q => kw.length > 1 && (q.q.includes(kw) || (q.exp && q.exp.includes(kw))));
   const rest = pool.filter(q => !related.includes(q));
   qDeck = [...related, ...rest.sort(() => Math.random() - 0.5)];
   qPointer = 0;
+  scoreCorrect = 0; scoreTotal = 0;
+  document.getElementById('scoreCorrect').textContent = 0;
+  document.getElementById('scoreTotal').textContent = 0;
   renderNextQ();
 }
 
@@ -5001,6 +5040,9 @@ function renderFC() {
   const wb = document.getElementById('fcWeakBtn');
   wb.className = 'fc-weak-btn' + (isWeak ? ' marked' : '');
   wb.textContent = isWeak ? '🔴 苦手登録済み' : '🔴 苦手に追加';
+  // 関連問題があるときだけボタンを表示
+  const qRow = document.getElementById('fcQuizRow');
+  if (qRow) qRow.style.display = fcRelatedQuiz(card).length > 0 ? '' : 'none';
 }
 
 function toggleFCWeak() {
