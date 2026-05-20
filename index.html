@@ -32,10 +32,16 @@
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-between;
     }
     header h1 {
       font-size: 1.3rem;
@@ -47,6 +53,92 @@
       margin-bottom: 0.1rem;
     }
     header p { font-size: 0.75rem; color: var(--muted); }
+
+    /* 検索バー */
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      max-width: 340px;
+      min-width: 0;
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.7rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      pointer-events: none;
+      color: var(--muted);
+    }
+    .search-input {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 0.42rem 1rem 0.42rem 2.1rem;
+      font-size: 0.85rem;
+      background: rgba(0,0,0,0.03);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(212,146,10,0.12);
+      background: #fff;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-results {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+      z-index: 300;
+      max-height: 460px;
+      overflow-y: auto;
+      display: none;
+    }
+    .search-results.open { display: block; }
+    .search-group-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 0.6rem 1rem 0.2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .search-item {
+      padding: 0.48rem 1rem;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .search-item:hover { background: rgba(212,146,10,0.07); }
+    .search-item-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .search-item-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.05rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .search-empty {
+      padding: 1.2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .search-divider { height: 1px; background: var(--border); margin: 0.2rem 0; }
 
     .tabs {
       display: flex;
@@ -962,8 +1054,21 @@
 <body>
 
 <header>
-  <h1>🏠 宅建士試験 学習アプリ</h1>
-  <p>2026年10月試験対策 — スライド / YouTube / フラッシュカード / 問題演習</p>
+  <div class="header-top">
+    <div>
+      <h1>🏠 宅建士試験 学習アプリ</h1>
+      <p>2026年10月試験対策 — スライド / YouTube / フラッシュカード / 問題演習</p>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input"
+             placeholder="用語・テーマを検索..."
+             oninput="onSearchInput(this.value)"
+             onfocus="onSearchInput(this.value)"
+             autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
 </header>
 
 <nav class="tabs" role="tablist">
@@ -5369,6 +5474,134 @@ function goToSlideForTheme(cat, title) {
   buildDots();
   renderSlide();
 }
+
+/* ================================================================
+   SEARCH
+================================================================ */
+let _searchResults = [];
+let _searchTimer = null;
+
+function onSearchInput(val) {
+  clearTimeout(_searchTimer);
+  _searchTimer = setTimeout(() => runSearch(val.trim()), 200);
+}
+
+function runSearch(query) {
+  const box = document.getElementById('searchResults');
+  if (!query || query.length < 2) { box.classList.remove('open'); return; }
+  const q = query.toLowerCase();
+
+  _searchResults = [];
+
+  // スライド：タイトル・キーワード・本文
+  slides.forEach((s, i) => {
+    const text = s.title + ' ' + (s.keywords || []).join(' ') + ' ' + s.body.replace(/<[^>]+>/g, '');
+    if (text.toLowerCase().includes(q))
+      _searchResults.push({ type:'slide', label:s.title, sub:s.tag, idx:i });
+  });
+
+  // フラッシュカード：用語・定義
+  allCards.forEach((c, i) => {
+    if ((c.word + ' ' + c.def).toLowerCase().includes(q))
+      _searchResults.push({ type:'flash', label:c.word, sub:c.def.replace(/<[^>]+>/g,'').slice(0,50), idx:i });
+  });
+
+  // 問題演習：問題文・解説
+  quizData.forEach((qd, i) => {
+    if ((qd.q + ' ' + (qd.exp||'')).toLowerCase().includes(q))
+      _searchResults.push({ type:'quiz', label:qd.q.replace(/<[^>]+>/g,'').slice(0,60), sub:qd.cat, idx:i });
+  });
+
+  renderSearchResults(query);
+}
+
+function renderSearchResults(query) {
+  const box = document.getElementById('searchResults');
+  if (_searchResults.length === 0) {
+    box.innerHTML = `<div class="search-empty">「${query}」に一致する結果が見つかりませんでした</div>`;
+    box.classList.add('open'); return;
+  }
+
+  const byType = {
+    slide: _searchResults.filter(r => r.type === 'slide').slice(0, 6),
+    flash: _searchResults.filter(r => r.type === 'flash').slice(0, 6),
+    quiz:  _searchResults.filter(r => r.type === 'quiz').slice(0, 6),
+  };
+  const icons = { slide:'📖 スライド学習', flash:'🃏 フラッシュカード', quiz:'✏️ 問題演習' };
+  let html = '';
+  let resultIdx = 0;
+
+  ['slide','flash','quiz'].forEach(type => {
+    const items = byType[type];
+    if (!items.length) return;
+    html += `<div class="search-group-label">${icons[type]}</div>`;
+    items.forEach(r => {
+      const ri = _searchResults.indexOf(r);
+      html += `<div class="search-item" onclick="goToSearchResult(${ri})">
+        <div class="search-item-title">${r.label}</div>
+        <div class="search-item-sub">${r.sub}</div>
+      </div>`;
+    });
+    html += '<div class="search-divider"></div>';
+  });
+
+  box.innerHTML = html;
+  box.classList.add('open');
+}
+
+function goToSearchResult(ri) {
+  const r = _searchResults[ri];
+  if (!r) return;
+  closeSearch();
+
+  if (r.type === 'slide') {
+    const s = slides[r.idx];
+    showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+    slideFilter = s.tag;
+    filteredSlides = slides.filter(sl => sl.tag === s.tag);
+    document.querySelectorAll('.sf-btn').forEach(b =>
+      b.classList.toggle('active', b.textContent.replace(/（\d+）$/,'') === s.tag));
+    currentSlide = filteredSlides.indexOf(s);
+    if (currentSlide < 0) currentSlide = 0;
+    buildDots();
+    renderSlide();
+
+  } else if (r.type === 'flash') {
+    const c = allCards[r.idx];
+    showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
+    fcFilter = c.cat;
+    fcDeck = allCards.filter(card => card.cat === c.cat);
+    fcIndex = fcDeck.indexOf(c);
+    if (fcIndex < 0) fcIndex = 0;
+    document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
+    renderFC();
+
+  } else if (r.type === 'quiz') {
+    const qd = quizData[r.idx];
+    showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
+    qFilter = qd.cat;
+    document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+    const rest = quizData.filter(q => q.cat === qd.cat && q !== qd);
+    qDeck = [qd, ...rest.sort(() => Math.random() - 0.5)];
+    qPointer = 0;
+    scoreCorrect = 0; scoreTotal = 0;
+    document.getElementById('scoreCorrect').textContent = 0;
+    document.getElementById('scoreTotal').textContent = 0;
+    renderNextQ();
+  }
+}
+
+function closeSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').classList.remove('open');
+}
+
+// 検索ボックス外クリックで閉じる
+document.addEventListener('click', e => {
+  const wrap = document.querySelector('.search-wrap');
+  if (wrap && !wrap.contains(e.target))
+    document.getElementById('searchResults').classList.remove('open');
+});
 
 /* ================================================================
    INIT
