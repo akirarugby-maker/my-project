@@ -721,6 +721,18 @@
       gap: 0.3rem;
     }
     .q-slide-btn:hover { background: rgba(9,105,218,0.18); }
+    .q-flash-btn {
+      background: rgba(130,80,223,0.08);
+      border: 1px solid rgba(130,80,223,0.25);
+      border-radius: 20px;
+      color: var(--purple);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .q-flash-btn:hover { background: rgba(130,80,223,0.18); }
 
     /* SLIDE REASON (趣旨) */
     .slide-reason {
@@ -1104,6 +1116,10 @@
 
 <!-- FLASHCARDS -->
 <section id="flash" class="panel">
+  <div class="slide-return-bar" id="flashReturnBar">
+    <span>問題演習から移動中</span>
+    <button class="slide-return-btn" onclick="returnToQuizFromFlash()">← 問題演習に戻る</button>
+  </div>
   <div class="fc-controls" id="fcFilters"></div>
   <div class="flashcard-wrap" onclick="flipCard()">
     <div class="flashcard" id="flashcard">
@@ -4695,6 +4711,11 @@ function showTab(id, btn) {
     const qbar = document.getElementById('quizReturnBar');
     if (qbar) qbar.classList.remove('show');
   }
+  if (id !== 'flash') {
+    flashReturnContext = null;
+    const fbar = document.getElementById('flashReturnBar');
+    if (fbar) fbar.classList.remove('show');
+  }
 }
 
 /* ================================================================
@@ -4927,6 +4948,46 @@ function goToQuizFromFlash() {
   document.getElementById('scoreCorrect').textContent = 0;
   document.getElementById('scoreTotal').textContent = 0;
   renderNextQ();
+}
+
+// 問題演習に関連するフラッシュカードを返す
+let flashReturnContext = null;
+
+function relatedFlashFromQuiz(q) {
+  const slideKw = autoSlideKeyword(q);
+  const text = q.q + ' ' + (q.exp || '');
+  return allCards.filter(c => {
+    if (c.cat !== q.cat) return false;
+    if (slideKw && c.slideKeyword &&
+        (c.slideKeyword.includes(slideKw) || slideKw.includes(c.slideKeyword))) return true;
+    if (c.word.length >= 2 && text.includes(c.word)) return true;
+    return false;
+  });
+}
+
+// 問題演習からフラッシュカードへ移動
+function goToFlashFromQuiz(cat, keyword) {
+  let pool = allCards.filter(c => c.cat === cat &&
+    c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
+  if (pool.length === 0) pool = allCards.filter(c => c.cat === cat);
+  if (pool.length === 0) return;
+  flashReturnContext = true;
+  fcFilter = cat;
+  fcDeck = pool;
+  fcIndex = 0;
+  showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
+  document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
+  const bar = document.getElementById('flashReturnBar');
+  if (bar) bar.classList.add('show');
+  renderFC();
+}
+
+// フラッシュカードから問題演習へ戻る
+function returnToQuizFromFlash() {
+  flashReturnContext = null;
+  const bar = document.getElementById('flashReturnBar');
+  if (bar) bar.classList.remove('show');
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
 }
 
 function buildDots() {
@@ -5268,6 +5329,7 @@ function renderNextQ() {
     <div class="q-explain" id="exp-${qPointer}">${q.exp}</div>
     <div class="q-slide-link" id="qSlideLink-${qPointer}">
       <button class="q-slide-btn" onclick="goToSlideFromQuiz('${q.cat}','${slideKeyword.replace(/'/g,"\\'")}')">📖 スライドで確認</button>
+      <span id="qFlashLink-${qPointer}"></span>
     </div>
     <div class="q-weak-row">
       <button class="q-weak-btn${isWeak ? ' marked' : ''}" id="weakBtn-${qPointer}" onclick="toggleWeak(${qIdx},${qPointer})">
@@ -5309,6 +5371,18 @@ function selectOpt(btn, idx, ans, qIdx, dataIdx) {
   }
   document.getElementById(`exp-${qIdx}`).classList.add('show');
   document.getElementById(`qSlideLink-${qIdx}`).classList.add('show');
+  // 関連フラッシュカードボタンを生成（関連あるときのみ）
+  const curQ = quizData[dataIdx];
+  if (curQ) {
+    const relFC = relatedFlashFromQuiz(curQ);
+    const flashLinkEl = document.getElementById(`qFlashLink-${qIdx}`);
+    if (flashLinkEl && relFC.length > 0) {
+      const slideKw = autoSlideKeyword(curQ);
+      const catEsc = curQ.cat.replace(/'/g,"\\'");
+      const kwEsc = slideKw.replace(/'/g,"\\'");
+      flashLinkEl.innerHTML = `<button class="q-flash-btn" onclick="goToFlashFromQuiz('${catEsc}','${kwEsc}')">🃏 関連フラッシュカード（${relFC.length}枚）</button>`;
+    }
+  }
   const wb = document.getElementById(`weakBtn-${qIdx}`);
   if (wb) {
     wb.classList.add('show');
