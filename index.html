@@ -811,25 +811,149 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
+
+    /* PROGRESS CHECKLIST */
+    .progress-reset-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1.2rem;
+    }
+    .reset-all-btn {
+      background: rgba(207,34,46,0.07);
+      border: 1px solid rgba(207,34,46,0.28);
+      border-radius: 8px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.42rem 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .reset-all-btn:hover { background: rgba(207,34,46,0.14); }
+
+    .progress-subject { margin-bottom: 1.8rem; }
+    .progress-subject-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.9rem;
+      border-radius: 10px 10px 0 0;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-top: 1px solid;
+    }
+    .progress-col-headers {
+      display: grid;
+      grid-template-columns: 1fr 88px 88px 88px 60px;
+      gap: 0.3rem;
+      padding: 0.28rem 0.9rem;
+      font-size: 0.66rem;
+      color: var(--muted);
+      font-weight: 600;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      background: rgba(0,0,0,0.015);
+      text-align: center;
+    }
+    .progress-col-headers div:first-child { text-align: left; }
+    .progress-theme-row {
+      display: grid;
+      grid-template-columns: 1fr 88px 88px 88px 60px;
+      gap: 0.3rem;
+      align-items: center;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-top: none;
+      background: var(--bg2);
+      transition: background 0.12s;
+    }
+    .progress-theme-row:last-child { border-radius: 0 0 10px 10px; }
+    .progress-theme-row:hover { background: rgba(0,0,0,0.018); }
+    .progress-theme-name {
+      font-size: 0.78rem;
+      cursor: pointer;
+      color: var(--blue);
+      line-height: 1.35;
+      text-decoration: underline;
+      text-decoration-color: rgba(9,105,218,0.25);
+    }
+    .progress-theme-name:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    .progress-circles {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    .progress-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.15);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      transition: all 0.15s;
+      flex-shrink: 0;
+      color: transparent;
+    }
+    .progress-circle.checked {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .progress-circle.checked::after { content: '✓'; }
+    .progress-circle:hover:not(.checked) {
+      border-color: var(--accent);
+      background: rgba(212,146,10,0.12);
+    }
+    .reset-theme-btn {
+      font-size: 0.65rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: transparent;
+      border-radius: 6px;
+      padding: 0.22rem 0.45rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+      justify-self: center;
+    }
+    .reset-theme-btn:hover {
+      color: var(--red);
+      border-color: rgba(207,34,46,0.4);
+      background: rgba(207,34,46,0.05);
+    }
+    @media (max-width: 600px) {
+      .progress-col-headers,
+      .progress-theme-row {
+        grid-template-columns: 1fr 72px 72px 72px 44px;
+      }
+      .progress-circle { width: 20px; height: 20px; font-size: 0.55rem; }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>🏠 宅建士試験 学習アプリ</h1>
-  <p>2025年10月試験対策 — ロードマップ / スライド / YouTube / フラッシュカード / 問題演習</p>
+  <p>2026年10月試験対策 — スライド / YouTube / フラッシュカード / 問題演習</p>
 </header>
 
 <nav class="tabs" role="tablist">
-  <button class="tab-btn active" onclick="showTab('slides',this)" role="tab">📖 スライド学習</button>
+  <button class="tab-btn active" onclick="showTab('scheduler',this)" role="tab">📅 スケジューラ</button>
+  <button class="tab-btn" onclick="showTab('slides',this)" role="tab">📖 スライド学習</button>
   <button class="tab-btn" onclick="showTab('youtube',this)" role="tab">▶️ YouTube検索</button>
   <button class="tab-btn" onclick="showTab('flash',this)" role="tab">🃏 フラッシュカード</button>
   <button class="tab-btn" onclick="showTab('quiz',this)" role="tab">✏️ 問題演習</button>
-  <button class="tab-btn" onclick="showTab('scheduler',this)" role="tab">📅 スケジューラ</button>
 </nav>
 
 <!-- SLIDES -->
-<section id="slides" class="panel active">
+<section id="slides" class="panel">
   <div class="slide-return-bar" id="slideReturnBar">
     <span id="slideReturnLabel"></span>
     <button class="slide-return-btn" id="slideReturnBtn" onclick="returnFromSlide()"></button>
@@ -898,7 +1022,7 @@
 </section>
 
 <!-- SCHEDULER -->
-<section id="scheduler" class="panel">
+<section id="scheduler" class="panel active">
   <div class="exam-info" style="margin-bottom:1rem">
     <div class="info-card"><div class="label">合格ライン目安</div><div class="value">37点 / 50点</div></div>
     <div class="info-card"><div class="label">合格率</div><div class="value">約15〜17%</div></div>
@@ -939,16 +1063,13 @@
     </div>
   </div>
 
-  <p class="section-title">📊 科目別学習進捗</p>
-  <div class="sched-progress-grid" id="schedProgGrid"></div>
+  <div class="progress-reset-bar">
+    <button class="reset-all-btn" onclick="resetAllProgress()">🗑 すべての進捗をリセット</button>
+  </div>
 
-  <div class="divider"></div>
-  <p class="section-title">📆 今週のカレンダー</p>
-  <div class="sched-weekly" id="schedWeekly"></div>
-
-  <div class="divider"></div>
-  <p class="section-title">✅ 今日のタスク</p>
-  <div class="sched-tasks" id="schedTasks"></div>
+  <p class="section-title">📋 テーマ別学習進捗チェックリスト</p>
+  <p style="font-size:0.75rem;color:var(--muted);margin-bottom:1rem">テーマ名をクリックするとスライドへ移動。スライド・フラッシュカード・問題演習を開くと自動でチェックが入ります（各3回まで）。○をクリックして手動チェック切り替えも可能。</p>
+  <div id="progressChecklist"></div>
 </section>
 
 <script>
@@ -4480,6 +4601,7 @@ function buildSlideFilters() {
 
 function renderSlide() {
   const s = filteredSlides[currentSlide];
+  if (autoCheckActivity(s.title, 'slide')) buildProgressChecklist();
   const card = document.getElementById('slideCard');
   const pointsHtml = s.points
     ? `<div class="slide-points">${s.points.map((p,i) =>
@@ -4541,10 +4663,12 @@ function renderSlideActions(s) {
 }
 
 function goToRelatedQuiz(cat, keys) {
+  const currentTitle = filteredSlides[currentSlide] && filteredSlides[currentSlide].title;
+  if (currentTitle && autoCheckActivity(currentTitle, 'quiz')) buildProgressChecklist();
   // 戻り先のスライド情報を保存
   quizFromSlide = { cat: slideFilter, slideIdx: currentSlide };
   // quiz タブへ移動し、catフィルタを設定
-  showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   qFilter = cat;
   document.querySelectorAll('.qf-btn').forEach(b => b.classList.toggle('active', b.textContent === cat));
   // 関連問題のみを先頭に並べ替えて出題
@@ -4563,7 +4687,7 @@ function returnToSlideFromQuiz() {
   const { cat, slideIdx } = quizFromSlide;
   quizFromSlide = null;
   document.getElementById('quizReturnBar').classList.remove('show');
-  showTab('slides', document.querySelector('.tab-btn:nth-child(1)'));
+  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
@@ -4603,12 +4727,14 @@ function relatedFlashCards(s) {
 
 // スライドからフラッシュカードへ移動
 function goToFlashFromSlide(cat, keyword) {
+  const matchSlide = slides.find(s => s.tag === cat && s.title.startsWith(keyword));
+  if (matchSlide && autoCheckActivity(matchSlide.title, 'flash')) buildProgressChecklist();
   const pool = allCards.filter(c => c.cat === cat &&
     c.slideKeyword && (c.slideKeyword.includes(keyword) || keyword.includes(c.slideKeyword)));
   fcFilter = cat;
   fcDeck = pool.length > 0 ? pool : allCards.filter(c => c.cat === cat);
   fcIndex = 0;
-  showTab('flash', document.querySelector('.tab-btn:nth-child(3)'));
+  showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
   document.querySelectorAll('.fc-filter').forEach(b => b.classList.remove('active'));
   renderFC();
 }
@@ -4617,7 +4743,7 @@ function goToFlashFromSlide(cat, keyword) {
 function goToQuizFromFlash() {
   const card = fcDeck[fcIndex];
   if (!card) return;
-  showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
+  showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   qFilter = card.cat;
   document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
   const kw = card.slideKeyword || card.word;
@@ -4772,7 +4898,7 @@ function goToSlideFromQuiz(cat, keyword) {
 }
 
 function _navigateToSlide(cat, keyword) {
-  showTab('slides', document.querySelector('.tab-btn:nth-child(1)'));
+  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
   slideFilter = cat;
   filteredSlides = slides.filter(s => s.tag === cat);
   document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
@@ -4823,9 +4949,9 @@ function returnFromSlide() {
   slideReturnContext = null;
   _updateReturnBar();
   if (from === 'flash') {
-    showTab('flash', document.querySelector('.tab-btn:nth-child(3)'));
+    showTab('flash', document.querySelector('.tab-btn:nth-child(4)'));
   } else {
-    showTab('quiz', document.querySelector('.tab-btn:nth-child(4)'));
+    showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   }
 }
 
@@ -5034,16 +5160,17 @@ function advanceQ() {
 /* ================================================================
    SCHEDULER
 ================================================================ */
-const SCHED_KEY = 'takken_sched';
-const EXAM_KEY  = 'takken_exam_date';
-const WEEK_KEY  = 'takken_week_done';
-const TASK_KEY  = 'takken_tasks_done';
+const EXAM_KEY     = 'takken_exam_date';
+const PROGRESS_KEY = 'takken_progress_v2';
+
+// セッション内で既に自動チェック済みのテーマを追跡（過剰チェック防止）
+const sessionVisited = { slide: new Set(), flash: new Set(), quiz: new Set() };
 
 function getExamDate() {
   const saved = localStorage.getItem(EXAM_KEY);
   if (saved) return new Date(saved);
-  // デフォルト：2025年10月19日（第3日曜）
-  return new Date('2025-10-19');
+  // デフォルト：2026年10月18日（第3日曜）
+  return new Date('2026-10-18');
 }
 
 function setExamDate() {
@@ -5061,137 +5188,150 @@ function buildScheduler() {
   const diffMs = exam - today;
   const diffDays = Math.ceil(diffMs / 86400000);
 
-  // カウントダウン
   document.getElementById('schedDays').textContent = diffDays > 0 ? diffDays : '試験日当日/終了';
   document.getElementById('schedExamLabel').textContent =
     `宅建士試験まであと${diffDays > 0 ? diffDays+'日' : '0日'}`;
   document.getElementById('schedExamDate').textContent =
     `試験日：${exam.getFullYear()}年${exam.getMonth()+1}月${exam.getDate()}日`;
-  // input に現在値を設定
-  const examStr = exam.toISOString().split('T')[0];
-  document.getElementById('schedDateInput').value = examStr;
+  document.getElementById('schedDateInput').value = exam.toISOString().split('T')[0];
 
-  buildSchedProgress(diffDays);
-  buildSchedWeekly(today);
-  buildSchedTasks(today, diffDays);
+  buildProgressChecklist();
 }
 
-function buildSchedProgress(daysLeft) {
-  const total = 150; // 学習期間の想定日数
-  const elapsed = Math.max(0, total - daysLeft);
-  const pct = Math.min(100, Math.round(elapsed / total * 100));
+/* ---------- 進捗データ操作 ---------- */
+function getProgress() {
+  return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+}
+function saveProgress(prog) {
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(prog));
+}
+function ensureTheme(prog, title) {
+  if (!prog[title]) prog[title] = {
+    slide: [false, false, false],
+    flash: [false, false, false],
+    quiz:  [false, false, false]
+  };
+  return prog[title];
+}
 
+/* 自動チェック：パネルがアクティブな時かつセッション内初訪問のみ記録 */
+function autoCheckActivity(title, activity) {
+  const panelId = { slide: 'slides', flash: 'flash', quiz: 'quiz' }[activity];
+  const panel = document.getElementById(panelId);
+  if (!panel || !panel.classList.contains('active')) return false;
+  if (sessionVisited[activity].has(title)) return false;
+  sessionVisited[activity].add(title);
+  const prog = getProgress();
+  const tp = ensureTheme(prog, title);
+  const idx = tp[activity].indexOf(false);
+  if (idx < 0) return false;
+  tp[activity][idx] = true;
+  saveProgress(prog);
+  return true;
+}
+
+/* 手動チェック切り替え */
+function toggleProgressCircle(title, activity, round) {
+  const prog = getProgress();
+  const tp = ensureTheme(prog, title);
+  tp[activity][round] = !tp[activity][round];
+  saveProgress(prog);
+  buildProgressChecklist();
+}
+
+/* ---------- リセット ---------- */
+function resetAllProgress() {
+  if (!confirm('すべてのテーマの進捗をリセットします。よろしいですか？')) return;
+  localStorage.removeItem(PROGRESS_KEY);
+  sessionVisited.slide.clear();
+  sessionVisited.flash.clear();
+  sessionVisited.quiz.clear();
+  buildProgressChecklist();
+}
+
+function resetThemeProgress(title) {
+  if (!confirm(`「${title}」\nの進捗をリセットします。よろしいですか？`)) return;
+  const prog = getProgress();
+  delete prog[title];
+  saveProgress(prog);
+  sessionVisited.slide.delete(title);
+  sessionVisited.flash.delete(title);
+  sessionVisited.quiz.delete(title);
+  buildProgressChecklist();
+}
+
+/* ---------- チェックリストUI構築 ---------- */
+function buildProgressChecklist() {
+  const prog = getProgress();
   const subjects = [
-    { name:'⚖️ 民法等', slides:27, quiz:65, color:'var(--purple)' },
-    { name:'🏢 宅建業法', slides:20, quiz:62, color:'var(--accent)' },
-    { name:'🏙️ 法令上の制限', slides:22, quiz:60, color:'var(--green)' },
-    { name:'💴 税・その他', slides:18, quiz:60, color:'var(--blue)' },
+    { tag:'民法等',      icon:'⚖️', color:'var(--purple)', bg:'rgba(130,80,223,0.07)',  border:'rgba(130,80,223,0.22)' },
+    { tag:'宅建業法',    icon:'🏢', color:'var(--accent)', bg:'rgba(212,146,10,0.07)',  border:'rgba(212,146,10,0.28)' },
+    { tag:'法令上の制限',icon:'🏙️', color:'var(--green)',  bg:'rgba(26,127,55,0.07)',   border:'rgba(26,127,55,0.22)'  },
+    { tag:'税・その他',  icon:'💴', color:'var(--blue)',   bg:'rgba(9,105,218,0.07)',   border:'rgba(9,105,218,0.22)'  },
   ];
-  const grid = document.getElementById('schedProgGrid');
-  grid.innerHTML = subjects.map(s => `
-    <div class="sched-prog-card">
-      <div class="label"><strong>${s.name}</strong><span>スライド${s.slides}枚 / ${s.quiz}問</span></div>
-      <div class="sched-prog-bar">
-        <div class="sched-prog-fill" style="width:${pct}%;background:${s.color}"></div>
-      </div>
-    </div>
-  `).join('');
-}
 
-function buildSchedWeekly(today) {
-  const container = document.getElementById('schedWeekly');
-  const dayNames = ['日','月','火','水','木','金','土'];
-  const doneDays = JSON.parse(localStorage.getItem(WEEK_KEY) || '{}');
+  const container = document.getElementById('progressChecklist');
+  if (!container) return;
   container.innerHTML = '';
-  // 今週月〜日 を表示
-  const mon = new Date(today);
-  mon.setDate(today.getDate() - ((today.getDay() + 6) % 7));
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(mon);
-    d.setDate(mon.getDate() + i);
-    const key = d.toISOString().split('T')[0];
-    const isToday = d.getTime() === today.getTime();
-    const isDone = !!doneDays[key];
-    const div = document.createElement('div');
-    div.className = 'sched-day' + (isToday ? ' today' : '') + (isDone ? ' done' : '');
-    div.innerHTML = `
-      <div class="day-name">${dayNames[d.getDay()]}</div>
-      <div class="day-num">${d.getDate()}</div>
-      <div class="day-check">${isDone ? '✓' : ''}</div>
-    `;
-    div.onclick = () => {
-      doneDays[key] = !doneDays[key];
-      if (!doneDays[key]) delete doneDays[key];
-      localStorage.setItem(WEEK_KEY, JSON.stringify(doneDays));
-      buildSchedWeekly(today);
-    };
-    container.appendChild(div);
-  }
+
+  subjects.forEach(subj => {
+    const subjectSlides = slides.filter(s => s.tag === subj.tag);
+    let completed = 0;
+    subjectSlides.forEach(s => {
+      const tp = prog[s.title];
+      if (tp && tp.slide.every(v=>v) && tp.flash.every(v=>v) && tp.quiz.every(v=>v)) completed++;
+    });
+
+    const section = document.createElement('div');
+    section.className = 'progress-subject';
+
+    const header = document.createElement('div');
+    header.className = 'progress-subject-header';
+    header.style.cssText = `background:${subj.bg};border-color:${subj.border};color:${subj.color}`;
+    header.innerHTML = `<span>${subj.icon} ${subj.tag}</span>
+      <span style="font-size:0.72rem;font-weight:500;color:var(--muted)">${completed}/${subjectSlides.length} テーマ完了</span>`;
+    section.appendChild(header);
+
+    const colHeaders = document.createElement('div');
+    colHeaders.className = 'progress-col-headers';
+    colHeaders.innerHTML = '<div>テーマ</div><div>スライド</div><div>フラッシュカード</div><div>問題演習</div><div></div>';
+    section.appendChild(colHeaders);
+
+    subjectSlides.forEach(s => {
+      const tp = prog[s.title] || { slide:[false,false,false], flash:[false,false,false], quiz:[false,false,false] };
+      const row = document.createElement('div');
+      row.className = 'progress-theme-row';
+
+      const titleEsc = s.title.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      const circles = (act) => tp[act].map((checked, i) =>
+        `<div class="progress-circle${checked?' checked':''}" onclick="toggleProgressCircle('${titleEsc}','${act}',${i})" title="${i+1}回目"></div>`
+      ).join('');
+
+      row.innerHTML = `
+        <div class="progress-theme-name" onclick="goToSlideForTheme('${subj.tag.replace(/'/g,"\\'")}','${titleEsc}')">${s.title}</div>
+        <div class="progress-circles">${circles('slide')}</div>
+        <div class="progress-circles">${circles('flash')}</div>
+        <div class="progress-circles">${circles('quiz')}</div>
+        <button class="reset-theme-btn" onclick="resetThemeProgress('${titleEsc}')">リセット</button>`;
+      section.appendChild(row);
+    });
+
+    container.appendChild(section);
+  });
 }
 
-function buildSchedTasks(today, daysLeft) {
-  const doneTasks = JSON.parse(localStorage.getItem(TASK_KEY) || '{}');
-  const todayKey = today.toISOString().split('T')[0];
-
-  // 残り日数に応じてタスクを動的生成
-  let tasks = [];
-  if (daysLeft > 90) {
-    tasks = [
-      { id:'t1', title:'民法等スライドを5枚読む', desc:'意思表示〜代理を中心に', tag:'民法等', tagCls:'civil' },
-      { id:'t2', title:'宅建業法フラッシュカード10枚', desc:'免許・宅建士の基本をシャッフルで', tag:'宅建業法', tagCls:'business' },
-      { id:'t3', title:'問題演習：民法等10問', desc:'本日のスライドの確認問題', tag:'問題演習', tagCls:'legal' },
-    ];
-  } else if (daysLeft > 60) {
-    tasks = [
-      { id:'t1', title:'法令上の制限スライドを3枚読む', desc:'都市計画法・建築基準法を優先', tag:'法令上の制限', tagCls:'legal' },
-      { id:'t2', title:'宅建業法問題演習15問', desc:'個数問題を含む形式で', tag:'宅建業法', tagCls:'business' },
-      { id:'t3', title:'苦手フラッシュカードを復習', desc:'間違えたカードに集中', tag:'フラッシュカード', tagCls:'civil' },
-      { id:'t4', title:'税・その他スライドを2枚読む', desc:'不動産取得税・登録免許税', tag:'税・その他', tagCls:'tax' },
-    ];
-  } else if (daysLeft > 30) {
-    tasks = [
-      { id:'t1', title:'問題演習：全科目30問', desc:'弱点科目を中心にランダム出題', tag:'問題演習', tagCls:'legal' },
-      { id:'t2', title:'宅建業法フラッシュカード全枚復習', desc:'専任宅建士・37条書面・報酬額', tag:'宅建業法', tagCls:'business' },
-      { id:'t3', title:'個数問題を5問解く', desc:'「正しいものはいくつあるか」形式', tag:'宅建業法', tagCls:'business' },
-      { id:'t4', title:'スケジュール確認・進捗チェック', desc:'残り日数でペース調整', tag:'管理', tagCls:'tax' },
-    ];
-  } else {
-    tasks = [
-      { id:'t1', title:'問題演習：全科目50問', desc:'本番形式で時間を意識して', tag:'総仕上げ', tagCls:'legal' },
-      { id:'t2', title:'苦手分野のスライド再確認', desc:'理解度が低い分野を重点復習', tag:'復習', tagCls:'civil' },
-      { id:'t3', title:'個数問題を10問解く', desc:'宅建業法の個数問題を集中練習', tag:'宅建業法', tagCls:'business' },
-      { id:'t4', title:'趣旨フィールドを読み直す', desc:'リーガルマインド対策', tag:'民法等', tagCls:'civil' },
-      { id:'t5', title:'法改正ポイントの確認', desc:'区分所有法改正・住所変更登記義務化', tag:'2026年改正', tagCls:'tax' },
-    ];
-  }
-
-  const tagColors = { civil:'var(--purple)', business:'var(--accent)', legal:'var(--green)', tax:'var(--blue)' };
-  const container = document.getElementById('schedTasks');
-  container.innerHTML = tasks.map(t => {
-    const doneKey = `${todayKey}_${t.id}`;
-    const isDone = !!doneTasks[doneKey];
-    return `
-      <div class="sched-task${isDone ? ' done-task' : ''}" onclick="toggleTask('${doneKey}')">
-        <div class="sched-check">${isDone ? '✓' : ''}</div>
-        <div>
-          <div class="task-title">${t.title}</div>
-          <div class="task-desc">${t.desc}</div>
-        </div>
-        <span class="task-tag" style="color:${tagColors[t.tagCls]};border-color:${tagColors[t.tagCls]};background:${tagColors[t.tagCls]}18">${t.tag}</span>
-      </div>
-    `;
-  }).join('');
-}
-
-function toggleTask(key) {
-  const done = JSON.parse(localStorage.getItem(TASK_KEY) || '{}');
-  done[key] = !done[key];
-  if (!done[key]) delete done[key];
-  localStorage.setItem(TASK_KEY, JSON.stringify(done));
-  const today = new Date(); today.setHours(0,0,0,0);
-  const exam = getExamDate();
-  const daysLeft = Math.ceil((exam - today) / 86400000);
-  buildSchedTasks(today, daysLeft);
+/* スケジューラからスライドへ移動 */
+function goToSlideForTheme(cat, title) {
+  showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
+  slideFilter = cat;
+  filteredSlides = slides.filter(s => s.tag === cat);
+  document.querySelectorAll('.sf-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.replace(/（\d+）$/, '') === cat || b.dataset.filter === cat);
+  });
+  const idx = filteredSlides.findIndex(s => s.title === title);
+  currentSlide = idx >= 0 ? idx : 0;
+  buildDots();
+  renderSlide();
 }
 
 /* ================================================================
