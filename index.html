@@ -234,6 +234,12 @@
       justify-content: space-between;
       margin-bottom: 1rem;
     }
+    .slide-nav-bottom {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+    }
     .slide-counter { font-size: 0.82rem; color: var(--muted); }
     .slide-dots {
       display: flex;
@@ -1106,6 +1112,11 @@
   <div class="slide-dots" id="slideDots"></div>
   <div class="slide-card" id="slideCard"></div>
   <div class="slide-actions" id="slideActions"></div>
+  <div class="slide-nav slide-nav-bottom" id="slideNavBottom">
+    <button class="nav-btn" id="prevSlide2" onclick="changeSlide(-1)">◀ 前へ</button>
+    <span class="slide-counter" id="slideCounter2"></span>
+    <button class="nav-btn" id="nextSlide2" onclick="changeSlide(1)">次へ ▶</button>
+  </div>
 </section>
 
 <!-- YOUTUBE -->
@@ -4774,9 +4785,15 @@ function renderSlide() {
     ${exampleHtml}
     ${reasonHtml}
   `;
-  document.getElementById('slideCounter').textContent = `${currentSlide+1} / ${filteredSlides.length}`;
-  document.getElementById('prevSlide').disabled = currentSlide === 0;
-  document.getElementById('nextSlide').disabled = currentSlide === filteredSlides.length - 1;
+  const counterText = `${currentSlide+1} / ${filteredSlides.length}`;
+  const atFirst = currentSlide === 0;
+  const atLast = currentSlide === filteredSlides.length - 1;
+  document.getElementById('slideCounter').textContent = counterText;
+  document.getElementById('prevSlide').disabled = atFirst;
+  document.getElementById('nextSlide').disabled = atLast;
+  document.getElementById('slideCounter2').textContent = counterText;
+  document.getElementById('prevSlide2').disabled = atFirst;
+  document.getElementById('nextSlide2').disabled = atLast;
   document.querySelectorAll('.slide-dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
   renderSlideActions(s);
 }
@@ -5714,8 +5731,8 @@ function closeSearch() {
   document.getElementById('searchResults').classList.remove('open');
 }
 
-// 検索ボックス外クリックで閉じる
-document.addEventListener('click', e => {
+// 検索ボックス外のpointerdown（mousedown/touchstart）で即閉じる → click前に閉じることで次のclick先を正しく届ける
+document.addEventListener('pointerdown', e => {
   const wrap = document.querySelector('.search-wrap');
   if (wrap && !wrap.contains(e.target))
     document.getElementById('searchResults').classList.remove('open');
