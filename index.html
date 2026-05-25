@@ -4867,6 +4867,7 @@ function returnToSlideFromQuiz() {
   currentSlide = Math.min(slideIdx, filteredSlides.length - 1);
   buildDots();
   renderSlide();
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 function changeSlide(dir) {
@@ -5164,6 +5165,7 @@ function _navigateToSlide(cat, keyword) {
   buildDots();
   renderSlide();
   _updateReturnBar();
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 function _findSlideIdx(list, keyword) {
@@ -5608,6 +5610,7 @@ function goToSlideForTheme(cat, title) {
   currentSlide = idx >= 0 ? idx : 0;
   buildDots();
   renderSlide();
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 /* ================================================================
@@ -5700,6 +5703,7 @@ function goToSearchResult(ri) {
     if (currentSlide < 0) currentSlide = 0;
     buildDots();
     renderSlide();
+    window.scrollTo({ top: 0, behavior: 'instant' });
 
   } else if (r.type === 'flash') {
     const c = allCards[r.idx];
