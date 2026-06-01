@@ -944,6 +944,66 @@
       flex-shrink: 0;
     }
 
+    /* STUDY PLAN PHASES */
+    .study-phase {
+      border-radius: 12px;
+      border: 1.5px solid;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.7rem;
+      transition: box-shadow 0.2s;
+    }
+    .study-phase.current {
+      box-shadow: 0 0 0 2.5px currentColor;
+    }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.45rem;
+    }
+    .phase-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: currentColor;
+      white-space: nowrap;
+    }
+    .phase-badge span { filter: invert(1); }
+    .phase-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .phase-current-tag {
+      margin-left: auto;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: currentColor;
+      border-radius: 999px;
+      padding: 0.1rem 0.55rem;
+    }
+    .phase-current-tag span { filter: invert(1); }
+    .phase-dates {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .phase-focus {
+      font-size: 0.76rem;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .phase-focus li { list-style: none; padding-left: 0; }
+    .phase-focus li::before { content: '▸ '; opacity: 0.7; }
+    .phase-footer {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .phase-footer span { display: flex; align-items: center; gap: 0.25rem; }
+
     /* DATA MANAGEMENT PANEL */
     .data-mgmt {
       background: rgba(9,105,218,0.04);
@@ -1283,6 +1343,9 @@
       </div>
     </div>
   </div>
+
+  <p class="section-title" style="margin-top:1.4rem">🗓 学習フェーズ計画</p>
+  <div id="studyPlan"></div>
 
   <div class="data-mgmt">
     <div class="data-mgmt-title">💾 データ管理</div>
@@ -5543,6 +5606,104 @@ function setExamDate() {
 }
 
 /* ================================================================
+   STUDY PLAN
+================================================================ */
+const STUDY_PHASES = [
+  {
+    no: 1, label: '基礎固め（インプット）',
+    start: '2026-06-01', end: '2026-06-30',
+    color: '#d97706', bg: 'rgba(217,119,6,0.06)', border: 'rgba(217,119,6,0.3)',
+    focus: [
+      '🏢 宅建業法 スライド全テーマ（最優先・20問配点）',
+      '⚖️ 民法等 スライド前半（意思表示〜抵当権）',
+      '各テーマ フラッシュカードを1枚ずつ確認'
+    ],
+    daily: '1〜1.5時間 / 日',
+    goal: '宅建業法スライド完了・民法等前半完了'
+  },
+  {
+    no: 2, label: 'インプット完成',
+    start: '2026-07-01', end: '2026-07-31',
+    color: '#7c3aed', bg: 'rgba(124,58,237,0.06)', border: 'rgba(124,58,237,0.28)',
+    focus: [
+      '⚖️ 民法等 スライド後半（借地借家・区分所有・不動産登記）',
+      '🏙️ 法令上の制限 + 💴 税・その他 スライド全テーマ',
+      '全テーマ フラッシュカード1周目'
+    ],
+    daily: '1.5〜2時間 / 日',
+    goal: '全スライド完了・フラッシュカード全テーマ1周'
+  },
+  {
+    no: 3, label: '実践・弱点発見',
+    start: '2026-08-01', end: '2026-08-31',
+    color: '#1a7f37', bg: 'rgba(26,127,55,0.06)', border: 'rgba(26,127,55,0.25)',
+    focus: [
+      '全テーマ 問題演習1周目（宅建業法から着手）',
+      'フラッシュカード2周目（🔴苦手登録を活用）',
+      '正解率の低いテーマをスライドで復習'
+    ],
+    daily: '2時間 / 日',
+    goal: '問題演習全テーマ1周・苦手リスト確定'
+  },
+  {
+    no: 4, label: '総仕上げ・反復強化',
+    start: '2026-09-01', end: '2026-09-30',
+    color: '#0969da', bg: 'rgba(9,105,218,0.06)', border: 'rgba(9,105,218,0.22)',
+    focus: [
+      '苦手テーマ 問題演習2周目（弱点集中）',
+      'フラッシュカード3周目（苦手のみ徹底）',
+      '宅建業法・民法等 全テーマ進捗チェック3個完了を目標'
+    ],
+    daily: '2〜2.5時間 / 日',
+    goal: '全テーマ進捗チェック3/3達成を目指す'
+  },
+  {
+    no: 5, label: '直前対策',
+    start: '2026-10-01', end: '2026-10-17',
+    color: '#cf2222', bg: 'rgba(207,34,34,0.06)', border: 'rgba(207,34,34,0.28)',
+    focus: [
+      '🔴 苦手問題のみ最終確認（広く薄くNG）',
+      '宅建業法・民法等 重要テーマ最終復習',
+      '本番ペース（2時間50問）の時間感覚を体感'
+    ],
+    daily: '1.5〜2時間 / 日',
+    goal: '自信を持って本番へ'
+  }
+];
+
+function buildStudyPlan() {
+  const container = document.getElementById('studyPlan');
+  if (!container) return;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  container.innerHTML = STUDY_PHASES.map(p => {
+    const s = new Date(p.start); s.setHours(0,0,0,0);
+    const e = new Date(p.end);   e.setHours(0,0,0,0);
+    const isCurrent = today >= s && today <= e;
+    const isPast    = today > e;
+    const focusHtml = p.focus.map(f => `<li>${f}</li>`).join('');
+    const opacity   = isPast ? 'opacity:0.55' : '';
+
+    return `
+    <div class="study-phase${isCurrent ? ' current' : ''}"
+         style="color:${p.color};background:${p.bg};border-color:${p.border};${opacity}">
+      <div class="phase-header">
+        <div class="phase-badge"><span>フェーズ${p.no}</span></div>
+        <div class="phase-label" style="color:${isPast?'var(--muted)':'var(--text)'}">${p.label}</div>
+        ${isCurrent ? `<div class="phase-current-tag"><span>▶ 現在</span></div>` : ''}
+      </div>
+      <div class="phase-dates">📅 ${p.start.replace(/-/g,'/')} 〜 ${p.end.replace(/-/g,'/')}</div>
+      <ul class="phase-focus" style="color:${isPast?'var(--muted)':'var(--text)'}">${focusHtml}</ul>
+      <div class="phase-footer">
+        <span>⏱ ${p.daily}</span>
+        <span>🎯 ${p.goal}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ================================================================
    DATA EXPORT / IMPORT
 ================================================================ */
 function exportProgress() {
@@ -5919,6 +6080,7 @@ buildQuizFilters();
 buildQDeck();
 renderNextQ();
 buildScheduler();
+buildStudyPlan();
 </script>
 </body>
 </html>
