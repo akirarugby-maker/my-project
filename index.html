@@ -1004,6 +1004,113 @@
     }
     .phase-footer span { display: flex; align-items: center; gap: 0.25rem; }
 
+    /* POPUP QUIZ (抜き打ちテスト) */
+    .pq-refresh-btn {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1.5px solid rgba(212,146,10,0.4);
+      background: rgba(212,146,10,0.06);
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .pq-refresh-btn:hover { background: rgba(212,146,10,0.15); }
+    .pq-card {
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 0.65rem;
+      overflow: hidden;
+    }
+    .pq-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      padding: 0.75rem 1rem 0.55rem;
+    }
+    .pq-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.12rem 0.55rem;
+      white-space: nowrap;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .pq-cat {
+      font-size: 0.63rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.07);
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .pq-q {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .pq-opts {
+      padding: 0 1rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+    }
+    .pq-opt {
+      font-size: 0.78rem;
+      padding: 0.38rem 0.75rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .pq-opt:hover:not(:disabled) { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.2); }
+    .pq-opt:disabled { cursor: default; }
+    .pq-opt.pq-correct { background: rgba(63,185,80,0.15); border-color: var(--green); color: var(--green); font-weight: 700; }
+    .pq-opt.pq-wrong   { background: rgba(248,81,73,0.15);  border-color: var(--red);   color: var(--red); }
+    .pq-foot {
+      padding: 0 1rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pq-exp {
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+      background: rgba(0,0,0,0.03);
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+      display: none;
+    }
+    .pq-exp.show { display: block; }
+    .pq-exp strong { color: var(--accent); }
+    .pq-links {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .pq-link-btn {
+      font-size: 0.7rem;
+      padding: 0.28rem 0.72rem;
+      border-radius: 999px;
+      border: 1.5px solid rgba(9,105,218,0.35);
+      background: rgba(9,105,218,0.06);
+      color: var(--blue);
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .pq-link-btn:hover { background: rgba(9,105,218,0.14); }
+
     /* DATA MANAGEMENT PANEL */
     .data-mgmt {
       background: rgba(9,105,218,0.04);
@@ -1343,6 +1450,13 @@
       </div>
     </div>
   </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.4rem;margin-bottom:0.7rem">
+    <p class="section-title" style="margin:0">🎯 抜き打ちテスト</p>
+    <button class="pq-refresh-btn" onclick="buildPopupQuiz()">🔄 問題を更新</button>
+  </div>
+  <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.9rem">既習分野の過去問から5問をランダム出題。毎回アプリを開くと自動更新。選択肢を押して答えを確認しよう。</p>
+  <div id="popupQuiz"></div>
 
   <p class="section-title" style="margin-top:1.4rem">🗓 宅建試験 合格学習ロードマップ（6月〜10月）</p>
   <div id="studyPlan"></div>
@@ -5704,6 +5818,69 @@ function buildStudyPlan() {
 }
 
 /* ================================================================
+   POPUP QUIZ (抜き打ちテスト)
+================================================================ */
+let popupQuizPicked = [];
+
+function buildPopupQuiz() {
+  const container = document.getElementById('popupQuiz');
+  if (!container) return;
+
+  const prog = getProgress();
+  const studiedCats = new Set();
+  Object.entries(prog).forEach(([title, data]) => {
+    if ([...data.slide, ...data.flash, ...data.quiz].some(Boolean)) {
+      const slide = slides.find(s => s.title === title);
+      if (slide) studiedCats.add(slide.tag);
+    }
+  });
+
+  let pool = studiedCats.size > 0
+    ? quizData.filter(q => studiedCats.has(q.cat))
+    : quizData;
+  if (pool.length === 0) pool = quizData;
+
+  popupQuizPicked = pool.slice().sort(() => Math.random() - 0.5).slice(0, 5);
+
+  const optLabels = ['A', 'B', 'C', 'D'];
+  container.innerHTML = popupQuizPicked.map((q, i) => {
+    const optsHtml = q.opts.map((opt, oi) =>
+      `<button class="pq-opt" onclick="pqAnswer(${i},${oi})">${optLabels[oi]}. ${opt}</button>`
+    ).join('');
+    return `
+    <div class="pq-card" id="pq-card-${i}">
+      <div class="pq-header">
+        <span class="pq-num">問${i + 1}</span>
+        <span class="pq-cat">${q.cat}</span>
+        <span class="pq-q">${q.q}</span>
+      </div>
+      <div class="pq-opts" id="pq-opts-${i}">${optsHtml}</div>
+      <div class="pq-foot">
+        <div class="pq-exp" id="pq-exp-${i}">${q.exp || ''}</div>
+        <div class="pq-links">
+          <button class="pq-link-btn" onclick="goToSlideFromQuiz(popupQuizPicked[${i}].cat,autoSlideKeyword(popupQuizPicked[${i}]))">📖 スライドで確認</button>
+          <button class="pq-link-btn" onclick="goToFlashFromQuiz(popupQuizPicked[${i}].cat,autoSlideKeyword(popupQuizPicked[${i}]))">🃏 フラッシュカードで確認</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function pqAnswer(qIdx, optIdx) {
+  const q = popupQuizPicked[qIdx];
+  if (!q) return;
+  const opts = document.getElementById('pq-opts-' + qIdx).querySelectorAll('.pq-opt');
+  opts.forEach(b => { b.disabled = true; });
+  if (optIdx === q.ans) {
+    opts[optIdx].classList.add('pq-correct');
+  } else {
+    opts[optIdx].classList.add('pq-wrong');
+    opts[q.ans].classList.add('pq-correct');
+  }
+  document.getElementById('pq-exp-' + qIdx).classList.add('show');
+}
+
+/* ================================================================
    DATA EXPORT / IMPORT
 ================================================================ */
 function exportProgress() {
@@ -6081,6 +6258,7 @@ buildQDeck();
 renderNextQ();
 buildScheduler();
 buildStudyPlan();
+buildPopupQuiz();
 </script>
 </body>
 </html>
