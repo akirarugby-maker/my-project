@@ -944,6 +944,73 @@
       flex-shrink: 0;
     }
 
+    /* DATA MANAGEMENT PANEL */
+    .data-mgmt {
+      background: rgba(9,105,218,0.04);
+      border: 1px solid rgba(9,105,218,0.18);
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .data-mgmt-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.3rem;
+    }
+    .data-mgmt-desc {
+      font-size: 0.73rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+    .data-mgmt-btns {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .data-mgmt-btn {
+      flex: 1;
+      padding: 0.5rem 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s;
+    }
+    .data-mgmt-btn.export {
+      background: var(--blue);
+      color: #fff;
+    }
+    .data-mgmt-btn.export:hover { background: #0860c0; }
+    .data-mgmt-btn.import {
+      background: #fff;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+    .data-mgmt-btn.import:hover { background: rgba(9,105,218,0.07); }
+    .data-mgmt-import-area {
+      display: none;
+      margin-top: 0.7rem;
+      padding: 0.7rem 0.8rem;
+      background: rgba(0,0,0,0.03);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .data-mgmt-import-area input[type=file] {
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      width: 100%;
+    }
+    .data-mgmt-msg {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
     /* PROGRESS CHECKLIST */
     .progress-reset-bar {
       display: flex;
@@ -1215,6 +1282,23 @@
         <button class="sched-date-btn" onclick="setExamDate()">設定</button>
       </div>
     </div>
+  </div>
+
+  <div class="data-mgmt">
+    <div class="data-mgmt-title">💾 データ管理</div>
+    <div class="data-mgmt-desc">
+      進捗はこのブラウザのみに保存されます。<br>
+      定期的にバックアップして別のデバイスや機種変更後にも使えます。
+    </div>
+    <div class="data-mgmt-btns">
+      <button class="data-mgmt-btn export" onclick="exportProgress()">⬇ エクスポート</button>
+      <button class="data-mgmt-btn import" onclick="toggleImportArea()">⬆ インポート</button>
+    </div>
+    <div class="data-mgmt-import-area" id="importArea">
+      バックアップ（.json）を選択してください
+      <input type="file" accept=".json" id="importFileInput" onchange="importProgress(event)">
+    </div>
+    <div class="data-mgmt-msg" id="importMsg"></div>
   </div>
 
   <div class="progress-reset-bar">
@@ -5456,6 +5540,86 @@ function setExamDate() {
   if (!val) return;
   localStorage.setItem(EXAM_KEY, val);
   buildScheduler();
+}
+
+/* ================================================================
+   DATA EXPORT / IMPORT
+================================================================ */
+function exportProgress() {
+  try {
+    const data = {
+      progress:  JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'),
+      fcWeak:    JSON.parse(localStorage.getItem(FC_WEAK_KEY)   || '[]'),
+      weak:      JSON.parse(localStorage.getItem(WEAK_KEY)      || '[]'),
+      acc:       JSON.parse(localStorage.getItem(ACC_KEY)       || '{}'),
+      examDate:  localStorage.getItem(EXAM_KEY) || '',
+      exportedAt: new Date().toISOString()
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `takken-backup-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch {
+    alert('エクスポートに失敗しました');
+  }
+}
+
+function toggleImportArea() {
+  const area = document.getElementById('importArea');
+  const visible = area.style.display === 'block';
+  area.style.display = visible ? 'none' : 'block';
+  if (!visible) {
+    document.getElementById('importMsg').style.display = 'none';
+    document.getElementById('importFileInput').value = '';
+  }
+}
+
+function importProgress(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      if (!parsed.progress || typeof parsed.progress !== 'object') {
+        _showImportMsg('❌ 無効なバックアップファイルです', false);
+        return;
+      }
+      if (!confirm('バックアップから復元しますか？\n現在のデータは上書きされます。')) return;
+
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(parsed.progress));
+      if (Array.isArray(parsed.fcWeak))    localStorage.setItem(FC_WEAK_KEY, JSON.stringify(parsed.fcWeak));
+      if (Array.isArray(parsed.weak))      localStorage.setItem(WEAK_KEY,    JSON.stringify(parsed.weak));
+      if (parsed.acc && typeof parsed.acc === 'object')
+                                           localStorage.setItem(ACC_KEY,     JSON.stringify(parsed.acc));
+      if (parsed.examDate)                 localStorage.setItem(EXAM_KEY,    parsed.examDate);
+
+      // メモリ上の変数を再ロード
+      fcWeakSet = new Set(JSON.parse(localStorage.getItem(FC_WEAK_KEY) || '[]'));
+      weakSet   = new Set(JSON.parse(localStorage.getItem(WEAK_KEY)    || '[]'));
+      accMap    = new Map(Object.entries(JSON.parse(localStorage.getItem(ACC_KEY) || '{}')).map(([k,v]) => [Number(k), v]));
+
+      buildProgressChecklist();
+      buildScheduler();
+      document.getElementById('importArea').style.display = 'none';
+      document.getElementById('importFileInput').value = '';
+      _showImportMsg('✅ 復元しました', true);
+    } catch {
+      _showImportMsg('❌ ファイルの読み込みに失敗しました', false);
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+function _showImportMsg(msg, ok) {
+  const el = document.getElementById('importMsg');
+  el.textContent  = msg;
+  el.style.color   = ok ? 'var(--green)' : '#ef4444';
+  el.style.display = 'block';
 }
 
 function buildScheduler() {
