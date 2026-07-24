@@ -1492,7 +1492,21 @@
    SLIDES DATA — 民法等 20枚 + 既存他科目
 ================================================================ */
 const slides = [
-  /* ── 民法等 (20枚) ── */
+  /* ── 民法等 (30枚) ── */
+  {
+    tag:'民法等', title:'制限行為能力者（未成年者・成年被後見人等）',
+    keywords:['制限行為能力者','未成年者','成年被後見人','被保佐人','被補助人'],
+    body:'判断能力が不十分な人を保護するため、一定の法律行為を<strong>取り消せる</strong>制度。宅建試験では未成年者と成年被後見人が特に重要。',
+    points:[
+      '<strong>未成年者</strong>：法定代理人（親権者等）の<strong>同意なき行為は取消可能</strong>。例外：①単に利益を得る行為 ②日用品の購入 ③許可を得た営業に関する行為',
+      '<strong>成年被後見人</strong>：日常生活に関する行為以外は取消可能（後見人が代理）',
+      '<strong>被保佐人</strong>：借金・訴訟・不動産の売買等の重要な行為には保佐人の同意が必要',
+      '<strong>被補助人</strong>：家庭裁判所が定めた特定の行為に補助人の同意が必要',
+      '取消しの効果：遡及的に無効。相手方は催告権を持つ（未確定状態の解消のため）'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>保護者</th><th>行為の制限</th><th>日常生活行為</th></tr></thead><tbody><tr><td>未成年者</td><td>法定代理人</td><td class="ng">同意なし→取消可</td><td class="ok">取消不可</td></tr><tr><td>成年被後見人</td><td>成年後見人</td><td class="ng">日常生活以外は取消可</td><td class="ok">取消不可</td></tr><tr><td>被保佐人</td><td>保佐人</td><td class="warn">重要行為のみ同意必要</td><td class="ok">制限なし</td></tr><tr><td>被補助人</td><td>補助人</td><td class="warn">特定行為のみ同意必要</td><td class="ok">制限なし</td></tr></tbody></table>',
+    example:'<strong>例：</strong>16歳のAが親の同意なしに100万円の自動車を購入した。この売買契約はAまたはAの法定代理人（親）が取消すことができる。ただしAが自分のお小遣いで購入した200円のジュースは取消しできない（日用品の購入）。'
+  },
   {
     tag:'民法等', title:'意思表示の基本（心裡留保・通謀虚偽表示）',
     keywords:['心裡留保','通謀虚偽表示'],
@@ -1549,19 +1563,18 @@ const slides = [
     example:'<strong>無権代理の例：</strong>Bが勝手に「Aの代理人」として、AのマンションをCに売却した。AはBに代理権を与えていなかった。<br>→ <em>AがCとの契約を追認すれば売買は有効。追認拒絶なら無効。Cが善意無過失ならBに損害賠償請求可。</em><br><br><strong>表見代理（112条）の例：</strong>AがBに「土地売買の代理権を与えたが後に撤回」したのに、BがCと売買契約した場合 → <em>Cが善意かつ無過失なら表見代理成立→AにCとの契約効果が帰属。</em>'
   },
   {
-    tag:'民法等', title:'物権変動と対抗要件',
-    keywords:['物権変動','登記','対抗要件'],
-    body:'不動産の所有権は<strong>意思表示だけで移転</strong>するが、それを第三者に主張するには<strong>登記</strong>が必要（民法177条）。二重譲渡が最頻出テーマ。',
+    tag:'民法等', title:'時効制度（取得時効・消滅時効）',
+    keywords:['消滅時効','取得時効'],
+    body:'<strong>時効</strong>は「一定期間経過＋援用」で権利の得喪が確定する制度。時効は自動では成立せず、<strong>援用（主張）</strong>が必要。数字を正確に覚えよう。',
     points:[
-      '当事者間：登記なしで所有権移転（売買契約締結と同時）',
-      '第三者への対抗：<strong>先に登記</strong>した方が勝つ（善悪は問わない）',
-      '<strong>背信的悪意者</strong>：単なる悪意では負けない。妨害目的の背信的悪意者には登記なしで対抗可（判例）',
-      '動産：引渡しが対抗要件（178条）',
-      '不法占有者・不法行為者は「第三者」に該当しない'
+      '<strong>取得時効</strong>：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有',
+      '<strong>消滅時効</strong>：権利を行使できると<em>知った時から5年</em>（主観） or <em>行使可能な時から10年</em>（客観）のどちらか早い方',
+      '<strong>時効の完成猶予</strong>：裁判上の請求・差押え・仮処分・承認→時効の進行が一時停止',
+      '<strong>時効の更新</strong>：確定判決・権利の承認→ゼロから新たに時効が進行',
+      '時効の利益の放棄：時効完成後は可、完成前は不可'
     ],
-    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.4rem"><span class="diagram-box person" style="display:inline-block">A（土地の元所有者）</span></div><div style="display:flex;justify-content:center;gap:1rem;margin-bottom:0.4rem"><div><span class="diagram-box">①B に売却（登記未了）</span></div><div><span class="diagram-box">②C にも売却（登記済）</span></div></div><div class="diagram-box result-ok">先に登記したCが勝つ → Bは所有権を主張できない</div></div>',
-    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>',
-    reason:'<strong>趣旨：</strong>不動産取引の安全と公示原則。登記は誰でも確認できる公示手段であり、「登記した者が権利者」という公示を信頼して取引できる環境を作ることで<strong>市場取引の安全・円滑を確保する</strong>。悪意を問わないのは「登記したかどうか」という客観的基準を重視するため。'
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>短期（善意/主観）</th><th>長期（悪意/客観）</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">善意無過失: 10年</td><td class="warn">それ以外: 20年</td></tr><tr><td>消滅時効</td><td class="ok">知った時から: 5年</td><td class="warn">行使可能から: 10年</td></tr></tbody></table>',
+    example:'<strong>消滅時効の例：</strong>AがBに100万円を貸した（返済期限：2020年4月1日）。Aが返済請求できると知りながら5年間放置した場合 → <em>2025年4月1日にBが消滅時効を援用すれば、Aの貸金債権は消滅。</em><br>Bが「払います」と認めた（権利の承認）場合→時効が更新されゼロから再スタート。'
   },
   {
     tag:'民法等', title:'占有権と取得時効',
@@ -1578,18 +1591,91 @@ const slides = [
     example:'<strong>取得時効の例：</strong>Aが20年間、隣のBの土地を自分の土地と思い込んで（善意無過失で）畑として使ってきた場合（10年で成立）。時効を援用すれば所有権取得。<br><br><strong>即時取得の例：</strong>中古車販売店でCが善意・無過失で車を購入したが、実はその車は盗難車だった → <em>Cは即時取得で所有権を取得。ただし被害者は2年以内なら回復請求可。</em>'
   },
   {
-    tag:'民法等', title:'地上権・地役権・用益物権',
-    keywords:['地上権','地役権','用益物権'],
-    body:'他人の土地を一定の目的のために使える<strong>用益物権</strong>。賃借権（債権）と異なり物権なので、登記すれば誰にでも主張できる強い権利。',
+    tag:'民法等', title:'債務不履行と解除',
+    keywords:['債務不履行','履行遅滞','履行不能','解除'],
+    body:'債務者が約束どおり履行しない状態を<strong>債務不履行</strong>という。3つの類型と、それに対する<strong>解除</strong>の要件を整理しよう。',
     points:[
-      '<strong>地上権</strong>：他人の土地に<strong>工作物や竹木を所有</strong>するための権利。登記で第三者対抗',
-      '<strong>地役権</strong>：他人の土地（承役地）を自分の土地（要役地）の便益のために使う権利（例：通行・引水）',
-      '地役権は要役地の所有権移転に伴い移転する（<strong>付従性</strong>）。独立した譲渡は不可',
-      '<strong>永小作権</strong>：他人の土地で耕作・牧畜を行う権利（存続期間20〜50年）',
-      '用益物権は物権なので<strong>物権的請求権</strong>がある（妨害排除・返還請求等）'
+      '<strong>履行遅滞</strong>：弁済期に履行できる状態なのに履行しない。催告後に解除可',
+      '<strong>履行不能</strong>：履行が不可能になった状態。催告なしに即解除可',
+      '<strong>不完全履行</strong>：履行はあったが内容が不完全（追完請求→追完不能なら解除可）',
+      '<strong>解除の効果</strong>：原状回復義務（受け取ったものを返還）＋損害賠償請求可',
+      '改正民法：解除に<strong>相手方の帰責事由は不要</strong>（天災でも解除可。ただし帰責事由なければ損害賠償は不可）'
     ],
-    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.5rem">【通行地役権のイメージ】</div><div class="diagram-flow" style="justify-content:center"><div class="diagram-box person">A（要役地）<br>公道に出られない</div><span class="diagram-arrow">─通行地役権─</span><div class="diagram-box highlight">B（承役地）<br>AがBの土地を通行可</div><span class="diagram-arrow">→</span><div class="diagram-box">公道</div></div><div style="color:var(--muted);margin-top:0.4rem;font-size:0.72rem">地役権は登記すれば承役地の新所有者にも主張可</div></div>',
-    example:'<strong>地役権（通行地役権）の例：</strong>AさんのB土地は公道に面していない（袋地）。隣のC土地（承役地）を通らないと外に出られない。AがCと通行地役権の設定契約をし登記した場合 → <em>その後CがDに土地を売ってもDはAの通行を拒否できない（地役権の付従性・登記による対抗）。</em>'
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>内容</th><th>解除の要件</th></tr></thead><tbody><tr><td>履行遅滞</td><td>弁済期すぎても不履行</td><td class="warn">催告＋相当期間経過後</td></tr><tr><td>履行不能</td><td>履行が客観的に不可能</td><td class="ok">催告なしで即時解除</td></tr><tr><td>不完全履行</td><td>履行が不十分</td><td class="warn">追完請求→不能なら解除</td></tr></tbody></table>',
+    example:'<strong>履行遅滞の例：</strong>AがBに100万円を4月1日までに返す約束だったが、4月1日を過ぎても返さない。BはAに「相当の期間内に返せ」と催告し、その期間が過ぎてもなお返さない場合→ <em>BはAとの金銭消費貸借契約を解除して、原状回復（返金不要）＋損害賠償（遅延損害金など）を請求できる。</em>',
+    reason:'<strong>趣旨：</strong>契約は守られなければ意味がない。一方が義務を履行しない場合、他方が契約に縛られ続けるのは不公平。<strong>解除制度は債権者を契約の拘束から解放し、別の手段で目的を達成できるようにする</strong>ための制度。改正民法では「債権者の不利益を回復する」観点から帰責事由を解除の要件から外した。'
+  },
+  {
+    tag:'民法等', title:'債権譲渡と相殺',
+    keywords:['債権譲渡の対抗要件','相殺'],
+    body:'<strong>債権譲渡</strong>は債権者が変わること。<strong>相殺</strong>はお互いの債権をチャラにすること。いずれも第三者への主張方法（対抗要件）がポイント。',
+    points:[
+      '債権譲渡：債務者の同意は不要（禁止特約があっても悪意の第三者以外は有効に取得）',
+      '<strong>債務者対抗要件</strong>：譲渡人から<em>債務者への通知</em> または <em>債務者の承諾</em>',
+      '<strong>第三者対抗要件</strong>：<em>確定日付のある証書</em>による通知または承諾（内容証明郵便等）',
+      '<strong>相殺</strong>：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示',
+      '相殺の効果：意思表示時に遡って消滅（<strong>遡及効</strong>）'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">A（元の債権者）</div><span class="diagram-arrow">→債権を譲渡→</span><div class="diagram-box person">C（新しい債権者）</div></div><div style="text-align:center;margin:0.4rem 0;color:var(--muted)">↑ B（債務者）への通知が対抗要件</div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.7rem">確定日付ある証書で通知<br>→ B・第三者への対抗可</div><div class="diagram-box result-ng" style="font-size:0.7rem">口頭の通知のみ<br>→ Bには対抗可、第三者は不可</div></div></div>',
+    example:'<strong>二重譲渡の例：</strong>AがBへの売掛金100万円の債権をCとDの両方に譲渡した（二重譲渡）。CがBに内容証明郵便（確定日付）で通知し、DはBへの口頭通知のみだった場合 → <em>確定日付のある通知が先のCが優先（Bにとっても第三者Dにとっても）。</em>'
+  },
+  {
+    tag:'民法等', title:'売買・手付・危険負担',
+    keywords:['手付解除','危険負担'],
+    body:'売買契約の基本ルールと、手付による解除、天災などで目的物が滅失した場合の扱い（危険負担）。<strong>手付解除のタイミング</strong>が最頻出。',
+    points:[
+      '手付（解約手付）：買主は<strong>手付を放棄</strong>して解除可。売主は<strong>手付の倍額を現実提供</strong>して解除可',
+      '<strong>相手方が履行に着手した後</strong>は手付解除不可（重要！）',
+      '手付の種類：解約手付（原則）・証約手付・違約手付',
+      '<strong>危険負担（改正民法）</strong>：引渡前に天災で目的物が滅失→買主は代金支払を<strong>拒絶可</strong>（反対給付拒絶権）',
+      '移転登記費用：買主負担。引渡し費用：売主負担'
+    ],
+    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow" style="justify-content:center;margin-bottom:0.5rem"><div class="diagram-box highlight">手付200万を払って土地1000万売買契約</div></div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.72rem">買主から解除<br>→手付200万を放棄</div><div class="diagram-box result-ng" style="font-size:0.72rem">売主から解除<br>→200万×2＝400万返す</div></div><div class="diagram-box result-ng" style="margin-top:0.5rem;font-size:0.72rem">⚠ 相手方が「履行に着手」した後は手付解除 ✕</div></div>',
+    example:'<strong>手付解除の例：</strong>AがBに土地（1000万円）を売り、BがAに手付金100万円を払った。その後Aが「やっぱり売りたくない」と言い出した場合 → <em>Aが解除するなら100万×2＝200万をBに返還して解除可。ただしBがすでに残金の準備をして（履行の着手）いたら解除不可。</em>'
+  },
+  {
+    tag:'民法等', title:'契約不適合責任',
+    keywords:['契約不適合責任'],
+    body:'2020年民法改正で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」に変わった。買った物が契約通りでない場合に使える<strong>4つの救済手段</strong>を覚えよう。',
+    points:[
+      '適用される不適合：種類・品質・数量の不適合（契約内容と違う）',
+      '4つの救済手段：①<strong>追完請求</strong>（修補・代替物引渡等）②<strong>代金減額請求</strong>③<strong>解除</strong>④<strong>損害賠償</strong>',
+      '<strong>通知期間：</strong>不適合を<em>知った時から1年以内</em>に売主に通知が必要',
+      '売主が悪意・重過失の場合は期間制限なし',
+      '<strong>宅建業法（8種規制）</strong>：宅建業者が売主なら最低<strong>2年以上</strong>の担保期間が必要（1年以下の特約は無効）'
+    ],
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div class="diagram-box highlight" style="margin-bottom:0.5rem">引き渡された物が契約内容と違う（不適合）</div><div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center"><div class="diagram-box result-ok" style="font-size:0.7rem">①追完請求<br>修理/取替</div><div class="diagram-box result-ok" style="font-size:0.7rem">②代金減額<br>請求</div><div class="diagram-box result-ok" style="font-size:0.7rem">③解除<br>帰責事由不要</div><div class="diagram-box result-ok" style="font-size:0.7rem">④損害賠償<br>売主の過失必要</div></div></div>',
+    example:'<strong>具体例：</strong>AがBから「雨漏りなし・築10年」の説明でマンションを2000万円で購入した。入居後に大雨で雨漏りが発覚。実は築15年で長年雨漏りがあった場合 → <em>Aは修繕をBに請求（追完請求）・代金減額・損害賠償ができる。不適合を知った時から1年以内にBに通知が必要。</em>'
+  },
+  {
+    tag:'民法等', title:'物権変動と対抗要件',
+    keywords:['物権変動','登記','対抗要件'],
+    body:'不動産の所有権は<strong>意思表示だけで移転</strong>するが、それを第三者に主張するには<strong>登記</strong>が必要（民法177条）。二重譲渡が最頻出テーマ。',
+    points:[
+      '当事者間：登記なしで所有権移転（売買契約締結と同時）',
+      '第三者への対抗：<strong>先に登記</strong>した方が勝つ（善悪は問わない）',
+      '<strong>背信的悪意者</strong>：単なる悪意では負けない。妨害目的の背信的悪意者には登記なしで対抗可（判例）',
+      '動産：引渡しが対抗要件（178条）',
+      '不法占有者・不法行為者は「第三者」に該当しない'
+    ],
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.4rem"><span class="diagram-box person" style="display:inline-block">A（土地の元所有者）</span></div><div style="display:flex;justify-content:center;gap:1rem;margin-bottom:0.4rem"><div><span class="diagram-box">①B に売却（登記未了）</span></div><div><span class="diagram-box">②C にも売却（登記済）</span></div></div><div class="diagram-box result-ok">先に登記したCが勝つ → Bは所有権を主張できない</div></div>',
+    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>',
+    reason:'<strong>趣旨：</strong>不動産取引の安全と公示原則。登記は誰でも確認できる公示手段であり、「登記した者が権利者」という公示を信頼して取引できる環境を作ることで<strong>市場取引の安全・円滑を確保する</strong>。悪意を問わないのは「登記したかどうか」という客観的基準を重視するため。'
+  },
+  {
+    tag:'民法等', title:'判例で覚える「第三者」の範囲（177条・94条）',
+    keywords:['177条の第三者','94条2項類推','背信的悪意者','転得者'],
+    body:'民法の論点で最も多く出るのが<strong>「第三者」に誰が含まれるか</strong>。177条（対抗問題）と94条（通謀虚偽表示）の「第三者」は意味が異なる。判例の結論を正確に押さえよう。',
+    points:[
+      '<strong>177条の「第三者」</strong>（物権変動の対抗要件）：当事者・包括承継人以外で<em>正当な利益を有する者</em>→単なる悪意者でも第三者になれる。ただし<strong>背信的悪意者は除く</strong>（判例）',
+      '<strong>背信的悪意者の定義</strong>：登記の欠缺を主張することが<strong>信義則に反する</strong>と認められる者（妨害目的・害意等）。単なる悪意≠背信的悪意',
+      '<strong>94条2項の「第三者」</strong>（通謀虚偽表示）：虚偽表示の当事者間での権利関係を<em>新たに利害関係を持った者</em>→善意であれば登記不要で保護される',
+      '<strong>94条2項の類推適用</strong>（判例）：外観作出に帰責性のある本人→善意無過失の第三者を保護。例：権利証・実印を渡した場合',
+      '<strong>転得者の保護</strong>：悪意の第三者→善意の転得者（第三者から買った人）→転得者は保護される（94条2項）'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>条文</th><th>第三者の範囲</th><th>善意の要件</th><th>登記の要否</th></tr></thead><tbody><tr><td>177条（対抗）</td><td>正当利益を有する者</td><td class="ng">不要（悪意でも可）</td><td class="ok">登記が対抗要件</td></tr><tr><td>94条2項（虚偽）</td><td>新たに利害関係に入った者</td><td class="ok">善意が必要</td><td class="ng">登記不要で保護</td></tr><tr><td>94条類推</td><td>外観信頼者</td><td class="ok">善意無過失が必要</td><td class="ng">登記不要</td></tr></tbody></table>',
+    example:'<strong>背信的悪意者の例：</strong>AがBに土地を売った（B未登記）。その後CがAから「BはAから土地を取り戻せないようにしてやる」と頼まれてAから買い登記した。<br>→ <em>Cは悪意だが、さらに妨害目的があるので「背信的悪意者」→登記があってもBに対抗できない。BはCに対して登記なしで所有権を主張できる。</em>',
+    reason:'<strong>趣旨：</strong>登記制度は取引の安全を図る公示制度。しかし信義則・権利濫用の観点から、登記があっても保護に値しない者（背信的悪意者）には対抗を認めない。制度の目的（取引安全）と個別事案の公正（信義誠実）を調整する判例法理。'
   },
   {
     tag:'民法等', title:'抵当権のポイントと法定地上権',
@@ -1620,32 +1706,18 @@ const slides = [
     example:'<strong>根抵当権の例：</strong>A会社がB銀行から継続的に運転資金を借りる場合、毎回抵当権を設定し直すのは手間。そこでA会社の工場に<em>極度額5000万円の根抵当権</em>をB銀行のために設定。→ <em>5000万円の範囲内なら、何度借りても担保として機能。返済しても根抵当権は消えず、また借りられる（普通抵当権とは異なる）。</em>'
   },
   {
-    tag:'民法等', title:'売買・手付・危険負担',
-    keywords:['手付解除','危険負担'],
-    body:'売買契約の基本ルールと、手付による解除、天災などで目的物が滅失した場合の扱い（危険負担）。<strong>手付解除のタイミング</strong>が最頻出。',
+    tag:'民法等', title:'連帯債務・保証・連帯保証',
+    keywords:['連帯債務','連帯保証'],
+    body:'複数の人が同じ債務を負う形態。<strong>普通保証</strong>は「まず本人に請求してくれ」と言えるが、<strong>連帯保証</strong>は言えない。この違いが試験の核心。',
     points:[
-      '手付（解約手付）：買主は<strong>手付を放棄</strong>して解除可。売主は<strong>手付の倍額を現実提供</strong>して解除可',
-      '<strong>相手方が履行に着手した後</strong>は手付解除不可（重要！）',
-      '手付の種類：解約手付（原則）・証約手付・違約手付',
-      '<strong>危険負担（改正民法）</strong>：引渡前に天災で目的物が滅失→買主は代金支払を<strong>拒絶可</strong>（反対給付拒絶権）',
-      '移転登記費用：買主負担。引渡し費用：売主負担'
+      '<strong>連帯債務</strong>：複数人が各自独立して全額の弁済義務。弁済・相殺・更改・混同は<strong>絶対的効力</strong>（全員に影響）',
+      '<strong>普通保証</strong>：主債務者が払わない場合のみ責任。<em>催告の抗弁権・検索の抗弁権</em>あり',
+      '<strong>連帯保証</strong>：催告・検索の抗弁権<strong>なし</strong>。主債務者と全く同じ責任を負う',
+      '保証債務の附従性：主債務が消滅→保証債務も消滅',
+      '<strong>個人の根保証</strong>：極度額の定めが必要（ないと保証契約が無効）'
     ],
-    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow" style="justify-content:center;margin-bottom:0.5rem"><div class="diagram-box highlight">手付200万を払って土地1000万売買契約</div></div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.72rem">買主から解除<br>→手付200万を放棄</div><div class="diagram-box result-ng" style="font-size:0.72rem">売主から解除<br>→200万×2＝400万返す</div></div><div class="diagram-box result-ng" style="margin-top:0.5rem;font-size:0.72rem">⚠ 相手方が「履行に着手」した後は手付解除 ✕</div></div>',
-    example:'<strong>手付解除の例：</strong>AがBに土地（1000万円）を売り、BがAに手付金100万円を払った。その後Aが「やっぱり売りたくない」と言い出した場合 → <em>Aが解除するなら100万×2＝200万をBに返還して解除可。ただしBがすでに残金の準備をして（履行の着手）いたら解除不可。</em>'
-  },
-  {
-    tag:'民法等', title:'契約不適合責任',
-    keywords:['契約不適合責任'],
-    body:'2020年民法改正で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」に変わった。買った物が契約通りでない場合に使える<strong>4つの救済手段</strong>を覚えよう。',
-    points:[
-      '適用される不適合：種類・品質・数量の不適合（契約内容と違う）',
-      '4つの救済手段：①<strong>追完請求</strong>（修補・代替物引渡等）②<strong>代金減額請求</strong>③<strong>解除</strong>④<strong>損害賠償</strong>',
-      '<strong>通知期間：</strong>不適合を<em>知った時から1年以内</em>に売主に通知が必要',
-      '売主が悪意・重過失の場合は期間制限なし',
-      '<strong>宅建業法（8種規制）</strong>：宅建業者が売主なら最低<strong>2年以上</strong>の担保期間が必要（1年以下の特約は無効）'
-    ],
-    diagram:'<div style="font-size:0.78rem;text-align:center"><div class="diagram-box highlight" style="margin-bottom:0.5rem">引き渡された物が契約内容と違う（不適合）</div><div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center"><div class="diagram-box result-ok" style="font-size:0.7rem">①追完請求<br>修理/取替</div><div class="diagram-box result-ok" style="font-size:0.7rem">②代金減額<br>請求</div><div class="diagram-box result-ok" style="font-size:0.7rem">③解除<br>帰責事由不要</div><div class="diagram-box result-ok" style="font-size:0.7rem">④損害賠償<br>売主の過失必要</div></div></div>',
-    example:'<strong>具体例：</strong>AがBから「雨漏りなし・築10年」の説明でマンションを2000万円で購入した。入居後に大雨で雨漏りが発覚。実は築15年で長年雨漏りがあった場合 → <em>Aは修繕をBに請求（追完請求）・代金減額・損害賠償ができる。不適合を知った時から1年以内にBに通知が必要。</em>'
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通保証</th><th>連帯保証</th></tr></thead><tbody><tr><td>催告の抗弁権</td><td class="ok">あり<br>（まず本人に請求して）</td><td class="ng">なし</td></tr><tr><td>検索の抗弁権</td><td class="ok">あり<br>（本人の財産から取って）</td><td class="ng">なし</td></tr><tr><td>実質的負担</td><td>補充的</td><td class="ng">主債務者と同等</td></tr></tbody></table>',
+    example:'<strong>連帯保証の怖さの例：</strong>友人Aが銀行から3000万円を借り、Bが連帯保証人になった。Aが返済できなくなり銀行がBに請求した場合 → <em>連帯保証人Bは「まずAに請求してくれ」と言えない。銀行は最初からBに3000万円を全額請求できる。</em>'
   },
   {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
@@ -1690,18 +1762,48 @@ const slides = [
     example:'<strong>定期借家の注意点：</strong>貸主が「1年後には必ず返してほしい」と思うなら定期借家契約にすべき。普通借家だと正当事由がないと解約できない。<br>→ <em>定期借家は契約前に「この契約は更新がない」と書面で説明しなければならない。口頭だけでは定期借家の効力がなく普通借家になってしまう（重要！）。</em>'
   },
   {
-    tag:'民法等', title:'時効制度（取得時効・消滅時効）',
-    keywords:['消滅時効','取得時効'],
-    body:'<strong>時効</strong>は「一定期間経過＋援用」で権利の得喪が確定する制度。時効は自動では成立せず、<strong>援用（主張）</strong>が必要。数字を正確に覚えよう。',
+    tag:'民法等', title:'請負契約',
+    keywords:['請負','完成物','瑕疵担保','下請け'],
+    body:'<strong>請負</strong>は、仕事の完成を約束して報酬をもらう契約。建設工事・リフォーム・ソフトウェア開発などが代表例。完成と引渡しが報酬支払の原則。',
     points:[
-      '<strong>取得時効</strong>：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有',
-      '<strong>消滅時効</strong>：権利を行使できると<em>知った時から5年</em>（主観） or <em>行使可能な時から10年</em>（客観）のどちらか早い方',
-      '<strong>時効の完成猶予</strong>：裁判上の請求・差押え・仮処分・承認→時効の進行が一時停止',
-      '<strong>時効の更新</strong>：確定判決・権利の承認→ゼロから新たに時効が進行',
-      '時効の利益の放棄：時効完成後は可、完成前は不可'
+      '<strong>請負の成立</strong>：仕事の完成（成果）が約束の対象。完成前は報酬請求不可（原則）',
+      '<strong>目的物の引渡し</strong>：引渡しが必要な仕事は引渡しと同時に報酬を請求できる',
+      '<strong>契約不適合責任</strong>：完成した仕事が契約内容と異なる場合→修補・代金減額・解除・損害賠償の4手段',
+      '<strong>注文者の解除権</strong>：仕事完成前ならいつでも解除可能。ただし請負人の損害は賠償する',
+      '請負人の<strong>先取特権</strong>：報酬に関して注文者の動産上に先取特権を持つ'
     ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>短期（善意/主観）</th><th>長期（悪意/客観）</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">善意無過失: 10年</td><td class="warn">それ以外: 20年</td></tr><tr><td>消滅時効</td><td class="ok">知った時から: 5年</td><td class="warn">行使可能から: 10年</td></tr></tbody></table>',
-    example:'<strong>消滅時効の例：</strong>AがBに100万円を貸した（返済期限：2020年4月1日）。Aが返済請求できると知りながら5年間放置した場合 → <em>2025年4月1日にBが消滅時効を援用すれば、Aの貸金債権は消滅。</em><br>Bが「払います」と認めた（権利の承認）場合→時効が更新されゼロから再スタート。'
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>請負</th><th>委任（参考）</th></tr></thead><tbody><tr><td>約束の対象</td><td class="warn">仕事の完成（結果）</td><td>事務の処理（過程）</td></tr><tr><td>報酬の発生</td><td class="warn">完成・引渡し時</td><td>委任事務の処理</td></tr><tr><td>完成義務</td><td class="ok">あり（結果責任）</td><td class="ng">なし（善管注意義務のみ）</td></tr></tbody></table>',
+    example:'<strong>請負の例：</strong>AがB建設会社に「自宅のリフォームを300万円で」と依頼。完成・引渡し後に「壁にひびが入っている」と判明した場合 → <em>AはBに修補を請求（追完請求）でき、修補が難しければ代金減額・損害賠償も可能。契約不適合を知った時から1年以内の通知が必要。</em>',
+    reason:'<strong>趣旨：</strong>完成物を期待して代金を払う注文者を保護しつつ、請負人の仕事の専門性も尊重する。完成物が契約どおりでない場合に救済手段を与えることで、<strong>取引の公正と品質確保</strong>を図る。注文者の途中解除権は、完成が不要になった場合に不必要な仕事の継続を強いるのは不合理だから。'
+  },
+  {
+    tag:'民法等', title:'不法行為・使用者責任・土地工作物責任',
+    keywords:['使用者責任','土地工作物責任','不法行為'],
+    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。<strong>使用者責任（715条）</strong>と<strong>土地工作物責任（717条）</strong>は宅建試験の頻出テーマ。',
+    points:[
+      '<strong>一般不法行為（709条）</strong>：①故意または過失 ②権利・利益の侵害 ③損害の発生 ④因果関係のすべてが必要',
+      '<strong>使用者責任（715条）</strong>：被用者が<em>事業の執行について</em>第三者に損害→使用者も連帯責任。使用者は被用者へ求償可',
+      '<strong>土地工作物責任（717条）</strong>：工作物の設置・保存の瑕疵による損害→まず<strong>占有者</strong>が責任（免責あり）、免責された場合は<strong>所有者が無過失でも</strong>責任を負う',
+      '<strong>消滅時効</strong>：損害・加害者を知った時から<em>3年</em>（生命・身体は<em>5年</em>）。不法行為時から<strong>20年</strong>',
+      '使用者責任の免責：使用者が相当の注意をしたこと、または注意をしても損害が生じたことを証明した場合'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>一次責任者</th><th>二次責任者</th><th>免責</th></tr></thead><tbody><tr><td>使用者責任（715条）</td><td>被用者（不法行為者）</td><td>使用者（会社等）</td><td class="warn">相当の注意で免責あり</td></tr><tr><td>土地工作物責任（717条）</td><td>占有者</td><td>所有者（無過失でも）</td><td class="ng">所有者は免責なし</td></tr></tbody></table>',
+    example:'<strong>土地工作物責任の例：</strong>A所有・B占有（賃借中）の建物の外壁が崩落して通行人Cが怪我をした場合 → まずB（占有者）が責任。Bが「適切に管理していた」と証明できれば免責。この場合A（所有者）が無過失でも責任を負う。'
+  },
+  {
+    tag:'民法等', title:'不法行為の重要判例・共同不法行為',
+    keywords:['共同不法行為','使用者責任','求償権','過失相殺'],
+    body:'不法行為（民法709条）の応用論点。<strong>共同不法行為・使用者責任・過失相殺</strong>は実際の試験で判例知識を問われる最頻出トピック。',
+    points:[
+      '<strong>共同不法行為（719条）</strong>：数人が共同して不法行為→連帯して全額の損害賠償責任。被害者は誰に対しても全額請求可',
+      '<strong>使用者責任（715条）</strong>：被用者の不法行為→使用者も連帯責任。使用者は被用者に<strong>求償可</strong>（ただし信義則上相当な範囲のみ・判例）',
+      '<strong>過失相殺（722条）</strong>：被害者にも過失があれば損害額を減額できる。<em>裁量的</em>減額（必ず減額しなくてよい場合もある）',
+      '<strong>損害賠償の範囲（416条準用）</strong>：通常損害＋特別事情を予見可能だった場合の特別損害',
+      '<strong>名義貸しと使用者責任</strong>：名板貸人も使用者責任を負う場合がある（判例）'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>類型</th><th>責任者</th><th>求償権</th><th>免責要件</th></tr></thead><tbody><tr><td>一般不法行為（709）</td><td>加害者本人</td><td>—</td><td>故意・過失なし</td></tr><tr><td>使用者責任（715）</td><td>使用者＋被用者</td><td class="ok">使用者→被用者へ可</td><td class="warn">選任・監督に注意を払った</td></tr><tr><td>共同不法行為（719）</td><td>加害者全員連帯</td><td class="ok">負担割合超過分を求償可</td><td class="ng">原則免責なし</td></tr></tbody></table>',
+    example:'<strong>使用者責任の例：</strong>A社の従業員Bが配達中に不注意でCの車に追突した。<br>→ <em>CはBのみならずA社（使用者）にも損害賠償請求可。A社が賠償した場合、Bへ求償可能だが信義則上相当範囲のみ（例：50%程度）とする判例がある。</em>',
+    reason:'<strong>趣旨：</strong>被用者は使用者の指示で活動し、損害賠償能力が低いことが多い。使用者は被用者の活動で利益を得ているため（報償責任の原理）、<strong>利益を得る者がリスクも負担する</strong>という公平の観点から使用者にも責任を課す。'
   },
   {
     tag:'民法等', title:'相続の基本（法定相続分）',
@@ -1733,63 +1835,6 @@ const slides = [
     example:'<strong>遺留分の例：</strong>Aが「全財産6000万円を愛人Dに遺贈する」という遺言を残して死亡。相続人は配偶者Bと子C。<br>→ <em>B・Cには遺留分（遺産の1/2）がある。B：6000万×1/2×1/2＝1500万円、C：同じく1500万円分を遺留分侵害額請求でDに金銭請求できる。</em>'
   },
   {
-    tag:'民法等', title:'連帯債務・保証・連帯保証',
-    keywords:['連帯債務','連帯保証'],
-    body:'複数の人が同じ債務を負う形態。<strong>普通保証</strong>は「まず本人に請求してくれ」と言えるが、<strong>連帯保証</strong>は言えない。この違いが試験の核心。',
-    points:[
-      '<strong>連帯債務</strong>：複数人が各自独立して全額の弁済義務。弁済・相殺・更改・混同は<strong>絶対的効力</strong>（全員に影響）',
-      '<strong>普通保証</strong>：主債務者が払わない場合のみ責任。<em>催告の抗弁権・検索の抗弁権</em>あり',
-      '<strong>連帯保証</strong>：催告・検索の抗弁権<strong>なし</strong>。主債務者と全く同じ責任を負う',
-      '保証債務の附従性：主債務が消滅→保証債務も消滅',
-      '<strong>個人の根保証</strong>：極度額の定めが必要（ないと保証契約が無効）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通保証</th><th>連帯保証</th></tr></thead><tbody><tr><td>催告の抗弁権</td><td class="ok">あり<br>（まず本人に請求して）</td><td class="ng">なし</td></tr><tr><td>検索の抗弁権</td><td class="ok">あり<br>（本人の財産から取って）</td><td class="ng">なし</td></tr><tr><td>実質的負担</td><td>補充的</td><td class="ng">主債務者と同等</td></tr></tbody></table>',
-    example:'<strong>連帯保証の怖さの例：</strong>友人Aが銀行から3000万円を借り、Bが連帯保証人になった。Aが返済できなくなり銀行がBに請求した場合 → <em>連帯保証人Bは「まずAに請求してくれ」と言えない。銀行は最初からBに3000万円を全額請求できる。</em>'
-  },
-  {
-    tag:'民法等', title:'債権譲渡と相殺',
-    keywords:['債権譲渡の対抗要件','相殺'],
-    body:'<strong>債権譲渡</strong>は債権者が変わること。<strong>相殺</strong>はお互いの債権をチャラにすること。いずれも第三者への主張方法（対抗要件）がポイント。',
-    points:[
-      '債権譲渡：債務者の同意は不要（禁止特約があっても悪意の第三者以外は有効に取得）',
-      '<strong>債務者対抗要件</strong>：譲渡人から<em>債務者への通知</em> または <em>債務者の承諾</em>',
-      '<strong>第三者対抗要件</strong>：<em>確定日付のある証書</em>による通知または承諾（内容証明郵便等）',
-      '<strong>相殺</strong>：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示',
-      '相殺の効果：意思表示時に遡って消滅（<strong>遡及効</strong>）'
-    ],
-    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">A（元の債権者）</div><span class="diagram-arrow">→債権を譲渡→</span><div class="diagram-box person">C（新しい債権者）</div></div><div style="text-align:center;margin:0.4rem 0;color:var(--muted)">↑ B（債務者）への通知が対抗要件</div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.7rem">確定日付ある証書で通知<br>→ B・第三者への対抗可</div><div class="diagram-box result-ng" style="font-size:0.7rem">口頭の通知のみ<br>→ Bには対抗可、第三者は不可</div></div></div>',
-    example:'<strong>二重譲渡の例：</strong>AがBへの売掛金100万円の債権をCとDの両方に譲渡した（二重譲渡）。CがBに内容証明郵便（確定日付）で通知し、DはBへの口頭通知のみだった場合 → <em>確定日付のある通知が先のCが優先（Bにとっても第三者Dにとっても）。</em>'
-  },
-  {
-    tag:'民法等', title:'不法行為・使用者責任・土地工作物責任',
-    keywords:['使用者責任','土地工作物責任','不法行為'],
-    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。<strong>使用者責任（715条）</strong>と<strong>土地工作物責任（717条）</strong>は宅建試験の頻出テーマ。',
-    points:[
-      '<strong>一般不法行為（709条）</strong>：①故意または過失 ②権利・利益の侵害 ③損害の発生 ④因果関係のすべてが必要',
-      '<strong>使用者責任（715条）</strong>：被用者が<em>事業の執行について</em>第三者に損害→使用者も連帯責任。使用者は被用者へ求償可',
-      '<strong>土地工作物責任（717条）</strong>：工作物の設置・保存の瑕疵による損害→まず<strong>占有者</strong>が責任（免責あり）、免責された場合は<strong>所有者が無過失でも</strong>責任を負う',
-      '<strong>消滅時効</strong>：損害・加害者を知った時から<em>3年</em>（生命・身体は<em>5年</em>）。不法行為時から<strong>20年</strong>',
-      '使用者責任の免責：使用者が相当の注意をしたこと、または注意をしても損害が生じたことを証明した場合'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>一次責任者</th><th>二次責任者</th><th>免責</th></tr></thead><tbody><tr><td>使用者責任（715条）</td><td>被用者（不法行為者）</td><td>使用者（会社等）</td><td class="warn">相当の注意で免責あり</td></tr><tr><td>土地工作物責任（717条）</td><td>占有者</td><td>所有者（無過失でも）</td><td class="ng">所有者は免責なし</td></tr></tbody></table>',
-    example:'<strong>土地工作物責任の例：</strong>A所有・B占有（賃借中）の建物の外壁が崩落して通行人Cが怪我をした場合 → まずB（占有者）が責任。Bが「適切に管理していた」と証明できれば免責。この場合A（所有者）が無過失でも責任を負う。'
-  },
-
-  {
-    tag:'民法等', title:'制限行為能力者（未成年者・成年被後見人等）',
-    keywords:['制限行為能力者','未成年者','成年被後見人','被保佐人','被補助人'],
-    body:'判断能力が不十分な人を保護するため、一定の法律行為を<strong>取り消せる</strong>制度。宅建試験では未成年者と成年被後見人が特に重要。',
-    points:[
-      '<strong>未成年者</strong>：法定代理人（親権者等）の<strong>同意なき行為は取消可能</strong>。例外：①単に利益を得る行為 ②日用品の購入 ③許可を得た営業に関する行為',
-      '<strong>成年被後見人</strong>：日常生活に関する行為以外は取消可能（後見人が代理）',
-      '<strong>被保佐人</strong>：借金・訴訟・不動産の売買等の重要な行為には保佐人の同意が必要',
-      '<strong>被補助人</strong>：家庭裁判所が定めた特定の行為に補助人の同意が必要',
-      '取消しの効果：遡及的に無効。相手方は催告権を持つ（未確定状態の解消のため）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>保護者</th><th>行為の制限</th><th>日常生活行為</th></tr></thead><tbody><tr><td>未成年者</td><td>法定代理人</td><td class="ng">同意なし→取消可</td><td class="ok">取消不可</td></tr><tr><td>成年被後見人</td><td>成年後見人</td><td class="ng">日常生活以外は取消可</td><td class="ok">取消不可</td></tr><tr><td>被保佐人</td><td>保佐人</td><td class="warn">重要行為のみ同意必要</td><td class="ok">制限なし</td></tr><tr><td>被補助人</td><td>補助人</td><td class="warn">特定行為のみ同意必要</td><td class="ok">制限なし</td></tr></tbody></table>',
-    example:'<strong>例：</strong>16歳のAが親の同意なしに100万円の自動車を購入した。この売買契約はAまたはAの法定代理人（親）が取消すことができる。ただしAが自分のお小遣いで購入した200円のジュースは取消しできない（日用品の購入）。'
-  },
-  {
     tag:'民法等', title:'共有（変更・管理・保存・分割）',
     keywords:['共有','持分','共有物の管理','共有物の変更','共有物の保存'],
     body:'1つの物を複数人が共同で所有する状態。行為の重要度によって必要な合意の範囲が変わる。<strong>変更＞管理＞保存</strong>の順に合意が厳しい。',
@@ -1803,21 +1848,6 @@ const slides = [
     diagram:'<table class="diagram-table"><thead><tr><th>行為の種類</th><th>具体例</th><th>必要な合意</th></tr></thead><tbody><tr><td class="ng">重大な変更</td><td>建物の増改築・取壊し</td><td class="ng">全員の同意</td></tr><tr><td class="warn">軽微な変更・管理</td><td>賃貸借の締結・解除</td><td class="warn">持分価格の過半数</td></tr><tr><td class="ok">保存行為</td><td>修繕・不法占拠者への排除請求</td><td class="ok">各自が単独で可</td></tr></tbody></table>',
     example:'<strong>例：</strong>A（持分1/2）・B（持分1/3）・C（持分1/6）が共有する土地を第三者Dに賃貸するかどうか。賃貸は「管理行為」なので持分価格の過半数（1/2超）が必要。A単独（1/2）では過半数に届かないため、AとB（1/2+1/3=5/6）の同意が必要。'
   },
-  {
-    tag:'民法等', title:'担保物権（留置権・先取特権・質権）',
-    keywords:['留置権','先取特権','質権','法定担保物権','約定担保物権'],
-    body:'担保物権は、債権回収を確実にするための物権。<strong>法定担保物権</strong>（留置権・先取特権）は法律上当然に発生し、<strong>約定担保物権</strong>（質権・抵当権）は当事者の合意で設定する。',
-    points:[
-      '<strong>留置権（295条）</strong>：他人の物を占有中、その物に関する債権を持つ場合に弁済まで留置できる。優先弁済権なし',
-      '<strong>先取特権（303条）</strong>：法律が定める特定の債権者が優先弁済を受けられる法定担保物権。一般・動産・不動産の先取特権がある',
-      '<strong>質権（342条）</strong>：債権者が担保として目的物の<strong>占有を取得</strong>し、弁済がなければ優先弁済を受けられる約定担保物権',
-      '抵当権との違い：質権は目的物を<strong>占有する</strong>が、抵当権は目的物を占有しない（設定者が引き続き使える）',
-      '留置権の効力：競売にかけて換価できる（形式競売）が、優先弁済権はないため他の担保権者に劣後することがある'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>担保物権</th><th>種類</th><th>占有</th><th>優先弁済権</th><th>付従性</th></tr></thead><tbody><tr><td>留置権</td><td>法定</td><td class="ok">あり（留置）</td><td class="ng">なし</td><td class="ok">あり</td></tr><tr><td>先取特権</td><td>法定</td><td class="warn">一般はなし</td><td class="ok">あり</td><td class="ok">あり</td></tr><tr><td>質権</td><td>約定</td><td class="ok">あり（取得）</td><td class="ok">あり</td><td class="ok">あり</td></tr><tr><td>抵当権</td><td>約定</td><td class="ng">なし</td><td class="ok">あり</td><td class="ok">あり</td></tr></tbody></table>',
-    example:'<strong>留置権の例：</strong>時計修理店Aが顧客Bの時計を修理したが、Bが修理代を払わない場合 → Aは修理代を受け取るまで時計を留置（返さない）ことができる。これが留置権。修理という「その物に関して生じた債権」があるのがポイント。'
-  },
-
   {
     tag:'民法等', title:'区分所有法の改正（2026年施行）',
     keywords:['区分所有法改正','集会決議','所在不明区分所有者','国内管理人'],
@@ -1848,37 +1878,48 @@ const slides = [
     example:'<strong>具体例：</strong>AさんはBマンション（登記上の住所：東京都渋谷区）の所有者だったが、2026年5月に横浜市に引っ越した。<br>→ <em>住所変更を知った日（引越し日）から2年以内、つまり2028年5月までに住所変更登記の申請が必要。怠ると5万円以下の過料。</em><br><br><strong>既存未登記の例：</strong>Bさんは10年前に引越したが変更登記をしていなかった。2026年4月1日施行時点で未登記のまま。<br>→ <em>施行日から2年以内（2028年3月31日まで）に申請が必要。</em>',
     reason:'<strong>趣旨：</strong>不動産登記の住所・氏名が古いまま放置され、所有者の連絡先がわからない「所有者不明不動産」が増加。隣地との境界問題・老朽建物の解体・都市開発等に支障をきたしている。<strong>登記情報を常に最新に保ち、所有者不明不動産問題を予防する</strong>ことが目的。'
   },
-
-
   {
-    tag:'民法等', title:'判例で覚える「第三者」の範囲（177条・94条）',
-    keywords:['177条の第三者','94条2項類推','背信的悪意者','転得者'],
-    body:'民法の論点で最も多く出るのが<strong>「第三者」に誰が含まれるか</strong>。177条（対抗問題）と94条（通謀虚偽表示）の「第三者」は意味が異なる。判例の結論を正確に押さえよう。',
+    tag:'民法等', title:'不動産登記法の基礎',
+    keywords:['不動産登記','登記記録','表題部','権利部','登記申請'],
+    body:'不動産の権利関係を公示する<strong>不動産登記</strong>の仕組みを理解しよう。登記記録の構造・申請方法・効力の基本が宅建試験に出る。',
     points:[
-      '<strong>177条の「第三者」</strong>（物権変動の対抗要件）：当事者・包括承継人以外で<em>正当な利益を有する者</em>→単なる悪意者でも第三者になれる。ただし<strong>背信的悪意者は除く</strong>（判例）',
-      '<strong>背信的悪意者の定義</strong>：登記の欠缺を主張することが<strong>信義則に反する</strong>と認められる者（妨害目的・害意等）。単なる悪意≠背信的悪意',
-      '<strong>94条2項の「第三者」</strong>（通謀虚偽表示）：虚偽表示の当事者間での権利関係を<em>新たに利害関係を持った者</em>→善意であれば登記不要で保護される',
-      '<strong>94条2項の類推適用</strong>（判例）：外観作出に帰責性のある本人→善意無過失の第三者を保護。例：権利証・実印を渡した場合',
-      '<strong>転得者の保護</strong>：悪意の第三者→善意の転得者（第三者から買った人）→転得者は保護される（94条2項）'
+      '<strong>登記記録の構造</strong>：表題部（物件の表示）＋権利部（甲区：所有権、乙区：所有権以外の権利）',
+      '<strong>表示登記</strong>：表題部への登記。建物新築時は<strong>1か月以内に申請義務</strong>（違反：10万円以下の過料）',
+      '<strong>権利登記</strong>：甲区（所有権移転・保存）、乙区（抵当権・地上権・賃借権等）。義務規定なし（対抗力確保のために申請するのが実際）',
+      '<strong>共同申請の原則</strong>：権利の登記は登記権利者と登記義務者が共同で申請する',
+      '例外的単独申請：相続登記・判決登記・収用など'
     ],
-    diagram:'<table class="diagram-table"><thead><tr><th>条文</th><th>第三者の範囲</th><th>善意の要件</th><th>登記の要否</th></tr></thead><tbody><tr><td>177条（対抗）</td><td>正当利益を有する者</td><td class="ng">不要（悪意でも可）</td><td class="ok">登記が対抗要件</td></tr><tr><td>94条2項（虚偽）</td><td>新たに利害関係に入った者</td><td class="ok">善意が必要</td><td class="ng">登記不要で保護</td></tr><tr><td>94条類推</td><td>外観信頼者</td><td class="ok">善意無過失が必要</td><td class="ng">登記不要</td></tr></tbody></table>',
-    example:'<strong>背信的悪意者の例：</strong>AがBに土地を売った（B未登記）。その後CがAから「BはAから土地を取り戻せないようにしてやる」と頼まれてAから買い登記した。<br>→ <em>Cは悪意だが、さらに妨害目的があるので「背信的悪意者」→登記があってもBに対抗できない。BはCに対して登記なしで所有権を主張できる。</em>',
-    reason:'<strong>趣旨：</strong>登記制度は取引の安全を図る公示制度。しかし信義則・権利濫用の観点から、登記があっても保護に値しない者（背信的悪意者）には対抗を認めない。制度の目的（取引安全）と個別事案の公正（信義誠実）を調整する判例法理。'
+    diagram:'<table class="diagram-table"><thead><tr><th>区分</th><th>記録内容</th><th>申請義務</th></tr></thead><tbody><tr><td>表題部</td><td>土地・建物の物理的状況（所在・地番・面積等）</td><td class="warn">あり（1か月以内）</td></tr><tr><td>権利部（甲区）</td><td>所有権に関する事項（所有権移転・仮登記等）</td><td class="ng">なし（任意）</td></tr><tr><td>権利部（乙区）</td><td>所有権以外（抵当権・地役権・賃借権等）</td><td class="ng">なし（任意）</td></tr></tbody></table>',
+    example:'<strong>登記記録の例：</strong>AがBからマンションを購入した場合の登記の流れ。<br>①表題部：建物の所在・構造・面積が記録されている（新築時にデベロッパーが申請済）<br>②甲区：B名義の所有権保存登記がある<br>③売買後：A・B共同申請でB→Aへの所有権移転登記を申請<br>→ <em>登記が完了するとAは第三者に所有権を対抗できる。</em>',
+    reason:'<strong>趣旨：</strong>不動産は高額で社会的影響が大きい財産。誰でも登記簿を見れば権利関係を確認できる<strong>公示の原則</strong>を実現することで、取引の安全・信頼を保護する。表示登記に義務を課すのは、物理的状況の正確な公示が権利登記の前提となるため。'
   },
   {
-    tag:'民法等', title:'不法行為の重要判例・共同不法行為',
-    keywords:['共同不法行為','使用者責任','求償権','過失相殺'],
-    body:'不法行為（民法709条）の応用論点。<strong>共同不法行為・使用者責任・過失相殺</strong>は実際の試験で判例知識を問われる最頻出トピック。',
+    tag:'民法等', title:'地上権・地役権・用益物権',
+    keywords:['地上権','地役権','用益物権'],
+    body:'他人の土地を一定の目的のために使える<strong>用益物権</strong>。賃借権（債権）と異なり物権なので、登記すれば誰にでも主張できる強い権利。',
     points:[
-      '<strong>共同不法行為（719条）</strong>：数人が共同して不法行為→連帯して全額の損害賠償責任。被害者は誰に対しても全額請求可',
-      '<strong>使用者責任（715条）</strong>：被用者の不法行為→使用者も連帯責任。使用者は被用者に<strong>求償可</strong>（ただし信義則上相当な範囲のみ・判例）',
-      '<strong>過失相殺（722条）</strong>：被害者にも過失があれば損害額を減額できる。<em>裁量的</em>減額（必ず減額しなくてよい場合もある）',
-      '<strong>損害賠償の範囲（416条準用）</strong>：通常損害＋特別事情を予見可能だった場合の特別損害',
-      '<strong>名義貸しと使用者責任</strong>：名板貸人も使用者責任を負う場合がある（判例）'
+      '<strong>地上権</strong>：他人の土地に<strong>工作物や竹木を所有</strong>するための権利。登記で第三者対抗',
+      '<strong>地役権</strong>：他人の土地（承役地）を自分の土地（要役地）の便益のために使う権利（例：通行・引水）',
+      '地役権は要役地の所有権移転に伴い移転する（<strong>付従性</strong>）。独立した譲渡は不可',
+      '<strong>永小作権</strong>：他人の土地で耕作・牧畜を行う権利（存続期間20〜50年）',
+      '用益物権は物権なので<strong>物権的請求権</strong>がある（妨害排除・返還請求等）'
     ],
-    diagram:'<table class="diagram-table"><thead><tr><th>類型</th><th>責任者</th><th>求償権</th><th>免責要件</th></tr></thead><tbody><tr><td>一般不法行為（709）</td><td>加害者本人</td><td>—</td><td>故意・過失なし</td></tr><tr><td>使用者責任（715）</td><td>使用者＋被用者</td><td class="ok">使用者→被用者へ可</td><td class="warn">選任・監督に注意を払った</td></tr><tr><td>共同不法行為（719）</td><td>加害者全員連帯</td><td class="ok">負担割合超過分を求償可</td><td class="ng">原則免責なし</td></tr></tbody></table>',
-    example:'<strong>使用者責任の例：</strong>A社の従業員Bが配達中に不注意でCの車に追突した。<br>→ <em>CはBのみならずA社（使用者）にも損害賠償請求可。A社が賠償した場合、Bへ求償可能だが信義則上相当範囲のみ（例：50%程度）とする判例がある。</em>',
-    reason:'<strong>趣旨：</strong>被用者は使用者の指示で活動し、損害賠償能力が低いことが多い。使用者は被用者の活動で利益を得ているため（報償責任の原理）、<strong>利益を得る者がリスクも負担する</strong>という公平の観点から使用者にも責任を課す。'
+    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.5rem">【通行地役権のイメージ】</div><div class="diagram-flow" style="justify-content:center"><div class="diagram-box person">A（要役地）<br>公道に出られない</div><span class="diagram-arrow">─通行地役権─</span><div class="diagram-box highlight">B（承役地）<br>AがBの土地を通行可</div><span class="diagram-arrow">→</span><div class="diagram-box">公道</div></div><div style="color:var(--muted);margin-top:0.4rem;font-size:0.72rem">地役権は登記すれば承役地の新所有者にも主張可</div></div>',
+    example:'<strong>地役権（通行地役権）の例：</strong>AさんのB土地は公道に面していない（袋地）。隣のC土地（承役地）を通らないと外に出られない。AがCと通行地役権の設定契約をし登記した場合 → <em>その後CがDに土地を売ってもDはAの通行を拒否できない（地役権の付従性・登記による対抗）。</em>'
+  },
+  {
+    tag:'民法等', title:'担保物権（留置権・先取特権・質権）',
+    keywords:['留置権','先取特権','質権','法定担保物権','約定担保物権'],
+    body:'担保物権は、債権回収を確実にするための物権。<strong>法定担保物権</strong>（留置権・先取特権）は法律上当然に発生し、<strong>約定担保物権</strong>（質権・抵当権）は当事者の合意で設定する。',
+    points:[
+      '<strong>留置権（295条）</strong>：他人の物を占有中、その物に関する債権を持つ場合に弁済まで留置できる。優先弁済権なし',
+      '<strong>先取特権（303条）</strong>：法律が定める特定の債権者が優先弁済を受けられる法定担保物権。一般・動産・不動産の先取特権がある',
+      '<strong>質権（342条）</strong>：債権者が担保として目的物の<strong>占有を取得</strong>し、弁済がなければ優先弁済を受けられる約定担保物権',
+      '抵当権との違い：質権は目的物を<strong>占有する</strong>が、抵当権は目的物を占有しない（設定者が引き続き使える）',
+      '留置権の効力：競売にかけて換価できる（形式競売）が、優先弁済権はないため他の担保権者に劣後することがある'
+    ],
+    diagram:'<table class="diagram-table"><thead><tr><th>担保物権</th><th>種類</th><th>占有</th><th>優先弁済権</th><th>付従性</th></tr></thead><tbody><tr><td>留置権</td><td>法定</td><td class="ok">あり（留置）</td><td class="ng">なし</td><td class="ok">あり</td></tr><tr><td>先取特権</td><td>法定</td><td class="warn">一般はなし</td><td class="ok">あり</td><td class="ok">あり</td></tr><tr><td>質権</td><td>約定</td><td class="ok">あり（取得）</td><td class="ok">あり</td><td class="ok">あり</td></tr><tr><td>抵当権</td><td>約定</td><td class="ng">なし</td><td class="ok">あり</td><td class="ok">あり</td></tr></tbody></table>',
+    example:'<strong>留置権の例：</strong>時計修理店Aが顧客Bの時計を修理したが、Bが修理代を払わない場合 → Aは修理代を受け取るまで時計を留置（返さない）ことができる。これが留置権。修理という「その物に関して生じた債権」があるのがポイント。'
   },
   /* ── 宅建業法（20枚） ── */
   {
