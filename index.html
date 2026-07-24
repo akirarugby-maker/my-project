@@ -1563,32 +1563,36 @@ const slides = [
       '<strong>取消しの効果</strong>：取り消すまでは契約は<em>有効</em>。取り消すと契約時にさかのぼって<span class="hl-red">無効</span>になる（遡及効）',
       '<strong>取消権者</strong>：本人（制限行為能力者）・保護者（法定代理人等）の<em>いずれからでも</em>取消しできる',
       '<strong>第三者への対抗</strong>：制限行為能力による取消しは、第三者の<em>善意・悪意を問わず</em>対抗できる（強い保護）',
-      '<strong>相手方の催告権</strong>：相手方は1か月以上の期間を定めて追認するか確答を求められる。無応答なら—本人・保護者への催告は<em>追認</em>、被保佐人・被補助人本人への催告は<span class="hl-red">取消し</span>とみなす',
+      '<strong>相手方の催告権</strong>：相手方は1か月以上の期間を定めて確答を求められる。無応答なら—本人・保護者への催告は<em>追認</em>、被保佐人・被補助人本人への催告は<span class="hl-red">取消し</span>とみなす',
       '<strong>詐術</strong>：制限行為能力者が「自分は行為能力者だ」とだまして（詐術を用いて）契約した場合は、もはや<span class="hl-red">取り消せない</span>'
     ],
     diagram:'<table class="diagram-table"><thead><tr><th>類型</th><th>判断能力</th><th>保護者</th><th>保護者の関与</th></tr></thead><tbody><tr><td>未成年者</td><td>年齢で画一</td><td>法定代理人<br>（親権者等）</td><td class="warn">同意</td></tr><tr><td>成年被後見人</td><td class="ng">ほとんどなし</td><td>成年後見人</td><td class="ng">代理</td></tr><tr><td>被保佐人</td><td>著しく不十分</td><td>保佐人</td><td class="warn">重要行為に同意</td></tr><tr><td>被補助人</td><td>不十分</td><td>補助人</td><td class="warn">特定行為に同意</td></tr></tbody></table>'
       + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>未成年者の保護</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">法定代理人（親権者等）の<strong>同意</strong>を得ずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">本人（未成年者）・法定代理人のどちらからでも取消し可</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次の行為は<em>1人でできる</em>（取り消せない）<ul class="sd-list"><li><span class="sd-ln">1</span>単に権利を得る・義務を免れる行為（例：ただで土地をもらう／借金を免除してもらう）</li><li><span class="sd-ln">2</span>処分を許された財産の処分（例：お小遣い・学費）</li><li><span class="sd-ln">3</span>営業を許された特定の行為（例：許可を得て行う宅建業の業務）</li></ul></div></div></div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">法定代理人の<strong>同意</strong>を得ずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">法定代理人＝法律により代理権を有する者（親権者・未成年後見人）</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次の行為は<em>1人でできる</em>（取り消せない）<ul class="sd-list"><li><span class="sd-ln">1</span>単に権利を得る・義務を免れる行為（例：ただで土地をもらう／借金を免除してもらう）</li><li><span class="sd-ln">2</span>処分を許された財産の処分（<em>目的を定めた財産</em>＝学費も、<em>目的を定めない財産</em>＝お小遣いも、いずれも自由に処分できる）</li><li><span class="sd-ln">3</span>営業を許された特定の行為（例：許可を得て行う宅建業の業務）</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">本人（未成年者）・法定代理人の<em>いずれも</em>取り消せる／取消しは第三者に善意・悪意を問わず対抗できる</div></div></div>'
       + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>成年被後見人の保護</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">成年後見人の<strong>代理</strong>によらずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">「同意」ではなく「代理」。同意どおり行動するとは限らないため</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">成年後見人の<em>同意を得て</em>行った行為も<span class="hl-red">取り消せる</span>（未成年者との違い）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">前提</span><div class="sd-rb">財産上の行為は、原則として成年後見人（法定代理人）が<strong>代理</strong>して行う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">成年後見人の<strong>代理</strong>によらずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">「同意」ではなく「代理」。同意してもそのとおり行動するとは限らないため</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">成年後見人の<em>同意を得て</em>行った行為も<span class="hl-red">取り消せる</span>（←未成年者との違い）／本人・成年後見人のいずれも取り消せる／第三者に善意・悪意を問わず対抗できる</div></div>'
       + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>日用品の購入</strong>その他日常生活に関する行為は取り消せない（例：食料品を買う）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">成年後見人が<strong>居住用不動産</strong>を処分（売却・賃貸・賃貸借の解除・抵当権設定等）するには<span class="hl-red">家庭裁判所の許可</span>が必要</div></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">成年後見人が<strong>居住用の建物・敷地</strong>（現在居住しているものに限らない）を処分（売却・賃貸・賃貸借の解除・抵当権の設定等）するには<span class="hl-red">家庭裁判所の許可</span>が必要</div></div></div>'
       + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅲ</span>被保佐人の保護</div>'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">ある程度の判断能力があるため、保佐人の同意がなくても<strong>有効な契約</strong>を結べる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>重要な財産上の行為</strong>を同意なしに行うと<span class="hl-red">取り消せる</span><ul class="sd-list"><li><span class="sd-ln">1</span>借金をする・保証人になる</li><li><span class="sd-ln">2</span>不動産その他重要な財産の売買</li><li><span class="sd-ln">3</span>新築・改築・増築・大修繕</li><li><span class="sd-ln">4</span>長期賃貸借（<em>土地は5年超・建物は3年超</em>）</li></ul></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">重要な財産上の行為<em>以外</em>は、保佐人の同意がなくても取り消せない</div></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>重要な財産上の行為</strong>を保佐人の同意（またはこれに代わる<em>家庭裁判所の許可</em>）なしに行うと<span class="hl-red">取り消せる</span><ul class="sd-list"><li><span class="sd-ln">1</span>借金をする・保証人になる</li><li><span class="sd-ln">2</span>不動産その他重要な財産の売買</li><li><span class="sd-ln">3</span>新築・改築・増築・大修繕</li><li><span class="sd-ln">4</span>長期賃貸借（<em>土地は5年超・建物は3年超</em>）</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">重要な財産上の行為<em>以外</em>は同意がなくても取り消せない／本人・保佐人のいずれも取り消せる／被保佐人が<strong>他人の法定代理人として</strong>重要な財産上の行為をする場合でも保佐人の同意が必要／第三者に善意・悪意を問わず対抗できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">参考</span><div class="sd-rb">保佐人には原則<em>代理権はない</em>が、本人等の請求で家庭裁判所の審判により特定の行為の代理権を付与できる</div></div></div>'
       + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅳ</span>被補助人の保護</div>'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">ほとんど判断能力があるため、補助人の同意がなくても<strong>有効な契約</strong>を結べる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>家庭裁判所の審判</strong>で「補助人の同意が必要」と定められた特定の行為を同意なしに行うと<span class="hl-red">取り消せる</span><span class="sd-note">同意が必要な行為は重要な財産上の行為の一部に限られる</span></div></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">重要な財産上の行為のうち、<strong>家庭裁判所の審判</strong>で「補助人の同意が必要」と定められた特定の行為を、同意（またはこれに代わる<em>家庭裁判所の許可</em>）なしに行うと<span class="hl-red">取り消せる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">同意が必要な行為を同意なしに行った場合、本人（被補助人）・補助人のいずれも取り消せる／第三者に善意・悪意を問わず対抗できる</div></div></div>'
       + '<div class="sd-glossary"><div class="sd-gt">📘 法律用語</div><dl>'
       + '<dt>取消し</dt><dd>取り消すまでは契約は有効。取り消すと契約時にさかのぼって無効となる。</dd>'
       + '<dt>善意 / 悪意</dt><dd>善意＝事情を知らないこと、悪意＝知っていること（良い悪いの意味ではない）。</dd>'
       + '<dt>対抗する</dt><dd>自己の権利を相手に主張すること。制限行為能力の取消しは善意・悪意を問わず対抗できる。</dd>'
       + '<dt>詐術</dt><dd>「自分は行為能力者だ」と相手をだますこと。詐術を用いると取消権を失う。</dd>'
       + '</dl></div>',
-    example:'<strong>未成年者の例：</strong>17歳のAが親の同意なく20万円のバッグを購入 → <em>A本人も親も取り消せる。</em>ただしお小遣いで買った文房具は「処分を許された財産の処分」なので取り消せない。<br><br><strong>成年被後見人の例：</strong>Bが成年後見人の<u>同意を得て</u>自宅を売却した → <em>同意があっても取り消せる（日常生活行為ではないため）。</em>さらに居住用不動産の売却は家庭裁判所の許可も必要。<br><br><strong>被保佐人の例：</strong>Cが保佐人の同意なく自宅を新築する請負契約を結んだ → <em>「新築」は重要な財産上の行為なので取り消せる。</em>一方でCがコンビニで弁当を買う行為は取り消せない。',
+    example:'<strong>未成年者の例：</strong>17歳のAが親の同意なく20万円のバッグを購入 → <em>A本人も親も取り消せる。</em>ただしお小遣い（目的を定めず処分を許された財産）で買った文房具は取り消せない。<br><br><strong>成年被後見人の例：</strong>Bが成年後見人の<u>同意を得て</u>自宅を売却した → <em>同意があっても取り消せる（日常生活行為ではないため）。</em>さらに居住用不動産の売却は家庭裁判所の許可も必要。<br><br><strong>被保佐人の例：</strong>Cが保佐人の同意なく自宅を新築する請負契約を結んだ → <em>「新築」は重要な財産上の行為なので取り消せる。</em>一方でCがコンビニで弁当を買う行為は取り消せない。',
     reason:'<strong>趣旨：</strong>判断能力が不十分な人が不利な契約で損害を受けないよう保護する制度。もっとも、画一的に取り消せると相手方が不安定な立場に置かれ<strong>取引の安全</strong>を害する。そこで相手方に<em>催告権</em>を与え、制限行為能力者が<em>詐術</em>を用いた場合は取消権を奪うなど、<strong>本人保護と取引安全のバランス</strong>を図っている。'
   },
   {
