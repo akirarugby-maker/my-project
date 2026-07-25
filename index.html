@@ -1992,18 +1992,84 @@ const slides = [
     qa:[{cite:'R3(12月)-問5④', q:'BがAに与えた代理権が消滅した後にAが代理権の範囲内の行為をした場合、相手方Cが過失によって代理権消滅の事実を知らなかったときでも、Bはその責任を負わなければならない。', mark:'✕', a:'相手方が<strong>過失によって</strong>代理権消滅の事実を知らなかった（善意有過失）ので、表見代理は成立せず、本人Bは責任を負わない。'}]
   },
   {
-    tag:'民法等', title:'時効制度（取得時効・消滅時効）',
-    keywords:['消滅時効','取得時効'],
-    body:'<strong>時効</strong>は「一定期間経過＋援用」で権利の得喪が確定する制度。時効は自動では成立せず、<strong>援用（主張）</strong>が必要。数字を正確に覚えよう。',
-    points:[
-      '<strong>取得時効</strong>：善意無過失→<strong>10年</strong>、それ以外→<strong>20年</strong>の自主占有',
-      '<strong>消滅時効</strong>：権利を行使できると<em>知った時から5年</em>（主観） or <em>行使可能な時から10年</em>（客観）のどちらか早い方',
-      '<strong>時効の完成猶予</strong>：裁判上の請求・差押え・仮処分・承認→時効の進行が一時停止',
-      '<strong>時効の更新</strong>：確定判決・権利の承認→ゼロから新たに時効が進行',
-      '時効の利益の放棄：時効完成後は可、完成前は不可'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>短期（善意/主観）</th><th>長期（悪意/客観）</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">善意無過失: 10年</td><td class="warn">それ以外: 20年</td></tr><tr><td>消滅時効</td><td class="ok">知った時から: 5年</td><td class="warn">行使可能から: 10年</td></tr></tbody></table>',
-    example:'<strong>消滅時効の例：</strong>AがBに100万円を貸した（返済期限：2020年4月1日）。Aが返済請求できると知りながら5年間放置した場合 → <em>2025年4月1日にBが消滅時効を援用すれば、Aの貸金債権は消滅。</em><br>Bが「払います」と認めた（権利の承認）場合→時効が更新されゼロから再スタート。'
+    tag:'民法等', sec:'04 時効', no:'1', title:'時効とは',
+    keywords:['時効','取得時効','消滅時効'],
+    body:'時効とは、ある状態が一定期間続いた場合に、権利を取得したり（<strong>取得時効</strong>）、権利が消滅したりする（<strong>消滅時効</strong>）といった効果を認める制度をいいます。'
+  },
+  {
+    tag:'民法等', sec:'04 時効', no:'2', title:'取得時効',
+    keywords:['取得時効','自主占有','善意無過失','占有の承継'],
+    body:'取得時効とは、ある状態が一定期間続いた場合に、権利を取得できる制度をいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>時効によって取得できる権利には、所有権のほか、地上権・永小作権・地役権・賃借権などがあります。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅰ</span>所有権の取得時効が完成するための要件</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>所有権の取得時効の要件</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">下記の期間、<strong>所有の意思</strong>をもって、<strong>平穏かつ公然</strong>に他人のものを、自分のものとして事実上支配する（占有）</div></div>'
+      + '</div></div>'
+      + '<table class="diagram-table"><thead><tr><th>占有開始時の状態</th><th>期間</th></tr></thead><tbody>'
+      + '<tr><td>善意 ＆ 無過失</td><td class="ok">10年間</td></tr>'
+      + '<tr><td>善意 ＆ 有過失</td><td class="warn">20年間</td></tr>'
+      + '<tr><td>悪意</td><td class="warn">20年間</td></tr></tbody></table>'
+      + '<div class="sd-glossary"><div class="sd-gt">📘 法律用語</div><dl>'
+      + '<dt>占有</dt><dd>物を、自分のものとして事実上支配すること。</dd>'
+      + '<dt>自主占有</dt><dd>所有の意思がある占有（例：土地の買主が占有）。取得時効の要件はこの自主占有。</dd>'
+      + '<dt>他主占有</dt><dd>所有の意思のない占有（例：賃貸アパートの借主が占有）。取得時効は成立しない。</dd>'
+      + '</dl></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">善意・悪意は<strong>占有の開始時</strong>で判定する（開始時に善意無過失なら、途中で悪意に変わっても10年で完成）／実際に自分で占有せず<em>他人に占有させて</em>いても取得時効は完成する</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>占有の承継</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>占有の承継</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">原則</span><div class="sd-rb">売買や相続で占有を承継する場合、期間を合計できるが、<strong>前占有者の善意・悪意も承継</strong>する</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">例</span><div class="sd-rb">善意無過失のAが6年占有し、悪意のBに売却 → BはAの「善意無過失」を引き継ぐので、Bはあと<em>4年</em>占有すれば所有権取得（合計10年で完成）</div></div>'
+      + '</div></div>',
+    qa:[{cite:'R2(10月)-問10③改', q:'土地の譲渡があった場合、前の占有者Dの占有期間を合計できるが、前占有者の善意・悪意も承継する。そのため、Dの占有開始時にDが善意・無過失であれば、その譲受人Fは、Dの占有開始から10年で甲土地を時効取得できる。', mark:'○', a:'占有を承継すると前占有者の善意・悪意も承継するので、前占有者が善意無過失なら合計10年で時効取得できる。'}]
+  },
+  {
+    tag:'民法等', sec:'04 時効', no:'3', title:'消滅時効',
+    keywords:['消滅時効','主観的起算点','客観的起算点','不法行為の消滅時効'],
+    body:'消滅時効とは、一定期間、権利を行使しないと、その権利が消滅する制度をいいます。起算点と期間の数字が出題の中心です。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>消滅時効の期間・起算点</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">Ⅰ 通常の債権</span><div class="sd-rb">主観的起算点（権利行使できると<em>知った時</em>）から<strong>5年</strong>／客観的起算点（権利を<em>行使できる時</em>）から<strong>10年</strong>（早い方）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">Ⅱ 債権・所有権以外の財産権</span><div class="sd-rb">行使できる時から<strong>20年</strong>（例：地上権・永小作権・地役権）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">Ⅲ 生命・身体の侵害</span><div class="sd-rb">損害賠償請求権：主観<strong>5年</strong>／客観<strong>20年</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">不法行為</span><div class="sd-rb">損害賠償請求権：損害・加害者を知った時から<strong>3年</strong>（生命・身体を害する場合は<strong>5年</strong>）／不法行為の時から<strong>20年</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">Ⅳ 確定判決で確定した権利</span><div class="sd-rb">10年より短い定めがあっても<strong>10年</strong>（確定時に弁済期未到来の債権は除く）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">ポイント</span><div class="sd-rb"><span class="hl-red">所有権は消滅時効にかからない！</span></div></div>',
+    qa:[{cite:'R2(10月)-問10③', q:'消滅時効は、権利を行使することができることを知った時から5年間、又は権利を行使することができる時から10年間行使しないときに完成する。', mark:'○', a:'通常の債権は、主観的起算点から5年・客観的起算点から10年の、いずれか早い方の経過で消滅時効が完成する。'}]
+  },
+  {
+    tag:'民法等', sec:'04 時効', no:'4', title:'時効の完成猶予・更新',
+    keywords:['完成猶予','更新','裁判上の請求','催告','協議の合意','承認'],
+    body:'<strong>完成猶予</strong>＝一定期間、時効の完成が猶予される（進行自体は止まらないが、その間は完成しない）。<strong>更新</strong>＝更新事由の発生でそれまでの経過が無意味になり、ゼロから新たに進行する。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>裁判上の請求等　【完成猶予＋更新】</div>'
+      + '<div class="sd-row"><span class="sd-tag point">完成猶予</span><div class="sd-rb">その事由が終了するまで時効は完成しない。権利が確定せず終了→終了時から<strong>6ヵ月</strong>は完成しない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">更新</span><div class="sd-rb">確定判決等で権利が確定→その時からゼロで再進行</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>強制執行等　【完成猶予＋更新】</div>'
+      + '<div class="sd-row"><span class="sd-rb">強制執行・担保権実行・財産開示手続など。終了まで完成猶予、終了時から更新（申立ての取下げ・取消しで終了した場合は6ヵ月の完成猶予）</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>仮差押え・仮処分　【完成猶予】</div>'
+      + '<div class="sd-row"><span class="sd-rb">その事由の終了時から<strong>6ヵ月</strong>を経過するまで完成しない</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>催告　【完成猶予】</div>'
+      + '<div class="sd-row"><span class="sd-rb">催告時から<strong>6ヵ月</strong>は完成しない。<span class="hl-red">再度の催告は完成猶予の効力なし</span></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅴ</span>協議を行う旨の合意　【完成猶予】</div>'
+      + '<div class="sd-row"><span class="sd-rb">当事者間で協議する旨を<strong>書面</strong>（電磁的記録可）で合意。次のいずれか早い時まで完成しない<ul class="sd-list"><li><span class="sd-ln">1</span>合意から1年</li><li><span class="sd-ln">2</span>定めた協議期間（1年未満）の経過</li><li><span class="sd-ln">3</span>協議続行拒絶の書面通知から6ヵ月</li></ul>再度の合意も可だが通じて<strong>5年</strong>が限度／催告との併用は不可</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅵ</span>承認　【更新】</div>'
+      + '<div class="sd-row"><span class="sd-rb">債務者が債務の一部弁済など権利を承認→その時からゼロで再進行。<span class="hl-red">時効完成を知らずに承認しても、後で消滅時効を援用できない</span></div></div>'
+  },
+  {
+    tag:'民法等', sec:'04 時効', no:'5', title:'時効の効力・援用・利益の放棄',
+    keywords:['時効の遡及効','援用','時効の利益の放棄','援用できる人'],
+    body:'時効の効力・当事者による<strong>援用</strong>・<strong>利益の放棄</strong>の3点。「援用しないと効力は生じない」「あらかじめの放棄はできない」が要点。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>時効の効力</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">時効の効力は、その<strong>起算日</strong>（時効期間がスタートする日）に<em>さかのぼって</em>発生する（遡及効）</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>悪意のBが平穏かつ公然にAの甲土地を20年間占有して取得時効が完成した場合、Bは20年前にさかのぼって甲土地の所有者であったことになります。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>時効の援用</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>時効の援用</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">時効が完成しても、正当な利益を有する当事者が<strong>援用（主張）</strong>しなければ時効の効果は生じない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">援用できる人</span><div class="sd-rb">①債務者 ②保証人・連帯保証人 ③物上保証人 ④抵当不動産の第三取得者</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>時効の利益の放棄</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">時効の利益は、<span class="hl-red">あらかじめ放棄することはできない</span>（完成後であれば放棄できる）</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>あらかじめ「時効の利益を放棄する」と約束できてしまうと、事実上、時効制度が意味のないものになってしまうため、時効完成前の放棄は認められないのです。</div>',
+    qa:[{cite:'H21-問3③改', q:'AはBに対し建物を賃貸し、月額10万円の賃料債権を有している。Aが、Bに対する賃料債権につき、内容証明郵便により支払いを請求したときであっても、消滅時効の完成は猶予されない。', mark:'✕', a:'内容証明郵便による支払いの請求は裁判外の請求（催告）に該当し、催告した時から6ヵ月を経過するまでの間は時効の完成が猶予される。'}]
   },
   {
     tag:'民法等', title:'占有権と取得時効',
