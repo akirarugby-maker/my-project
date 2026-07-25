@@ -5999,7 +5999,7 @@ function buildYT() {
       </div>
       <div class="yt-topics">
         ${subj.topics.map(t =>
-          `<button class="yt-btn" onclick="openYT('${t.replace(/'/g,"\\'")}'">${t}</button>`
+          `<button class="yt-btn" onclick="openYT('${t.replace(/'/g,"\\'")}')">${t}</button>`
         ).join('')}
       </div>
     `;
