@@ -2072,18 +2072,25 @@ const slides = [
     qa:[{cite:'H21-問3③改', q:'AはBに対し建物を賃貸し、月額10万円の賃料債権を有している。Aが、Bに対する賃料債権につき、内容証明郵便により支払いを請求したときであっても、消滅時効の完成は猶予されない。', mark:'✕', a:'内容証明郵便による支払いの請求は裁判外の請求（催告）に該当し、催告した時から6ヵ月を経過するまでの間は時効の完成が猶予される。'}]
   },
   {
-    tag:'民法等', title:'占有権と取得時効',
-    keywords:['取得時効','即時取得','占有'],
-    body:'他人の物を占有し続けると所有権を取得できる<strong>取得時効</strong>と、取引で動産を取得した場合に即座に所有権を得る<strong>即時取得</strong>。時効期間の数字を確実に覚えよう。',
+    tag:'民法等', title:'即時取得・占有訴権',
+    keywords:['即時取得','占有訴権','占有権','盗品','遺失物'],
+    body:'取引で<strong>動産</strong>を平穏・公然・善意・無過失に取得すると、即座に権利を得る<strong>即時取得</strong>。そして占有そのものを守る<strong>占有訴権</strong>。（取得時効は「時効」のセクションで学習）',
     points:[
-      '<strong>取得時効（162条）</strong>：<em>自主占有</em>（所有の意思あり）が必要',
-      '善意無過失：<strong>10年</strong>の占有で成立。悪意または有過失：<strong>20年</strong>で成立',
-      '<strong>即時取得（192条）</strong>：動産を取引で平穏・公然・善意・無過失で占有→即座に所有権等を取得',
-      '即時取得の例外：盗品・遺失物は<em>2年以内</em>なら被害者が回復請求可（競売・公市では代価弁償が必要）',
-      '占有の訴え（占有訴権）：妨害回復・妨害排除・妨害予防の3種類'
+      '<strong>即時取得（192条）</strong>：<em>動産</em>を、取引行為により、平穏・公然・<strong>善意・無過失</strong>で占有した者は、即座に所有権等を取得',
+      '対象は<strong>動産のみ</strong>（不動産・登記された動産・金銭には成立しない）',
+      '<strong>例外（盗品・遺失物）</strong>：被害者・遺失者は盗難・遺失の時から<strong>2年以内</strong>なら回復請求できる',
+      '盗品等を競売・公の市場・同種の物を扱う商人から善意で買った場合は、<strong>代価を弁償</strong>しなければ回復できない',
+      '<strong>占有訴権</strong>：①占有回収の訴え（奪われた）②占有保持の訴え（妨害された）③占有保全の訴え（妨害のおそれ）'
     ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>善意無過失</th><th>悪意/有過失</th><th>対象</th></tr></thead><tbody><tr><td>取得時効</td><td class="ok">10年</td><td class="warn">20年</td><td>不動産・動産</td></tr><tr><td>即時取得</td><td class="ok">即座に取得</td><td class="ng">不可</td><td>動産のみ</td></tr></tbody></table>',
-    example:'<strong>取得時効の例：</strong>Aが20年間、隣のBの土地を自分の土地と思い込んで（善意無過失で）畑として使ってきた場合（10年で成立）。時効を援用すれば所有権取得。<br><br><strong>即時取得の例：</strong>中古車販売店でCが善意・無過失で車を購入したが、実はその車は盗難車だった → <em>Cは即時取得で所有権を取得。ただし被害者は2年以内なら回復請求可。</em>'
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">要件</span>即時取得が成立するための要件</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">対象</span><div class="sd-rb"><strong>動産</strong>であること（不動産・金銭は不可）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">態様</span><div class="sd-rb"><strong>取引行為</strong>により、平穏・公然・<em>善意・無過失</em>で占有を取得</div></div>'
+      + '</div></div>'
+      + '<table class="diagram-table"><thead><tr><th>占有物</th><th>回復請求</th></tr></thead><tbody>'
+      + '<tr><td>通常の動産（善意無過失で取得）</td><td class="ng">回復請求不可（即時取得成立）</td></tr>'
+      + '<tr><td>盗品・遺失物</td><td class="warn">2年以内なら回復請求可</td></tr>'
+      + '<tr><td>盗品等を競売・公の市場・商人から購入</td><td class="warn">代価弁償が必要</td></tr></tbody></table>',
+    example:'<strong>即時取得の例：</strong>中古カメラ店でCが善意・無過失でカメラを購入したが、実は他人から預かった物を店が無断で売っていた → <em>Cは即時取得で所有権を取得。</em><br><br><strong>盗品の例：</strong>そのカメラが<u>盗品</u>だった場合、被害者は盗難の時から2年以内なら回復請求できる。ただしCが公の市場で買っていたなら、被害者は代価を弁償しなければ取り戻せない。'
   },
   {
     tag:'民法等', title:'債務不履行と解除',
