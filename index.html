@@ -715,6 +715,54 @@
     .sd-glossary dt:first-of-type { margin-top: 0; }
     .sd-glossary dd { margin: 0.08rem 0 0; font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
 
+    /* ── テキスト完全一致用パーツ ── */
+    .slide-sec-badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; color: #fff;
+      background: var(--purple); padding: 0.15rem 0.6rem; border-radius: 5px;
+      letter-spacing: 0.04em; margin-bottom: 0.5rem;
+    }
+    .slide-title .item-no {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.55rem; height: 1.55rem; border-radius: 50%;
+      background: var(--purple); color: #fff; font-size: 0.82rem; font-weight: 700;
+      margin-right: 0.45rem; vertical-align: middle;
+    }
+    /* Ⅰ Ⅱ Ⅲ グレー見出し */
+    .sd-roman {
+      display: flex; align-items: center; gap: 0.45rem;
+      background: linear-gradient(90deg, rgba(87,96,106,0.16), rgba(87,96,106,0.01));
+      border-left: 4px solid var(--muted);
+      padding: 0.35rem 0.7rem; border-radius: 4px;
+      font-weight: 700; font-size: 0.9rem; color: var(--text);
+      margin: 0.95rem 0 0.55rem;
+    }
+    .sd-roman .rn { background: var(--muted); color: #fff; font-size: 0.72rem; padding: 0.05rem 0.45rem; border-radius: 4px; flex-shrink: 0; }
+    /* チェック枠（黄色ヘッダー） */
+    .sd-checkbox { border: 1px solid rgba(212,146,10,0.5); border-radius: 8px; margin-top: 0.7rem; overflow: hidden; }
+    .sd-checkbox-h { background: #f2c200; color: #4a3800; font-weight: 700; font-size: 0.84rem; padding: 0.38rem 0.7rem; display: flex; align-items: center; gap: 0.4rem; }
+    .sd-checkbox-h .chk { font-size: 0.6rem; background: #fff; color: #9a7a00; padding: 0.08rem 0.4rem; border-radius: 3px; font-weight: 700; }
+    .sd-checkbox-b { padding: 0.6rem 0.75rem; }
+    .sd-checkbox-b > .sd-row:last-child { margin-bottom: 0; }
+    /* ひとこと */
+    .sd-hitokoto {
+      background: rgba(0,0,0,0.035); border-radius: 10px;
+      padding: 0.55rem 0.8rem 0.6rem 2.5rem; position: relative;
+      font-size: 0.8rem; color: var(--muted); line-height: 1.65; margin-top: 0.65rem;
+    }
+    .sd-hitokoto::before { content: '👩‍🏫'; position: absolute; left: 0.7rem; top: 0.5rem; font-size: 1rem; }
+    .sd-hitokoto b { color: var(--text); }
+    .sd-hitokoto .ht-label { display: block; font-size: 0.66rem; font-weight: 700; color: var(--accent); margin-bottom: 0.15rem; }
+    /* Q&A */
+    .sd-qa { border: 1px solid var(--border); border-radius: 10px; padding: 0.65rem 0.85rem; margin-top: 0.7rem; background: var(--bg2); }
+    .sd-qa-cite { display: inline-block; font-size: 0.64rem; font-weight: 700; color: #fff; background: var(--blue); padding: 0.08rem 0.45rem; border-radius: 4px; margin-bottom: 0.4rem; }
+    .sd-qa-q { font-size: 0.82rem; line-height: 1.65; color: var(--text); display: flex; gap: 0.45rem; }
+    .sd-qa-q .qlabel { color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .sd-qa-a { font-size: 0.82rem; line-height: 1.65; color: var(--text); display: flex; gap: 0.45rem; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px dashed var(--border); }
+    .sd-qa-a .alabel { font-weight: 700; flex-shrink: 0; }
+    .sd-qa-mark { font-weight: 700; }
+    .sd-qa-mark.ok { color: var(--green); }
+    .sd-qa-mark.ng { color: var(--red); }
+
     /* FLASHCARD SLIDE LINK */
     .fc-slide-link {
       margin-top: 0.8rem;
@@ -1605,88 +1653,80 @@ const slides = [
     reason:'<strong>趣旨：</strong>判断能力が不十分な人が不利な契約で損害を受けないよう保護する制度。もっとも、画一的に取り消せると相手方が不安定な立場に置かれ<strong>取引の安全</strong>を害する。そこで相手方に<em>催告権</em>を与え、制限行為能力者が<em>詐術</em>を用いた場合は取消権を奪うなど、<strong>本人保護と取引安全のバランス</strong>を図っている。'
   },
   {
-    tag:'民法等', title:'意思表示の基本（申込み・承諾・到達主義）',
+    tag:'民法等', sec:'02 意思表示', no:'1', title:'意思表示とは',
     keywords:['意思表示','申込み','承諾','到達主義','効力発生時期'],
-    body:'<strong>意思表示</strong>とは、自分の意思を相手に対して表すこと。契約は<strong>申込み</strong>と<strong>承諾</strong>の2つの意思表示が合致して成立する。効力がいつ生じるか（到達主義）が出題ポイント。',
-    points:[
-      '契約は<strong>申込み</strong>と<strong>承諾</strong>の2つの意思表示が<em>合致</em>して成立する',
-      '意思表示は、その通知が相手に<strong>到達した時</strong>から効力が生じる（<em>到達主義</em>）',
-      '相手方が正当な理由なく通知の到達を妨げたときは、<strong>通常到達すべきであった時</strong>に到達したものとみなす',
-      '意思を表示した者が<strong>死亡</strong>しても、原則としてその意思表示の効力は<em>有効</em>'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">図</span>契約の成立</div>'
+    body:'意思表示とは、自分の意思を相手に対して表すことをいいます。契約は、原則として<strong>申込み</strong>と<strong>承諾</strong>の2つの意思表示が合致して成立します。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、買主が「この土地を買いたい」と<b>申込み</b>の意思表示をし、売主が「では、売りましょう」と<b>承諾</b>の意思表示をすることによって、売買契約が成立します。</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0.7rem 0">意思表示は、その通知が相手方に<strong>到達した時</strong>から効力が生じます。ただし、相手方が正当な理由なく通知の到達を妨げたときは、通常到達すべきであった時に到達したものとします。なお、意思を表示した者が死亡した場合でも、原則としてその効力は有効となります。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>意思表示の効力発生時期等</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">その通知が相手に<strong>到達した時</strong>から効力が生じる<span class="sd-note">たとえば：郵便受けに投函されるなど</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が正当な理由なく通知の到達を妨げたときは、<strong>通常到達すべきであった時</strong>に到達したものとみなす</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>契約の成立</div>'
       + '<div class="diagram-flow"><div class="diagram-box person">売主</div><span class="diagram-arrow">←承諾／申込み→</span><div class="diagram-box person">買主</div></div>'
-      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.8rem;color:var(--green)">申込み ＋ 承諾 の<strong>合致</strong>＝売買契約成立！</div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">効力</span>意思表示の効力発生時期</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">通知が相手に<strong>到達した時</strong>から効力が生じる<span class="sd-note">例：郵便受けに投函される など（相手が了知できる状態でOK。読んでいなくてもよい）</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が<em>正当な理由なく</em>通知の到達を妨げたときは、<strong>通常到達すべきであった時</strong>に到達したものとみなす</div></div></div>',
-    example:'<strong>具体例：</strong>買主が「この土地を買いたい」と申込みの意思表示をし、売主が「では売りましょう」と承諾の意思表示をすると、その合致で売買契約が成立する。<br><br>Aが承諾通知を郵送し、Bの郵便受けに投函された時点で<em>到達＝効力発生</em>。Bがまだ開封していなくても効力は生じる。BがわざとポストをふさいだなどしてAの通知の到達を妨げたときは、通常届くべき時に届いたものとみなされる。',
-    reason:'<strong>趣旨：</strong>離れた者どうしの意思表示は「到達した時」を基準にすることで、相手が内容を知りうる状態になった時点を効力発生とし、<strong>取引の明確性と公平</strong>を確保する。到達を妨げた者を保護しないのは信義則上当然である。'
+      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.82rem"><span style="color:#d6336c;font-weight:700">合致</span>＝売買契約成立！</div>'
   },
   {
-    tag:'民法等', title:'心裡留保・虚偽表示（通謀虚偽表示）',
-    keywords:['心裡留保','虚偽表示','通謀虚偽表示','善意の第三者','転得者'],
-    body:'本心と違う意思表示のうち、1人でウソをつくのが<strong>心裡留保</strong>、相手と示し合わせてウソをつくのが<strong>虚偽表示（通謀虚偽表示）</strong>。<strong>善意の第三者</strong>が保護されるかがポイント。',
-    points:[
-      '<strong>心裡留保</strong>：冗談など本心でない意思表示。原則<em>有効</em>。相手方が<strong>悪意・有過失</strong>なら無効',
-      '<strong>虚偽表示</strong>：相手と通謀したウソの意思表示。当事者間では<span class="hl-red">無効</span>',
-      'いずれも無効は<strong>善意の第三者</strong>に対抗できない（＝善意の第三者は保護される。登記不要）',
-      '虚偽表示の第三者保護は<em>転得者</em>にも及ぶ（善意者が一度介在すれば、以降の悪意転得者も保護。また悪意者の後の善意転得者も保護）'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>心裡留保</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">本心でないことを自分で知って行った意思表示も<strong>有効</strong>（言った以上は責任を負う）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が「本心でない」と<strong>知っていた（悪意）</strong>または<strong>知ることができた（有過失）</strong>場合は<span class="hl-red">無効</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">無効は<em>善意の第三者</em>に対抗できない</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>虚偽表示（通謀虚偽表示）</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">当事者間</span><div class="sd-rb">相手方と示し合わせたウソの意思表示は<span class="hl-red">無効</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">対第三者</span><div class="sd-rb"><strong>善意の第三者</strong>には無効を対抗できない（AはCに「無効だから土地を返せ」と言えない）<span class="sd-note">「第三者」には転得者も含まれる</span></div></div></div>'
-      + '<table class="diagram-table"><thead><tr><th>ケース</th><th>結論</th></tr></thead><tbody><tr><td>悪意のC → <strong>善意</strong>の転得者D</td><td class="ok">Dは保護される</td></tr><tr><td><strong>善意</strong>のC → 悪意の転得者D</td><td class="ok">Cが保護 → Dも保護</td></tr></tbody></table>',
-    example:'<strong>心裡留保の例：</strong>Aが冗談で「この土地を10万円で売る」と言い、Bが本気と信じた（善意無過失）→ <em>契約は有効。</em>Bが「冗談だ」と知っていた（悪意）なら無効。<br><br><strong>虚偽表示の例：</strong>借金逃れのためAがBと通謀して土地をBに売ったことにした（虚偽表示＝無効）。その後Bが善意のCに転売 → <em>AはCに無効を主張できず、Cが土地を取得。</em>',
-    reason:'<strong>趣旨：</strong>心裡留保・虚偽表示はいずれも表意者側に落ち度がある。何も知らずに取引に入った<strong>善意の第三者</strong>を犠牲にするのは不当なので、外観を信頼した第三者を保護して<strong>取引の安全</strong>を確保する。'
+    tag:'民法等', sec:'02 意思表示', no:'2', title:'詐欺',
+    keywords:['詐欺','第三者の詐欺','善意無過失の第三者','取消し'],
+    body:'詐欺とは、相手を<strong>だまして</strong>、勘違いさせることをいいます。詐欺によってなされた意思表示は、原則として取り消すことができます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>詐欺</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">詐欺によってなされた意思表示は<strong>取り消すことができる</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">この取消しは、<strong>善意無過失の第三者</strong>に<span class="hl-red">対抗することができない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>第三者の詐欺</strong>によってなされた意思表示は、相手方がその事実を<em>知り（悪意）</em>、または<em>知ることができた（有過失）</em>場合に取り消すことができる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>詐欺と第三者</div>'
+      + '<div class="diagram-flow"><div class="diagram-box person">A</div><span class="diagram-arrow">①売却</span><div class="diagram-box highlight">B（詐欺者）</div><span class="diagram-arrow">②売却</span><div class="diagram-box result-ok">C（善意無過失）</div></div>'
+      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.8rem;color:var(--muted)">AはBの詐欺を取り消せるが、善意無過失のCには対抗できない</div>',
+    qa:[{cite:'H23-問1②', q:'AがBの詐欺により甲土地をBに売却し、Bがこれを善意無過失のCに転売した場合、AはBの詐欺を理由に売買契約を取り消し、Cに対して甲土地の返還を請求することができる。', mark:'✕', a:'詐欺による取消しは<strong>善意無過失の第三者Cには対抗できない</strong>ため、Cに返還を請求できない。'}]
   },
   {
-    tag:'民法等', title:'錯誤（表示の錯誤・動機の錯誤）',
-    keywords:['錯誤','要素の錯誤','動機の錯誤','重大な過失','善意無過失の第三者'],
-    body:'<strong>錯誤</strong>とは勘違いのこと。錯誤による意思表示は、それが<strong>重要なもの</strong>であれば取り消せる。表示の錯誤と動機の錯誤の区別、重過失の扱いがポイント。',
-    points:[
-      '取消しの対象となる錯誤：①<strong>表示の錯誤</strong>（意思表示に対応する意思を欠く）②<strong>動機の錯誤</strong>',
-      '錯誤が「法律行為の目的・取引上の社会通念に照らして<strong>重要</strong>」（要素の錯誤）であるとき取り消せる',
-      '<strong>動機の錯誤</strong>は、その動機が相手方に<em>表示</em>され意思表示の内容になっていた場合に<span class="hl-red">限り</span>取消可',
-      '表意者に<strong>重大な過失</strong>があると原則取り消せない（例外：相手方が悪意・重過失、または同一の錯誤のとき）',
-      '取消しは<strong>善意無過失の第三者</strong>に対抗できない'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">種類</span>取消しの対象となりうる錯誤</div>'
-      + '<div class="sd-row"><span class="sd-tag point">表示の錯誤</span><div class="sd-rb">意思表示に対応する意思を欠く錯誤（例：「1万ドル」と書くつもりで「1万ポンド」と書いた）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">動機の錯誤</span><div class="sd-rb">法律行為の基礎とした事情の認識が真実に反する錯誤。<em>動機が相手方に表示され意思表示の内容になっていた</em>ときに限り取消可</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">要件</span>取消しの可否</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">錯誤が<strong>重要なもの</strong>（要素の錯誤）であれば取り消せる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">表意者に<strong>重大な過失</strong>があると取り消せない。<em>ただし</em>次のときは取り消せる<ul class="sd-list"><li><span class="sd-ln">1</span>相手方が錯誤を知り、または重大な過失で知らなかったとき</li><li><span class="sd-ln">2</span>相手方が表意者と同一の錯誤に陥っていたとき</li></ul></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">取消しは<strong>善意無過失の第三者</strong>に対抗できない</div></div></div>',
-    example:'<strong>要素の錯誤の例：</strong>土地の面積を大きく勘違いして契約した場合など、契約の重要部分の勘違いは取り消せる。ただし表意者にひどい不注意（重過失）があれば原則取り消せない。<br><br><strong>動機の錯誤の例：</strong>「近くに駅ができる」と思い込んで土地を買ったが実際は建設予定なし → <em>その動機を相手方に伝え契約内容になっていた場合に限り取り消せる。</em>',
-    reason:'<strong>趣旨：</strong>勘違いに基づく意思表示に表意者を縛るのは酷だが、無制限に取消しを認めると相手方や第三者が害される。そこで「重要な錯誤」に限り、かつ表意者に重過失があれば原則保護しないことで、<strong>表意者の救済と取引安全の均衡</strong>を図る。'
+    tag:'民法等', sec:'02 意思表示', no:'3', title:'強迫',
+    keywords:['強迫','第三者の強迫','善意の第三者','取消し'],
+    body:'強迫とは、相手を<strong>おどす</strong>ことをいいます。強迫によってなされた意思表示は、取り消すことができます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>強迫</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">強迫によってなされた意思表示は<strong>取り消すことができる</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">この取消しは、<strong>善意の第三者にも対抗することができる</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>第三者の強迫</strong>によってなされた意思表示は、相手方が善意無過失の場合でも取り消すことができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">詐欺の場合…相手方が善意無過失の第三者には取消しを対抗できない／強迫の場合…<span class="hl-red">対抗できる</span></div></div>'
+      + '</div></div>'
   },
   {
-    tag:'民法等', title:'詐欺・強迫による意思表示',
-    keywords:['詐欺','強迫','第三者の詐欺','善意無過失の第三者','取消し'],
-    body:'だまされて（<strong>詐欺</strong>）・おどされて（<strong>強迫</strong>）した意思表示はいずれも<strong>取り消せる</strong>。両者の最大の違いは<strong>第三者保護の有無</strong>。強迫が最も強く保護される。',
-    points:[
-      '<strong>詐欺</strong>（だます）・<strong>強迫</strong>（おどす）による意思表示は、いずれも<em>取り消せる</em>',
-      '<strong>詐欺</strong>の取消しは、<strong>善意無過失の第三者</strong>に対抗<span class="hl-red">できない</span>',
-      '<strong>強迫</strong>の取消しは、<strong>善意の第三者にも</strong>対抗<em>できる</em>（強迫は最強）',
-      '<strong>第三者の詐欺</strong>：相手方が<em>悪意・有過失</em>のときに限り取り消せる',
-      '<strong>第三者の強迫</strong>：相手方が善意無過失でも<em>取り消せる</em>'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>詐欺</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">だまされてした意思表示は<strong>取り消せる</strong></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">取消しは<strong>善意無過失の第三者</strong>には<span class="hl-red">対抗できない</span>（第三者が保護される）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">第三者の詐欺</span><div class="sd-rb">第三者にだまされた場合、相手方が詐欺の事実を<strong>知っていた（悪意）</strong>または<strong>知ることができた（有過失）</strong>ときに限り取り消せる</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>強迫</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">おどされてした意思表示は<strong>取り消せる</strong></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">取消しは<strong>善意の第三者にも対抗できる</strong>（強迫は最強の取消原因）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">第三者の強迫</span><div class="sd-rb">第三者に強迫された場合、相手方が善意無過失でも<em>取り消せる</em></div></div></div>'
-      + '<table class="diagram-table"><thead><tr><th></th><th>詐欺</th><th>強迫</th></tr></thead><tbody><tr><td>取消し</td><td class="ok">可</td><td class="ok">可</td></tr><tr><td>善意無過失の第三者への対抗</td><td class="ng">不可</td><td class="ok">可</td></tr><tr><td>第三者による詐欺/強迫</td><td class="warn">相手方が悪意・有過失なら可</td><td class="ok">常に可</td></tr></tbody></table>',
-    example:'<strong>詐欺の例：</strong>Bが「この土地は値上がりする」とだましてAに売らせ、その後善意無過失のCに転売 → <em>AはCに取消しを対抗できない（Cが保護される）。</em><br><br><strong>強迫の例：</strong>BがAを脅して土地を売らせ、善意のCに転売 → <em>Aは善意のCにも取消しを対抗でき、土地を取り戻せる。</em>',
-    reason:'<strong>趣旨：</strong>強迫は被害者の意思の自由を完全に奪うため、被害者救済を第三者保護より優先する。詐欺は被害者にもだまされた落ち度がありうるため、善意無過失の第三者を保護して<strong>取引の安全</strong>を図る。被害の深刻さに応じて保護の重みを変える均衡原理。'
+    tag:'民法等', sec:'02 意思表示', no:'4', title:'虚偽表示（通謀虚偽表示）',
+    keywords:['虚偽表示','通謀虚偽表示','善意の第三者','転得者'],
+    body:'虚偽表示（通謀虚偽表示）とは、相手方と<strong>示し合わせて</strong>ウソの意思表示をすることをいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>虚偽表示の例としては、多額の借金をかかえたAさんが、土地の差押えを免れるために、Bさんと示し合わせてその土地をBさんに売ったように見せかける場合などがあります（実際には売買する気はない）。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>虚偽表示（通謀虚偽表示）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">当事者間</span><div class="sd-rb">虚偽表示による意思表示は<span class="hl-red">無効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">対第三者</span><div class="sd-rb"><strong>善意の第三者</strong>に対しては、その無効を対抗することができない<span class="sd-note">「第三者」には転得者も含まれる</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>第三者・転得者の保護</div>'
+      + '<table class="diagram-table"><thead><tr><th>ケース</th><th>結論</th></tr></thead><tbody><tr><td>悪意のC → <strong>善意</strong>の転得者D</td><td class="ok">Dは保護される</td></tr><tr><td><strong>善意</strong>のC → 悪意の転得者D</td><td class="ok">Cが保護 → Dも保護</td></tr></tbody></table>'
+  },
+  {
+    tag:'民法等', sec:'02 意思表示', no:'5', title:'錯誤',
+    keywords:['錯誤','要素の錯誤','動機の錯誤','重大な過失'],
+    body:'錯誤とは、<strong>勘違い</strong>のことをいいます。錯誤によってなされた意思表示は、原則として取り消すことができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>取消しの対象となりうる錯誤</div>'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">意思表示に対応する意思を欠く錯誤（<strong>表示の錯誤</strong>）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">表意者が法律行為の基礎とした事情についての認識が真実に反する錯誤（<strong>動機の錯誤</strong>）</div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>錯誤</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">錯誤が「法律行為の目的及び取引上の社会通念に照らして<strong>重要なもの</strong>」であるとき取り消すことができる（要素の錯誤）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">表意者に<strong>重大な過失</strong>があった場合は取り消せない。ただし次のときは取り消せる<ul class="sd-list"><li><span class="sd-ln">1</span>相手方が表意者に錯誤があることを知り、または重大な過失によって知らなかったとき</li><li><span class="sd-ln">2</span>相手方が表意者と同一の錯誤に陥っていたとき</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">この取消しは、<strong>善意無過失の第三者</strong>に対抗することができない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>動機の錯誤</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">「動機の錯誤」は、その動機が<strong>相手方に表示されて意思表示の内容になっていた</strong>ときに<span class="hl-red">限り</span>、取り消すことができます。</p>'
+  },
+  {
+    tag:'民法等', sec:'02 意思表示', no:'6', title:'心裡留保',
+    keywords:['心裡留保','善意の第三者'],
+    body:'心裡留保とは、表意者が本心ではないことを自分で知っていて意思表示をすること（<strong>冗談を言うこと</strong>）をいいます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>心裡留保</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">心裡留保による意思表示は<strong>有効</strong><span class="sd-note">冗談で「売るよ」と言ったら、冗談を言ったほうが悪い→意思表示は有効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が本心でないことを<em>知り（悪意）</em>、または<em>知ることができた（有過失）</em>場合は<span class="hl-red">無効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">心裡留保による意思表示の無効は、原則として<strong>善意の第三者</strong>に対抗することができない</div></div>'
+      + '</div></div>'
   },
   {
     tag:'民法等', title:'代理の基本（顕名・代理行為の効果）',
@@ -5326,14 +5366,25 @@ function renderSlide() {
   const reasonHtml = s.reason
     ? `<div class="slide-reason"><div class="slide-reason-label">⚖️ このルールの趣旨</div>${s.reason}</div>`
     : '';
+  const secHtml = s.sec ? `<div class="slide-sec-badge">SECTION ${s.sec}</div>` : '';
+  const noHtml = s.no ? `<span class="item-no">${s.no}</span>` : '';
+  const qaHtml = s.qa
+    ? s.qa.map(x => `<div class="sd-qa">
+        ${x.cite ? `<span class="sd-qa-cite">${x.cite}</span>` : ''}
+        <div class="sd-qa-q"><span class="qlabel">Q</span><span>${x.q}</span></div>
+        <div class="sd-qa-a"><span class="alabel">A</span><span><span class="sd-qa-mark ${x.mark==='○'?'ok':'ng'}">${x.mark}</span>　${x.a}</span></div>
+      </div>`).join('')
+    : '';
   card.innerHTML = `
     <div class="slide-tag">${s.tag}</div>
-    <div class="slide-title">${s.title}</div>
+    ${secHtml}
+    <div class="slide-title">${noHtml}${s.title}</div>
     <div class="slide-body">${s.body}</div>
     ${pointsHtml}
     ${diagramHtml}
     ${exampleHtml}
     ${reasonHtml}
+    ${qaHtml}
   `;
   const counterText = `${currentSlide+1} / ${filteredSlides.length}`;
   const atFirst = currentSlide === 0;
