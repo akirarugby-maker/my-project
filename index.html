@@ -2100,19 +2100,89 @@ const slides = [
     example:'<strong>即時取得の例：</strong>中古カメラ店でCが善意・無過失でカメラを購入したが、実は他人から預かった物を店が無断で売っていた → <em>Cは即時取得で所有権を取得。</em><br><br><strong>盗品の例：</strong>そのカメラが<u>盗品</u>だった場合、被害者は盗難の時から2年以内なら回復請求できる。ただしCが公の市場で買っていたなら、被害者は代価を弁償しなければ取り戻せない。'
   },
   {
-    tag:'民法等', title:'債務不履行と解除',
-    keywords:['債務不履行','履行遅滞','履行不能','解除'],
-    body:'債務者が約束どおり履行しない状態を<strong>債務不履行</strong>という。3つの類型と、それに対する<strong>解除</strong>の要件を整理しよう。',
-    points:[
-      '<strong>履行遅滞</strong>：弁済期に履行できる状態なのに履行しない。催告後に解除可',
-      '<strong>履行不能</strong>：履行が不可能になった状態。催告なしに即解除可',
-      '<strong>不完全履行</strong>：履行はあったが内容が不完全（追完請求→追完不能なら解除可）',
-      '<strong>解除の効果</strong>：原状回復義務（受け取ったものを返還）＋損害賠償請求可',
-      '改正民法：解除に<strong>相手方の帰責事由は不要</strong>（天災でも解除可。ただし帰責事由なければ損害賠償は不可）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>内容</th><th>解除の要件</th></tr></thead><tbody><tr><td>履行遅滞</td><td>弁済期すぎても不履行</td><td class="warn">催告＋相当期間経過後</td></tr><tr><td>履行不能</td><td>履行が客観的に不可能</td><td class="ok">催告なしで即時解除</td></tr><tr><td>不完全履行</td><td>履行が不十分</td><td class="warn">追完請求→不能なら解除</td></tr></tbody></table>',
-    example:'<strong>履行遅滞の例：</strong>AがBに100万円を4月1日までに返す約束だったが、4月1日を過ぎても返さない。BはAに「相当の期間内に返せ」と催告し、その期間が過ぎてもなお返さない場合→ <em>BはAとの金銭消費貸借契約を解除して、原状回復（返金不要）＋損害賠償（遅延損害金など）を請求できる。</em>',
-    reason:'<strong>趣旨：</strong>契約は守られなければ意味がない。一方が義務を履行しない場合、他方が契約に縛られ続けるのは不公平。<strong>解除制度は債権者を契約の拘束から解放し、別の手段で目的を達成できるようにする</strong>ための制度。改正民法では「債権者の不利益を回復する」観点から帰責事由を解除の要件から外した。'
+    tag:'民法等', sec:'05 債務不履行・解除', no:'1', title:'債務不履行',
+    keywords:['債務不履行','履行遅滞','履行不能','帰責事由'],
+    body:'債務不履行とは、債務者が債務の（本旨に従った）履行をしないことをいいます（＝契約違反）。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>要するに契約違反のことです。</div>'
+      + '<div class="sd-row"><span class="sd-tag point">種類</span><div class="sd-rb">債務不履行には<strong>履行遅滞</strong>と<strong>履行不能</strong>がある（ほかに<em>不完全履行</em>もある）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">効果</span><div class="sd-rb">履行遅滞・履行不能に加えて一定の要件を満たすと、<strong>損害賠償請求</strong>や<strong>契約の解除</strong>ができる</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>損害賠償請求には原則として債務者の<b>帰責事由</b>（契約その他の債務の発生原因および取引上の社会通念に照らして債務者の責めに帰することができる事由）が必要です。一方、契約の解除では債務者の帰責事由は<b>不要</b>です。</div>'
+  },
+  {
+    tag:'民法等', sec:'05 債務不履行・解除', no:'2', title:'履行遅滞',
+    keywords:['履行遅滞','確定期限','不確定期限','期限の定めのない債務','同時履行の抗弁権'],
+    body:'履行遅滞とは、債務を履行できるにもかかわらず、<strong>履行期</strong>（決められた時期）を過ぎても債務者が履行しないことをいいます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>履行遅滞とは・いつから遅滞になるか</div><div class="sd-checkbox-b">'
+      + '<table class="diagram-table"><thead><tr><th>期限の種類</th><th>履行遅滞になる時</th></tr></thead><tbody>'
+      + '<tr><td>確定期限のある債務（例：4/1に支払う）</td><td class="warn">期限が到来した時</td></tr>'
+      + '<tr><td>不確定期限付債務（例：祖母が死んだら支払う）</td><td class="warn">履行の請求を受けた時 or 期限到来を知った時の<em>早い方</em></td></tr>'
+      + '<tr><td>期限の定めのない債務</td><td class="warn">履行の請求を受けた時</td></tr></tbody></table>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">同時履行</span><div class="sd-rb">売主の引渡債務と買主の代金支払債務は<strong>同時履行の関係</strong>。相手が履行しない間は自分の履行を拒める（<em>同時履行の抗弁権</em>）</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>同時履行とは「いっせーの！」でやる、ということ。自分が履行（の一歩手前）をしなければ、履行期を過ぎても相手は履行遅滞になりません。</div>'
+  },
+  {
+    tag:'民法等', sec:'05 債務不履行・解除', no:'3', title:'履行不能',
+    keywords:['履行不能','原始的不能','社会通念'],
+    body:'履行不能とは、債務を履行することが<strong>不可能になった状態</strong>をいいます（例：売り渡すはずの建物が売主の火事で焼失）。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>「建物が全焼した」という物理的に不能な場合だけでなく、<b>二重譲渡</b>で一方に引き渡せなくなった場合なども履行不能に含まれます。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>履行不能とは</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">判断</span><div class="sd-rb">履行が不能かどうかは、契約その他の発生原因および<strong>取引上の社会通念</strong>に照らして判断（物理的不可能に限らない）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">原始的不能</span><div class="sd-rb">契約成立時に既に不能であった場合（<strong>原始的不能</strong>）も履行不能に含まれる</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'05 債務不履行・解除', no:'4', title:'損害賠償の請求',
+    keywords:['損害賠償','通常損害','特別損害','損害賠償額の予定','違約金','金銭債務の特則','過失相殺'],
+    body:'債権者は、債務者の債務不履行（履行遅滞・履行不能）によって生じた損害の賠償を請求できます。原則として債務者の<strong>帰責事由</strong>が必要です。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>損害賠償の原則</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>損害賠償の範囲</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">原則として<strong>金銭</strong>で賠償（特約でモノも可）。<strong>通常損害</strong>を請求できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb"><strong>特別損害</strong>は、当事者（債務者）がその事情を<em>予見すべきであった</em>ときに請求できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">将来の利益・費用は法定利率で<strong>中間利息を控除</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">過失相殺</span><div class="sd-rb">債権者に過失があれば、裁判所はそれを考慮して賠償責任・額を定める</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>損害賠償額の予定</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>損害賠償額の予定</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">予定すると、実際の損害額がいくらでも<strong>予定額</strong>が賠償額になる（100万と予定→実損150万でも100万）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">契約と同時でなくてよいが、<span class="hl-red">損害発生後の予定はできない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb"><strong>違約金</strong>は損害賠償額の予定と<em>推定</em>する</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>金銭債務の特則</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>金銭債務の特則</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">金銭債務に<strong>履行不能はない</strong>（＝債務不履行＝履行遅滞）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">債務者の<strong>帰責事由がなくても</strong>債務不履行が成立</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">債権者は<strong>損害の証明不要</strong>で賠償請求できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">賠償額は遅滞時の<strong>法定利率</strong>で計算（約定利率＞法定利率なら約定利率）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>法定利率は現在<b>年3％</b>。3年を1期として一定の指標を基準に自動的に見直される変動制（1％刻み）です。約定利率とは当事者が契約で決めた利率のことです。</div>',
+    qa:[{cite:'H24-問8③', q:'AB間でB所有の甲不動産の売買契約を締結した後、BがCに二重譲渡してCが登記を備えた場合、AはBに対して債務不履行に基づく損害賠償請求をすることができる。', mark:'○', a:'Cが先に登記を備えたためAは甲不動産を取得できず（履行不能）、AはBに損害賠償を請求できる。'}]
+  },
+  {
+    tag:'民法等', sec:'05 債務不履行・解除', no:'5', title:'契約の解除',
+    keywords:['契約の解除','催告解除','無催告解除','定期行為','原状回復義務','解除の効果'],
+    body:'契約の解除とは、契約成立後に、片方（解除権を有する者）の<strong>一方的な意思表示</strong>で契約の効果を消滅させ、はじめから契約がなかったものにすることをいいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>契約の解除とは</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>契約の解除のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">いったん解除の意思表示をしたら<span class="hl-red">撤回できない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">解除権者が複数いる場合は、原則<strong>過半数</strong>の同意でできる（共有物の賃貸借解除は持分価格の過半数）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">相手方が複数いる場合、解除は<strong>相手方全員</strong>に意思表示しなければならない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>債務不履行による解除は、債務者の帰責事由の有無に関係なくできます。ただし不履行が<b>債権者の帰責事由</b>によるときは、解除できません。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>債務不履行による契約の解除</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>催告による解除／催告によらない解除</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">催告解除</span><div class="sd-rb">相当の期間を定めて履行を<strong>催告</strong>し、期間内に履行がなければ解除できる（不履行が<em>軽微</em>なときは解除不可）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">無催告(全部)</span><div class="sd-rb">催告なしで直ちに全部解除できる<ul class="sd-list"><li><span class="sd-ln">1</span>全部の履行不能</li><li><span class="sd-ln">2</span>全部の履行を拒絶する意思を明確に表示（確定的履行拒絶）</li><li><span class="sd-ln">3</span>一部不能・一部拒絶で残部だけでは契約目的を達成できない</li><li><span class="sd-ln">4</span>定期行為で時期を経過（特定日時に履行しないと目的達成不可）</li><li><span class="sd-ln">5</span>催告しても目的達成の見込みがないことが明らか</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">無催告(一部)</span><div class="sd-rb">①一部の履行不能 ②一部の履行拒絶を明確に表示 のとき、催告なしで一部解除できる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>解除の効果</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>解除の効果</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">原状回復</span><div class="sd-rb">各当事者は<strong>原状回復義務</strong>を負う。金銭は<em>受領時からの利息</em>をつけて返還、金銭以外は<em>受領後の果実・使用利益</em>も返還</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">同時履行</span><div class="sd-rb">各当事者の原状回復義務は<strong>同時履行の関係</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">損害賠償</span><div class="sd-rb">解除しても、損害が生じていれば損害賠償請求もできる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>法律上の果実とは、その本体から生み出される収益。リンゴの木から生まれるリンゴ（天然果実）や土地の地代（法定果実）などです。</div>',
+    qa:[{cite:'H21-問8③', q:'売主A・買主Bの売買契約で、Bが残代金を支払わないためAが適法に解除した場合、Bは自らの債務不履行で解除されたので、Bの原状回復義務を先に履行しなければならず、Aの代金返還義務との同時履行の抗弁を主張できない。', mark:'✕', a:'解除による各当事者の原状回復義務は<strong>同時履行の関係</strong>にあるため、Bは同時履行の抗弁を主張できる。'}]
   },
   {
     tag:'民法等', title:'債権譲渡と相殺',
