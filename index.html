@@ -227,6 +227,9 @@
       transition: all 0.15s;
     }
     .sf-btn.active { background: rgba(240,165,0,0.15); border-color: var(--accent); color: var(--accent); }
+    .slide-section-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem; }
+    .ssr-label { font-size: 0.76rem; font-weight: 700; color: var(--purple); flex-shrink: 0; }
+    #slideSection { flex: 1; font-size: 0.85rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg2); color: var(--text); font-weight: 600; cursor: pointer; }
 
     .slide-nav {
       display: flex;
@@ -1465,6 +1468,10 @@
     <button class="slide-return-btn" id="slideReturnBtn" onclick="returnFromSlide()"></button>
   </div>
   <div class="slide-filter-row" id="slideFilters"></div>
+  <div class="slide-section-row" id="slideSectionRow" style="display:none">
+    <span class="ssr-label">📑 目次</span>
+    <select id="slideSection" onchange="onSlideSectionChange()"></select>
+  </div>
   <div class="slide-nav">
     <button class="nav-btn" id="prevSlide" onclick="changeSlide(-1)">◀ 前へ</button>
     <span class="slide-counter" id="slideCounter">1 / 1</span>
@@ -5546,9 +5553,72 @@ function showSummary(sec, btn) {
 ================================================================ */
 let currentSlide = 0;
 let slideFilter = 'すべて';
+let slideSection = 'all';
 let filteredSlides = [...slides];
 
 const slideSubjects = ['すべて', ...new Set(slides.map(s => s.tag))];
+
+function slideSecKey(s) { return s.sec ? ('S:' + s.sec) : ('T:' + s.title); }
+
+// 科目内のセクション（目次）一覧を生成。sec があればまとめ、なければ各スライドを1項目に
+function getSubjectSections(subj) {
+  const arr = slides.filter(s => s.tag === subj);
+  const out = [], map = {};
+  arr.forEach(s => {
+    const k = slideSecKey(s);
+    if (!map[k]) { map[k] = { key: k, label: (s.sec || s.title), slides: [] }; out.push(map[k]); }
+    map[k].slides.push(s);
+  });
+  return out;
+}
+
+function applySlideScope() {
+  let list = slideFilter === 'すべて' ? [...slides] : slides.filter(s => s.tag === slideFilter);
+  if (slideSection !== 'all') {
+    const scoped = list.filter(s => slideSecKey(s) === slideSection);
+    if (scoped.length) list = scoped;
+  }
+  filteredSlides = list;
+}
+
+function buildSectionSelect() {
+  const wrap = document.getElementById('slideSectionRow');
+  const sel = document.getElementById('slideSection');
+  if (!wrap || !sel) return;
+  if (slideFilter === 'すべて') { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'flex';
+  const secs = getSubjectSections(slideFilter);
+  const total = secs.reduce((n, x) => n + x.slides.length, 0);
+  let html = `<option value="all">📖 目次すべて（${total}）</option>`;
+  secs.forEach(x => { html += `<option value="${x.key}">${x.label}（${x.slides.length}）</option>`; });
+  sel.innerHTML = html;
+  sel.value = slideSection;
+}
+
+function onSlideSectionChange() {
+  slideSection = document.getElementById('slideSection').value;
+  applySlideScope();
+  currentSlide = 0;
+  buildDots();
+  renderSlide();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function syncSubjectButtons(subj) {
+  document.querySelectorAll('.sf-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent.replace(/（.*$/, '') === subj));
+}
+
+// 特定スライド（タイトル指定）へ、そのセクションに絞り込んで移動
+function scopeToSlideTitle(subj, title) {
+  slideFilter = subj;
+  const target = slides.find(s => s.tag === subj && s.title === title);
+  slideSection = target ? slideSecKey(target) : 'all';
+  applySlideScope();
+  syncSubjectButtons(subj);
+  buildSectionSelect();
+  currentSlide = Math.max(0, filteredSlides.findIndex(s => s.title === title));
+}
 
 function buildSlideFilters() {
   const row = document.getElementById('slideFilters');
@@ -5559,10 +5629,13 @@ function buildSlideFilters() {
     btn.textContent = `${subj}（${count}）`;
     btn.onclick = () => {
       slideFilter = subj;
-      filteredSlides = subj === 'すべて' ? [...slides] : slides.filter(s => s.tag === subj);
+      const secs = subj === 'すべて' ? [] : getSubjectSections(subj);
+      slideSection = secs.length ? secs[0].key : 'all';
+      applySlideScope();
       currentSlide = 0;
       document.querySelectorAll('.sf-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      buildSectionSelect();
       buildDots();
       renderSlide();
     };
@@ -5662,7 +5735,7 @@ function goToRelatedQuiz(cat, keys) {
   const currentTitle = filteredSlides[currentSlide] && filteredSlides[currentSlide].title;
   if (currentTitle && autoCheckActivity(currentTitle, 'quiz')) buildProgressChecklist();
   // 戻り先のスライド情報を保存
-  quizFromSlide = { cat: slideFilter, slideIdx: currentSlide };
+  quizFromSlide = { cat: slideFilter, title: filteredSlides[currentSlide] ? filteredSlides[currentSlide].title : null };
   // quiz タブへ移動し、catフィルタを設定
   showTab('quiz', document.querySelector('.tab-btn:nth-child(5)'));
   qFilter = cat;
@@ -5680,14 +5753,11 @@ function goToRelatedQuiz(cat, keys) {
 
 function returnToSlideFromQuiz() {
   if (!quizFromSlide) return;
-  const { cat, slideIdx } = quizFromSlide;
+  const { cat, title } = quizFromSlide;
   quizFromSlide = null;
   document.getElementById('quizReturnBar').classList.remove('show');
   showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
-  slideFilter = cat;
-  filteredSlides = slides.filter(s => s.tag === cat);
-  document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
-  currentSlide = Math.min(slideIdx, filteredSlides.length - 1);
+  scopeToSlideTitle(cat, title);
   buildDots();
   renderSlide();
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -5980,11 +6050,11 @@ function goToSlideFromQuiz(cat, keyword) {
 
 function _navigateToSlide(cat, keyword) {
   showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
-  slideFilter = cat;
-  filteredSlides = slides.filter(s => s.tag === cat);
-  document.querySelectorAll('.sf-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
-  const idx = keyword ? _findSlideIdx(filteredSlides, keyword) : 0;
-  currentSlide = idx >= 0 ? idx : 0;
+  const subjList = slides.filter(s => s.tag === cat);
+  const idx0 = keyword ? _findSlideIdx(subjList, keyword) : 0;
+  const target = subjList[idx0 >= 0 ? idx0 : 0];
+  if (target) scopeToSlideTitle(cat, target.title);
+  else { slideFilter = cat; slideSection = 'all'; applySlideScope(); syncSubjectButtons(cat); buildSectionSelect(); currentSlide = 0; }
   buildDots();
   renderSlide();
   _updateReturnBar();
@@ -6665,13 +6735,7 @@ function buildProgressChecklist() {
 /* スケジューラからスライドへ移動 */
 function goToSlideForTheme(cat, title) {
   showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
-  slideFilter = cat;
-  filteredSlides = slides.filter(s => s.tag === cat);
-  document.querySelectorAll('.sf-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.replace(/（\d+）$/, '') === cat || b.dataset.filter === cat);
-  });
-  const idx = filteredSlides.findIndex(s => s.title === title);
-  currentSlide = idx >= 0 ? idx : 0;
+  scopeToSlideTitle(cat, title);
   buildDots();
   renderSlide();
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -6759,12 +6823,7 @@ function goToSearchResult(ri) {
   if (r.type === 'slide') {
     const s = slides[r.idx];
     showTab('slides', document.querySelector('.tab-btn:nth-child(2)'));
-    slideFilter = s.tag;
-    filteredSlides = slides.filter(sl => sl.tag === s.tag);
-    document.querySelectorAll('.sf-btn').forEach(b =>
-      b.classList.toggle('active', b.textContent.replace(/（\d+）$/,'') === s.tag));
-    currentSlide = filteredSlides.indexOf(s);
-    if (currentSlide < 0) currentSlide = 0;
+    scopeToSlideTitle(s.tag, s.title);
     buildDots();
     renderSlide();
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -6810,6 +6869,17 @@ document.addEventListener('pointerdown', e => {
    INIT
 ================================================================ */
 buildSlideFilters();
+(function initSlideScope() {
+  const firstSubj = slideSubjects.find(s => s !== 'すべて');
+  if (firstSubj) {
+    slideFilter = firstSubj;
+    const secs = getSubjectSections(firstSubj);
+    slideSection = secs.length ? secs[0].key : 'all';
+    applySlideScope();
+    syncSubjectButtons(firstSubj);
+  }
+})();
+buildSectionSelect();
 buildDots();
 renderSlide();
 buildYT();
