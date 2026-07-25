@@ -1604,53 +1604,67 @@
 const slides = [
   /* ── 民法等 (30枚) ── */
   {
-    tag:'民法等', title:'制限行為能力者（未成年者・成年被後見人等）',
-    keywords:['制限行為能力者','未成年者','成年被後見人','被保佐人','被補助人','催告権','詐術','権利能力','意思能力','行為能力'],
-    body:'判断能力が不十分な人が不利な契約で損害を受けないよう、一定の法律行為を後から<strong>取り消せる</strong>とした制度。まず「人に関する3つの能力」を理解し、保護される<strong>4類型</strong>（未成年者・成年被後見人・被保佐人・被補助人）を押さえよう。',
-    points:[
-      '<strong>取消しの効果</strong>：取り消すまでは契約は<em>有効</em>。取り消すと契約時にさかのぼって<span class="hl-red">無効</span>になる（遡及効）',
-      '<strong>取消権者</strong>：本人（制限行為能力者）・保護者（法定代理人等）の<em>いずれからでも</em>取消しできる',
-      '<strong>第三者への対抗</strong>：制限行為能力による取消しは、第三者の<em>善意・悪意を問わず</em>対抗できる（強い保護）',
-      '<strong>相手方の催告権</strong>：相手方は1か月以上の期間を定めて確答を求められる（催告先と効果は下表）',
-      '<strong>詐術</strong>：制限行為能力者が「自分は行為能力者だ」とだまして（詐術を用いて）契約した場合は、もはや<span class="hl-red">取り消せない</span>'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">前提</span>人に関する3つの能力</div>'
-      + '<div class="sd-row"><span class="sd-tag point">権利能力</span><div class="sd-rb">権利・義務の<strong>主体</strong>となれる資格。自然人は生まれながらに全員が持つ</div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">意思能力</span><div class="sd-rb">自分の法律行為の結果を<strong>理解</strong>できる能力。意思能力を欠く状態（泥酔等）でした行為は<span class="hl-red">無効</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">行為能力</span><div class="sd-rb">単独で<strong>有効な法律行為</strong>ができる能力。これに制限をつけられた人が<em>制限行為能力者</em></div></div></div>'
-      + '<table class="diagram-table"><thead><tr><th>類型</th><th>意味（事理弁識能力）</th><th>保護者</th></tr></thead><tbody><tr><td>未成年者</td><td>18歳未満の者</td><td>親権者・未成年後見人</td></tr><tr><td>成年被後見人</td><td class="ng">能力を欠く常況</td><td>成年後見人</td></tr><tr><td>被保佐人</td><td class="warn">著しく不十分</td><td>保佐人</td></tr><tr><td>被補助人</td><td>不十分</td><td>補助人</td></tr></tbody></table>'
-      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※成年被後見人・被保佐人・被補助人は、家庭裁判所の審判を受けた者</div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>未成年者の保護</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">法定代理人の<strong>同意</strong>を得ずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">法定代理人＝法律により代理権を有する者（親権者・未成年後見人）</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次の行為は<em>1人でできる</em>（取り消せない）<ul class="sd-list"><li><span class="sd-ln">1</span>単に権利を得る・義務を免れる行為（例：ただで土地をもらう／借金を免除してもらう）</li><li><span class="sd-ln">2</span>処分を許された財産の処分（<em>目的を定めた財産</em>＝学費も、<em>目的を定めない財産</em>＝お小遣いも自由に処分できる）</li><li><span class="sd-ln">3</span>営業を許された特定の行為（例：許可を得て行う宅建業の業務）</li></ul></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">本人（未成年者）・法定代理人の<em>いずれも</em>取り消せる／取消しは第三者に善意・悪意を問わず対抗できる</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>成年被後見人の保護</div>'
+    tag:'民法等', sec:'01 制限行為能力者', no:'1', title:'制限行為能力者の種類',
+    keywords:['制限行為能力者','権利能力','意思能力','行為能力','未成年者','成年被後見人','被保佐人','被補助人'],
+    body:'制限行為能力者とは、判断能力（行為能力）が不十分であるため、単独で有効な法律行為ができる能力を一定程度<strong>制限された人</strong>をいいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>人に関する3つの能力</div>'
+      + '<div class="sd-row"><span class="sd-tag point">権利能力</span><div class="sd-rb">権利・義務の<strong>主体</strong>となることができる資格<span class="sd-note">自然人であれば生まれながらにしてすべての人が持つ</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">意思能力</span><div class="sd-rb">自分が行った法律行為の結果を理解（認識・判断）できる能力<span class="sd-note">意思能力を欠く状態（泥酔など）でした法律行為は無効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">行為能力</span><div class="sd-rb">単独で有効な法律行為を行うことができる能力<span class="sd-note">これに制限をつけられた人が「制限行為能力者」</span></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>制限行為能力者の種類</div>'
+      + '<table class="diagram-table"><thead><tr><th>類型</th><th>意味（事理を弁識する能力）</th><th>保護者</th></tr></thead><tbody>'
+      + '<tr><td>未成年者</td><td>18歳未満の者</td><td>親権者・未成年後見人</td></tr>'
+      + '<tr><td>成年被後見人</td><td class="ng">能力を欠く常況</td><td>成年後見人</td></tr>'
+      + '<tr><td>被保佐人</td><td class="warn">著しく不十分</td><td>保佐人</td></tr>'
+      + '<tr><td>被補助人</td><td>不十分</td><td>補助人</td></tr></tbody></table>'
+      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※成年被後見人・被保佐人・被補助人は、家庭裁判所の審判（後見／保佐／補助開始）を受けた者</div>'
+  },
+  {
+    tag:'民法等', sec:'01 制限行為能力者', no:'2', title:'制限行為能力者の保護',
+    keywords:['未成年者','成年被後見人','被保佐人','被補助人','取消し','重要な財産上の行為'],
+    body:'制限行為能力者が単独でした一定の法律行為は、後から<strong>取り消す</strong>ことができます。4類型それぞれの「原則」と「例外」を押さえましょう。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>未成年者の保護</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>未成年者の保護</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">法定代理人の<strong>同意</strong>を得ずに行った行為は<span class="hl-red">取り消せる</span>（本人・法定代理人のいずれも取消可／第三者に善意悪意問わず対抗可）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次は<em>1人でできる</em>（取り消せない）<ul class="sd-list"><li><span class="sd-ln">1</span>単に権利を得る・義務を免れる行為（ただで土地をもらう／借金を免除してもらう）</li><li><span class="sd-ln">2</span>処分を許された財産の処分（目的を定めた財産＝学費／定めない財産＝お小遣い）</li><li><span class="sd-ln">3</span>営業を許された特定の行為</li></ul></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>成年被後見人の保護</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>成年被後見人の保護</div><div class="sd-checkbox-b">'
       + '<div class="sd-row"><span class="sd-tag gensoku">前提</span><div class="sd-rb">財産上の行為は、原則として成年後見人（法定代理人）が<strong>代理</strong>して行う</div></div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">成年後見人の<strong>代理</strong>によらずに行った行為は<span class="hl-red">取り消せる</span><span class="sd-note">「同意」ではなく「代理」。同意してもそのとおり行動するとは限らないため</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">成年後見人の<em>同意を得て</em>行った行為も<span class="hl-red">取り消せる</span>（←未成年者との違い）／本人・成年後見人のいずれも取り消せる／第三者に善意・悪意を問わず対抗できる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>日用品の購入</strong>その他日常生活に関する行為は取り消せない（例：食料品を買う）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">成年後見人が<strong>居住用の建物・敷地</strong>（現在居住しているものに限らない）を処分（売却・賃貸・賃貸借の解除・抵当権の設定等）するには<span class="hl-red">家庭裁判所の許可</span>が必要</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅲ</span>被保佐人の保護</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">成年後見人の代理によらずに行った行為は<span class="hl-red">取り消せる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">成年後見人の<em>同意を得て</em>行った行為も取り消せる（←未成年者との違い）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>日用品の購入</strong>その他日常生活に関する行為は取り消せない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">居住用の建物・敷地（現在居住しているものに限らない）の処分（売却・賃貸・賃貸借の解除・抵当権設定等）には<span class="hl-red">家庭裁判所の許可</span>が必要</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>被保佐人の保護</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>被保佐人の保護</div><div class="sd-checkbox-b">'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">ある程度の判断能力があるため、保佐人の同意がなくても<strong>有効な契約</strong>を結べる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>重要な財産上の行為</strong>を保佐人の同意（またはこれに代わる<em>家庭裁判所の許可</em>）なしに行うと<span class="hl-red">取り消せる</span><ul class="sd-list"><li><span class="sd-ln">1</span>借金をする・保証人になる</li><li><span class="sd-ln">2</span>不動産その他重要な財産の売買</li><li><span class="sd-ln">3</span>新築・改築・増築・大修繕</li><li><span class="sd-ln">4</span>長期賃貸借（<em>土地は5年超・建物は3年超</em>）</li></ul></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">重要な財産上の行為<em>以外</em>は同意がなくても取り消せない／本人・保佐人のいずれも取り消せる／被保佐人が<strong>他人の法定代理人として</strong>重要な財産上の行為をする場合でも保佐人の同意が必要／第三者に善意・悪意を問わず対抗できる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">参考</span><div class="sd-rb">保佐人には原則<em>代理権はない</em>が、本人等の請求で家庭裁判所の審判により特定の行為の代理権を付与できる</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅳ</span>被補助人の保護</div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>重要な財産上の行為</strong>を同意（またはこれに代わる家庭裁判所の許可）なしに行うと<span class="hl-red">取り消せる</span><ul class="sd-list"><li><span class="sd-ln">1</span>借金をする・保証人になる</li><li><span class="sd-ln">2</span>不動産その他重要な財産の売買</li><li><span class="sd-ln">3</span>新築・改築・増築・大修繕</li><li><span class="sd-ln">4</span>長期賃貸借（土地は5年超・建物は3年超）</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">重要な財産上の行為<em>以外</em>は取り消せない／被保佐人が他人の法定代理人として重要な財産上の行為をする場合でも保佐人の同意が必要</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>被補助人の保護</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>被補助人の保護</div><div class="sd-checkbox-b">'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">ほとんど判断能力があるため、補助人の同意がなくても<strong>有効な契約</strong>を結べる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">重要な財産上の行為のうち、<strong>家庭裁判所の審判</strong>で「補助人の同意が必要」と定められた特定の行為を、同意（またはこれに代わる<em>家庭裁判所の許可</em>）なしに行うと<span class="hl-red">取り消せる</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">同意が必要な行為を同意なしに行った場合、本人（被補助人）・補助人のいずれも取り消せる／第三者に善意・悪意を問わず対抗できる</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅴ</span>相手方の保護</div>'
-      + '<div class="sd-row"><span class="sd-tag point">催告権</span><div class="sd-rb">相手方は<strong>1か月以上</strong>の期間を定めて「追認するか」確答を求められる。確答がない場合の扱いは催告先で異なる（下表）</div></div>'
-      + '<table class="diagram-table"><thead><tr><th>催告の相手方</th><th>確答がない場合</th></tr></thead><tbody><tr><td>法定代理人（未成年者・成年被後見人の保護者）</td><td class="ok">追認とみなす</td></tr><tr><td>保佐人・補助人</td><td class="ok">追認とみなす</td></tr><tr><td>被保佐人・被補助人 本人</td><td class="ng">取り消したとみなす</td></tr></tbody></table>'
-      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※未成年者・成年被後見人 本人には催告できない（単独で受領できないため）</div></div>'
-      + '<div class="sd-glossary"><div class="sd-gt">📘 法律用語</div><dl>'
-      + '<dt>取消し</dt><dd>取り消すまでは契約は有効。取り消すと契約時にさかのぼって無効となる。</dd>'
-      + '<dt>善意 / 悪意</dt><dd>善意＝事情を知らないこと、悪意＝知っていること（良い悪いの意味ではない）。</dd>'
-      + '<dt>対抗する</dt><dd>自己の権利を相手に主張すること。制限行為能力の取消しは善意・悪意を問わず対抗できる。</dd>'
-      + '<dt>詐術</dt><dd>「自分は行為能力者だ」と相手をだますこと。詐術を用いると取消権を失う。</dd>'
-      + '</dl></div>',
-    example:'<strong>未成年者の例：</strong>17歳のAが親の同意なく20万円のバッグを購入 → <em>A本人も親も取り消せる。</em>ただしお小遣い（目的を定めず処分を許された財産）で買った文房具は取り消せない。<br><br><strong>成年被後見人の例：</strong>Bが成年後見人の<u>同意を得て</u>自宅を売却した → <em>同意があっても取り消せる（日常生活行為ではないため）。</em>さらに居住用不動産の売却は家庭裁判所の許可も必要。<br><br><strong>被保佐人の例：</strong>Cが保佐人の同意なく自宅を新築する請負契約を結んだ → <em>「新築」は重要な財産上の行為なので取り消せる。</em>一方でCがコンビニで弁当を買う行為は取り消せない。',
-    reason:'<strong>趣旨：</strong>判断能力が不十分な人が不利な契約で損害を受けないよう保護する制度。もっとも、画一的に取り消せると相手方が不安定な立場に置かれ<strong>取引の安全</strong>を害する。そこで相手方に<em>催告権</em>を与え、制限行為能力者が<em>詐術</em>を用いた場合は取消権を奪うなど、<strong>本人保護と取引安全のバランス</strong>を図っている。'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>家庭裁判所の審判</strong>で「補助人の同意が必要」と定められた特定の行為を、同意（またはこれに代わる家庭裁判所の許可）なしに行うと<span class="hl-red">取り消せる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">本人（被補助人）・補助人のいずれも取り消せる／第三者に善意悪意問わず対抗できる</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'01 制限行為能力者', no:'3', title:'制限行為能力者の相手方の保護',
+    keywords:['催告権','詐術','取消し'],
+    body:'制限行為能力者と取引した相手方は、不安定な立場に置かれます。そこで相手方を保護する制度として<strong>催告権</strong>があり、また制限行為能力者が<strong>詐術</strong>を用いた場合は取消権を失います。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>催告権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.5rem">相手方は、<strong>1か月以上</strong>の期間を定めて「追認するかどうか確答せよ」と催告できます。確答がない場合の扱いは、催告した相手によって異なります。</p>'
+      + '<table class="diagram-table"><thead><tr><th>催告の相手方</th><th>確答がない場合</th></tr></thead><tbody>'
+      + '<tr><td>法定代理人（未成年者・成年被後見人の保護者）</td><td class="ok">追認とみなす</td></tr>'
+      + '<tr><td>保佐人・補助人</td><td class="ok">追認とみなす</td></tr>'
+      + '<tr><td>被保佐人・被補助人 本人</td><td class="ng">取り消したとみなす</td></tr></tbody></table>'
+      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※未成年者・成年被後見人 本人には催告できない（単独で受領できないため）</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>詐術</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>詐術</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag chui">要注意</span><div class="sd-rb">制限行為能力者が<strong>詐術</strong>を用いて（自分は行為能力者だと相手方に信じさせて）契約したときは、もはや<span class="hl-red">取り消すことができない</span></div></div>'
+      + '</div></div>',
+    qa:[{cite:'H20-問1④', q:'被保佐人が、保佐人の同意又はこれに代わる家庭裁判所の許可を得ないでした土地の売却は、被保佐人が行為能力者であることを相手方に信じさせるため詐術を用いたときであっても、取り消すことができる。', mark:'✕', a:'制限行為能力者が<strong>詐術</strong>を用いて行為能力者であると相手方に信じさせたときは、取り消すことができなくなる。'}]
   },
   {
     tag:'民法等', sec:'02 意思表示', no:'1', title:'意思表示とは',
@@ -1677,8 +1691,8 @@ const slides = [
       + '</div></div>'
       + '<div class="sd-roman"><span class="rn">図</span>詐欺と第三者</div>'
       + '<div class="diagram-flow"><div class="diagram-box person">A</div><span class="diagram-arrow">①売却</span><div class="diagram-box highlight">B（詐欺者）</div><span class="diagram-arrow">②売却</span><div class="diagram-box result-ok">C（善意無過失）</div></div>'
-      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.8rem;color:var(--muted)">AはBの詐欺を取り消せるが、善意無過失のCには対抗できない</div>',
-    qa:[{cite:'H23-問1②', q:'AがBの詐欺により甲土地をBに売却し、Bがこれを善意無過失のCに転売した場合、AはBの詐欺を理由に売買契約を取り消し、Cに対して甲土地の返還を請求することができる。', mark:'✕', a:'詐欺による取消しは<strong>善意無過失の第三者Cには対抗できない</strong>ため、Cに返還を請求できない。'}]
+      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.8rem;color:var(--muted)">Aは取り消せるが、善意無過失のCには対抗できない</div>',
+    qa:[{cite:'H23-問1②', q:'Bが、第三者Cから「甲土地がリゾート開発される地域内になる」とだまされてAと売買契約を締結した場合、相手方AがCによる詐欺の事実を知っていたとしても、Bは詐欺を理由に本件売買契約を取り消すことはできない。', mark:'✕', a:'<strong>第三者の詐欺</strong>の場合、相手方（A）が<strong>悪意または有過失</strong>であれば取り消すことができる。'}]
   },
   {
     tag:'民法等', sec:'02 意思表示', no:'3', title:'強迫',
@@ -1688,7 +1702,7 @@ const slides = [
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">強迫によってなされた意思表示は<strong>取り消すことができる</strong></div></div>'
       + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">この取消しは、<strong>善意の第三者にも対抗することができる</strong></div></div>'
       + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>第三者の強迫</strong>によってなされた意思表示は、相手方が善意無過失の場合でも取り消すことができる</div></div>'
-      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">詐欺の場合…相手方が善意無過失の第三者には取消しを対抗できない／強迫の場合…<span class="hl-red">対抗できる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">詐欺…善意無過失の第三者には取消しを対抗できない／強迫…<span class="hl-red">対抗できる</span></div></div>'
       + '</div></div>'
   },
   {
@@ -1711,12 +1725,13 @@ const slides = [
       + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">意思表示に対応する意思を欠く錯誤（<strong>表示の錯誤</strong>）</div></div>'
       + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">表意者が法律行為の基礎とした事情についての認識が真実に反する錯誤（<strong>動機の錯誤</strong>）</div></div>'
       + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>錯誤</div><div class="sd-checkbox-b">'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">錯誤が「法律行為の目的及び取引上の社会通念に照らして<strong>重要なもの</strong>」であるとき取り消すことができる（要素の錯誤）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">錯誤が「法律行為の目的及び取引上の社会通念に照らして<strong>重要なもの</strong>」であるとき取り消せる（要素の錯誤）</div></div>'
       + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">表意者に<strong>重大な過失</strong>があった場合は取り消せない。ただし次のときは取り消せる<ul class="sd-list"><li><span class="sd-ln">1</span>相手方が表意者に錯誤があることを知り、または重大な過失によって知らなかったとき</li><li><span class="sd-ln">2</span>相手方が表意者と同一の錯誤に陥っていたとき</li></ul></div></div>'
       + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">この取消しは、<strong>善意無過失の第三者</strong>に対抗することができない</div></div>'
       + '</div></div>'
       + '<div class="sd-roman"><span class="rn">Ⅱ</span>動機の錯誤</div>'
-      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">「動機の錯誤」は、その動機が<strong>相手方に表示されて意思表示の内容になっていた</strong>ときに<span class="hl-red">限り</span>、取り消すことができます。</p>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">「動機の錯誤」は、その動機が<strong>相手方に表示されて意思表示の内容になっていた</strong>ときに<span class="hl-red">限り</span>、取り消すことができます（表示は明示・黙示を問わない）。</p>',
+    qa:[{cite:'H23-問1①', q:'Bが、甲土地は将来地価が高騰すると勝手に思い込んでAと甲土地の売買契約を締結したところ、実際には高騰しなかった場合、Bは動機の錯誤を理由に本件売買契約を取り消すことができる。', mark:'✕', a:'その動機（事情）が法律行為の基礎として相手方に<strong>表示</strong>されていなければ、動機の錯誤を理由に取り消すことはできない。'}]
   },
   {
     tag:'民法等', sec:'02 意思表示', no:'6', title:'心裡留保',
@@ -1729,126 +1744,92 @@ const slides = [
       + '</div></div>'
   },
   {
-    tag:'民法等', title:'代理の基本（顕名・代理行為の効果）',
-    keywords:['代理','顕名','代理行為の効果','代理権','本人','代理人'],
-    body:'<strong>代理</strong>とは、代理人（B）が本人（A）に代わって意思表示をし、その効果が<strong>直接本人</strong>に帰属する制度。「本人・代理人・相手方」の3者関係と<strong>顕名</strong>がポイント。',
-    points:[
-      '代理人が行った代理行為の効果は<strong>直接本人</strong>に帰属する（AとCが契約したことになる）',
-      '有効な代理行為の要件：①代理人が<strong>代理権</strong>を有する ②<strong>顕名</strong>（本人のためにすることを示す）',
-      '顕名がない場合は<strong>代理人自身</strong>が契約したものとみなす（本人に効果帰属しない）',
-      'ただし相手方が「本人のため」と<em>知っていた／知り得た</em>ときは本人に帰属する',
-      '代理人に<strong>行為能力は不要</strong>（制限行為能力者でも代理人になれる／意思能力は必要）'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">図</span>代理の3者関係</div>'
+    tag:'民法等', sec:'03 代理', no:'1', title:'代理の基本',
+    keywords:['代理','顕名','代理行為の効果','代理行為の瑕疵','代理権の消滅'],
+    body:'代理人が本人に代わって行った行為の効果は、直接<strong>本人</strong>に生じます。顕名・瑕疵・消滅までまとめて押さえましょう。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>代理とは・代理行為の効果</div>'
       + '<div class="diagram-flow"><div class="diagram-box person">A（本人）</div><span class="diagram-arrow">①代理権</span><div class="diagram-box person">B（代理人）</div><span class="diagram-arrow">②契約</span><div class="diagram-box person">C（相手方）</div></div>'
-      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.78rem;color:var(--green)">▼ 効果は直接Aに帰属（法律上はAとCが契約したことになる）</div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">要件</span>顕名（けんめい）</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">代理人が「<strong>本人の代理人である</strong>」ことを相手方に示す（顕名）ことで、効果が本人に帰属する</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">顕名なし</span><div class="sd-rb">顕名をせずに契約すると<strong>代理人自身</strong>が契約したものとみなす。<em>ただし</em>相手方が本人のためと知り／知り得たときは本人に帰属</div></div></div>',
-    example:'<strong>具体例：</strong>海外出張中のAが息子Bに「自宅マンションをCに売ってよい」と委任した。BがCに「私はAの代理人です」と示して売買契約を締結 → <em>契約の効果は直接Aに帰属し、登記・代金授受もAとCの間で行われる。</em><br><br>Bが顕名せずに自分の名前だけで契約すると、原則B自身の契約になってしまう。',
-    reason:'<strong>趣旨：</strong>代理は、本人が自ら出向けない場合や専門家の力を借りたい場合に取引範囲を広げる制度。顕名を要求するのは、相手方が「誰と契約しているのか」を判断できるようにして<strong>取引の安全</strong>を守るため。'
+      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.78rem;color:var(--green)">▼ 効果は直接Aに帰属</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>有効な代理行為の要件（顕名）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">①代理人が<strong>代理権</strong>を有する ②代理人が「本人のためにすること」を示す（<strong>顕名</strong>）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">顕名をせずに契約すると<strong>代理人自身</strong>が契約したものとみなす</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が「本人のため」と知り／知り得たときは本人に帰属</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>代理行為の瑕疵</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">詐欺・強迫・錯誤・善意悪意などの有無は<strong>代理人を基準</strong>に判定する（本人が悪意・有過失なら、代理人が善意でも本人は善意を主張できない）</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>代理人が制限行為能力者である場合</div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>本人が代理人を選ぶ場合、制限行為能力者を代理人に選んでも、仮に不利益が出たらそれは選んだ本人の責任ですよね…</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">制限行為能力者が代理人としてした行為は、行為能力の制限を理由に<span class="hl-red">取り消せない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">他の制限行為能力者の<strong>法定代理人</strong>としてした行為は取り消せる</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>代理権の消滅</div>'
+      + '<table class="diagram-table"><thead><tr><th>事由</th><th>任意代理</th><th>法定代理</th></tr></thead><tbody>'
+      + '<tr><td>本人の死亡</td><td class="ng">消滅</td><td class="ng">消滅</td></tr>'
+      + '<tr><td>本人の破産手続開始</td><td class="ng">消滅</td><td class="ok">消滅しない</td></tr>'
+      + '<tr><td>代理人の死亡・破産・後見開始</td><td class="ng">消滅</td><td class="ng">消滅</td></tr></tbody></table>',
+    qa:[{cite:'H24-問2①改', q:'未成年者が委任による代理人となって締結した契約の効果は、当該未成年者の法定代理人による同意がなければ、本人に帰属しない。', mark:'✕', a:'未成年者も代理人となることができるので、未成年者が代理人としてした契約の効果は本人に帰属する（代理人に行為能力は不要）。'}]
   },
   {
-    tag:'民法等', title:'代理行為の瑕疵・代理権の消滅',
-    keywords:['代理行為の瑕疵','代理人基準','制限行為能力者と代理','代理権の消滅'],
-    body:'代理行為に瑕疵（詐欺・強迫・錯誤・善意悪意）があるかは<strong>代理人を基準</strong>に判定する。代理人が制限行為能力者の場合の扱いや、<strong>代理権の消滅事由</strong>も押さえよう。',
-    points:[
-      '代理行為の瑕疵（詐欺・強迫・錯誤・善意悪意・過失）の有無は原則<strong>代理人を基準</strong>に判定する',
-      '本人が特定の法律行為を委託し、本人が<strong>悪意・有過失</strong>のときは、代理人が善意でも本人は善意を主張できない',
-      '<strong>制限行為能力者</strong>が代理人としてした行為は、行為能力の制限を理由に<span class="hl-red">取り消せない</span>',
-      'ただし、他の制限行為能力者の<strong>法定代理人として</strong>した行為は取り消せる',
-      '代理権の消滅：本人の死亡・代理人の死亡/破産/後見開始で消滅。<strong>本人の破産は任意代理のみ</strong>消滅'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>代理行為の瑕疵</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">詐欺・強迫・錯誤・善意悪意などの有無は<strong>代理人</strong>を基準に判定する</div></div>'
-      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">本人が悪意・有過失のときは、代理人が善意でも<em>本人は善意を主張できない</em></div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>制限行為能力者と代理</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">制限行為能力者が代理人としてした行為は、行為能力の制限を理由に<span class="hl-red">取り消せない</span><span class="sd-note">本人が自分の判断で代理人に選んだ以上、不利益も本人が負う</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">制限行為能力者が<strong>他の制限行為能力者の法定代理人</strong>としてした行為は取り消せる</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅲ</span>代理権の消滅事由</div>'
-      + '<table class="diagram-table"><thead><tr><th>事由</th><th>任意代理</th><th>法定代理</th></tr></thead><tbody><tr><td>本人の死亡</td><td class="ng">消滅</td><td class="ng">消滅</td></tr><tr><td>本人の破産手続開始</td><td class="ng">消滅</td><td class="ok">消滅しない</td></tr><tr><td>代理人の死亡</td><td class="ng">消滅</td><td class="ng">消滅</td></tr><tr><td>代理人の破産手続開始</td><td class="ng">消滅</td><td class="ng">消滅</td></tr><tr><td>代理人の後見開始の審判</td><td class="ng">消滅</td><td class="ng">消滅</td></tr></tbody></table></div>',
-    example:'<strong>瑕疵の例：</strong>代理人Bがだまされて契約した場合、詐欺の有無は代理人Bを基準に判断し、本人Aが取り消せる。<br><br><strong>消滅の例：</strong>本人Aが破産手続開始の決定を受けると、<em>任意代理の代理権は消滅</em>するが、法定代理（親権など）は消滅しない。',
-    reason:'<strong>趣旨：</strong>実際に意思表示をするのは代理人だから、瑕疵の有無も代理人を基準にするのが自然。代理人の行為能力を不要とするのは、効果が本人に帰属し代理人自身は不利益を受けないため、本人保護（取消制度）の必要が乏しいからである。'
-  },
-  {
-    tag:'民法等', title:'代理権の濫用・自己契約・双方代理',
+    tag:'民法等', sec:'03 代理', no:'2', title:'代理権の濫用・自己契約・双方代理',
     keywords:['代理権の濫用','自己契約','双方代理','利益相反行為','無権代理とみなす'],
-    body:'代理人が私利のために代理権を使う<strong>濫用</strong>、代理人が自ら相手方になる<strong>自己契約</strong>、同一人が両当事者の代理人を兼ねる<strong>双方代理</strong>。原則と例外を整理しよう。',
-    points:[
-      '<strong>代理権の濫用</strong>：私利目的でも原則<em>本人に効果帰属</em>。相手方が濫用目的を<strong>知り／知り得た</strong>ときは<span class="hl-red">無権代理とみなす</span>',
-      '<strong>自己契約</strong>（代理人が相手方になる）・<strong>双方代理</strong>（同一人が両当事者を代理）は原則<span class="hl-red">無権代理とみなす</span>',
-      '例外（有効）：①本人があらかじめ<strong>許諾</strong> ②<strong>債務の履行</strong>（登記申請など既に確定した債務）',
-      '<strong>利益相反行為</strong>（代理人と本人の利益が相反する行為）も原則<em>無権代理とみなす</em>（本人の許諾があればOK）'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>代理権の濫用</div>'
+    body:'代理人が私利のために代理権を使う<strong>濫用</strong>、自ら相手方になる<strong>自己契約</strong>、両当事者を兼ねる<strong>双方代理</strong>。いずれも原則と例外があります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>代理権の濫用</div>'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">私利を図る目的でも代理権の範囲内なので、効果は<strong>本人に帰属</strong>する</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が代理人の<em>濫用目的</em>を知り／知り得た（悪意・有過失）ときは<span class="hl-red">無権代理とみなす</span>（本人に効果帰属しない）</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>自己契約・双方代理・利益相反</div>'
-      + '<div class="diagram-flow"><div class="diagram-box person">A（本人）</div><span class="diagram-arrow">代理権</span><div class="diagram-box highlight">B</div><span class="diagram-arrow">＝両当事者</span><div class="diagram-box person">C</div></div>'
-      + '<div class="sd-row" style="margin-top:0.5rem"><span class="sd-tag gensoku">原則</span><div class="sd-rb">自己契約・双方代理・利益相反行為は<span class="hl-red">無権代理人がした行為とみなす</span></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次の場合はOK<ul class="sd-list"><li><span class="sd-ln">1</span>本人があらかじめ許諾した場合</li><li><span class="sd-ln">2</span>債務の履行（既に確定した債務、例：所有権移転登記の申請）</li></ul></div></div></div>',
-    example:'<strong>双方代理の例：</strong>BがAの代理人でありながら、同時に相手方Cの代理人も兼ねて売買契約を締結 → <em>原則無権代理とみなされる。</em>ただしAとCの両方があらかじめ許諾していればOK。<br><br><strong>濫用の例：</strong>代理人Bが自分の遊興費のために本人Aの土地を売却。相手方Cがその目的を知っていた（悪意）→ <em>無権代理とみなされ、Aに効果は帰属しない。</em>',
-    reason:'<strong>趣旨：</strong>自己契約・双方代理・利益相反は、代理人が本人の利益を犠牲にして自己や一方の利益を図る危険が類型的に高い。そこで原則無効（無権代理）とし、本人があらかじめ許諾した場合など危険のない場合のみ有効として<strong>本人の利益</strong>を守る。'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相手方が濫用目的を知り／知り得た（悪意・有過失）ときは<span class="hl-red">無権代理とみなす</span></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>自己契約・双方代理</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">自己契約・双方代理は<span class="hl-red">無権代理人がした行為とみなす</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">次はOK<ul class="sd-list"><li><span class="sd-ln">1</span>本人があらかじめ許諾した場合</li><li><span class="sd-ln">2</span>債務の履行（登記申請など）</li></ul></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>利益相反行為</div>'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">代理人と本人の利益が相反する行為も<strong>無権代理とみなす</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">本人があらかじめ許諾した行為はOK</div></div>',
+    qa:[
+      {cite:'H30-問2①', q:'AがBに甲土地の売却の代理権を授与し、BがAの代理人としてCと売買契約を締結したところ、Bが売買代金を着服する意図で契約を締結し、Cがその意図を知っていた場合であっても、本件契約の効果はAに帰属する。', mark:'✕', a:'相手方Cが代理人の濫用目的を知っていた（悪意）ので<strong>無権代理とみなされ</strong>、効果はAに帰属しない。'},
+      {cite:'H24-問2③', q:'不動産の売買契約に関して、同一人物が売主及び買主の双方の代理人となった場合であっても、売主及び買主のあらかじめの承諾があるときは、当該売買契約の効果は両当事者に有効に帰属する。', mark:'○', a:'双方があらかじめ承諾していれば双方代理は無権代理とみなされず、効果は両当事者に有効に帰属する。'}
+    ]
   },
   {
-    tag:'民法等', title:'復代理',
+    tag:'民法等', sec:'03 代理', no:'3', title:'復代理',
     keywords:['復代理','復代理人','任意代理','法定代理','選任と責任'],
-    body:'<strong>復代理</strong>とは、代理人が自分の権限内の行為を行わせるために、さらに代理人（<strong>復代理人</strong>）を選ぶこと。復代理人の行為の効果は<strong>本人</strong>に帰属する。任意代理と法定代理で選任要件・責任が異なる。',
-    points:[
-      '復代理人の行った行為の効果は<strong>本人</strong>に帰属する（代理人にではない）',
-      '<strong>任意代理</strong>：復代理人を選任できるのは①<strong>本人の許諾</strong>②<strong>やむを得ない事由</strong>があるとき',
-      '<strong>法定代理</strong>：<em>いつでも</em>復代理人を選任できる',
-      '責任：任意代理は<strong>債務不履行</strong>の一般原則、法定代理は原則<strong>全責任</strong>（やむを得ない事由での選任は選任・監督のみ）',
-      '復代理人を選任しても、代理人の<strong>代理権は消滅しない</strong>'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">図</span>復代理の関係</div>'
+    body:'復代理とは、代理人が自分の権限内の行為を行わせるために、さらに代理人（<strong>復代理人</strong>）を選ぶことをいいます。復代理人の行為の効果は<strong>本人</strong>に帰属します。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>復代理とは</div>'
       + '<div class="diagram-flow"><div class="diagram-box person">本人</div><span class="diagram-arrow">→</span><div class="diagram-box person">代理人</div><span class="diagram-arrow">→選任</span><div class="diagram-box person">復代理人</div></div>'
-      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.78rem;color:var(--green)">▼ 復代理人の行為の効果は直接「本人」に帰属</div></div>'
-      + '<table class="diagram-table"><thead><tr><th></th><th>任意代理</th><th>法定代理</th></tr></thead><tbody><tr><td>選任できる場合</td><td class="warn">①本人の許諾<br>②やむを得ない事由</td><td class="ok">いつでも選任可</td></tr><tr><td>代理人の責任</td><td>債務不履行の一般原則</td><td class="ng">原則すべての責任<br>（やむを得ない事由で選任→選任・監督のみ）</td></tr></tbody></table>',
-    example:'<strong>任意代理の例：</strong>Aから土地売却を任されたBが病気で動けず、やむを得ずCを復代理人に選任 → <em>Cの行為の効果はAに帰属。</em>この場合Bはやむを得ない事由があるので選任でき、責任は軽減される。<br><br>Bが自分の勝手な都合で無断でCを選任したときは、原則として選任できず、Bが債務不履行責任を負う。',
-    reason:'<strong>趣旨：</strong>任意代理は本人が「その人だから」と信頼して選んだので、勝手な復任を制限する。一方、法定代理は本人の意思と無関係に選ばれ職務範囲も広いため、いつでも復任を認める代わりに責任を重くして<strong>本人の保護</strong>を図る。'
+      + '<div style="text-align:center;margin-top:0.4rem;font-size:0.78rem;color:var(--green)">▼ 復代理人の行為の効果は「本人」に帰属／復代理人を選任しても代理人の代理権は消滅しない</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>復代理人の選任と代理人の責任</div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>任意代理</th><th>法定代理</th></tr></thead><tbody>'
+      + '<tr><td>選任できる場合</td><td class="warn">①本人の許諾<br>②やむを得ない事由</td><td class="ok">いつでも選任可</td></tr>'
+      + '<tr><td>代理人の責任</td><td>債務不履行の一般原則</td><td class="ng">原則すべての責任<br>（やむを得ない事由で選任→選任・監督のみ）</td></tr></tbody></table>',
+    qa:[{cite:'H19-問2②', q:'Aが不動産の売却の代理権をBに付与した場合において、Bが友人Cを復代理人として選任することにつきAの許諾を得たときは、Bはその選任に関し過失があったとしても、Aに対し責任を負わない。', mark:'✕', a:'本人の許諾を得て復代理人を選任した場合でも、代理人は<strong>債務不履行の一般原則</strong>に基づき責任を負うことがある。'}]
   },
   {
-    tag:'民法等', title:'無権代理（効果・相手方の保護）',
-    keywords:['無権代理','追認','催告権','取消権','無権代理人の責任追及'],
-    body:'代理権がないのに代理人として行うのが<strong>無権代理</strong>。原則として本人に効果は生じず、本人の<strong>追認</strong>で有効になる。相手方の<strong>3つの保護手段</strong>が最重要。',
-    points:[
-      '無権代理行為の効果は原則<strong>本人に生じない</strong>。本人が<strong>追認</strong>すれば契約時にさかのぼって有効になる',
-      '追認は原則<strong>相手方</strong>に対してする（無権代理人にした場合、相手方が知るまで相手方は取消可）',
-      '相手方の<strong>催告権</strong>：相当の期間を定めて催告→確答なしは<span class="hl-red">追認拒絶</span>とみなす（善意・悪意を問わず行使可）',
-      '相手方の<strong>取消権</strong>：本人が追認しない間は取消可（<em>善意</em>の相手方のみ）',
-      '相手方の<strong>責任追及権</strong>：無権代理人に履行または損害賠償を請求可（<em>善意無過失</em>。無権代理人が制限行為能力者なら不可）'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">効果</span>無権代理行為の効果</div>'
+    tag:'民法等', sec:'03 代理', no:'4', title:'無権代理',
+    keywords:['無権代理','追認','催告権','取消権','責任追及','無権代理と相続'],
+    body:'代理権がないのに代理人として行うのが<strong>無権代理</strong>です。原則として本人に効果は生じず、追認で有効になります。相手方の3つの保護手段と、相続の場合の帰結が重要です。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>無権代理行為の効果</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>無権代理行為の効果</div><div class="sd-checkbox-b">'
       + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">効果は<strong>本人に生じない</strong></div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">本人が<strong>追認</strong>すれば、契約時にさかのぼって本人に効果帰属（有効）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">追認は原則<em>相手方</em>に対してする（無権代理人にしてもよいが、相手方が知るまで相手方は取消し可）</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">保護</span>相手方の3つの保護手段</div>'
-      + '<table class="diagram-table"><thead><tr><th>手段</th><th>内容</th><th>行使できる相手方</th></tr></thead><tbody><tr><td>催告権</td><td>相当期間内に追認するか催告。確答なし→追認拒絶とみなす</td><td class="ok">善意・悪意問わず</td></tr><tr><td>取消権</td><td>本人が追認しない間、契約を取り消せる</td><td class="warn">善意のみ</td></tr><tr><td>責任追及権</td><td>無権代理人に履行または損害賠償を請求</td><td class="ng">善意無過失のみ</td></tr></tbody></table>'
-      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※無権代理人が制限行為能力者のときは責任追及できない</div></div>',
-    example:'<strong>具体例：</strong>Bが代理権もないのに「Aの代理人」としてAの土地をCに売った。<br>・Cは本人Aに「追認するか」催告でき、Aが確答しなければ追認拒絶とみなす。<br>・Aが追認しない間、善意のCは契約を取り消せる。<br>・善意無過失のCは、無権代理人Bに履行または損害賠償を請求できる（BがAの追認を得られなかった場合）。',
-    reason:'<strong>趣旨：</strong>無権代理は本人の関与なく行われるので、本人に効果を及ぼさないのが原則。他方、代理人を信じた相手方が害されるため、催告権・取消権・責任追及権という<strong>3つの救済</strong>を与えて相手方の保護と本人の意思尊重を両立させる。'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">本人が<strong>追認</strong>すれば契約時にさかのぼって有効。追認は原則<em>相手方</em>に対してする</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>無権代理の相手方の保護</div>'
+      + '<table class="diagram-table"><thead><tr><th>手段</th><th>内容</th><th>行使できる相手方</th></tr></thead><tbody>'
+      + '<tr><td>催告権</td><td>追認するか催告。確答なし→追認拒絶とみなす</td><td class="ok">善意・悪意問わず</td></tr>'
+      + '<tr><td>取消権</td><td>本人が追認しない間、取り消せる</td><td class="warn">善意のみ</td></tr>'
+      + '<tr><td>責任追及権</td><td>無権代理人に履行または損害賠償を請求</td><td class="ng">善意無過失のみ</td></tr></tbody></table>'
+      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※無権代理人が制限行為能力者のときは責任追及できない</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>無権代理と相続</div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">①</span><div class="sd-rb"><strong>無権代理人が本人を相続</strong> → 追認を拒絶できず、無権代理行為は<span class="hl-red">有効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">②</span><div class="sd-rb"><strong>本人が無権代理人を相続</strong> → 本人は追認を<em>拒絶できる</em>。ただし無権代理人の責任（善意無過失の相手方への履行・損害賠償）は相続する</div></div>',
+    qa:[{cite:'H24-問4②', q:'A所有の甲土地につき、売却の代理権を与えられていないBがAの代理人としてCと売買契約を締結した（表見代理は成立しないものとする）。Aの死亡によりBがAの唯一の相続人として相続した場合、Bは自らの無権代理行為の追認を拒絶することができる。', mark:'✕', a:'無権代理人が単独で本人を相続した場合には、自らの無権代理行為の追認を拒絶することはできない。'}]
   },
   {
-    tag:'民法等', title:'無権代理と相続・表見代理',
-    keywords:['無権代理と相続','表見代理','代理権授与の表示','権限外の行為','代理権消滅後'],
-    body:'無権代理人と本人の一方が他方を<strong>相続</strong>した場合の帰結と、外観を信頼した相手方を保護する<strong>表見代理</strong>。誰がどう相続したかで結論が変わる点がポイント。',
-    points:[
-      '<strong>無権代理人が本人を相続</strong>：本人の地位を得ても追認拒絶できず、無権代理行為は<span class="hl-red">有効</span>になる',
-      '<strong>本人が無権代理人を相続</strong>：本人は追認を<em>拒絶できる</em>。ただし無権代理人の<strong>責任（履行・損害賠償）</strong>は相続する',
-      '<strong>表見代理</strong>：外観を信頼した<strong>善意無過失</strong>の相手方を保護し、本人が責任を負う',
-      '表見代理の3類型：①<strong>代理権授与の表示</strong>（109条）②<strong>権限外の行為</strong>（110条）③<strong>代理権消滅後</strong>（112条）',
-      '表見代理が成立しても、相手方は<em>無権代理人の責任追及</em>を選んでもよい'
-    ],
-    diagram:'<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅰ</span>無権代理と相続</div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">類型①</span><div class="sd-rb"><strong>無権代理人が本人を相続</strong>した場合 → 自らの無権代理行為の追認を拒絶できず<span class="hl-red">有効</span>（相手方に引き渡す義務を負う）</div></div>'
-      + '<div class="sd-row"><span class="sd-tag reigai">類型②</span><div class="sd-rb"><strong>本人が無権代理人を相続</strong>した場合 → 本人の地位で<em>追認を拒絶できる</em>。ただし無権代理人の責任（善意無過失の相手方への履行・損害賠償）は相続するため、その責任は負う</div></div></div>'
-      + '<div class="sd-block"><div class="sd-head"><span class="sd-hn">Ⅱ</span>表見代理</div>'
-      + '<div class="sd-row"><span class="sd-tag gensoku">要件</span><div class="sd-rb">無権代理でも、正当な代理権があるような外観があり、相手方が<strong>善意無過失</strong>なら有効な代理とみなし本人が責任を負う</div></div>'
-      + '<table class="diagram-table"><thead><tr><th>類型</th><th>内容</th></tr></thead><tbody><tr><td>①代理権授与の表示（109条）</td><td>「代理権を与えた」と表示したが実際は与えていない</td></tr><tr><td>②権限外の行為（110条）</td><td>与えられた代理権の範囲を超えて行為した</td></tr><tr><td>③代理権消滅後（112条）</td><td>代理権が消滅した後に、以前の権限内の行為をした</td></tr></tbody></table>'
-      + '<div class="sd-row" style="margin-top:0.5rem"><span class="sd-tag point">ポイント</span><div class="sd-rb">表見代理が成立しても、相手方は表見代理を主張せず<em>無権代理人の責任</em>を追及することもできる</div></div></div>',
-    example:'<strong>相続の例：</strong>Bが無権代理でAの土地をCに売った後、A（本人）が死亡しBが単独相続 → <em>Bは追認を拒絶できず、Cへの引渡義務を負う（無権代理行為が有効に）。</em>逆にB（無権代理人）が死亡しAが相続した場合は、Aは追認を拒絶できる。<br><br><strong>表見代理の例：</strong>AがBに与えた代理権の範囲を超えてBが土地を売却。相手方Cが善意無過失なら表見代理が成立し、AはCとの契約に責任を負う（110条）。',
-    reason:'<strong>趣旨：</strong>無権代理人が本人を相続した場合に追認拒絶を許すのは信義則に反するため有効とする。表見代理は、本人にも外観を作り出した帰責性がある場合に、外観を信頼した善意無過失の相手方を保護して<strong>取引の安全</strong>を確保する制度である。'
+    tag:'民法等', sec:'03 代理', no:'5', title:'表見代理',
+    keywords:['表見代理','代理権授与の表示','権限外の行為','代理権消滅後','善意無過失'],
+    body:'表見代理とは、無権代理であっても正当な代理権があるかのような外観があり、相手方が<strong>善意無過失</strong>の場合に、有効な代理とみなして<strong>本人が責任を負う</strong>制度です。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>表見代理が成立する3つの場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb"><strong>代理権授与の表示</strong>（109条）：「代理権を与えた」と表示したが実際は与えていない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb"><strong>権限外の行為</strong>（110条）：与えられた代理権の範囲を超えて行為した</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb"><strong>代理権消滅後</strong>（112条）：代理権が消滅した後に、以前の権限内の行為をした</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">要件</span><div class="sd-rb">いずれも相手方が<strong>善意無過失</strong>であることが必要</div></div>'
+      + '</div></div>',
+    qa:[{cite:'R3(12月)-問5④', q:'BがAに与えた代理権が消滅した後にAが代理権の範囲内の行為をした場合、相手方Cが過失によって代理権消滅の事実を知らなかったときでも、Bはその責任を負わなければならない。', mark:'✕', a:'相手方が<strong>過失によって</strong>代理権消滅の事実を知らなかった（善意有過失）ので、表見代理は成立せず、本人Bは責任を負わない。'}]
   },
   {
     tag:'民法等', title:'時効制度（取得時効・消滅時効）',
