@@ -6524,36 +6524,76 @@ function buildStudyPlan() {
 ================================================================ */
 let popupQuizPicked = [];
 
+// 学習済みスライドを判定
+function getStudiedSlides() {
+  const prog = getProgress();
+  return slides.filter(s => {
+    const tp = prog[s.title];
+    if (!tp) return false;
+    return [].concat(tp.slide || [], tp.flash || [], tp.quiz || []).some(Boolean);
+  });
+}
+
+// 抜き打ちテストの出題プール（学習済みの範囲のみ）
+function buildPopupPool() {
+  const studied = getStudiedSlides();
+  const pool = [];
+  // 1) セクションQ&A（テキスト過去問○×）を学習済みスライドから
+  studied.forEach(s => {
+    (s.qa || []).forEach(x => {
+      pool.push({
+        cat: s.tag,
+        ox: true,
+        q: (x.cite ? `【${x.cite}】 ` : '') + x.q,
+        opts: ['◯（正しい）', '✕（誤り）'],
+        ans: x.mark === '○' ? 0 : 1,
+        exp: x.a,
+        slideKeyword: s.title.split(/[（・]/)[0]
+      });
+    });
+  });
+  // 2) 4択の過去問を、学習済みスライドのキーワードに合致するものだけ
+  const bySubj = {};
+  studied.forEach(s => { (bySubj[s.tag] = bySubj[s.tag] || []).push(s); });
+  quizData.forEach(q => {
+    const list = bySubj[q.cat];
+    if (!list) return;
+    const text = q.q + ' ' + (q.exp || '');
+    let matched = null;
+    for (const s of list) {
+      const keys = [s.title.split(/[（・]/)[0], ...(s.keywords || [])].filter(k => k && k.length >= 2);
+      if (keys.some(k => text.includes(k))) { matched = s; break; }
+    }
+    if (matched) pool.push(Object.assign({}, q, { slideKeyword: matched.title.split(/[（・]/)[0] }));
+  });
+  return pool;
+}
+
 function buildPopupQuiz() {
   const container = document.getElementById('popupQuiz');
   if (!container) return;
 
-  const prog = getProgress();
-  const studiedCats = new Set();
-  Object.entries(prog).forEach(([title, data]) => {
-    if ([...data.slide, ...data.flash, ...data.quiz].some(Boolean)) {
-      const slide = slides.find(s => s.title === title);
-      if (slide) studiedCats.add(slide.tag);
-    }
-  });
-
-  let pool = studiedCats.size > 0
-    ? quizData.filter(q => studiedCats.has(q.cat))
-    : quizData;
-  if (pool.length === 0) pool = quizData;
+  let pool = buildPopupPool();
+  let note;
+  if (pool.length === 0) {
+    pool = quizData.slice();
+    note = '<p style="font-size:0.78rem;color:var(--muted);background:rgba(0,0,0,0.04);border-radius:8px;padding:0.5rem 0.75rem;margin-bottom:0.8rem">まだ学習記録がないため、全範囲から出題しています。スライド・フラッシュカード・問題演習を進めると、<b>学習済みの範囲だけ</b>から出題されます。</p>';
+  } else {
+    note = `<p style="font-size:0.78rem;color:var(--green);background:rgba(26,127,55,0.07);border-radius:8px;padding:0.5rem 0.75rem;margin-bottom:0.8rem">✅ <b>学習済みの範囲</b>から出題中（対象${pool.length}問から5問）。学習を進めると範囲が広がります。</p>`;
+  }
 
   popupQuizPicked = pool.slice().sort(() => Math.random() - 0.5).slice(0, 5);
 
   const optLabels = ['A', 'B', 'C', 'D'];
-  container.innerHTML = popupQuizPicked.map((q, i) => {
+  container.innerHTML = note + popupQuizPicked.map((q, i) => {
     const optsHtml = q.opts.map((opt, oi) =>
-      `<button class="pq-opt" onclick="pqAnswer(${i},${oi})">${optLabels[oi]}. ${opt}</button>`
+      `<button class="pq-opt" onclick="pqAnswer(${i},${oi})">${q.ox ? '' : optLabels[oi] + '. '}${opt}</button>`
     ).join('');
     return `
     <div class="pq-card" id="pq-card-${i}">
       <div class="pq-header">
         <span class="pq-num">問${i + 1}</span>
-        <span class="pq-cat">${q.cat}</span>
+        <span class="pq-cat">${q.cat}${q.ox ? '・過去問○×' : ''}</span>
         <span class="pq-q">${q.q}</span>
       </div>
       <div class="pq-opts" id="pq-opts-${i}">${optsHtml}</div>
