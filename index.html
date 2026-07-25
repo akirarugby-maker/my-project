@@ -763,6 +763,22 @@
     .sd-qa-mark.ok { color: var(--green); }
     .sd-qa-mark.ng { color: var(--red); }
 
+    /* ── Sectionまとめ ── */
+    .sum-intro { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+    .sum-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
+    .sum-fbtn { background: rgba(0,0,0,0.04); border: 1px solid var(--border); border-radius: 20px; font-size: 0.78rem; padding: 0.35rem 0.9rem; cursor: pointer; color: var(--text); transition: all 0.15s; }
+    .sum-fbtn.active { background: var(--purple); color: #fff; border-color: var(--purple); font-weight: 700; }
+    .sum-block { margin-bottom: 2rem; }
+    .sum-sec-head { font-size: 1rem; font-weight: 700; color: #fff; background: var(--purple); padding: 0.5rem 0.9rem; border-radius: 8px; margin-bottom: 0.9rem; }
+    .sum-h { font-size: 0.9rem; font-weight: 700; color: var(--text); margin: 1.2rem 0 0.5rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+    .sum-mnemonic { background: rgba(240,165,0,0.09); border: 1px solid rgba(240,165,0,0.3); border-radius: 8px; padding: 0.6rem 0.85rem; margin-top: 0.6rem; font-size: 0.82rem; line-height: 1.7; color: var(--text); }
+    .sum-mnemonic .ml { font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.2rem; font-size: 0.72rem; letter-spacing: 0.03em; }
+    .sum-mnemonic b { color: var(--red); }
+    .sum-block .diagram-table { margin-top: 0.3rem; }
+    .sum-block .diagram-table td b, .sum-block .diagram-table td strong { color: var(--red); }
+    .sum-list { margin: 0.3rem 0 0; padding-left: 1.2rem; font-size: 0.82rem; line-height: 1.75; }
+    .sum-list li { margin-bottom: 0.25rem; }
+
     /* FLASHCARD SLIDE LINK */
     .fc-slide-link {
       margin-top: 0.8rem;
@@ -1439,6 +1455,7 @@
   <button class="tab-btn" onclick="showTab('youtube',this)" role="tab">▶️ YouTube検索</button>
   <button class="tab-btn" onclick="showTab('flash',this)" role="tab">🃏 フラッシュカード</button>
   <button class="tab-btn" onclick="showTab('quiz',this)" role="tab">✏️ 問題演習</button>
+  <button class="tab-btn" onclick="showTab('summary',this)" role="tab">📝 Sectionまとめ</button>
 </nav>
 
 <!-- SLIDES -->
@@ -1595,6 +1612,142 @@
   <p class="section-title">📋 テーマ別学習進捗チェックリスト</p>
   <p style="font-size:0.75rem;color:var(--muted);margin-bottom:1rem">テーマ名をクリックするとスライドへ移動。スライド・フラッシュカード・問題演習を開くと自動でチェックが入ります（各3回まで）。○をクリックして手動チェック切り替えも可能。</p>
   <div id="progressChecklist"></div>
+</section>
+
+<section id="summary" class="panel">
+  <p class="section-title">📝 Sectionまとめ（暗記シート）</p>
+  <p class="sum-intro">比較表・○×早見表・語呂で横断的に整理しました。スライド学習で理解 → ここで横串の暗記、が効率的です。</p>
+  <div class="sum-filter-row">
+    <button class="sum-fbtn active" onclick="showSummary('all',this)">すべて</button>
+    <button class="sum-fbtn" onclick="showSummary('01',this)">制限行為能力者</button>
+    <button class="sum-fbtn" onclick="showSummary('02',this)">意思表示</button>
+    <button class="sum-fbtn" onclick="showSummary('03',this)">代理</button>
+  </div>
+
+  <!-- ===== SEC 01 ===== -->
+  <div class="sum-block" data-sec="01">
+    <div class="sum-sec-head">SECTION 01　制限行為能力者</div>
+
+    <div class="sum-h">4類型 早見表</div>
+    <table class="diagram-table"><thead><tr><th>類型</th><th>保護者</th><th>関与</th><th>同意を得た行為</th></tr></thead><tbody>
+      <tr><td>未成年者</td><td>親権者・未成年後見人</td><td>同意</td><td>取消不可</td></tr>
+      <tr><td>成年被後見人</td><td>成年後見人</td><td class="ng">代理</td><td><b>取消可</b></td></tr>
+      <tr><td>被保佐人</td><td>保佐人</td><td>重要行為に同意</td><td>取消不可</td></tr>
+      <tr><td>被補助人</td><td>補助人</td><td>特定行為に同意</td><td>取消不可</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ ここが狙われる</span><b>成年被後見人だけ</b>「成年後見人の同意を得た行為でも取り消せる」（同意どおり行動するとは限らないから）。</div>
+
+    <div class="sum-h">単独でできる（取り消せない）行為</div>
+    <ul class="sum-list">
+      <li><strong>未成年者</strong>：①単に権利を得る・義務を免れる ②処分を許された財産（学費・お小遣い）③営業を許された特定の行為</li>
+      <li><strong>成年被後見人</strong>：日用品の購入その他日常生活に関する行為</li>
+    </ul>
+
+    <div class="sum-h">被保佐人「重要な財産上の行為」（保佐人の同意が必要）</div>
+    <ul class="sum-list">
+      <li>借金をする・保証人になる</li>
+      <li>不動産その他重要な財産の売買</li>
+      <li>新築・改築・増築・大修繕</li>
+      <li>長期賃貸借（<b>土地5年超・建物3年超</b>）</li>
+    </ul>
+
+    <div class="sum-h">催告への確答がない場合 ○×早見表</div>
+    <table class="diagram-table"><thead><tr><th>催告した相手</th><th>確答なしの扱い</th></tr></thead><tbody>
+      <tr><td>法定代理人・保佐人・補助人（保護者）</td><td class="ok">追認とみなす</td></tr>
+      <tr><td>被保佐人・被補助人 本人</td><td class="ng">取り消したとみなす</td></tr>
+      <tr><td>未成年者・成年被後見人 本人</td><td>催告できない</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 詐術</span>制限行為能力者が「自分は行為能力者だ」と<b>詐術</b>を用いたら、もはや取り消せない。</div>
+  </div>
+
+  <!-- ===== SEC 02 ===== -->
+  <div class="sum-block" data-sec="02">
+    <div class="sum-sec-head">SECTION 02　意思表示</div>
+
+    <div class="sum-h">★第三者への対抗 ○×早見表（最重要）</div>
+    <table class="diagram-table"><thead><tr><th>種類</th><th>当事者間の効力</th><th>善意の第三者への対抗</th></tr></thead><tbody>
+      <tr><td>心裡留保</td><td>原則有効</td><td class="ng">対抗できない</td></tr>
+      <tr><td>虚偽表示</td><td>無効</td><td class="ng">対抗できない</td></tr>
+      <tr><td>錯誤</td><td>取消可</td><td class="ng">対抗できない（善意無過失）</td></tr>
+      <tr><td>詐欺</td><td>取消可</td><td class="ng">対抗できない（善意無過失）</td></tr>
+      <tr><td>強迫</td><td>取消可</td><td class="ok"><b>対抗できる</b></td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 語呂</span><b>強迫だけ第三者に勝てる（最強）。</b>心裡留保・虚偽表示・錯誤・詐欺は、善意（無過失）の第三者に負ける。</div>
+
+    <div class="sum-h">第三者の保護要件（善意 or 善意無過失）</div>
+    <table class="diagram-table"><thead><tr><th>種類</th><th>第三者に必要な要件</th></tr></thead><tbody>
+      <tr><td>心裡留保・虚偽表示</td><td><b>善意</b>で足りる（無過失不要）</td></tr>
+      <tr><td>錯誤・詐欺</td><td><b>善意無過失</b>が必要</td></tr>
+      <tr><td>強迫</td><td>第三者は保護されない（本人が勝つ）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">第三者の詐欺 vs 第三者の強迫</div>
+    <table class="diagram-table"><thead><tr><th></th><th>取消しの可否</th></tr></thead><tbody>
+      <tr><td>第三者の詐欺</td><td>相手方が<b>悪意・有過失</b>のときのみ取消可</td></tr>
+      <tr><td>第三者の強迫</td><td class="ok">常に取消可</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">錯誤の要点</div>
+    <ul class="sum-list">
+      <li><strong>要素の錯誤</strong>（重要な錯誤）で取消可</li>
+      <li><strong>動機の錯誤</strong>：動機が相手方に<b>表示</b>され意思表示の内容になっていたときのみ</li>
+      <li>表意者に<strong>重大な過失</strong>あり→原則取消不可（例外：相手方が悪意・重過失／同一の錯誤）</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 03 ===== -->
+  <div class="sum-block" data-sec="03">
+    <div class="sum-sec-head">SECTION 03　代理</div>
+
+    <div class="sum-h">代理権の消滅 ○×表</div>
+    <table class="diagram-table"><thead><tr><th>事由</th><th>任意代理</th><th>法定代理</th></tr></thead><tbody>
+      <tr><td>本人の死亡</td><td class="ng">消滅</td><td class="ng">消滅</td></tr>
+      <tr><td>本人の破産手続開始</td><td class="ng">消滅</td><td class="ok"><b>消滅しない</b></td></tr>
+      <tr><td>代理人の死亡・破産・後見開始</td><td class="ng">消滅</td><td class="ng">消滅</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 語呂</span><b>「本人の破産」だけ法定代理は生き残る。</b>他はすべて消滅。</div>
+
+    <div class="sum-h">顕名・瑕疵・制限行為能力者</div>
+    <ul class="sum-list">
+      <li><strong>顕名なし</strong>→代理人自身の契約（相手方が知り得たら本人に帰属）</li>
+      <li><strong>瑕疵</strong>（詐欺・善意悪意）→<b>代理人を基準</b>に判定</li>
+      <li><strong>代理人が制限行為能力者</strong>→取消不可（他人の法定代理人としては取消可）</li>
+    </ul>
+
+    <div class="sum-h">無権代理とみなす → 例外でOK</div>
+    <table class="diagram-table"><thead><tr><th>行為</th><th>例外（有効になる）</th></tr></thead><tbody>
+      <tr><td>自己契約・双方代理</td><td>本人の許諾／債務の履行</td></tr>
+      <tr><td>利益相反行為</td><td>本人の許諾</td></tr>
+      <tr><td>代理権の濫用</td><td>相手方が善意無過失なら有効</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">無権代理 相手方の3つの手段</div>
+    <table class="diagram-table"><thead><tr><th>手段</th><th>善意</th><th>悪意</th></tr></thead><tbody>
+      <tr><td>催告権</td><td class="ok">○</td><td class="ok">○</td></tr>
+      <tr><td>取消権</td><td class="ok">○</td><td class="ng">✕</td></tr>
+      <tr><td>責任追及権</td><td class="ok">○（無過失）</td><td class="ng">✕</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>無権代理人が<b>制限行為能力者</b>のときは責任追及できない。</div>
+
+    <div class="sum-h">無権代理と相続</div>
+    <table class="diagram-table"><thead><tr><th>相続の型</th><th>結論</th></tr></thead><tbody>
+      <tr><td>無権代理人が本人を相続</td><td>追認拒絶<b>不可</b>→有効</td></tr>
+      <tr><td>本人が無権代理人を相続</td><td>追認拒絶<b>可</b>（ただし責任は承継）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">復代理 選任・責任</div>
+    <table class="diagram-table"><thead><tr><th></th><th>任意代理</th><th>法定代理</th></tr></thead><tbody>
+      <tr><td>選任できる場合</td><td>①本人の許諾 ②やむを得ない事由</td><td class="ok">いつでも</td></tr>
+      <tr><td>代理人の責任</td><td>債務不履行の一般原則</td><td>原則すべての責任</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">表見代理 3類型（相手方＝善意無過失）</div>
+    <ul class="sum-list">
+      <li>① 代理権授与の表示（<b>109条</b>）</li>
+      <li>② 権限外の行為（<b>110条</b>）</li>
+      <li>③ 代理権消滅後（<b>112条</b>）</li>
+    </ul>
+  </div>
 </section>
 
 <script>
@@ -5305,6 +5458,14 @@ function showTab(id, btn) {
     const fbar = document.getElementById('flashReturnBar');
     if (fbar) fbar.classList.remove('show');
   }
+}
+
+function showSummary(sec, btn) {
+  document.querySelectorAll('.sum-fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.sum-block').forEach(b => {
+    b.style.display = (sec === 'all' || b.dataset.sec === sec) ? 'block' : 'none';
+  });
 }
 
 /* ================================================================
