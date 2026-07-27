@@ -2185,6 +2185,30 @@ const slides = [
     qa:[{cite:'H21-問8③', q:'売主A・買主Bの売買契約で、Bが残代金を支払わないためAが適法に解除した場合、Bは自らの債務不履行で解除されたので、Bの原状回復義務を先に履行しなければならず、Aの代金返還義務との同時履行の抗弁を主張できない。', mark:'✕', a:'解除による各当事者の原状回復義務は<strong>同時履行の関係</strong>にあるため、Bは同時履行の抗弁を主張できる。'}]
   },
   {
+    tag:'民法等', sec:'06 危険負担', no:'1', title:'危険負担とは',
+    keywords:['危険負担','帰責事由','履行拒絶'],
+    body:'売買契約の成立後・引渡し前に目的物が<strong>滅失</strong>した場合の扱い。滅失原因が「売主の帰責事由」か「双方の責めに帰さない事由（天災等）」かで結論が変わります。',
+    diagram:'<div class="sd-row"><span class="sd-tag reigai">帰責あり</span><div class="sd-rb">滅失が<strong>売主の帰責事由</strong>（売主の失火など）による場合 → 買主は<strong>債務不履行による解除・損害賠償請求</strong>ができる</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>債務不履行による契約の解除・損害賠償請求は、SEC.05で学習したとおりです。</div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">帰責なし</span><div class="sd-rb">滅失が<strong>天災や第三者の放火</strong>など、売主の責めに帰さない事由による場合 → 売主の引渡債務は<span class="hl-red">消滅</span>する。このとき買主の代金支払債務をどうするかが<strong>危険負担</strong>の問題</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>引き渡すべきものがなくなっているので、売主の引渡債務が消えるのは当然ですよね。</div>'
+  },
+  {
+    tag:'民法等', sec:'06 危険負担', no:'2', title:'不動産取引の危険負担',
+    keywords:['危険負担','履行拒絶権','代金支払債務','反対給付'],
+    body:'引渡し前に天災等で目的物が滅失した場合、売主の引渡債務は消滅します。買主の<strong>代金支払債務は存続</strong>しますが、買主はその履行を<strong>拒む</strong>ことができます（履行拒絶権）。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>不動産取引の危険負担</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">売主・買主の<strong>双方の責めに帰さない事由</strong>で履行不能になった場合、代金支払債務は存続するが、買主は<span class="hl-red">代金の支払いを拒絶できる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb"><strong>買主の帰責事由</strong>で履行不能になったときは、買主は代金支払を<em>拒絶できない</em>（代金を支払う）。ただし売主が債務を免れて得た利益は買主に<strong>償還</strong>する</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">買主が代金支払債務そのものを<strong>消滅</strong>させるには、<em>契約の解除</em>が必要</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>滅失原因による分岐</div>'
+      + '<table class="diagram-table"><thead><tr><th>滅失の原因</th><th>買主の扱い</th></tr></thead><tbody>'
+      + '<tr><td>売主に帰責事由あり（失火など）</td><td class="warn">債務不履行による解除・損害賠償請求</td></tr>'
+      + '<tr><td>双方に帰責事由なし（天災など）</td><td class="ng">代金支払を拒絶できる（危険負担）</td></tr>'
+      + '<tr><td>買主に帰責事由あり</td><td class="ok">代金を支払う（売主は利益を償還）</td></tr></tbody></table>'
+  },
+  {
     tag:'民法等', title:'債権譲渡と相殺',
     keywords:['債権譲渡の対抗要件','相殺'],
     body:'<strong>債権譲渡</strong>は債権者が変わること。<strong>相殺</strong>はお互いの債権をチャラにすること。いずれも第三者への主張方法（対抗要件）がポイント。',
