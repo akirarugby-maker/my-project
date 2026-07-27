@@ -2488,6 +2488,129 @@ const slides = [
     qa:[{cite:'H24-問6①', q:'A所有の甲土地について、時効により所有権を取得したB（時効取得者）は、時効完成前に甲土地を購入して所有権移転登記を備えたCに対して、登記なくして所有権の取得を主張できない。', mark:'✕', a:'時効取得者は、時効完成前に所有権を取得した第三者に対しては、登記がなくても所有権の取得を主張することができる。'}]
   },
   {
+    tag:'民法等', sec:'10 抵当権', no:'1', title:'抵当権の基本',
+    keywords:['抵当権','被担保債権','抵当権設定者','抵当権者','付従性','随伴性','不可分性','物上代位性'],
+    body:'抵当権とは、土地や建物を債務の担保とし、債務が弁済されない場合に、競売にかけ、競売代金から抵当権者が優先して弁済を受ける権利（担保物権）をいいます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>抵当権のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">抵当権を設定するために、目的物の引渡し（占有の移転）は<strong>不要</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">抵当権は、債務者以外の人（<strong>物上保証人</strong>）の不動産にも設定することもできる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">抵当権は、不動産のほか、地上権や永小作権にも設定することができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">抵当権を第三者に対抗するには、<strong>登記</strong>が必要</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>抵当権に関する用語</div>'
+      + '<table class="diagram-table"><thead><tr><th>用語</th><th>意味</th></tr></thead><tbody>'
+      + '<tr><td>被担保債権</td><td>抵当権で担保されている権利（お金を返してもらえる権利）</td></tr>'
+      + '<tr><td>抵当権者</td><td>抵当権を持っている人（債権者）</td></tr>'
+      + '<tr><td>抵当権設定者</td><td>自分の不動産に抵当権を設定した人</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>抵当権の性質</div>'
+      + '<div class="sd-row"><span class="sd-tag point">付従性</span><div class="sd-rb">①被担保債権が存在してはじめて成立する ②被担保債権が消滅すれば、それにしたがって抵当権も消滅する（弁済や時効によって消滅）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">随伴性</span><div class="sd-rb">被担保債権が移転すると、それに伴って抵当権も移転する（債権を譲渡すると抵当権も一緒についていく）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">不可分性</span><div class="sd-rb">抵当権は、被担保債権の全部が消滅するまで、抵当不動産の全部について効力を及ぼす（例：1000万円のうち200万円を返済したからといって、抵当権のうち20%が消滅するわけではない）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">物上代位性</span><div class="sd-rb">抵当不動産の所有者（抵当権設定者）が受け取るべき金銭等（売却代金、火災保険金等）についても、抵当権を行使することができる<span class="sd-note">ただし、抵当権者は、その金銭等の支払いまたは引渡しの前に<strong>差押え</strong>をしなければならない</span></div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>抵当権以外の担保物権（留置権、先取特権、質権）にも、これらの性質があります（ただし、留置権には物上代位性がありません）。</div>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'2', title:'抵当権の効力',
+    keywords:['抵当権の効力が及ぶ範囲','付加一体物','従物','従たる権利','果実'],
+    body:'抵当権が及ぶ範囲は次のとおりです。',
+    diagram:'<table class="diagram-table"><thead><tr><th>抵当権の効力が及ぶもの</th><th>備考</th></tr></thead><tbody>'
+      + '<tr><td>土地・建物</td><td>土地に設定した抵当権の効力は建物には及ばない／建物に設定した抵当権の効力は土地には及ばない</td></tr>'
+      + '<tr><td>付加一体物（不動産に付加して一体となったもの）</td><td>【例】立木、雨戸、ドアなど</td></tr>'
+      + '<tr><td><strong>従物</strong>（抵当権設定当時からある）</td><td>主物に付属しているが独立性があり、独立して権利の対象となるもの（取り外せるもの）【例】畳、クーラーなど</td></tr>'
+      + '<tr><td><strong>従たる権利</strong></td><td>主物に附属した権利【例】借地上の建物（主物）の借地権</td></tr>'
+      + '<tr><td>抵当不動産の果実</td><td>被担保債権に不履行があった場合には、不履行後に生じた抵当不動産の果実にも抵当権の効力が及ぶ【例】賃料など</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">抵当権設定<em>後</em>に附属した従物、従たる権利には、抵当権の効力は及ばない</div></div>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'3', title:'抵当権の順位',
+    keywords:['抵当権の順位','順位の変更'],
+    body:'一つの不動産に対して、複数の抵当権を設定することができます。この場合の抵当権の順位は、<strong>登記の前後</strong>によって決まります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>抵当権の順位の変更</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">複数の抵当権者がいる場合、各抵当権者の合意によって、抵当権の順位を変更することができます。その際、利害関係を有する人がいるときには、その承諾が必要です。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">抵当権の順位の変更は、<strong>登記</strong>をしなければ効力を生じません</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>抵当権設定者（債務者）の承諾や同意は不要です。</div>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'4', title:'優先弁済を受けられる額',
+    keywords:['優先弁済','利息','最後の2年分'],
+    body:'抵当権者は、元本のほか利息についても優先弁済を受けられます。ただし、利息については、原則として<strong>後順位抵当権者がいる場合</strong>は最後の<strong>2年分</strong>だけしか弁済を受けられません。',
+    diagram:'<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">後順位抵当権者がいない場合には、この2年分の制限はなく、利息の全額について優先弁済を受けられます</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>後順位抵当権者がいる場合、先順位抵当権者が利息を無制限に取れてしまうと、後順位抵当権者の取り分がなくなってしまいます。そこで後順位抵当権者を保護するため、利息については最後の2年分に制限されているのです。</div>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'5', title:'抵当権の処分①：転抵当・譲渡・放棄',
+    keywords:['転抵当','抵当権の譲渡','抵当権の放棄'],
+    body:'抵当権者は、抵当権を他の債権の担保として提供することができます。これを転抵当といいます。また、同一の債務者に対する他の一般債権者に対して、抵当権を譲渡・放棄することもできます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>転抵当</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">抵当権者は、抵当権を他の債権の担保として提供する（抵当権自体を抵当権の目的とする）ことができます。これを<strong>転抵当</strong>といいます。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>譲渡・放棄</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">抵当権者は、抵当権を、同一の債務者に対する他の一般債権者（担保を有していない債権者）に対する債権の担保として、譲渡・放棄することができます。これを<strong>転抵当</strong>といいます。</p>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'6', title:'抵当権の処分②：順位の譲渡・放棄',
+    keywords:['抵当権の順位の譲渡','抵当権の順位の放棄','按分'],
+    body:'先順位抵当権者は、後順位抵当権者に対して、自らの抵当権やその順位を譲渡したり、放棄したりすることができます。',
+    diagram:'<table class="diagram-table"><thead><tr><th>類型</th><th>内容</th></tr></thead><tbody>'
+      + '<tr><td>抵当権の譲渡</td><td>抵当権者が一般債権者に対して自らの優先弁済権を譲渡し、譲渡を受けた一般債権者が抵当権者の優先弁済の範囲内で<strong>優先</strong>して配当を受けることができる</td></tr>'
+      + '<tr><td>抵当権の放棄</td><td>抵当権者が一般債権者に対して自らの優先弁済権を放棄し、その債権額の割合で配当を受ける両者が同順位となって、優先弁済の範囲内で<strong>按分</strong>して配当を受ける</td></tr>'
+      + '<tr><td>抵当権の順位の譲渡</td><td>抵当権者が後順位抵当権者に対して自らの優先弁済権を譲渡し、譲渡を受けた後順位抵当権者が、順位の譲渡をした抵当権者と後順位抵当権者の配当額の合計から、順位に応じて配当を受ける</td></tr>'
+      + '<tr><td>抵当権の順位の放棄</td><td>抵当権者が後順位抵当権者に対して自らの優先弁済権を放棄し、その配当を受けた抵当権者と抵当権者が同順位となって、それぞれの債権額の割合に応じて<strong>按分</strong>して配当を受ける</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">計算例</span>甲土地1200万円、A(1番600万)・B(2番500万)・C(3番400万)・D(一般債権者1000万)</div>'
+      + '<table class="diagram-table"><thead><tr><th>ケース</th><th>Aの配当額</th></tr></thead><tbody>'
+      + '<tr><td>処分がない場合</td><td>600万円</td></tr>'
+      + '<tr><td>AがDに抵当権を<strong>譲渡</strong></td><td>0円（DがAの本来の配当600万円の範囲でDが優先。600万円全額をDが取得）</td></tr>'
+      + '<tr><td>AがDに抵当権を<strong>放棄</strong></td><td>225万円（Aの本来配当600万円をAとDの債権額割合で按分：600万×600/(600+1000)=225万円）</td></tr>'
+      + '<tr><td>AがCに抵当権の<strong>順位を譲渡</strong></td><td>300万円（AとCの本来配当合計700万円のうち、Cの債権額400万円までCが優先。残り300万円をAが受ける）</td></tr>'
+      + '<tr><td>AがCに抵当権の<strong>順位を放棄</strong></td><td>420万円（AとCの本来配当合計700万円を、AとCの債権額の割合で按分：700万×600/(600+400)=420万円）</td></tr>'
+      + '</tbody></table>'
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'7', title:'抵当不動産の第三取得者がいる場合',
+    keywords:['第三取得者','弁済','代価弁済','抵当権消滅請求'],
+    body:'抵当不動産の第三取得者とは、抵当権のついた不動産を取得した人（買受人）のことをいいます。抵当権が実行されてしまうと、せっかく不動産を取得しても、他人の所有物となってしまいます。これを防ぐため、第三取得者は以下の方法によって、抵当権を消滅させることができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>第三取得者が抵当権を消滅させる方法</div>'
+      + '<div class="sd-row"><span class="sd-tag point">①弁済</span><div class="sd-rb">第三取得者（C）が、債務者（B）の借金を全額弁済すれば、抵当権者（A）の請求に応じて、抵当権（A）は弁済する。抵当権者（A）の意思に関係なく、第三取得者（C）が抵当権者（A）に代価を支払えば、抵当権は消滅する</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②代価弁済</span><div class="sd-rb">第三取得者（C）が抵当権者（A）の請求に応じ、抵当権の目的である不動産の代価を弁済すれば、抵当権は消滅する<span class="sd-note">抵当権の順位の譲渡を受けた第三者は正当な利益のある第三者だから、代価弁済に関係なく、抵当権は消滅する</span></div></div>'
+      + '<div class="sd-roman"><span class="rn">③</span>抵当権消滅請求</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">ポイント</span>抵当権消滅請求</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">第三取得者（C）が、抵当権者（A）に対して「一定の金額を支払う」と請求し、抵当権者（A）がそれを承諾すれば、抵当権は消滅する。抵当権実行としての競売による差押えの効力発生前に請求しなければならない<span class="sd-note">→抵当権者が承諾しなければならない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">請求できる期限</span><div class="sd-rb">抵当権者（A）は、抵当権消滅請求を受けたあと<strong>2ヵ月</strong>以内に、抵当権を実行して競売の申立てをしなければならない。競売の申立てを受けたあと2ヵ月以内に、抵当権消滅請求の効果は生じない<span class="sd-note">→何もしないと、承諾したことになる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">債務者や保証人は<strong>第三取得者</strong>とはなれない（債務者・保証人は抵当権消滅請求をすることができない）</div></div>'
+      + '</div></div>',
+    qa:[{cite:'H21-問6①', q:'抵当権の被担保債権につき保証人となっている者は、抵当不動産を買い受けて第三取得者となったとしても、抵当権消滅請求をすることができない。', mark:'○', a:'保証人は第三取得者となったとしても、抵当権消滅請求をすることはできない。'}]
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'8', title:'法定地上権・一括競売',
+    keywords:['法定地上権','一括競売'],
+    body:'土地と建物をともに所有するBが、担保として土地にAから抵当権を設定してもらったとします。抵当権が実行されCが土地を競落し、土地の所有者がCとなったとしても、Bが所有する建物のために自動的に地上権（土地を使える権利）を与えて、これを「法定地上権」といいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>法定地上権の成立要件</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>法定地上権の成立要件（すべて満たすこと）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">抵当権設定当時、土地の上に建物が存在すること<span class="sd-note">登記の有無は問わない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">抵当権設定当時、土地の所有者と建物の所有者が<strong>同一</strong>であること</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">土地・建物の一方または双方に抵当権が設定されていること</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">抵当権の実行により、土地と建物の所有者が別々になるに至ること</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅰ</span>一括競売</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">更地に抵当権を設定した当時、抵当権者は土地・建物を一括して競売にかけることができます。ただし、抵当権者が優先弁済を受けられるのは、<strong>土地の代価</strong>についてのみです（建物の代価については優先弁済を受けられない）。</p>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>建物が新しい場合には、非常にもったいないですね。そこで、抵当権者は土地・建物を一括して競売にかけることができます。ただし、抵当権者が優先弁済を受けられるのは、土地の代価についてのみです。</div>',
+    qa:[{cite:'H21-問7③', q:'土地に1番抵当権が設定された当時、土地と地上建物の所有者が異なっていたとしても、2番抵当権設定時に土地と地上建物の所有者が同一となれば、その2番抵当権の実行により土地と建物の所有者が異なるに至ったときは、法定地上権が成立する。', mark:'✕', a:'法定地上権が成立するには、<strong>1番抵当権</strong>設定当時に土地と建物の所有者が同一であることが必要であり、2番抵当権設定時に同一になっていても法定地上権は成立しない。'}]
+  },
+  {
+    tag:'民法等', sec:'10 抵当権', no:'9', title:'賃借権との関係',
+    keywords:['対抗要件','抵当権設定登記前の賃借権','抵当権設定登記後の賃借権','明渡し猶予'],
+    body:'抵当権設定登記の前後で、賃借権が抵当権者等に対抗できるかどうかが変わります。',
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>抵当権設定登記<strong>前</strong>の賃借権</th><th>抵当権設定登記<strong>後</strong>の賃借権</th></tr></thead><tbody>'
+      + '<tr><td>対抗要件</td><td class="ok">対抗要件を備えていれば、賃借権を抵当権者等に対抗できる</td><td class="warn">原則：対抗できない<br>例外：すべての抵当権者が同意し、その同意の登記がある場合には、賃借権を対抗できる</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>ここでいう「対抗要件」とは？<br>土地の賃貸の場合…土地上に自己を所有とする建物の登記または借地権の登記<br>建物の賃貸の場合…建物賃借権の登記または建物の引渡し（具体的には鍵の引渡しなど）</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>建物の賃借人の保護</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">前記のように、抵当権設定登記後の賃借権は原則として抵当権者等に対抗できません。そのため、抵当権が実行されると、建物の賃借人は、抵当権者等に対して賃借権を主張できません。</p>'
+      + '<div class="sd-row"><span class="sd-tag reigai">明渡し猶予</span><div class="sd-rb">「直ちに出て行け」というのは賃借人にとってあまりにも酷なため、買受人が建物を買い受けたときから<strong>6ヵ月</strong>を経過するまでは、その建物を明け渡さなくてもよいことになっています</div></div>'
+  },
+  {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
     keywords:['借地権','賃貸借','対抗力'],
     body:'<strong>借地借家法</strong>は民法のルールを上書きして、弱い立場の借地人・借家人を保護する法律。「貸主から追い出されにくくする」仕組みを理解しよう。',
