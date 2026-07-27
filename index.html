@@ -2209,18 +2209,100 @@ const slides = [
       + '<tr><td>買主に帰責事由あり</td><td class="ok">代金を支払う（売主は利益を償還）</td></tr></tbody></table>'
   },
   {
-    tag:'民法等', title:'債権譲渡と相殺',
-    keywords:['債権譲渡の対抗要件','相殺'],
-    body:'<strong>債権譲渡</strong>は債権者が変わること。<strong>相殺</strong>はお互いの債権をチャラにすること。いずれも第三者への主張方法（対抗要件）がポイント。',
-    points:[
-      '債権譲渡：債務者の同意は不要（禁止特約があっても悪意の第三者以外は有効に取得）',
-      '<strong>債務者対抗要件</strong>：譲渡人から<em>債務者への通知</em> または <em>債務者の承諾</em>',
-      '<strong>第三者対抗要件</strong>：<em>確定日付のある証書</em>による通知または承諾（内容証明郵便等）',
-      '<strong>相殺</strong>：自動債権（弁済期到来済）と受動債権を対当額で消滅させる意思表示',
-      '相殺の効果：意思表示時に遡って消滅（<strong>遡及効</strong>）'
-    ],
-    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">A（元の債権者）</div><span class="diagram-arrow">→債権を譲渡→</span><div class="diagram-box person">C（新しい債権者）</div></div><div style="text-align:center;margin:0.4rem 0;color:var(--muted)">↑ B（債務者）への通知が対抗要件</div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.7rem">確定日付ある証書で通知<br>→ B・第三者への対抗可</div><div class="diagram-box result-ng" style="font-size:0.7rem">口頭の通知のみ<br>→ Bには対抗可、第三者は不可</div></div></div>',
-    example:'<strong>二重譲渡の例：</strong>AがBへの売掛金100万円の債権をCとDの両方に譲渡した（二重譲渡）。CがBに内容証明郵便（確定日付）で通知し、DはBへの口頭通知のみだった場合 → <em>確定日付のある通知が先のCが優先（Bにとっても第三者Dにとっても）。</em>'
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'1', title:'弁済とは・弁済できる第三者',
+    keywords:['弁済','第三者弁済','正当な利益'],
+    body:'弁済とは、債務者が約束どおりの給付をして、債権を消滅させることをいいます。お金を借りているなら返す、不動産を売ったなら不動産を引き渡すことが弁済です。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>お金を借りているなら返す、不動産を売ったなら不動産を引き渡すことが弁済です。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>弁済できる第三者</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">弁済は債務者のほか、一定の場合には<strong>第三者</strong>も行うことができます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>弁済できる第三者</div><div class="sd-checkbox-b">'
+      + '<table class="diagram-table"><thead><tr><th></th><th>正当な利益のない第三者<br>（兄弟、友人など）</th><th>正当な利益のある第三者<br>（物上保証人など）</th></tr></thead><tbody>'
+      + '<tr><td>債務者の意思に反する場合</td><td class="ng">✕ 原則弁済できない<br><span style="font-size:0.7rem">例外：債権者が知らなかったとき ⭕</span></td><td class="ok">⭕ 弁済できる</td></tr>'
+      + '<tr><td>債権者の意思に反する場合</td><td class="ng">✕ 原則弁済できない<br><span style="font-size:0.7rem">例外：第三者の弁済委託を債権者が知っていたとき ⭕</span></td><td class="ok">⭕ 弁済できる</td></tr>'
+      + '</tbody></table>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">性質上不可</span><div class="sd-rb">債務の性質が第三者弁済を許さないとき、または当事者が第三者弁済を禁止・制限する意思表示をしたときは、第三者弁済はできない</div></div>'
+  },
+  {
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'2', title:'弁済を受ける者・弁済による代位・代物弁済',
+    keywords:['受領権者','受領権者としての外観を有する者','弁済による代位','代位弁済','代物弁済'],
+    body:'誰が受け取れば有効な弁済になるか（受領権者）、第三者が代わりに弁済した場合の扱い（代位弁済）、本来と別のもので弁済する場合（代物弁済）を学びます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅲ</span>弁済を受ける者</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>受領権者以外の者に行われた弁済</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">受領権者（債権者、および法令の規定または当事者の意思表示により弁済を受領する権限を付与された第三者）以外の者に行われた弁済は<span class="hl-red">無効</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">受領権者以外の者で、取引上の社会通念に照らして受領権者としての<strong>外観を有する者</strong>に対して行った弁済は、弁済者が<em>善意無過失</em>であれば<span class="hl-red">有効</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、著名人による講演会など、債務の性質が第三者による弁済を許さないときや、当事者が第三者弁済を禁止・制限する旨の意思表示をしたときは、第三者弁済はすることができません。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>弁済による代位（代位弁済）</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">保証人など債務者以外の人が債務者に代わって弁済した場合、弁済した人（保証人など）は、債権者が保有していた「債務者に対する債権」（債権者の債権）を取得します。これを<strong>弁済による代位</strong>（代位弁済）といいます。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">弁済による代位にあたり、<strong>債権者の承諾は不要</strong></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅴ</span>代物弁済</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">弁済者と債権者との間で契約がある場合には、弁済者は、本来の給付の代わりに<strong>別のもの</strong>で弁済することができます。これを<strong>代物弁済</strong>といいます。</p>',
+    qa:[{cite:'R1-問7②', q:'Aを売主、Bを買主として甲建物の売買契約が締結された。BがAの代理人と称するDに対して本件代金債権を弁済した場合、DがAから受領権限がないことにつきBが善意かつ無過失であれば、Bの弁済は有効となる。', mark:'○', a:'Dは受領権者以外の者であるが、受領権者としての外観を有する者にあたり、弁済者Bが善意無過失であれば弁済は有効となる。'}]
+  },
+  {
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'3', title:'相殺とは・自働債権と受働債権・相殺できる場合',
+    keywords:['相殺','自働債権','受働債権','相殺適状'],
+    body:'相殺とは、当事者双方が互いに同種の債権を有している場合に、対当額（同じ額どうし）を消滅させることをいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、AがBに対して10万円を貸しており、BはAに対して8万円を貸している場合。AまたはBは「10万円のうち、8万円はなかったことにしますよ」という相殺をすることができます。この場合、BはAに対して差額の2万円を支払えばよいことになります。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>自働債権と受働債権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">相殺において、「相殺します」といった側の債権を<strong>自働債権</strong>、相殺されいた側の債権を<strong>受働債権</strong>といいます。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">例</span><div class="sd-rb">Aが相殺を請求した場合：Aに対する債権（Bが返してと言う10万円）＝自働債権、Bに対する債権（Aが返してと言う8万円）＝受働債権</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>相殺できる場合（相殺適状）</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>相殺できる場合（相殺適状）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">当事者双方がお互いに債権を有していること</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">双方の債権が有効に成立していること<span class="sd-note">ただし、いずれか一方の債権が時効によって消滅していたとしても、時効完成以前に相殺適状にあった場合には、相殺できる！</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">双方の債権の目的が同種であること（<strong>金銭債権</strong>と<strong>金銭債権</strong>、<strong>金銭債権</strong>と<strong>土地引渡請求権</strong>は相殺できない）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">双方の債権の弁済期が到来していること<span class="sd-note">ただし、自働債権（ここでは、自働債権の弁済期が到来していれば、受働債権については期限の利益を放棄することにより、弁済期が現実に到来していない利益を放棄して、自働債権に対して相殺を主張することができる</span></div></div>'
+      + '</div></div>',
+    qa:[{cite:'R5-問44改', q:'AがBに対して貸金債権である甲債権を、BがAに対して賃金債権である乙債権を有しており、乙債権は弁済期が到来しておらず、甲債権は弁済期が到来している場合、Aがこれにより一方的な意思表示によって、甲債権と乙債権とを対当額にて相殺することができる。', mark:'○', a:'甲債権（自働債権）の弁済期が到来していれば、乙債権（受働債権）の弁済期が到来していなくても、Aの側から相殺することができる。'}]
+  },
+  {
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'4', title:'相殺できない場合・債権の譲渡における相殺権',
+    keywords:['相殺禁止','不法行為による損害賠償請求権','差押えと相殺'],
+    body:'相殺を主張するためには、以下の要件を満たしていなければなりません。当事者間で相殺を禁止・制限する旨の意思表示がある場合や、一定の債権については相殺が制限されます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>相殺できない場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">当事者間で相殺を禁止、または制限する旨の意思表示がある場合<span class="sd-note">ただし、第三者が悪意または重過失であった場合は、その第三者に対抗することができる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">悪意による不法行為、人の生命または身体の侵害によって生じた<strong>損害賠償請求権</strong>が受働債権である場合<span class="sd-note">たとえば、BにケガをさせられたAさんはBさんからの相殺主張を拒める。逆にBさん（加害者）からは相殺を主張できない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">原則として、<strong>差押えを禁止された債権</strong>が受働債権である場合は相殺できない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>差押えと相殺の先後</div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">④</span><div class="sd-rb"><strong>差押え後に取得した債権</strong>（差押え前の原因にもとづいて生じたものを除く）による相殺で、差押債権者に対抗することはできない<span class="sd-note">受働債権の差押え後に自働債権を取得した場合は相殺できないが、差押え前に成立していた債権を自働債権とする相殺には対抗できる</span></div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅴ</span>債権の譲渡における相殺権</div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>債務者が通知または承諾よりも前に反対債権を取得していれば、譲受人に対して相殺を主張できるということです。</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">債務者は、原則として対抗要件を具備される時より前に取得した譲渡人に対する債権をもって、譲受人に対抗することができます。</p>',
+    qa:[
+      {cite:'H16-問8②改', q:'AがBから不法行為による悪意の損害を受けたことにもとづく損害賠償請求権を有する場合、A（被害者）は相殺を主張することができないが、B（加害者）から相殺を主張することはできる。', mark:'✕', a:'悪意による不法行為の損害賠償請求権が受働債権となる場合に相殺できないのは加害者側であり、被害者（A）から相殺を主張することはできる。'},
+      {cite:'H23-問5④', q:'AがBに対して貸金債権である甲債権を、BがAに対して賃料債権である乙債権を有しており、乙債権は弁済期が到来しておらず、甲債権は差押え後に取得したものである場合、AはBの側からの相殺主張に対抗することができない。', mark:'✕', a:'甲債権である自働債権は受働債権である乙債権の差押え後に取得したものであるため、Aの側から相殺することはできない。'}
+    ]
+  },
+  {
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'5', title:'債権譲渡とは・譲渡制限の意思表示',
+    keywords:['債権譲渡','譲渡制限の意思表示','悪意','重過失'],
+    body:'土地や建物等と同様に、債権も原則として、譲渡することができます。また、譲渡する債権は原則として、現に発生していることを要しません（将来債権も譲渡できる）。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>譲渡制限の意思表示</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">譲渡を禁止・制限する特約（<strong>譲渡制限の意思表示</strong>）がある場合でも、債権譲渡は原則として<span class="hl-red">有効</span>となります。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>譲渡制限の意思表示</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">譲渡制限の意思表示があっても、債権譲渡は<strong>有効</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">譲受人その他の第三者が譲渡制限の意思表示について<strong>悪意</strong>または<strong>重過失</strong>であれば、債務者はその債務の履行を拒むことができ、かつ譲渡人に対する弁済その他の債務を消滅させる事由をもってその第三者に対抗することができる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、AがBに対して売買代金債権を有していて、この債権を制限する場合、CがBに対してこの外観の意思表示について悪意または重過失であることにつきCが善意無過失であれば、Bの弁済は有効となる。しかし、Cが悪意または重過失であることを知っていたとすれば、Bは、Cに対する債務の履行を拒否することができる（相当の期間を定めて履行を催告し、その期間内に履行がないときは、Bは、Cに対する債務の履行を拒否することができる）。</div>'
+  },
+  {
+    tag:'民法等', sec:'07 弁済、相殺、債権譲渡', no:'6', title:'債権譲渡を対抗するための要件',
+    keywords:['対抗要件','通知','承諾','確定日付','二重譲渡'],
+    body:'債権譲渡があったことを、債務者・第三者に対抗するための要件を整理します。「債務者への対抗」と「債務者以外の第三者への対抗」で必要な手続きが異なります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅲ</span>債権譲渡を債務者に対抗するための要件</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>債務者への対抗要件</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">債権譲渡に対して、債務者に対抗するには、以下のいずれかが必要<ul class="sd-list"><li><span class="sd-ln">1</span>譲渡人から債務者への<strong>通知</strong>（現に発生していないものを含む）</li><li><span class="sd-ln">2</span>債務者の<strong>承諾</strong></li></ul>通知は口頭でもよい。承諾は譲渡人、譲受人のいずれにしてもよい</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>債権譲渡を債務者以外の第三者に対抗するための要件</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>第三者への対抗要件</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">債権譲渡があったことを、債務者以外の第三者に対抗するには、以下のいずれかが必要<ul class="sd-list"><li><span class="sd-ln">1</span><strong>確定日付</strong>のある証書（内容証明郵便など）による通知</li><li><span class="sd-ln">2</span><strong>確定日付</strong>のある証書による債務者の承諾</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">二重譲渡の場合</span><div class="sd-rb">両方の譲渡について確定日付のある証書がある場合は、通知が債務者に<strong>到達した日時</strong>または承諾した日時の<span class="hl-red">先後</span>で決まる（確定日付の早いほうではない！）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>AがBに対する「債権A」を持っているとする。「債権A」の差押え後に受働債権にもとづく損害賠償請求権を取得した場合、B（債権Bを持っている）はAに「相殺します」と言って、相殺することはできない。ただし、これがB（債権Bを持っている）はAに「相殺します」と言って、差押え前に成立していた原因にもとづいて生じた債権であるという場合には、B（債権Bを持っている）はAに「相殺します」と言って、相殺することができる！</div>',
+    qa:[{cite:'H23-問5④', q:'AがBに対して1,000万円の代金債権を有しており、AがこのA債権をCに譲渡し、Cに対する債権譲渡もDに対する債権譲渡も確定日付のある証書でBに通知した場合には、CとDの優劣は、確定日付のある証書ではなく、確定日付のある通知がBに到達した日時の先後で決まる。', mark:'○', a:'二重譲渡の場合で、両者に確定日付のある証書で通知がされた場合には、その通知がされた日時ではなく、通知がBに到達した日時の先後で決まる。'}]
   },
   {
     tag:'民法等', title:'売買・手付・危険負担',
