@@ -2305,104 +2305,102 @@ const slides = [
     qa:[{cite:'H23-問5④', q:'AがBに対して1,000万円の代金債権を有しており、AがこのA債権をCに譲渡し、Cに対する債権譲渡もDに対する債権譲渡も確定日付のある証書でBに通知した場合には、CとDの優劣は、確定日付のある証書ではなく、確定日付のある通知がBに到達した日時の先後で決まる。', mark:'○', a:'二重譲渡の場合で、両者に確定日付のある証書で通知がされた場合には、その通知がされた日時ではなく、通知がBに到達した日時の先後で決まる。'}]
   },
   {
-    tag:'民法等', title:'売買・手付・危険負担',
-    keywords:['手付解除','危険負担'],
-    body:'売買契約の基本ルールと、手付による解除、天災などで目的物が滅失した場合の扱い（危険負担）。<strong>手付解除のタイミング</strong>が最頻出。',
-    points:[
-      '手付（解約手付）：買主は<strong>手付を放棄</strong>して解除可。売主は<strong>手付の倍額を現実提供</strong>して解除可',
-      '<strong>相手方が履行に着手した後</strong>は手付解除不可（重要！）',
-      '手付の種類：解約手付（原則）・証約手付・違約手付',
-      '<strong>危険負担（改正民法）</strong>：引渡前に天災で目的物が滅失→買主は代金支払を<strong>拒絶可</strong>（反対給付拒絶権）',
-      '移転登記費用：買主負担。引渡し費用：売主負担'
-    ],
-    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow" style="justify-content:center;margin-bottom:0.5rem"><div class="diagram-box highlight">手付200万を払って土地1000万売買契約</div></div><div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap"><div class="diagram-box result-ok" style="font-size:0.72rem">買主から解除<br>→手付200万を放棄</div><div class="diagram-box result-ng" style="font-size:0.72rem">売主から解除<br>→200万×2＝400万返す</div></div><div class="diagram-box result-ng" style="margin-top:0.5rem;font-size:0.72rem">⚠ 相手方が「履行に着手」した後は手付解除 ✕</div></div>',
-    example:'<strong>手付解除の例：</strong>AがBに土地（1000万円）を売り、BがAに手付金100万円を払った。その後Aが「やっぱり売りたくない」と言い出した場合 → <em>Aが解除するなら100万×2＝200万をBに返還して解除可。ただしBがすでに残金の準備をして（履行の着手）いたら解除不可。</em>'
+    tag:'民法等', sec:'08 売買', no:'1', title:'売主の義務',
+    keywords:['売主の義務','引渡債務','代金支払債務','対抗要件に係る義務','他人の権利の売買'],
+    body:'売買契約を締結すると、売主には<strong>引渡債務</strong>が発生し、買主には<strong>代金支払債務</strong>が発生します。売主にはさらに、対抗要件を備えさせる義務・他人物売買の場合の義務があります。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>不動産の売買契約を例に考えてみましょう。最初にお金の「引渡し」が「もの」を売る（引き渡す）義務を負い、買主は代金を払う（払い渡す）義務を負います。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>売主の義務</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb"><strong>権利移転の対抗要件</strong>に係る義務：登記や登録等には、買主に対して、その売買の目的である権利の移転についての対抗要件を備えさせる義務を負う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb"><strong>他人の権利の売買</strong>における義務：他人の権利（全部または一部が他人のもの）を売買の目的とするときは、売主は、その権利を取得して買主に移転する義務を負う<span class="sd-note">たとえば、300㎡の土地の売買契約をしたが、そのうち20㎡は別の人の土地だった場合、その人から20㎡を手に入れる義務がある</span></div></div>'
+      + '</div></div>'
   },
   {
-    tag:'民法等', title:'契約不適合責任',
-    keywords:['契約不適合責任'],
-    body:'2020年民法改正で「瑕疵担保責任」から「<strong>契約不適合責任</strong>」に変わった。買った物が契約通りでない場合に使える<strong>4つの救済手段</strong>を覚えよう。',
-    points:[
-      '適用される不適合：種類・品質・数量の不適合（契約内容と違う）',
-      '4つの救済手段：①<strong>追完請求</strong>（修補・代替物引渡等）②<strong>代金減額請求</strong>③<strong>解除</strong>④<strong>損害賠償</strong>',
-      '<strong>通知期間：</strong>不適合を<em>知った時から1年以内</em>に売主に通知が必要',
-      '売主が悪意・重過失の場合は期間制限なし',
-      '<strong>宅建業法（8種規制）</strong>：宅建業者が売主なら最低<strong>2年以上</strong>の担保期間が必要（1年以下の特約は無効）'
-    ],
-    diagram:'<div style="font-size:0.78rem;text-align:center"><div class="diagram-box highlight" style="margin-bottom:0.5rem">引き渡された物が契約内容と違う（不適合）</div><div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center"><div class="diagram-box result-ok" style="font-size:0.7rem">①追完請求<br>修理/取替</div><div class="diagram-box result-ok" style="font-size:0.7rem">②代金減額<br>請求</div><div class="diagram-box result-ok" style="font-size:0.7rem">③解除<br>帰責事由不要</div><div class="diagram-box result-ok" style="font-size:0.7rem">④損害賠償<br>売主の過失必要</div></div></div>',
-    example:'<strong>具体例：</strong>AがBから「雨漏りなし・築10年」の説明でマンションを2000万円で購入した。入居後に大雨で雨漏りが発覚。実は築15年で長年雨漏りがあった場合 → <em>Aは修繕をBに請求（追完請求）・代金減額・損害賠償ができる。不適合を知った時から1年以内にBに通知が必要。</em>'
+    tag:'民法等', sec:'08 売買', no:'2', title:'買主の救済①：追完請求・代金減額請求',
+    keywords:['契約不適合','追完請求','代金減額請求','売主の担保責任'],
+    body:'売買契約によって、買主は目的物を手に入れることができますが、売主が種類・品質・数量や、移転した権利が契約の内容に適合しない目的物を引き渡した場合には、買主は売主に対して、次のような手段をとることができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>買主の救済（売主の担保責任）</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">買主の取れる手段は「物」の売買だけでなく、<strong>「権利」</strong>の売買も基本的に同じように考えます。一部が他人に属する場合でその権利の一部を移転しないときを含みます。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">追完請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">代金減額請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">損害賠償請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">契約の解除</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>A・Bにおける「担保責任」についての責任を売主の担保責任といいます。「契約不適合責任」ともいい、その意味する内容に幅がありますが、その意味するところは、「契約不適合責任」は「契約不適合」という意味で、その意味するところに幅があります。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>追完請求</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">追完請求とは、引き渡された目的物が、種類、品質または数量に関して契約の内容に適合しないものであった場合に、契約の内容に適合した目的物や権利となるよう売主に対して履行を求めることをいいます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>追完請求</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">引き渡された目的物が、種類、品質または数量に関して契約の内容に適合しないもの（不適合）であるときは、買主は、売主に対して<strong>目的物の修補、代替物の引渡しまたは不足分の引渡し</strong>による履行の追完を請求することができる<span class="sd-note">たとえば：契約の内容に適合しない負担のない抵当権がその抵当権を消滅させるといった方法と異なる方法による履行の追完をすることができる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">この不適合が買主の責めに帰すべき事由によるものであるときは、買主は履行の追完を請求することができない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>代金減額請求</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">たとえば、「4kg注文したのに1kgしか届いてないから、7日以内に足りない分を持ってきて！」といったにもかかわらず、7日以内に追加分の履行がされない場合、買主は3kg分の代金を減額してもらうことができます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>代金減額請求</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">引き渡された目的物が種類・品質・数量が契約の内容に適合しない場合、買主が相当の期間を定めて履行の追完の<strong>催告</strong>をし、その期間内に履行の追完がないときは、買主は、その不適合の程度に応じて代金の<strong>減額</strong>を請求することができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外（催告不要）</span><div class="sd-rb">以下の場合は、催告することなく直ちに代金の減額を請求できる<ul class="sd-list"><li><span class="sd-ln">1</span>履行の追完が不能なとき</li><li><span class="sd-ln">2</span>売主が履行の追完を拒絶する意思を明確に表示したとき</li><li><span class="sd-ln">3</span>契約の性質または当事者の意思表示により、特定の日時または一定の期間内に履行をしなければ契約をした目的を達することができない場合において、売主が履行の追完をしないでその時期を経過したとき</li><li><span class="sd-ln">4</span>買主が催告をしても履行の追完を受ける見込みがないことが明らかであるとき</li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">この不適合が<strong>買主の責めに帰すべき事由</strong>によるものであるときは、買主は代金の減額を請求することができない</div></div>'
+      + '</div></div>'
   },
   {
-    tag:'民法等', title:'物権変動と対抗要件',
-    keywords:['物権変動','登記','対抗要件'],
-    body:'不動産の所有権は<strong>意思表示だけで移転</strong>するが、それを第三者に主張するには<strong>登記</strong>が必要（民法177条）。二重譲渡が最頻出テーマ。',
-    points:[
-      '当事者間：登記なしで所有権移転（売買契約締結と同時）',
-      '第三者への対抗：<strong>先に登記</strong>した方が勝つ（善悪は問わない）',
-      '<strong>背信的悪意者</strong>：単なる悪意では負けない。妨害目的の背信的悪意者には登記なしで対抗可（判例）',
-      '動産：引渡しが対抗要件（178条）',
-      '不法占有者・不法行為者は「第三者」に該当しない'
-    ],
-    diagram:'<div style="font-size:0.78rem;text-align:center"><div style="margin-bottom:0.4rem"><span class="diagram-box person" style="display:inline-block">A（土地の元所有者）</span></div><div style="display:flex;justify-content:center;gap:1rem;margin-bottom:0.4rem"><div><span class="diagram-box">①B に売却（登記未了）</span></div><div><span class="diagram-box">②C にも売却（登記済）</span></div></div><div class="diagram-box result-ok">先に登記したCが勝つ → Bは所有権を主張できない</div></div>',
-    example:'<strong>二重譲渡の具体例：</strong>AがBに土地を売ったがB名義への登記がまだだった。その後AがCにも同じ土地を売り、Cが先に登記した。<br>→ <em>CがA→Bの契約を知っていた（悪意）としても、単なる悪意なら登記したCが優先。ただしCがBの取得を妨害する目的で登記した「背信的悪意者」ならBが勝つ（判例）。</em>',
-    reason:'<strong>趣旨：</strong>不動産取引の安全と公示原則。登記は誰でも確認できる公示手段であり、「登記した者が権利者」という公示を信頼して取引できる環境を作ることで<strong>市場取引の安全・円滑を確保する</strong>。悪意を問わないのは「登記したかどうか」という客観的基準を重視するため。'
+    tag:'民法等', sec:'08 売買', no:'3', title:'買主の救済②：損害賠償請求・契約の解除',
+    keywords:['損害賠償請求','契約の解除','費用償還請求','抵当権'],
+    body:'目的物が契約の内容に適合しない場合、追完請求・代金減額請求のほかに、<strong>損害賠償請求</strong>と<strong>契約の解除</strong>も、債務不履行の一般規定によりすることができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅳ</span>損害賠償請求・契約の解除</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">売主が、引き渡した目的物が種類・品質・数量に適合しない場合や、買主に移転した権利が契約の内容に適合しない場合には、買主に対して、売主は、<strong>債務不履行の一般規定</strong>により、損害賠償請求や契約の解除をすることができます（SEC.05で学習した方法によります）。</p>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>損害賠償請求と解除の方法は、SEC.05で確認してください。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅴ</span>抵当権等が設定されていた場合の買主による費用償還請求</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">買い受けた不動産に契約の内容に適合しない先取特権、質権、抵当権、抵当権が設定されていた場合で、買主が費用を支出してその不動産の<strong>所有権を保存</strong>したときは、買主は売主に対して、その費用の<strong>償還請求</strong>をすることができます。</p>'
   },
   {
-    tag:'民法等', title:'判例で覚える「第三者」の範囲（177条・94条）',
-    keywords:['177条の第三者','94条2項類推','背信的悪意者','転得者'],
-    body:'民法の論点で最も多く出るのが<strong>「第三者」に誰が含まれるか</strong>。177条（対抗問題）と94条（通謀虚偽表示）の「第三者」は意味が異なる。判例の結論を正確に押さえよう。',
-    points:[
-      '<strong>177条の「第三者」</strong>（物権変動の対抗要件）：当事者・包括承継人以外で<em>正当な利益を有する者</em>→単なる悪意者でも第三者になれる。ただし<strong>背信的悪意者は除く</strong>（判例）',
-      '<strong>背信的悪意者の定義</strong>：登記の欠缺を主張することが<strong>信義則に反する</strong>と認められる者（妨害目的・害意等）。単なる悪意≠背信的悪意',
-      '<strong>94条2項の「第三者」</strong>（通謀虚偽表示）：虚偽表示の当事者間での権利関係を<em>新たに利害関係を持った者</em>→善意であれば登記不要で保護される',
-      '<strong>94条2項の類推適用</strong>（判例）：外観作出に帰責性のある本人→善意無過失の第三者を保護。例：権利証・実印を渡した場合',
-      '<strong>転得者の保護</strong>：悪意の第三者→善意の転得者（第三者から買った人）→転得者は保護される（94条2項）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>条文</th><th>第三者の範囲</th><th>善意の要件</th><th>登記の要否</th></tr></thead><tbody><tr><td>177条（対抗）</td><td>正当利益を有する者</td><td class="ng">不要（悪意でも可）</td><td class="ok">登記が対抗要件</td></tr><tr><td>94条2項（虚偽）</td><td>新たに利害関係に入った者</td><td class="ok">善意が必要</td><td class="ng">登記不要で保護</td></tr><tr><td>94条類推</td><td>外観信頼者</td><td class="ok">善意無過失が必要</td><td class="ng">登記不要</td></tr></tbody></table>',
-    example:'<strong>背信的悪意者の例：</strong>AがBに土地を売った（B未登記）。その後CがAから「BはAから土地を取り戻せないようにしてやる」と頼まれてAから買い登記した。<br>→ <em>Cは悪意だが、さらに妨害目的があるので「背信的悪意者」→登記があってもBに対抗できない。BはCに対して登記なしで所有権を主張できる。</em>',
-    reason:'<strong>趣旨：</strong>登記制度は取引の安全を図る公示制度。しかし信義則・権利濫用の観点から、登記があっても保護に値しない者（背信的悪意者）には対抗を認めない。制度の目的（取引安全）と個別事案の公正（信義誠実）を調整する判例法理。'
+    tag:'民法等', sec:'08 売買', no:'4', title:'担保責任の期間の制限・まとめ・特約',
+    keywords:['担保責任の期間の制限','通知','担保責任を負わない旨の特約'],
+    body:'売主が、種類または品質に関して契約の内容に適合しないものを買主に引き渡した場合でも、一定期間が過ぎたときには、売主は責任を免れることができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅵ</span>担保責任の期間の制限</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>担保責任の期間の制限</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">売主が種類または品質に関して契約の内容に適合しないものを買主に引き渡した場合、買主がその<strong>不適合を知った時から1年以内</strong>にその旨を売主に通知しなければ、買主は、追完請求、代金減額請求、損害賠償請求、契約の解除をすることができない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">売主が引渡しの時にその不適合を知り、または重大な過失によって知らなかったときは、この期間制限はなくなる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb"><strong>数量</strong>に関する契約の不適合や<strong>権利の契約の不適合</strong>は、この期間制限の対象外（別途、消滅時効にかかる：買主が権利を行使できることを知った時から5年、行使できる時から10年）</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅶ</span>売主の担保責任等のまとめ</div>'
+      + '<table class="diagram-table"><thead><tr><th>ケース</th><th>買主が追及できること</th><th>期間の制限</th></tr></thead><tbody>'
+      + '<tr><td>目的物の種類、品質が契約内容に適合しない場合</td><td rowspan="4">①追完請求 ②代金減額請求 ③損害賠償請求 ④契約の解除</td><td>不適合を知った時から<strong>1年</strong>以内に売主に通知</td></tr>'
+      + '<tr><td>目的物の数量が契約内容に適合しない場合</td><td>―</td></tr>'
+      + '<tr><td>一部他人物売買で買主に移転できない場合（移転した権利が契約内容に適合しない場合）</td><td>―</td></tr>'
+      + '<tr><td>抵当権が設定されている場合（買主が抵当権消滅で所有権を失った、または抵当権を実行された場合）</td><td>―</td></tr>'
+      + '<tr><td>全部他人物売買</td><td>①損害賠償請求 ②契約の解除</td><td>―（一般の債務不履行責任の問題となる）</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">Ⅷ</span>担保責任を負わない旨の特約</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>担保責任を負わない旨の特約</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">当事者間で売主の担保責任を負わない旨の特約を結んだときには、（特約を結んでいたとしても）原則として売主は担保責任を負わない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">売主が事実（契約内容に適合しないこと）を知っていたのに、買主に告げなかった事実、または自ら第三者のために権利を設定した場合（たとえば、売主が自ら土地に地上権を設定した場合）などは、売主は担保責任を免れることはできない</div></div>'
+      + '</div></div>',
+    qa:[]
   },
   {
-    tag:'民法等', title:'抵当権のポイントと法定地上権',
-    keywords:['抵当権','法定地上権'],
-    body:'<strong>抵当権</strong>は不動産を担保にしながら、債務者が住み続けられる非占有型の担保物権。競売になった時に生じる<strong>法定地上権</strong>が最頻出。',
-    points:[
-      '設定できるもの：不動産・地上権・永小作権（<strong>動産には設定不可</strong>）',
-      '抵当権実行：期限の利益喪失後→競売申立→換価→優先弁済',
-      '<strong>法定地上権（388条）の成立要件</strong>：①設定時に土地・建物が同一所有者 ②土地または建物に抵当権設定 ③競売で土地と建物が別人所有になった',
-      '3要件すべて満たすと建物のために地上権が<strong>自動発生</strong>（契約不要）'
-    ],
-    diagram:'<div style="font-size:0.78rem"><div class="diagram-flow"><div class="diagram-box person">Aが土地に抵当権設定（3000万）</div><span class="diagram-arrow">→返済不能</span><div class="diagram-box result-ng">競売実行</div></div><div style="display:flex;gap:0.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap"><div class="diagram-box result-ng">土地→Bが購入</div><div class="diagram-box highlight">建物→Aのまま</div></div><div class="diagram-box result-ok">法定地上権自動発生 → AはBの土地に建物を置ける</div></div>',
-    example:'<strong>法定地上権の例：</strong>AはA所有の土地と建物のうち、<em>土地にのみ</em>銀行の抵当権を設定した。返済できず競売になり、Bが土地を競落した。<br>→ <em>建物（Aのまま）のために法定地上権が自動発生。AはBの土地を使えるので建物を取り壊す必要がない。</em><br><strong>不成立の例：</strong>抵当権設定時に建物が存在しなかった場合は法定地上権不成立。',
-    reason:'<strong>趣旨：</strong>抵当権設定時に土地と建物が同一所有者だった場合、競売後に建物所有者が土地を使えなくなると建物を取り壊さざるを得なくなる（社会的損失）。<strong>既存の建物を保護し社会経済上の損失を防ぐ</strong>ために法律が自動的に地上権を発生させる。'
+    tag:'民法等', sec:'08 売買', no:'5', title:'危険の移転',
+    keywords:['危険の移転','目的物の滅失・損傷'],
+    body:'目的物が滅失・損傷した場合、売主・買主のどちらがその不利益を負うかは、危険の移転のタイミングによって重要です。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅸ</span>危険の移転</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>危険の移転</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">① 買主が受け取った場合</span><div class="sd-rb">売買の目的物が当事者双方の責めに帰することができない事由によって、その目的物の引渡しがあった時以後に、滅失・損傷したときは、買主は、その滅失・損傷を理由として、履行の追完請求、代金減額請求、損害賠償請求、契約の解除をすることができず、買主は、代金の支払いを拒むことができない<span class="sd-note">引渡しによって危険が買主に移転する！</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">② 買主が受け取らなかった場合</span><div class="sd-rb">売主が契約の内容に適合する目的物をもって、その引渡しの債務の履行を提供したにもかかわらず、買主がその履行を受けることを拒み、またはその履行を受けることができない場合において、その履行の提供があった時以後に当事者双方の責めに帰することができない事由によって目的物が滅失・損傷した場合も、①と同じように扱う</div></div>'
+      + '</div></div>'
   },
   {
-    tag:'民法等', title:'根抵当権',
-    keywords:['根抵当権'],
-    body:'特定の取引から生じる<strong>不特定の債権</strong>を、あらかじめ決めた上限（極度額）まで担保する抵当権。銀行と企業の継続取引でよく使われる。普通抵当権との違いを整理しよう。',
-    points:[
-      '<strong>極度額</strong>：担保の上限額。登記が必要（登記なしは無効）',
-      '元本確定前：被担保債権の範囲・極度額・債務者を<strong>変更可</strong>（後順位抵当権者の承諾不要）',
-      '元本確定後：通常の抵当権と同様に扱われる（債権額が特定）',
-      '<strong>確定事由</strong>：当事者の合意・3年後の確定請求・競売申立・差押え・破産開始決定等',
-      '極度額の変更：後順位抵当権者等の利害関係人の<strong>承諾が必要</strong>'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通抵当権</th><th>根抵当権</th></tr></thead><tbody><tr><td>担保する債権</td><td>特定の1つの債権</td><td>不特定（範囲内で何度でも）</td></tr><tr><td>極度額</td><td>なし</td><td class="warn">あり（登記必要）</td></tr><tr><td>弁済後の消滅</td><td class="ok">消滅（付従性）</td><td class="ng">消滅しない</td></tr><tr><td>元本確定前の変更</td><td>—</td><td class="ok">変更可</td></tr></tbody></table>',
-    example:'<strong>根抵当権の例：</strong>A会社がB銀行から継続的に運転資金を借りる場合、毎回抵当権を設定し直すのは手間。そこでA会社の工場に<em>極度額5000万円の根抵当権</em>をB銀行のために設定。→ <em>5000万円の範囲内なら、何度借りても担保として機能。返済しても根抵当権は消えず、また借りられる（普通抵当権とは異なる）。</em>'
-  },
-  {
-    tag:'民法等', title:'連帯債務・保証・連帯保証',
-    keywords:['連帯債務','連帯保証'],
-    body:'複数の人が同じ債務を負う形態。<strong>普通保証</strong>は「まず本人に請求してくれ」と言えるが、<strong>連帯保証</strong>は言えない。この違いが試験の核心。',
-    points:[
-      '<strong>連帯債務</strong>：複数人が各自独立して全額の弁済義務。弁済・相殺・更改・混同は<strong>絶対的効力</strong>（全員に影響）',
-      '<strong>普通保証</strong>：主債務者が払わない場合のみ責任。<em>催告の抗弁権・検索の抗弁権</em>あり',
-      '<strong>連帯保証</strong>：催告・検索の抗弁権<strong>なし</strong>。主債務者と全く同じ責任を負う',
-      '保証債務の附従性：主債務が消滅→保証債務も消滅',
-      '<strong>個人の根保証</strong>：極度額の定めが必要（ないと保証契約が無効）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通保証</th><th>連帯保証</th></tr></thead><tbody><tr><td>催告の抗弁権</td><td class="ok">あり<br>（まず本人に請求して）</td><td class="ng">なし</td></tr><tr><td>検索の抗弁権</td><td class="ok">あり<br>（本人の財産から取って）</td><td class="ng">なし</td></tr><tr><td>実質的負担</td><td>補充的</td><td class="ng">主債務者と同等</td></tr></tbody></table>',
-    example:'<strong>連帯保証の怖さの例：</strong>友人Aが銀行から3000万円を借り、Bが連帯保証人になった。Aが返済できなくなり銀行がBに請求した場合 → <em>連帯保証人Bは「まずAに請求してくれ」と言えない。銀行は最初からBに3000万円を全額請求できる。</em>'
+    tag:'民法等', sec:'08 売買', no:'6', title:'手付',
+    keywords:['手付','解約手付','証約手付','違約手付','履行の着手'],
+    body:'手付とは、売買契約をしたときに買主が売主に交付する金銭のことをいいます。手付には証約手付や解約手付などがありますが、どの手付か定めなかったときには<strong>解約手付</strong>と推定されます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>手付とは</div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>担保責任における「目的物」は、基本的に売買の目的物に限りませんが、危険の移転における「目的物」は、売買の目的物として特定したものに限られます。</div>'
+      + '<div class="sd-row"><span class="sd-tag point">証約手付</span><div class="sd-rb">契約が成立した証拠として交付される手付</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">解約手付</span><div class="sd-rb">契約成立後、相手方の債務不履行がなくても、自分の一方的な意思表示によって解約できる旨で交付される手付</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">違約手付</span><div class="sd-rb">契約成立後、契約に違反した場合、相手方の債務不履行による損害賠償として交付される手付</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>解約手付による契約の解除</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem"><strong>解約手付</strong>は、契約成立後、相手方に債務不履行がなくても、自己都合で契約を解除できる趣旨で交付される手付をいいます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>解約手付による契約の解除</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">手付による契約の解除ができるのは、<strong>相手方</strong>が履行に着手するまで<span class="sd-note">【履行の着手】売主なら…物件の引渡しなど／買主なら…代金、中間金の支払いなど</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">買主は手付を<strong>放棄</strong>すれば契約を解除できる。売主は手付の<strong>倍額</strong>を現実に提供すれば契約を解除できる<span class="sd-note">手付が100万円であったときは、すでに交付した100万円を放棄すれば買主から解除できる。売主から解除するときは、買主に200万円を支払う</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">手付によって解除された場合、損害賠償請求はできない<span class="sd-note">ちなみに、債務不履行による契約の解除の場合には、損害賠償請求ができる</span></div></div>'
+      + '</div></div>',
+    qa:[{cite:'H21-問10②', q:'Aを売主、Bを買主として甲土地の売買契約を締結した。BがAに解約手付を交付している場合、Aが契約の履行に着手していなくても、Bが自ら履行に着手していれば、Bは手付を放棄して売買契約を解除することができない。', mark:'○', a:'相手方（A）が履行に着手していなくても、自分（B）が履行に着手していれば、Bは手付を放棄して売買契約を解除することができない。'}]
   },
   {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
