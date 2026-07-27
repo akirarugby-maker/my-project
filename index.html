@@ -2403,6 +2403,91 @@ const slides = [
     qa:[{cite:'H21-問10②', q:'Aを売主、Bを買主として甲土地の売買契約を締結した。BがAに解約手付を交付している場合、Aが契約の履行に着手していなくても、Bが自ら履行に着手していれば、Bは手付を放棄して売買契約を解除することができない。', mark:'○', a:'相手方（A）が履行に着手していなくても、自分（B）が履行に着手していれば、Bは手付を放棄して売買契約を解除することができない。'}]
   },
   {
+    tag:'民法等', sec:'09 物権変動', no:'1', title:'物権と債権・物権変動と登記',
+    keywords:['物権','債権','物権変動','対抗要件','二重譲渡'],
+    body:'物権とは、物を直接的・排他的に支配する権利をいい、所有権、地上権、抵当権などがあります。不動産に関する物権の変動は、<strong>登記</strong>がなければ原則として第三者に対抗することができません。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>債権とは、債権者が債務者に一定の行為を要求する権利をいいます。たとえば、AさんがBさんにお金を貸した場合、AさんはBさん（債務者）に「お金を返して」と要求できる権利（債権）を持つことになります。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>物権変動と登記</div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>登記とは、登記簿に一定事項を記録することをいいます。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>物権変動と登記</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">不動産に関する物権の変動は、<strong>登記</strong>がなければ「第三者」に対抗できない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント①</span><div class="sd-rb">当事者間（AとB）では、登記がなくても物権変動の効力を主張できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント②</span><div class="sd-rb">「第三者」は<strong>善意・悪意を問わない</strong>（＝悪意でも登記があれば勝てる）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント③</span><div class="sd-rb">登記は<strong>先にした者勝ち</strong></div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>「第三者」とは？　当事者やその包括承継人（相続人など）以外の者で、登記がないことを主張する正当な利益を有する者をいいます。<br>たとえば、A→B→Cと所有権が順次移転した場合で、登記がなく、CはAに対して所有権を主張できる（AとCは当事者に準じる関係にある）。</div>'
+      + '<div class="sd-roman"><span class="rn">図</span>二重譲渡</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">たとえば、Aは自分が所有する甲土地をBに売却し、さらに悪意のCにも売却した場合…<br>AとB…当事者：登記がなくてもBはAに所有権を対抗できる<br>AとC…当事者：登記がなくてもCはAに所有権を対抗できる<br>BとC…対抗関係：売却の日付に関係なく、<strong>先に登記をしたほうが所有権を対抗できる</strong></p>'
+      + '<div class="sd-roman"><span class="rn">例外</span>登記がなくても対抗できる第三者</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>下記の者に対しては、登記がなくても所有権を対抗できる</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">詐欺・強迫によって登記の申請を妨げた者</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">他人のために登記を申請する義務がある者（登記手続の受任者など）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb"><strong>背信的悪意者</strong>（買主に損害を与えるために、その立場を利用して自分の名義で登記をした悪意者）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb"><strong>無権利者</strong>（文書偽造等によって、自己名義の登記をした人や、無権利者から土地を買い受けた人）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">⑤</span><div class="sd-rb"><strong>不法占有者</strong>（明らかな悪意者には登記がなくても対抗できるということ！）</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'09 物権変動', no:'2', title:'取得時効と登記',
+    keywords:['取得時効','時効取得者','時効完成','遡及効'],
+    body:'時効取得者（時効により所有権を取得した者）ともとの所有者は、対抗関係にある第三者と時効取得者は、時効完成の前後で登記の要否が異なります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>時効取得者ともとの所有者</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">時効取得者（時効により所有権を取得した者）は、<strong>登記がなくても</strong>、もとの所有者に対して「自分が所有者である」と所有権を主張できます。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>時効完成前に所有権を取得した第三者と時効取得者</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>時効完成前に第三者が現れた場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">時効取得者は、<strong>時効完成前</strong>に所有権を取得した第三者に対して「自分が所有者である」と<span class="hl-red">登記がなくても</span>所有権を主張できる<span class="sd-note">例：BはA所有の甲土地を長年占有している。占有開始後、時効完成前に、AがCに甲土地を売却した。その後、Bの取得時効が完成した → Bは登記なくCに対抗できる</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>時効完成後に所有権を取得した第三者と時効取得者</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>時効完成後に第三者が現れた場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">時効完成後に所有権を取得した第三者と時効取得者は、<strong>対抗関係</strong>にあるので、<span class="hl-red">先に登記をしたほうが</span>所有権を主張できる<span class="sd-note">例：BはA所有の甲土地を長年占有し、Bの取得時効が完成した。その後、AがCに甲土地を売却した → BとCは対抗関係。先に登記をしたほうが勝ち</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>【時効の遡及効】時効の完成によって、過去の事実にさかのぼって権利者となる（遡及効）ため、①占有開始 ②売却・登記 ③時効完成、という順番の場合は、時効完成によって過去にさかのぼって権利を取得したことになり、Cは無権利者となる（Bの勝ち）。</div>',
+    qa:[{cite:'H22-問4①', q:'AがBから甲土地を購入したところ、CがBから甲土地を購入して所有者を名のってきた。CB間の売買契約書の日付とBA間の売買契約締結の時刻が同じである場合、登記がなくても、契約締結の時刻が早いほうが所有権を主張することができる。', mark:'✕', a:'AB間・CB間はいずれもBとの間の対抗関係にある第三者どうしの関係になるため、契約締結の時刻の先後ではなく、先に登記を備えたほうが所有権を主張できる。'}]
+  },
+  {
+    tag:'民法等', sec:'09 物権変動', no:'3', title:'取消しと登記',
+    keywords:['取消し','取消権者','詐欺','強迫','善意無過失','対抗関係'],
+    body:'取消権者（契約を、行為能力の制限や強迫・詐欺等を理由に取り消した者）と、取消し前・取消し後に所有権を取得した第三者との関係を整理します。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>取消し前に所有権を取得した第三者（C）と取消権者（B）</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>詐欺による取消しの場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">Dの詐欺により、Bが所有する乙土地がBからDに売却され、その後、Dからの詐欺を理由にBがBD間の売買契約を取消した（Cは詐欺のことを過失なく知らない）<br>BとCの善意無過失によって：<strong>Cが善意無過失なら</strong>Cの勝ち（Bは所有権を対抗できない）／<strong>Cが悪意または有過失なら</strong>Bの勝ち</div></div>'
+      + '</div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>強迫による取消しの場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">強迫による取消しの場合、強迫された者は最大限保護すべきなので、<strong>第三者Cが善意であっても</strong>、取消権者Bの勝ち（Bが所有権を対抗できる）<span class="sd-note">一方、錯誤・詐欺については、この2つができるとしても、それに対して、この2つはできるとしても、この2つは第三者が善意無過失であれば所有権を主張できないので、強迫の場合とは扱いが異なる</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>取消し後に所有権を取得した第三者（C）と取消権者（B）</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>取消し後に第三者が現れた場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">Dの詐欺により、Bが所有する乙土地が売却され、登記がされた後、BがDの詐欺を理由に、BD間の売買契約を取消した。その後（Bに登記を戻す前に）DはCに乙土地を売却した場合<br>BとCは<strong>対抗関係</strong>にあるので、<span class="hl-red">先に登記をしたほうが</span>所有権を対抗できる</div></div>'
+      + '</div></div>',
+    qa:[]
+  },
+  {
+    tag:'民法等', sec:'09 物権変動', no:'4', title:'解除と登記',
+    keywords:['解除','解除権者','債務不履行'],
+    body:'解除とは、契約が成立したあとに、当事者のうち片方（解除権者＝解除権を有する者）の一方的な意思表示で、はじめから契約がなかったものとすることをいいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>解除前に所有権を取得した第三者（C）と解除権者（A）</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>解除前に第三者が現れた場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">Aが所有する甲土地が、AからBへと売却され、登記がされたあと、BからCへと売却され、登記がされた。しかし、AはBの債務不履行を理由に売買契約を解除した（Aに登記を戻す前に）BはCへと売却した<br>AとCは<strong>対抗関係</strong>にあるので、<span class="hl-red">先に登記をしたほうが</span>所有権を対抗できる<span class="sd-note">Cが「Bが債務不履行だったこと」を知らない、と同じ扱い（Bにお金を払わない、とか…）</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>解除後に所有権を取得した第三者（C）と解除権者（A）</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>解除後に第三者が現れた場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">解除後に所有権を取得した第三者と解除権者は、<strong>対抗関係</strong>にあるので、<span class="hl-red">先に登記をしたほうが</span>所有権を主張できる</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'09 物権変動', no:'5', title:'取得時効・取消し・解除と登記のまとめ／賃貸不動産の譲渡と登記',
+    keywords:['取得時効','取消し','解除','まとめ','賃貸不動産の譲渡'],
+    body:'取得時効・取消し・解除と登記の関係をまとめると、共通して「時効完成・取消し・解除の<strong>前</strong>に現れた第三者」と「<strong>後</strong>に現れた第三者」で扱いが異なります。',
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>時効の完成</th><th>取消し</th><th>解除</th></tr></thead><tbody>'
+      + '<tr><td>時効の完成・取消し・解除より「<strong>前</strong>」に第三者が登場</td><td colspan="3" class="ok">時効取得者・取消権者・解除権者の勝ち<br><span style="font-size:0.7rem">（ただし、詐欺・錯誤・善意無過失の第三者の善意無過失には対抗できない）</span></td></tr>'
+      + '<tr><td>時効の完成・取消し・解除より「<strong>後</strong>」に第三者が登場</td><td colspan="3" class="warn">先に登記した人が勝ち</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">Ⅵ</span>賃貸不動産の譲渡と登記</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">賃貸不動産（賃貸マンションなど）の譲渡があった場合、賃貸不動産の譲受人は、当該不動産の賃貸人の地位が自分に移転したことを賃借人に対して主張するためには、<strong>所有権移転の登記</strong>を備えなければ、賃貸人としての権利を主張することができません。</p>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、Aさんが賃貸マンションのオーナーだったとしましょう。このマンションをBさんに売って、新しいオーナーはBさんになりました。そして、AさんはこのマンションをBさんに売ったのですが、ここでBさんがマンションの所有権の移転の登記をしていないと、賃借人甲さんに対して、「これからは家賃を私に支払ってね」ということができないのです。</div>',
+    qa:[{cite:'H24-問6①', q:'A所有の甲土地について、時効により所有権を取得したB（時効取得者）は、時効完成前に甲土地を購入して所有権移転登記を備えたCに対して、登記なくして所有権の取得を主張できない。', mark:'✕', a:'時効取得者は、時効完成前に所有権を取得した第三者に対しては、登記がなくても所有権の取得を主張することができる。'}]
+  },
+  {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
     keywords:['借地権','賃貸借','対抗力'],
     body:'<strong>借地借家法</strong>は民法のルールを上書きして、弱い立場の借地人・借家人を保護する法律。「貸主から追い出されにくくする」仕組みを理解しよう。',
