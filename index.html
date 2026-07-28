@@ -2734,18 +2734,99 @@ const slides = [
       + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>連帯債務とは異なり、免除が絶対効を有するものとされています（これ以外は同じです）。ここは、連帯債務との比較で押さえておけばいいでしょう。</div>'
   },
   {
-    tag:'民法等', title:'賃貸借・借地借家法の基本',
-    keywords:['借地権','賃貸借','対抗力'],
-    body:'<strong>借地借家法</strong>は民法のルールを上書きして、弱い立場の借地人・借家人を保護する法律。「貸主から追い出されにくくする」仕組みを理解しよう。',
-    points:[
-      '<strong>借地権</strong>（建物の所有目的で土地を借りる）：最短<strong>30年</strong>。30年未満の特約は無効',
-      '対抗力：借地権は<em>借地上の建物の登記</em>があれば第三者に対抗可（土地の登記は不要！）',
-      '<strong>借家権</strong>（建物を借りる）：対抗力は<em>建物の引渡し</em>（鍵をもらうだけでOK）',
-      '貸主からの更新拒絶・解約：<strong>正当事由</strong>が必要（自分で使う必要性・高度利用等）',
-      '造作買取請求権：借家人が造作（エアコン等）を設置した場合、退去時に買取請求可'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>借地権</th><th>借家権</th></tr></thead><tbody><tr><td>最短存続期間</td><td class="warn">30年</td><td>制限なし</td></tr><tr><td>対抗力の取得方法</td><td><strong>借地上の建物の登記</strong></td><td><strong>建物の引渡し</strong></td></tr><tr><td>貸主からの更新拒絶</td><td colspan="2" class="warn">正当事由が必要</td></tr></tbody></table>',
-    example:'<strong>借地の対抗力の例：</strong>AがBの土地を借りて自分で建物を建て、建物をA名義で登記した。その後BがCに土地を売った場合 → <em>AはCに対して借地権を主張できる（建物の登記があるため）。土地の賃借権自体の登記がなくてもOK。</em>'
+    tag:'民法等', sec:'12 賃貸借', no:'1', title:'賃貸借とは',
+    keywords:['賃貸借','賃料'],
+    body:'賃貸借とは、賃料を対価に物の貸し借りをすることをいいます。',
+    diagram:''
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'2', title:'賃貸借の存続期間',
+    keywords:['賃貸借の存続期間','50年'],
+    body:'賃貸借の存続期間は<strong>50年</strong>を超えることができません。50年を超える期間を定めた場合には、50年に短縮されます。賃貸借契約は更新することができますが、更新後の期間も50年を超えることはできません。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>民法では「50年」ですが、借地借家法では修正が加えられています。</div>'
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'3', title:'賃貸借の終了',
+    keywords:['賃貸借の終了','期間の定めのある賃貸借','期間の定めのない賃貸借','解約の申入れ'],
+    body:'賃貸借の終了は、期間の定めの有無によって扱いが異なります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>期間の定めのある賃貸借の場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">期間の定めのある賃貸借は、原則として期間の満了をもって終了します。ただし、期間が満了したあとも賃借人（借主）が賃借物の使用（または収益）を継続している場合で、賃貸人（貸主）がこれを知りながら異議を述べなかったときは、従前の賃貸借契約と同じ条件で更新されたものと推定されます。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>期間の定めのない賃貸借の場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">期間の定めのない賃貸借は、当事者はいつでも解約の申入れをすることができます。解約の申入れがあったときは、土地の賃貸借については<strong>1年経過後</strong>、建物の賃貸借については解約の申入れの日から<strong>3ヵ月経過後</strong>に終了します。</p>'
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'4', title:'民法における賃借権の対抗要件',
+    keywords:['賃借権の対抗要件','登記'],
+    body:'民法において、不動産の賃借権は<strong>登記</strong>すれば、第三者に対抗することができます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>不動産の賃借権の登記には、賃貸人の協力が必要です。ですが、賃貸人には「登記に協力しなければならない」という義務はないので、現実的ではないので、借地借家法では登記以外の方法による対抗要件を規定しています。</div>'
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'5', title:'賃貸人・賃借人の権利義務',
+    keywords:['目的物の修繕','必要費','有益費','原状回復義務','賃料の減額','妨害の停止の請求'],
+    body:'賃貸人および賃借人の権利義務には、次のようなものがあります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>目的物の修繕</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>目的物の修繕</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">賃貸人は賃借物の使用および収益に必要な修繕をする義務を負う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">賃借人の責めに帰すべき事由によって修繕が必要となったときは、賃貸人は修繕義務を負わない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">賃借人による修繕</span><div class="sd-rb">賃借物の修繕が必要で、かつ、一定の場合は、賃借人は修繕をすることができる<ul class="sd-list"><li><span class="sd-ln">1</span>修繕が必要である旨を通知した、または賃貸人がそれを知ったにもかかわらず、賃貸人が相当の期間内に必要な修繕をしないとき</li><li><span class="sd-ln">2</span>急迫の事情があるとき</li></ul></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>必要費と有益費</div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>意味</th><th>請求できる時期</th></tr></thead><tbody>'
+      + '<tr><td><strong>必要費</strong></td><td>目的物の現状を維持するために必要な支出（例：雨漏りの修繕にかかる費用）</td><td>直ちにその費用の償還を請求できる</td></tr>'
+      + '<tr><td><strong>有益費</strong></td><td>目的物の価値を増加させるための支出（例：洋式トイレにウォシュレットをつけた場合の費用）</td><td>賃貸借契約の終了時に、①賃借人が支出した金額 または ②現存する増価額（価値の増加額）のいずれかを賃貸人が選択し、その額を賃借人に償還しなければならない</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>台風で雨漏りがするので、賃貸人に連絡したけど、賃貸人が入院していてすぐに対応できなかったため、賃借人がとりあえず自分でお金を払って修理してもらった場合など。賃借人が必要費を支出した場合には、賃貸人に対して、直ちにその費用の償還を請求することができます（費用償還請求権）。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>原状回復義務</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>原状回復義務</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">賃借人は、賃借物を受け取ったあとに生じた損傷（通常の使用によるものおよび経年変化を除く）があるときは、賃貸借が終了したときに、その損傷につき原状回復義務を負う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">その損傷が賃借人の責めに帰することができない事由によるものであるときは、原状回復義務はない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>賃料の減額等</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">賃借物の一部が、賃借人の責めに帰することができない事由によって滅失等により使用および収益をすることができなくなった場合、賃料は、使用および収益をすることができなくなった部分の割合に応じて<strong>当然に減額</strong>されます（賃借人からの請求は不要）。</p>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">また、一部が滅失等によって使用および収益をすることができなくなった場合において、残存する部分のみでは賃借人が賃借をした目的を達することができないときは、賃貸借は、解除をすることができます（この契約の解除には要件はとくにありません。賃借物の全部が滅失等によって使用および収益をすることができなくなった場合、賃貸借は、解除をするまでもなく当然に終了します）。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅴ</span>不動産の賃借人による妨害の停止の請求等</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">不動産の賃借人は、民法等による賃借権の対抗要件を備えた場合、次の請求をすることができます。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">不動産の占有を妨害している第三者に対する占有の妨害の停止の請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">不動産を占有している第三者に対する占有の返還請求</div></div>'
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'6', title:'賃借権の譲渡・賃借物の転貸',
+    keywords:['賃借権の譲渡','賃借物の転貸','無断転貸','信頼関係','転借人','転貸借'],
+    body:'賃借権の譲渡とは、賃借人が賃借権をほかの人に譲り渡すことをいいます。賃借物の転貸とは、賃借人が借りている物をほかの人に又貸しすることをいいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>無断譲渡・無断転貸の禁止</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">賃借人が賃借権の譲渡や転貸をするときは、賃貸人の<strong>承諾</strong>が必要です。賃貸人の承諾なく無断で譲渡・転貸した場合には、賃貸人は契約を解除することができます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>無断譲渡・転貸があった場合は？</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">賃貸人の承諾が必要（黙認も含まれる）→承諾がなければ賃貸人は契約を解除できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">賃貸人に対する<strong>背信的行為</strong>と認めるに足りない特段の事情がある場合は、賃貸人は契約を解除することはできない（信頼を裏切る行為とはいえない場合）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>賃借権の譲渡・賃借物の転貸の効果</div>'
+      + '<div class="sd-row"><span class="sd-tag point">①賃借権の譲渡の効果（承諾がある場合）</span><div class="sd-rb">賃借人が賃借権を譲渡した場合には、譲受人が新賃借人となります（賃貸人と旧賃借人の関係は終了します）。旧賃借人Bに対しては賃料を請求できない。新賃借人Cに対しては賃料を請求できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②賃借物の転貸の効果</span><div class="sd-rb">賃借人が賃借物を転貸した場合は、賃貸人と賃借人（転貸人）の関係は終了しません。したがって、賃貸人は賃借人の債務の範囲を限度として、転借人に対して賃料を請求することができます。転借人は賃借人の債務を負わない場合には、賃貸人は転借人に対して直接賃料を支払う義務を負うため、賃貸人は転借人に対して直接賃料を請求することができます</div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>賃貸人が直接転借人に賃料を請求する場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">賃貸人（A）と賃借人（B・転貸人）の賃料が15万円（高い）、賃借人（B）と転借人（C）の転貸料が10万円（低い）の場合、AがCに対して請求できるのは<strong>いずれか低いほうの金額</strong>（10万円）となる</div></div>'
+      + '<div class="sd-row"><span class="sd-rb">賃貸人が転借人に対して直接賃料を請求する場合、B（転貸人）が賃借人に賃料を支払っても、C（転借人）に対しては直接賃料を請求できる。ただし賃貸人・転貸人の間で「賃借料」の範囲を限度として直接賃料を請求できる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>賃貸借の解除と転貸借</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">適法に転貸がされていた場合で、賃貸人（A）と賃借人（B）の間の賃貸借が終了した場合、賃貸人（A）は転借人（C）に明渡しを請求できるかどうかは、賃貸借が終了した事由によって異なります。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">①合意による解除</span><div class="sd-rb">賃貸人と賃借人が賃貸借契約を合意解除しても、原則として、賃貸人は転借人に対抗することができません（合意解除のときは明渡しを請求できない）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②債務不履行による解除</span><div class="sd-rb">賃借人（B）の債務不履行によって賃貸借契約が解除されたときは、賃貸人（A）は転借人（C）に対して明渡しを請求できる（債務不履行による解除のときは対抗できる）</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>賃貸人の変更と敷金／賃借人の変更の場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">賃貸人の地位は、その賃貸借の対抗要件を賃借人が備えている場合、譲渡人と譲受人との合意があれば、賃借人に主張するには、譲受人が所有権の移転の登記をする必要があります。そして、譲受人が、賃貸人の地位の移転について賃借人に主張するには、その不動産について所有権の移転の登記をする必要があります。また、賃貸人が、賃貸人の地位を賃借人に移転したときは、賃貸人の地位は自動的に譲受人に承継されます。敷金返還債務は原則として新賃貸人に承継されます（賃借人の変更＝借主チェンジの場合、敷金についての権利義務は原則として新賃借人に承継されません）。</p>'
+  },
+  {
+    tag:'民法等', sec:'12 賃貸借', no:'7', title:'敷金',
+    keywords:['敷金','未払賃料','敷金の返還時期','充当'],
+    body:'敷金とは、賃借人が賃料を支払わなかった場合などに備えて、賃借人が賃貸人に対して交付する金銭のことをいい、賃貸人に交付される金銭で、名目を問わず、賃借人の賃料債務その他賃貸借に基づいて生じる金銭の給付を目的とする債務を担保する目的で賃貸人に交付される金銭をいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>敷金は預り金の一種なので、賃貸人は賃借人の賃料未払い等を控除して残額があれば、賃借人に返還されます。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>敷金の返還時期</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">敷金の返還は、賃貸借契約が終了し、賃借人が<span class="hl-red">賃貸物を返還した</span>あとに、賃貸物を明け渡した時となります。</p>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>なお、敷金がいくらかどうかは賃借人の任意なので、充当するかどうかは賃借人のほうから「充当して！」ということはできません。</div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">賃借人は「敷金を返してくれないなら、建物を明け渡さないよ！」ということはできません。賃借人が賃貸物を返還する義務と、賃貸人が敷金を返還する義務は<strong>同時履行の関係にはない</strong>（賃借人が先に明渡しをしなければならない）</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>不動産の賃貸人の変更と敷金</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">賃貸借の目的物が不動産であり、（その賃貸借の期間中に）その不動産が譲渡され、賃貸人の地位が移転されたときは、その不動産の賃貸借の対抗要件を備えている場合、その不動産の賃貸人の地位は、原則として、新賃貸人（譲受人）に移転します。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>不動産の賃貸人の変更と敷金／賃借人の変更の場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">賃借人の変更の場合（賃借人が賃借権を譲渡した場合）は、敷金についての権利義務は原則として新賃借人に承継されません。</p>',
+    qa:[{cite:'H20-問10②', q:'Aは、自己所有の甲建物（居住用）をBに賃貸し、引渡しも終わり、敷金50万円を受領した。甲建物の賃貸借において、所有権移転登記を経た後、AがBの承諾を得て甲建物をCに譲渡し、Bとの賃貸借契約に承継され、AB間の敷金返還債務はCに承継される。', mark:'○', a:'甲建物の賃貸人たる地位がAからCに移転すると、敷金返還債務は、当然にCに承継される。'}]
   },
   {
     tag:'民法等', title:'借地権の種類（普通・定期）',
