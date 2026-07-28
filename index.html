@@ -2611,6 +2611,129 @@ const slides = [
       + '<div class="sd-row"><span class="sd-tag reigai">明渡し猶予</span><div class="sd-rb">「直ちに出て行け」というのは賃借人にとってあまりにも酷なため、買受人が建物を買い受けたときから<strong>6ヵ月</strong>を経過するまでは、その建物を明け渡さなくてもよいことになっています</div></div>'
   },
   {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'1', title:'連帯債務とは',
+    keywords:['連帯債務','負担部分','求償'],
+    body:'連帯債務とは、債務の目的がその性質上可分である同じ内容の債務について、複数人の債務者が、各自独立してその性質上可分である場合に、債務の意思表示によって数人が連帯して債務を負担するときに成立します。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>連帯債務とは</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>連帯債務の請求</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">債権者は、連帯債務者の誰に対しても、同時または順次に、債務の全額または一部について支払いの請求をすることができる<span class="sd-note">例：AがBとCに2,000万円（債務の額は2,000万円）を貸した場合、BとCの両方に全額（2,000万円）を請求できる</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">負担部分</span>負担部分と求償</div>'
+      + '<div class="sd-row"><span class="sd-tag point">負担部分</span><div class="sd-rb">連帯債務者間の負担部分は、別段の定めがなければ均等。ただし「Bは1,500万円、Cは500万円を負担」などの定めがあれば、それに従う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">弁済と求償①</span><div class="sd-rb">連帯債務者の1人が弁済した場合は、他自己の財産で共同の免責を得た場合、その他自己の負担部分</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">弁済と求償②</span><div class="sd-rb">連帯債務者の1人が弁済し、その他自己の財産で共同の免責を得たときは、その連帯債務者は他の連帯債務者に対して、原則、負担部分に応じて求償できる<span class="sd-note">例：Bが2,000万円を弁済した場合、Bは求償権を得た額がBとCの負担部分（各1,000万円ずつ）の場合、Bが800万円弁済したとき、Bは自己の負担部分に応じる負担部分400万円をCに対し求償できる</span></div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'2', title:'連帯債務者間の影響①：相対効と請求',
+    keywords:['相対効','絶対効','請求'],
+    body:'連帯債務者の1人に生じた事由は、原則として他の債務者に影響を及ぼしません（相対効）。ただし例外的に、連帯債務者の1人に生じた事由が他の債務者に影響を及ぼす場合があり、これを絶対効（絶対的効力）といいます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>相対効・絶対効</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則（相対効）</span><div class="sd-rb">連帯債務者の1人について生じた下記（絶対効）以外の事由は、他の債務者に影響を及ぼさない（請求、時効の完成、債務の免除、債務の承認、期限の猶予など）<span class="sd-note">例：Aが債権者で、BとCが連帯債務者である場合において、BがAに対する債務を承認した（＝時効の更新事由）としても、その効力はCには及ばない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">絶対効</span><div class="sd-rb">相殺、更改、混同、請求（債権者と他の連帯債務者の1人が別段の意思表示をした場合）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">請求</span>債権者と他の連帯債務者の1人が別段の意思表示をした場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">AC間で「AがBに履行の請求をしたときには、Cにも履行の請求をした」と履行の請求をしたときは…</p>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">請求には原則として絶対効はない！<em>しかし</em>合意すればできる。履行の請求によりBの消滅時効は完成猶予される。合意によりBへの請求の効力がCにも生じる（時効の完成猶予）</div></div>'
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'3', title:'連帯債務者間の影響②：相殺・更改・混同',
+    keywords:['相殺','更改','混同','反対債権'],
+    body:'相殺・更改・混同は、連帯債務者の1人に生じても、他の連帯債務者に影響を及ぼす絶対効の事由です。',
+    diagram:'<div class="sd-roman"><span class="rn">1</span>相殺</div>'
+      + '<div class="sd-row"><span class="sd-tag point">その①：BがAに対して2,000万円の反対債権を有しているときは…</span><div class="sd-rb">BがAに対して自ら相殺した場合、Cも債務を免れる（BがAに対する2,000万円の反対債権で相殺すると、B・Cの2,000万円の連帯債務は0円に）。相殺の効力はCにも及ぶ！ちなみに、そのあと、BはCに「1,000万円（2,000万円−1,000万円）を自分に支払ってよね」と求償できる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">その②：BがAに対して1,200万円の反対債権を有している場合で、Bが自ら相殺しないときは…</span><div class="sd-rb">CはBの反対債権で履行を拒むことができる（相殺するかどうかは自由）／CはBの負担部分（1,000万円）の限度でBの支払拒絶権を持つ（あくまで他人（B）の反対債権なので、Cはこれで相殺することはできない）</div></div>'
+      + '<div class="sd-roman"><span class="rn">2</span>更改</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">AとBの間で、2,000万円の金銭債務を消滅させて、代わりにBの土地をAに渡す契約をしたときは…</p>'
+      + '<div class="sd-row"><span class="sd-rb">更改により、BとCの連帯債務が消滅する（代わりにBの土地引取れる権利が生じる）。更改の効力はCにも及ぶ！ちなみに、そのあと「1,000万円（2,000万円−1,000万円）を自分に支払ってよね」とBはCに支払ってよね」と求償できる</div></div>'
+      + '<div class="sd-roman"><span class="rn">3</span>混同</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">債務者（B）が債権者（A）を相続して、混同が生じたときは…</p>'
+      + '<div class="sd-row"><span class="sd-rb">BがAを相続して、債権者＝債務者となること。混同により、BとCの債務が消滅する（その後、BはCに1,000万円を自分に支払ってよ」と求償できる）。混同の効力はCにも及ぶ！</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>更改とは、従前の債務に代えて、新たな債務を発生させる契約をいいます。給付の内容の重要な変更、債務者または債権者の交替により新たな債務が発生し、旧債務が消滅します。混同とは、債権と債務が同一人に帰属することをいいます（債権混同）。なお、同一の物についての所有権とその他の物権（地上権や抵当権など）が同一人に帰属したときに、当該他の物権が消滅すること（物権混同）もあります。</div>'
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'4', title:'保証債務とは・保証債務の性質',
+    keywords:['保証','保証人','主たる債務','付従性','随伴性','補充性','保証契約'],
+    body:'保証とは、債務者が弁済できなくなったときに備えて、代わりに弁済してくれる人（保証人）を立てておくことをいいます。保証人が負っている義務を保証債務といいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>また、債権者は「物」を担保とするのに対して、保証は「人」を担保とする人的担保です。担保するのに対して、保証契約は、書面や電磁的記録で行わなければ効力を生じません。</div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>電磁的記録とは、コンピュータで処理される記録をいいます。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>保証債務の性質</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">保証債務は、主たる債務が成立してはじめて成立します。また、主たる債務者が負っている、本来の債務者を主たる債務者、その債務を主たる債務といいます。保証債務には、<strong>付従性</strong>、<strong>随伴性</strong>、<strong>補充性</strong>といった性質があります。</p>'
+      + '<div class="sd-row"><span class="sd-tag point">①付従性</span><div class="sd-rb">主たる債務が成立してはじめて成立します。主たる債務が消滅すれば、それに伴って消滅します</div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">付従性のポイント</span></div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">主たる債務者に生じた事由の効力は、保証人にも及ぶ<span class="sd-note">主たる債務者が時効の完成猶予・更新が生じたら、保証人にもその効力が及ぶ</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">保証人に生じた事由の効力は、原則として主たる債務者に及ばない<span class="sd-note">保証人に時効の完成猶予・更新が生じても、主たる債務者には（時効の完成猶予・更新の）効果が及ばない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">主たる債務の目的・態様が保証契約の締結後に加重されたときであっても、保証人の負担は加重されない</div></div>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②随伴性</span><div class="sd-rb">保証債務は、主たる債務が移転するとき（債権の譲渡など）は、それに伴って移転します</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③補充性</span><div class="sd-rb">保証人は、主たる債務者が弁済しない場合のみ弁済すればよいとされる、これを補充性といいます。補充性を担保するため、保証人には<strong>催告の抗弁権</strong>と<strong>検索の抗弁権</strong>という2つの抗弁権が認められています</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>保証債務は、主たる債務に従属するものなので、主たる債務の運命に従って、成立・消滅するのです。なお、逆の関係（保証債務が消滅すると、主たる債務が消滅する等）は成立しません。</div>',
+    qa:[{cite:'H22-問8②', q:'AB間で明確に特定の債務につき保証する旨の意思表示が、口頭でなされた場合には、その保証契約は有効に成立する。', mark:'✕', a:'保証契約を口頭で行った場合には、効力は生じない。書面または電磁的記録で行わなければならない。'}]
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'5', title:'催告・検索の抗弁権／保証債務の範囲・求償権',
+    keywords:['催告の抗弁権','検索の抗弁権','保証債務の範囲','求償権'],
+    body:'保証人には、補充性を担保するため、催告の抗弁権と検索の抗弁権という2つの抗弁権が認められています。',
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>内容</th></tr></thead><tbody>'
+      + '<tr><td><strong>催告の抗弁権</strong></td><td>債権者がいきなり保証人に弁済を請求してきたら、「まずはあの人（主たる債務者）に請求して！」といえる</td></tr>'
+      + '<tr><td><strong>検索の抗弁権</strong></td><td>債権者が主たる債務者に請求したうえで、保証人にも請求してきた場合には、保証人は①主たる債務者に弁済できる資力があること、②執行が容易であることを証明すれば、「まずはあの人（主たる債務者）から、お金を持っているから、まずはあの人（主たる債務者）の財産から弁済して！」といえる</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>ただし、保証が連帯保証の場合（③で学習）には、連帯保証人に催告の抗弁権や検索の抗弁権はありません。</div>'
+      + '<div class="sd-row"><span class="sd-tag point">また</span><div class="sd-rb">保証人は、主たる債務者が有している抗弁（同時履行の抗弁権など）をもって債権者に対抗することができます</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、主たる債務が売買代金債権で、主たる債務者が同時履行の抗弁権を主張できるなら、保証人もそれを主張して債務の履行を拒むことができます。さらに、取消権・解除権を有している場合には、保証人は、債権者に対して債務の履行を拒むことができます。この場合には、保証人は、これらの権利の行使によって主たる債務者がその債務を免れるべき限度でしか債務の履行をすることができません。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>保証債務の範囲</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">保証債務の範囲は、主たる債務者の負っている元本のほか、利息・違約金・損害賠償などにも及びます。また、契約解除による原状回復義務にも及びます。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>保証人の求償権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">保証人が、債権者に対して（主たる債務を）弁済したときには、主たる債務者に対して求償することができます。</p>'
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'6', title:'保証人に対する情報提供義務',
+    keywords:['情報提供義務','事業のために負担する債務','期限の利益の喪失'],
+    body:'保証契約については、保証人を保護するために、次のような情報提供義務が課せられています。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>保証人への情報提供義務</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">主たる債務の履行の状況に関する情報の提供義務</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">主たる債務者が期限の利益を喪失した場合の情報の提供義務</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">契約締結時の情報の提供義務（事業に係る債務についての保証契約の場合）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">情報の提供義務者（だれが）は、①②③の義務で違う</div></div>'
+      + '</div></div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>①主たる債務の履行の状況に関する情報</th><th>②主たる債務者が期限の利益を喪失した旨</th></tr></thead><tbody>'
+      + '<tr><td>誰が</td><td>主たる債務者</td><td>債権者</td></tr>'
+      + '<tr><td>誰に対して</td><td>主たる債務者の委託を受けた保証人</td><td>保証人（法人を除く）</td></tr>'
+      + '<tr><td>どんなときに</td><td>保証人の請求があったとき</td><td>期限の利益を喪失した時から<strong>2ヵ月以内</strong>に通知</td></tr>'
+      + '<tr><td>いつまでに</td><td>遅滞なく</td><td>期限の利益を喪失した旨を債権者が知った時から2ヵ月以内</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">②の通知を2ヵ月以内にしなかった場合、主たる債務者が期限の利益を喪失した時からその通知を現にするまでに生じた遅延損害金について、保証人に対して請求できない（期限の利益を喪失していなかったとしても生ずべきものを除く）</div></div>'
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'7', title:'連帯保証・共同保証',
+    keywords:['連帯保証','一般保証','共同保証','分別の利益'],
+    body:'連帯保証とは、保証人が主たる債務者と連帯して債務を負う保証形態をいいます。ただし、例外として主たる債務者に生じた事由（弁済、相殺、更改など）は、原則として主たる債務者に生じた事由は、連帯保証人にも効力が及びます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>一般保証との違い</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">連帯保証は、先ほど学習した保証（一般保証）よりも保証人の負う責任が重くなります。一般保証との違いは次のとおりです。</p>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>一般保証</th><th>連帯保証</th></tr></thead><tbody>'
+      + '<tr><td>催告の抗弁権</td><td class="ok">あり<br>「まずはあの人（主たる債務者）に請求して！」といえる</td><td class="ng">なし<br>債権者がいきなり請求してきたら、支払わなければならない</td></tr>'
+      + '<tr><td>検索の抗弁権</td><td class="ok">あり<br>「まずはあの人（主たる債務者）、お金持っているから、まずはあの人の財産から弁済して！」といえる</td><td class="ng">なし<br>債権者が主たる債務者に請求したうえで請求してきても、拒めない</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">Ⅵ</span>共同保証</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">共同保証とは、1つの主たる債務について、複数の保証人がつくことをいいます。この場合、各保証人は主たる債務を均等に分割し、その分割部分についてのみ保証債務を負います。これを<strong>分別の利益</strong>といいます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>連帯保証人には、分別の利益がない</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">（一般）保証人は名人から1,000万円ずつ保証債務を負う。債権者は誰に対しても、どういう順番でも3,000万円を回収することができる<br><strong>連帯保証人</strong>はそれぞれ3,000万円の保証債務を負う。債権者は誰に対しても、どういう順番でも全額3,000万円を請求できる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>ただし、保証が連帯保証の場合（3で学習）には、連帯保証人に分別の利益はありません。</div>',
+    qa:[{cite:'H20-問6③改', q:'AからBとCが連帯して1,000万円を借り入れる場合と、DからEとFがEを主たる債務者、Fを連帯保証人として1,000万円を借り入れる場合とに関する次の記述は、民法の規定及び判例によれば、正しいか。連帯債務の場合にはBが、連帯保証の場合にはFが、それぞれ500万円分の債務を免除された場合には、Cが500万円分の債務を免れることはあるが、Eが500万円分の債務を免れることはない。', mark:'✕', a:'連帯債務者の1人（B）に対する債務の免除は、原則として相対効なので、Cが債務を免れることはない。連帯保証人（F）に生じた事由は、原則として主たる債務者（E）に影響しないので、Eも債務を免れることはない。'}]
+  },
+  {
+    tag:'民法等', sec:'11 連帯債務、保証、連帯債権', no:'8', title:'連帯債権',
+    keywords:['連帯債権','絶対効'],
+    body:'連帯債権とは、債権の目的がその性質上可分である場合、法令の規定または当事者の意思表示によって数人が連帯して権利を有するものをいいます。各債権者は、単独で全部または一部の履行を請求することができ、また債務者は、すべての債権者のために履行することができます。なお、連帯債務は原則として相対効ですが、連帯債権は原則として絶対効を有します。連帯債務とは真逆のイメージです。',
+    diagram:'<div class="sd-roman"><span class="rn">図</span>連帯債権のイメージ</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">DからEとFが連帯してCと保証する場合と、当事者間において民法第458条（同条において準用する場合を含む）に規定する事由について別段の合意をすることは正しいか、なお、合意はないものとする。</p>'
+      + '<div class="sd-roman"><span class="rn">他の連帯債権者への影響</span>免除の場合</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">たとえば、AがBとCで、BとCが連帯債権者（債権の額は2,000万円、BとCの持分は1,000万円ずつ）である場合に、BがAの債務を免除したときは…</p>'
+      + '<div class="sd-row"><span class="sd-rb">Bの債務の免除前は…BとCはAに対して「2,000万円を返して！」ということができる<br>Bの債務の免除後は…BとCの持分がなくなり、CはAに対して「残りの1,000万円を返して！」ということができる<br>免除の効力はCにも及ぶ！</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>連帯債務とは異なり、免除が絶対効を有するものとされています（これ以外は同じです）。ここは、連帯債務との比較で押さえておけばいいでしょう。</div>'
+  },
+  {
     tag:'民法等', title:'賃貸借・借地借家法の基本',
     keywords:['借地権','賃貸借','対抗力'],
     body:'<strong>借地借家法</strong>は民法のルールを上書きして、弱い立場の借地人・借家人を保護する法律。「貸主から追い出されにくくする」仕組みを理解しよう。',
