@@ -3056,18 +3056,128 @@ const slides = [
     qa:[{cite:'H20-問10②', q:'Aは、自己所有の甲建物（居住用）をBに賃貸し、引渡しも終わり、敷金50万円を受領した。甲建物の賃貸借において、所有権移転登記を経た後、AがBの承諾を得て甲建物をCに譲渡し、Bとの賃貸借契約に承継され、AB間の敷金返還債務はCに承継される。', mark:'○', a:'甲建物の賃貸人たる地位がAからCに移転すると、敷金返還債務は、当然にCに承継される。'}]
   },
   {
-    tag:'民法等', title:'借地権の種類（普通・定期）',
-    keywords:['定期借地権','借地権'],
-    body:'借地権には<strong>普通借地権</strong>（更新あり）と<strong>定期借地権</strong>（更新なし）の2系統がある。更新の有無・存続期間・契約方式の違いをしっかり区別しよう。',
-    points:[
-      '<strong>普通借地権</strong>：最短30年。期間満了後は更新可（1回目20年、2回目以降10年）',
-      '<strong>一般定期借地権</strong>：<em>50年以上</em>。書面で契約。更新なし・建物買取請求なし',
-      '<strong>事業用定期借地権</strong>：<em>10年以上50年未満</em>。<strong>公正証書</strong>で契約必須。事業用建物のみ（住居不可）',
-      '<strong>建物譲渡特約付借地権</strong>：30年以上。期間満了時に地主が建物を相当対価で買取'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>期間</th><th>更新</th><th>契約方式</th></tr></thead><tbody><tr><td>普通借地権</td><td>30年〜</td><td class="ok">あり</td><td>制限なし</td></tr><tr><td>一般定期</td><td class="warn">50年以上</td><td class="ng">なし</td><td>書面</td></tr><tr><td>事業用定期</td><td class="warn">10〜50年未満</td><td class="ng">なし</td><td class="warn">公正証書必須</td></tr><tr><td>建物譲渡特約</td><td>30年以上</td><td class="ng">なし</td><td>制限なし</td></tr></tbody></table>',
-    example:'<strong>事業用定期借地権の例：</strong>コンビニが土地を20年間借りてコンビニ店舗を建てるケース。住居ではなく事業用なので、<em>公正証書での契約が必須</em>。20年後には確実に土地が返ってくる（更新なし）ため、地主にとってメリットが大きい。',
-    reason:'<strong>趣旨：</strong>普通借地権は借地人（建物を建てた者）保護が強すぎて地主が土地を貸しにくくなる問題があった。定期借地権は「必ず返ってくる」ことを保証することで<strong>土地の有効活用・土地供給の促進</strong>を図る制度。公正証書要件は「後で言った言わない」のトラブルを防ぐため。'
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'1', title:'借地借家法とは',
+    keywords:['借地借家法','賃貸借','借地','借家'],
+    body:'借地借家法とは、土地や建物を借りる場合に適用される法律です。借地借家法では、民法の「賃貸借」について、賃借人（借主）が不利にならないよう修正を加えています。借地借家法は「借地」と「借家」に分かれます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>土地や建物の賃借人を保護するための法律です。</div>'
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'2', title:'借地借家法の適用範囲（借地）・地上権と賃借権',
+    keywords:['借地権','借地権者','借地権設定者','地上権','土地の賃借権'],
+    body:'借地権とは、建物の所有を目的とする地上権または土地の賃借権をいいます。借地権を設定された人を借地権者、借地権を設定した人（地主）を借地権設定者といいます。建物の所有を目的としない地上権や賃借権には借地借家法は適用されません（青空駐車場等）。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">ポイント</span>借地権とは</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb"><strong>建物の所有を目的</strong>としない地上権や賃借権には、借地借家法は適用されない（民法が適用される）</span></div></div></div>'
+      + '<div class="sd-roman"><span class="rn">図</span>地上権と賃借権の違い</div>'
+      + '<table class="diagram-table"><thead><tr><th>権利の性質</th><th>地上権</th><th>賃借権</th></tr></thead><tbody>'
+      + '<tr><td>物権／債権</td><td>物権</td><td>債権</td></tr>'
+      + '<tr><td>存続期間（上限）</td><td>永久も可</td><td>50年以内</td></tr>'
+      + '<tr><td>地代・賃料</td><td>無償も可</td><td>必ず有償</td></tr>'
+      + '<tr><td>譲渡・転貸</td><td>自由にできる</td><td>賃貸人の承諾が必要</td></tr>'
+      + '<tr><td>登記協力義務</td><td>あり</td><td>なし</td></tr>'
+      + '<tr><td>設定者の修繕義務</td><td>なし</td><td>あり</td></tr>'
+      + '<tr><td>妨害排除請求権</td><td>あり</td><td>なし（対抗要件を備えればあり）</td></tr>'
+      + '</tbody></table>'
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'3', title:'借地権の存続期間①：当初の存続期間・契約の更新',
+    keywords:['借地権の存続期間','契約の更新','合意更新','請求更新','法定更新','正当事由'],
+    body:'民法上の賃貸借の存続期間は最長50年でしたが、借地借家法における借地権の存続期間は<strong>最長30年</strong>とされています。契約でこれより短い期間を定めた場合も30年となります。契約で30年より長い期間を定めた場合には、契約で定めた期間が存続期間となります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>当初の存続期間</div>'
+      + '<div class="sd-row"><span class="sd-tag point">原則</span><div class="sd-rb">最長<strong>30年</strong>とされる（30年より短い期間を定めても30年になる）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">例外</span><div class="sd-rb">契約で<strong>30年より長い期間</strong>を定めた場合は、契約で定めた期間となる</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>契約の更新</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">借地契約の更新方法には、<strong>合意更新</strong>・<strong>請求更新</strong>・<strong>法定更新</strong>の3つがあります。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>合意更新</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">当事者で合意して更新（土地の上に建物がなくてもOK）。更新後の期間：<strong>最初の更新は20年以上</strong>、2回目以降の更新は<strong>10年以上</strong></div></div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>請求更新（土地の上に建物がある場合）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">借地権者が更新を請求したときは、建物がある限り、借地権設定者が<strong>正当事由</strong>をもって、遅滞なく異議を述べない限り、契約を更新したものとみなす</div></div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>法定更新（土地の上に建物がある場合）</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">存続期間が満了しても借地権者が土地の使用を継続したときも、借地権設定者が正当事由をもって、遅滞なく異議を述べない限り、借地契約は当然に更新されたものとみなす</div></div></div>',
+    qa:[
+      {cite:'H20-問13①', q:'Aが所有している甲土地を平置きの駐車場用地として利用しようとするBに貸す場合と、一時使用目的ではなく、建物所有目的で貸す場合とに関する次の記述について、AB間で60年と合意すればそのとおり有効である。', mark:'✕', a:'AB間で建物所有目的の借地契約を締結した場合は借地借家法が適用され、存続期間は<strong>30年が上限ではなく</strong>契約で30年より長い期間を定めればそれ以上でも有効。しかし駐車場用地（建物所有目的でない）は借地借家法の適用がなく民法が適用され、民法の存続期間の上限は50年となる。'},
+      {cite:'H25-問12②', q:'借地権の存続期間が満了した際に、借地権者の契約更新の請求に対し、借地権設定者が遅滞なく異議を述べた場合には、借地契約は当然に終了する。', mark:'✕', a:'借地権設定者が遅滞なく異議を述べただけでは足りず、その異議が「<strong>正当事由</strong>」をもって述べたものでなければ、借地契約は終了しない。'}
+    ]
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'4', title:'建物買取請求権',
+    keywords:['建物買取請求権','時価'],
+    body:'借地権の存続期間が満了する際に建物がある場合、借地権者は借地権設定者に対して、その建物を<strong>時価</strong>で買い取ることを請求できます。これを建物買取請求権といいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>借地権者としては、まだ使える建物を取り壊すよりも、地主に買い取ってもらう方が経済的です。</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">建物買取請求権は「借地権の存続期間が満了した場合」に認められます（借地権者が地代を支払わなかった等の<strong>債務不履行</strong>によって契約が解除された場合には、建物買取請求権は認められません）。したがって、契約が解除された場合は建物買取請求権を主張することはできません。'
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'5', title:'建物の滅失と再築',
+    keywords:['建物の滅失','再築','借地権設定者の承諾','延長'],
+    body:'借地権の存続期間が満了する前に建物が滅失してしまった場合、残存する存続期間を超えて存続すべき建物を再築するかどうかが問題になります。借地権設定者の承諾があるかどうか、いつ滅失したかによって扱いが異なります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>当初の存続期間中に滅失した場合</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>当初の存続期間中に滅失した場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">承諾がある場合</span><div class="sd-rb">残存期間を超えて存続すべき建物の再築の承諾があれば、借地権は<strong>延長する</strong>（承諾日 or 建物築造日のいずれか早い日から20年間存続）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">承諾がない場合</span><div class="sd-rb">再築してもいいが、借地権の存続期間は<strong>延長しない</strong></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>更新後に滅失した場合</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>更新後に滅失した場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">承諾がある場合</span><div class="sd-rb">再築すべき建物の承諾があれば、いずれか早い日から<strong>20年間存続</strong>する</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">承諾がない場合</span><div class="sd-rb"><span class="hl-red">再築は不可</span>。無断で再築した場合には借地権設定者は地上権の消滅請求または土地賃貸借の解約の申入れができる。ただし借地権設定者の承諾に代わる裁判所の許可があれば、再築できる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb">残存期間が20年より長い場合や、契約で20年より長い期間を定めた場合は、その期間となる</div></div>'
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'6', title:'借地権の対抗力',
+    keywords:['借地権の対抗力','建物の登記','表示の登記'],
+    body:'民法上、不動産の賃借権は第三者に対抗するためには<strong>登記</strong>が必要ですが、借地借家法では、借地権者が第三者に対して借地権を対抗するために、（借地権の登記がなくても）土地の上に借地権者が登記している建物を所有していれば、借地権を第三者に対抗することができるとしています。',
+    diagram:'<table class="diagram-table"><thead><tr><th>民法上は…</th><th>借地借家法では…</th></tr></thead><tbody>'
+      + '<tr><td>不動産の賃借権の対抗要件は<strong>登記が必要</strong></td><td>借地権の登記がなくても、<strong>土地の上に登記している建物を所有</strong>していれば対抗できる</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>賃借権の登記はあまり行われないため、借地借家法では「登記した建物を所有」を対抗要件としています。</div>'
+      + '<div class="sd-roman"><span class="rn">建物が滅失してしまったら？</span></div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">一定の内容を、見やすい場所に掲示すれば、滅失日から<strong>2年</strong>を経過するまで、借地権の対抗力を維持できます（「〇月×日に建物が滅失した」「ここに建物を新たに建てるよ」等）。</p>',
+    qa:[{cite:'H24-問11①', q:'建物の所有を目的とする土地の賃貸借契約において、借地権者が登記している建物を所有していれば、借地権の登記がなくても、借地権を第三者に対抗することができる。', mark:'○', a:'借地借家法では、借地権の登記がなくても、借地上に借地権者が登記している建物を所有していれば、借地権を第三者に対抗できる。'}]
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'7', title:'借地上の建物を譲渡等する場合',
+    keywords:['借地権の譲渡・転貸','承諾に代わる裁判所の許可','建物買取請求権','競売'],
+    body:'借地権者が借地上の建物を第三者に譲渡する場合、建物自体の譲渡には借地権設定者の承諾は不要ですが、借地権も一緒に譲渡することになるため、<strong>借地権の譲渡・転貸には借地権設定者の承諾が必要</strong>です。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>借地権設定者が承諾しない場合の建物買取請求</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>承諾しない場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">借地権設定者が承諾しないとき、借地権者は<strong>裁判所</strong>に承諾に代わる<strong>許可</strong>を申し立てることができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">借地上の建物を第三者に譲渡した場合で、その第三者が借地権設定者に承諾を求めても承諾しないとき、<strong>第三者</strong>は借地権設定者に対して建物を<strong>時価</strong>で買い取るべきことを請求できる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>第三者が競売により取得した場合の許可および建物買取請求</div>'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">第三者が借地上の建物を競売により取得した場合も、借地権設定者が承諾しないにもかかわらず、第三者は裁判所に申し立てることにより、承諾に代わる<strong>許可</strong>を受けることができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">第三者が競売で取得した建物について借地権設定者が譲渡の承諾も裁判所の許可も得られない場合には、第三者は借地権設定者に対して当該建物を<strong>時価</strong>で買い取るべきことを請求できる</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span></div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">第三者が土地賃借権の譲渡または転貸を取得したにもかかわらず、借地権設定者がこれを承諾しないとき、第三者は裁判所に対して、借地権設定者の承諾に代わる許可を受けることを申し立てることができる。</p>',
+    qa:[{cite:'H23-問11③', q:'借地権が賃借権である土地の上の建物を第三者に譲渡しようとする場合において、その第三者が賃借権を取得しても借地権設定者に不利となるおそれがないにもかかわらず、借地権設定者がその賃借権の譲渡を承諾しないときは、裁判所は、借地権者の申立てにより、借地権設定者の承諾に代わる許可を与えることができる。', mark:'○', a:'第三者が賃借権を取得しても借地権設定者に不利となるおそれがないにもかかわらず借地権設定者が承諾しないときは、借地権者の申立てにより、裁判所が承諾に代わる許可を与えることができる。'}]
+  },
+  {
+    tag:'民法等', sec:'13 借地借家法（借地）', no:'8', title:'定期借地権等',
+    keywords:['定期借地権','一般定期借地権','事業用定期借地権','建物譲渡特約付借地権','一時使用目的の借地権'],
+    body:'これまでは一般的な借地権（普通借地権）についてみてきましたが、特殊な借地権として<strong>定期借地権等</strong>があります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>（一般）定期借地権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">存続期間を<strong>50年以上</strong>とする借地権を設定する場合には、以下の特約を定めることができます。</p>'
+      + '<ul class="sum-list"><li>①契約の更新がないこと</li><li>②建物滅失時における建物の再築による存続期間の延長がないこと</li><li>③建物買取請求権がないこと</li></ul>'
+      + '<div class="sd-row"><span class="sd-tag point">要件</span><div class="sd-rb">上記の特約を定めるときは、<strong>書面</strong>（公正証書でなくてもよい、電磁的記録でもよい）で行う必要がある</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>事業用定期借地権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem"><strong>事業用定期借地権</strong>は、もっぱら事業の用に供する建物（居住の用に供するものを除く）の所有を目的とする借地権をいいます。存続期間により2種類に分かれます。</p>'
+      + '<table class="diagram-table"><thead><tr><th>存続期間</th><th>更新</th><th>建物買取請求権</th></tr></thead><tbody>'
+      + '<tr><td>10年以上30年未満</td><td class="ng">なし（①〜③の特約は不要）</td><td class="ng">なし</td></tr>'
+      + '<tr><td>30年以上50年未満</td><td class="warn">①〜③の特約を定めれば更新なし</td><td class="warn">特約次第</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag chui">要件</span><div class="sd-rb">事業用定期借地権の設定契約は、<strong>公正証書</strong>によって行わなければならない</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>建物譲渡特約付借地権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem"><strong>建物譲渡特約付借地権</strong>とは、借地権設定後<strong>30年以上</strong>経過した日に、借地上の建物を借地権設定者（地主）に相当の対価で譲渡する旨の特約を定めた、借地権を消滅させるための借地権をいいます。特約は書面でなくてもよい（口頭でも可）。</p>'
+      + '<div class="sd-roman"><span class="rn">Ⅳ</span>一時使用目的の借地権</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">一時使用のために借地権を設定したことが明らかな場合には、存続期間・更新・建物買取請求権・建物の滅失と再築等に関する規定は適用されません。</p>'
+      + '<div class="sd-roman"><span class="rn">まとめ</span>普通借地権と定期借地権</div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>普通借地権</th><th>一般定期借地権</th><th>事業用定期借地権</th><th>建物譲渡特約付借地権</th></tr></thead><tbody>'
+      + '<tr><td>契約の存続期間</td><td>30年以上</td><td>50年以上</td><td>10年以上50年未満</td><td>30年以上</td></tr>'
+      + '<tr><td>更新</td><td>最初20年以上・2回目以降10年以上</td><td>なし</td><td>なし</td><td>なし</td></tr>'
+      + '<tr><td>利用目的</td><td>制限なし</td><td>制限なし</td><td>事業用建物のみ（居住用は✕）</td><td>制限なし</td></tr>'
+      + '<tr><td>契約方法</td><td>制限なし</td><td>書面または電磁的記録</td><td class="warn">公正証書に限る</td><td>制限なし</td></tr>'
+      + '<tr><td>建物買取請求権</td><td>あり</td><td>なし</td><td>なし</td><td>建物の譲渡特約がある</td></tr>'
+      + '<tr><td>契約期間終了時</td><td>原則として更地で返す</td><td>原則として更地で返す</td><td>原則として更地で返す</td><td>建物付で返す</td></tr>'
+      + '</tbody></table>',
+    qa:[{cite:'H22-問11②', q:'存続期間を10年以上20年未満とする短期の事業用定期借地権の設定を目的とする契約は、公正証書によらなくとも、書面又は電磁的記録によって適法に締結することができる。', mark:'✕', a:'事業用定期借地権の設定は、存続期間の長短にかかわらず<strong>公正証書</strong>によって行わなければならない。'}]
   },
   {
     tag:'民法等', title:'建物賃貸借（借家権）',
