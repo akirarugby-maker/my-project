@@ -1638,6 +1638,10 @@
     <button class="sum-fbtn" onclick="showSummary('10',this)">抵当権</button>
     <button class="sum-fbtn" onclick="showSummary('11',this)">連帯債務・保証</button>
     <button class="sum-fbtn" onclick="showSummary('12',this)">賃貸借</button>
+    <button class="sum-fbtn" onclick="showSummary('13',this)">借地借家法（借地）</button>
+    <button class="sum-fbtn" onclick="showSummary('14',this)">借地借家法（借家）</button>
+    <button class="sum-fbtn" onclick="showSummary('15',this)">請負</button>
+    <button class="sum-fbtn" onclick="showSummary('16',this)">不法行為</button>
   </div>
 
   <!-- ===== SEC 01 ===== -->
@@ -1980,6 +1984,107 @@
       <li>返還時期は<b>賃貸物の明渡し後</b>（明渡しと敷金返還は同時履行の関係に<b>ない</b>）</li>
       <li>賃貸人が変わった場合：敷金債務は新賃貸人に<b>当然承継</b></li>
       <li>賃借人が変わった場合（賃借権の譲渡）：敷金は新賃借人に<b>承継されない</b></li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 13 借地借家法（借地） ===== -->
+  <div class="sum-block" data-sec="13">
+    <div class="sum-sec-head">SECTION 13　借地借家法（借地）</div>
+
+    <div class="sum-h">普通借地権と定期借地権の比較</div>
+    <table class="diagram-table"><thead><tr><th></th><th>普通借地権</th><th>一般定期借地権</th><th>事業用定期借地権</th><th>建物譲渡特約付借地権</th></tr></thead><tbody>
+      <tr><td>存続期間</td><td>30年以上</td><td>50年以上</td><td>10年以上50年未満</td><td>30年以上</td></tr>
+      <tr><td>更新</td><td>最初20年以上・以降10年以上</td><td class="ng">なし</td><td class="ng">なし</td><td class="ng">なし</td></tr>
+      <tr><td>利用目的</td><td>制限なし</td><td>制限なし</td><td class="warn">事業用建物のみ</td><td>制限なし</td></tr>
+      <tr><td>契約方式</td><td>制限なし</td><td>書面または電磁的記録</td><td class="warn">公正証書に限る</td><td>制限なし</td></tr>
+      <tr><td>建物買取請求権</td><td class="ok">あり</td><td class="ng">なし</td><td class="ng">なし</td><td>建物譲渡特約あり</td></tr>
+      <tr><td>期間終了時</td><td>更地で返す</td><td>更地で返す</td><td>更地で返す</td><td>建物付で返す</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>事業用定期借地権は<b>期間の長短を問わず必ず公正証書</b>。一般定期借地権は書面または電磁的記録でOK（公正証書不要）。</div>
+
+    <div class="sum-h">契約の更新3種と正当事由</div>
+    <ul class="sum-list">
+      <li><b>合意更新</b>：建物の有無を問わずできる</li>
+      <li><b>請求更新・法定更新</b>：土地上に<b>建物がある場合</b>のみ。借地権設定者が<b>正当事由</b>をもって遅滞なく異議を述べない限り更新される</li>
+    </ul>
+
+    <div class="sum-h">建物の滅失と再築 早見表</div>
+    <table class="diagram-table"><thead><tr><th></th><th>承諾あり</th><th>承諾なし</th></tr></thead><tbody>
+      <tr><td>当初の存続期間中に滅失</td><td class="ok">早い日から20年間延長</td><td class="ng">再築できるが延長なし</td></tr>
+      <tr><td>更新後に滅失</td><td class="ok">早い日から20年間延長</td><td class="ng">再築不可（裁判所の許可があれば可）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">対抗力のポイント</div>
+    <ul class="sum-list">
+      <li>借地権の登記がなくても、<b>登記した建物を所有</b>していれば対抗できる</li>
+      <li>建物が滅失しても、一定事項の掲示で<b>2年間</b>は対抗力を維持できる</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 14 借地借家法（借家） ===== -->
+  <div class="sum-block" data-sec="14">
+    <div class="sum-sec-head">SECTION 14　借地借家法（借家）</div>
+
+    <div class="sum-h">期間の定めの有無と解約 早見表</div>
+    <table class="diagram-table"><thead><tr><th></th><th>賃貸人からの解約</th><th>賃借人からの解約</th></tr></thead><tbody>
+      <tr><td>期間の定めなし</td><td class="warn">正当事由が必要（申入れから6ヵ月経過で終了）</td><td class="ok">不要（申入れから3ヵ月経過で終了）</td></tr>
+      <tr><td>期間の定めあり（更新拒絶）</td><td class="warn">正当事由が必要（1年前〜6ヵ月前に通知）</td><td>—</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">民法と借地借家法の対抗要件比較</div>
+    <table class="diagram-table"><thead><tr><th></th><th>民法上</th><th>借地借家法では</th></tr></thead><tbody>
+      <tr><td>賃借権の対抗要件</td><td class="warn">登記が必要</td><td class="ok">建物の<b>引渡し</b>でOK（登記不要）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">普通借家権 vs 定期建物賃貸借</div>
+    <table class="diagram-table"><thead><tr><th></th><th>普通借家権</th><th>定期建物賃貸借</th></tr></thead><tbody>
+      <tr><td>更新</td><td class="ok">あり（正当事由が必要）</td><td class="ng">なし</td></tr>
+      <tr><td>契約方式</td><td>制限なし</td><td class="warn">書面または電磁的記録＋事前説明必須</td></tr>
+      <tr><td>1年未満の期間</td><td class="warn">期間の定めなしとみなす</td><td class="ok">有効</td></tr>
+      <tr><td>中途解約（床面積200㎡未満の居住用）</td><td>—</td><td class="ok">やむを得ない事情があれば可</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>定期建物賃貸借は<b>契約前の書面での事前説明</b>がないと、普通借家契約になってしまう（重要）。</div>
+
+    <div class="sum-h">造作買取請求権・家賃増減額請求権</div>
+    <ul class="sum-list">
+      <li>造作買取請求権：賃貸人の同意を得て取り付けた造作を、契約終了時に<b>時価で買い取れ</b>と請求できる（特約で排除可）</li>
+      <li>家賃増減額請求権：一定期間「増額しない」特約は<b>有効</b>、「減額しない」特約は<b>無効</b>（賃借人保護のため）</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 15 請負 ===== -->
+  <div class="sum-block" data-sec="15">
+    <div class="sum-sec-head">SECTION 15　請負</div>
+    <div class="sum-h">請負人の担保責任と売買の担保責任は同じ構造</div>
+    <ul class="sum-list">
+      <li>①追完請求 ②報酬減額請求 ③損害賠償請求 ④契約の解除</li>
+      <li>注文者供与の材料・指図による不適合：原則追及不可（請負人が<b>不適当と知りながら告げなかった</b>ときは追及可）</li>
+      <li>担保責任の期間：不適合を知った時から<b>1年以内</b>に通知（請負人が悪意・重過失なら制限なし）</li>
+    </ul>
+    <div class="sum-mnemonic"><span class="ml">▼ 解除権</span>注文者は仕事の完成<b>前</b>ならいつでも損害賠償して解除できる。</div>
+  </div>
+
+  <!-- ===== SEC 16 不法行為 ===== -->
+  <div class="sum-block" data-sec="16">
+    <div class="sum-sec-head">SECTION 16　不法行為</div>
+
+    <div class="sum-h">消滅時効の期間（不法行為）</div>
+    <table class="diagram-table"><thead><tr><th></th><th>主観的起算点</th><th>客観的起算点</th></tr></thead><tbody>
+      <tr><td>通常の不法行為</td><td>知った時から<b>3年</b></td><td>不法行為の時から<b>20年</b></td></tr>
+      <tr><td>生命・身体の侵害</td><td>知った時から<b>5年</b></td><td>不法行為の時から<b>20年</b></td></tr>
+    </tbody></table>
+
+    <div class="sum-h">工作物責任 早見表</div>
+    <table class="diagram-table"><thead><tr><th>責任者</th><th>責任の性質</th></tr></thead><tbody>
+      <tr><td>①占有者（第1次）</td><td class="warn">必要な注意をしていれば<b>免責される</b></td></tr>
+      <tr><td>②所有者（第2次）</td><td class="ng"><b>無過失責任</b>（免責されない）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">使用者責任・共同不法行為・注文者の責任</div>
+    <ul class="sum-list">
+      <li><b>使用者責任</b>：「事業の執行につき」生じた損害のみ／被害者は使用者・被用者どちらにも請求可／使用者から被用者への求償は信義則上相当な範囲</li>
+      <li><b>共同不法行為</b>：各加害者が<b>連帯</b>して責任（被害者はどの加害者にも全額請求可）</li>
+      <li><b>注文者の責任</b>：原則<b>請負人のみ</b>が責任を負う（注文者の指図に過失があれば注文者も責任）</li>
     </ul>
   </div>
 </section>
@@ -3350,33 +3455,57 @@ const slides = [
     diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>また、請負人が仕事を完成させる前に、注文者が破産手続開始の決定を受けたときは、請負人または破産管財人は、契約を解除することができます。</div>'
   },
   {
-    tag:'民法等', title:'不法行為・使用者責任・土地工作物責任',
-    keywords:['使用者責任','土地工作物責任','不法行為'],
-    body:'故意または過失により他人に損害を与えた場合の損害賠償責任。<strong>使用者責任（715条）</strong>と<strong>土地工作物責任（717条）</strong>は宅建試験の頻出テーマ。',
-    points:[
-      '<strong>一般不法行為（709条）</strong>：①故意または過失 ②権利・利益の侵害 ③損害の発生 ④因果関係のすべてが必要',
-      '<strong>使用者責任（715条）</strong>：被用者が<em>事業の執行について</em>第三者に損害→使用者も連帯責任。使用者は被用者へ求償可',
-      '<strong>土地工作物責任（717条）</strong>：工作物の設置・保存の瑕疵による損害→まず<strong>占有者</strong>が責任（免責あり）、免責された場合は<strong>所有者が無過失でも</strong>責任を負う',
-      '<strong>消滅時効</strong>：損害・加害者を知った時から<em>3年</em>（生命・身体は<em>5年</em>）。不法行為時から<strong>20年</strong>',
-      '使用者責任の免責：使用者が相当の注意をしたこと、または注意をしても損害が生じたことを証明した場合'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>種類</th><th>一次責任者</th><th>二次責任者</th><th>免責</th></tr></thead><tbody><tr><td>使用者責任（715条）</td><td>被用者（不法行為者）</td><td>使用者（会社等）</td><td class="warn">相当の注意で免責あり</td></tr><tr><td>土地工作物責任（717条）</td><td>占有者</td><td>所有者（無過失でも）</td><td class="ng">所有者は免責なし</td></tr></tbody></table>',
-    example:'<strong>土地工作物責任の例：</strong>A所有・B占有（賃借中）の建物の外壁が崩落して通行人Cが怪我をした場合 → まずB（占有者）が責任。Bが「適切に管理していた」と証明できれば免責。この場合A（所有者）が無過失でも責任を負う。'
+    tag:'民法等', sec:'16 不法行為', no:'1', title:'不法行為とは',
+    keywords:['不法行為','消滅時効','中間利息の控除','過失相殺'],
+    body:'不法行為とは、故意または過失により、他人に損害を与える行為をいいます。一般の不法行為（一般不法行為）は、これによって生じた損害を賠償する責任を負います。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、事の運転中、信号を無視して通行人をはねてしまった、という場合、それによって他人（通行人）に損害を与えたといえるため不法行為となります。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>不法行為のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">履行遅滞の時期</span><div class="sd-rb">不法行為による損害賠償債務は、損害の発生時（<em>不法行為の時</em>）から履行遅滞となる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">損害賠償請求権の消滅時期</span><div class="sd-rb">不法行為による損害賠償請求権は、被害者またはその法定代理人が損害および加害者を知った時から<strong>以下の期間</strong>を経過すると時効によって消滅する<ul class="sd-list"><li><span class="sd-ln">1</span>権利を行使できることを知った時から<strong>3年</strong>（人の生命または身体を害する不法行為の場合は<strong>5年</strong>）</li><li><span class="sd-ln">2</span>不法行為の時から<strong>20年</strong></li></ul></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">中間利息の控除</span><div class="sd-rb">不法行為による損害賠償の金額を算定するにあたっては、その損害賠償額（逸失利益）が10年間で5,000万円と決まった場合、10年後の5,000万円を現在の価値に計算して控除される</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">過失相殺</span><div class="sd-rb">不法行為について、被害者にも過失があった場合は、裁判所は、被害者の過失を考慮して、損害賠償額を減額することが<strong>できる</strong>（歩行者にも過失があった、交通事故のとき等）</div></div>'
+      + '</div></div>',
+    qa:[{cite:'H19-問5④', q:'不法行為による損害賠償の請求権の消滅時効の期間は、被害者またはその法定代理人が損害および加害者を知った時から3年間行使しないときは、時効によって消滅することとなる。', mark:'✕', a:'人の生命または身体を害する不法行為による損害賠償請求権の場合は3年ではなく<strong>5年</strong>となる。それ以外の不法行為は3年で正しい。'}]
   },
   {
-    tag:'民法等', title:'不法行為の重要判例・共同不法行為',
-    keywords:['共同不法行為','使用者責任','求償権','過失相殺'],
-    body:'不法行為（民法709条）の応用論点。<strong>共同不法行為・使用者責任・過失相殺</strong>は実際の試験で判例知識を問われる最頻出トピック。',
-    points:[
-      '<strong>共同不法行為（719条）</strong>：数人が共同して不法行為→連帯して全額の損害賠償責任。被害者は誰に対しても全額請求可',
-      '<strong>使用者責任（715条）</strong>：被用者の不法行為→使用者も連帯責任。使用者は被用者に<strong>求償可</strong>（ただし信義則上相当な範囲のみ・判例）',
-      '<strong>過失相殺（722条）</strong>：被害者にも過失があれば損害額を減額できる。<em>裁量的</em>減額（必ず減額しなくてよい場合もある）',
-      '<strong>損害賠償の範囲（416条準用）</strong>：通常損害＋特別事情を予見可能だった場合の特別損害',
-      '<strong>名義貸しと使用者責任</strong>：名板貸人も使用者責任を負う場合がある（判例）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>類型</th><th>責任者</th><th>求償権</th><th>免責要件</th></tr></thead><tbody><tr><td>一般不法行為（709）</td><td>加害者本人</td><td>—</td><td>故意・過失なし</td></tr><tr><td>使用者責任（715）</td><td>使用者＋被用者</td><td class="ok">使用者→被用者へ可</td><td class="warn">選任・監督に注意を払った</td></tr><tr><td>共同不法行為（719）</td><td>加害者全員連帯</td><td class="ok">負担割合超過分を求償可</td><td class="ng">原則免責なし</td></tr></tbody></table>',
-    example:'<strong>使用者責任の例：</strong>A社の従業員Bが配達中に不注意でCの車に追突した。<br>→ <em>CはBのみならずA社（使用者）にも損害賠償請求可。A社が賠償した場合、Bへ求償可能だが信義則上相当範囲のみ（例：50%程度）とする判例がある。</em>',
-    reason:'<strong>趣旨：</strong>被用者は使用者の指示で活動し、損害賠償能力が低いことが多い。使用者は被用者の活動で利益を得ているため（報償責任の原理）、<strong>利益を得る者がリスクも負担する</strong>という公平の観点から使用者にも責任を課す。'
+    tag:'民法等', sec:'16 不法行為', no:'2', title:'使用者責任',
+    keywords:['使用者責任','事業執行性','求償'],
+    body:'使用者責任とは、ある事業のために他人を使用する者（使用者）は、被用者がその事業の執行につき第三者に加えた損害を賠償する責任を負う制度をいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、A社（使用者）に雇用されているBさん（被用者）が、事業の執行中、C（他人）に損害を与えた場合、Cに損害を与えた場合には、原則として、使用者A社は、被用者Bさんとともに損害賠償責任を負います（使用者責任）。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>使用者責任のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">成立要件</span><div class="sd-rb">使用者責任が成立するには、被用者の行為が使用者の<strong>事業の執行につき</strong>該当する必要がある<span class="sd-note">例：休日にマイカーで私用の買い物中に交通事故を起こしてケガをさせた、という場合は使用者責任は生じない／就業時間後、会社の車を運転していて、交通事故を起こした、というように、外見上、事業執行しているように見える場合には使用者責任が生じる</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">被害者からの請求</span><div class="sd-rb">被害者（C）は、使用者（A社）・被用者（B）のいずれにも、損害賠償を請求することが<strong>できる</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">求償</span><div class="sd-rb">損害賠償をした使用者（A社）は、被用者（B）に対して、<strong>信義則上相当と認められる範囲内</strong>において、求償することができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">逆求償</span><div class="sd-rb">使用者が被用者の選任および事業の監督について相当の注意をしたとき、または相当の注意をしても損害が生ずべきであったときは、使用者は被用者に損害賠償を請求することが<strong>できない</strong></div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>なお、被害者が使用者の事業の執行について第三者に損害を加え、その損害を賠償したときは、使用者は、話般の事情に照らし、損害の公平な分担という見地から相当と認められる額について、被用者に対して求償することができます（逆求償）。</div>',
+    qa:[{cite:'H18-問11①', q:'B（事業者Aに雇用されている従業員）の不法行為がA（事業者）の事業の執行につき行われたものであり、AB間で使用者責任が発生する場合、Bには不法行為にもとづく損害賠償責任を免れることはできない。私利、私用に見えるように、通行していて、Cさんにケガをさせた、という場合は使用者責任は発生しない。', mark:'✕', a:'使用者責任は「事業の執行について」不法行為が行われた場合に発生する。私用中に他人に損害を与えたに過ぎない場合には、原則として使用者責任は発生しない。'}]
+  },
+  {
+    tag:'民法等', sec:'16 不法行為', no:'3', title:'共同不法行為',
+    keywords:['共同不法行為','連帯'],
+    body:'共同不法行為とは、数人が共同で不法行為（共同不法行為）を行い、他人に損害を与えた場合、各自が<strong>連帯</strong>して損害賠償責任を負う制度をいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>つまり、共同不法行為責任を負う場合、被害者は、各加害者のいずれにも、損害賠償請求をすることができるのです。</div>'
+  },
+  {
+    tag:'民法等', sec:'16 不法行為', no:'4', title:'工作物責任',
+    keywords:['工作物責任','占有者','所有者','無過失責任','求償権'],
+    body:'土地の工作物（建物・塀など）の設置または保存に瑕疵があり、他人に損害を与えた場合、その工作物の<strong>占有者</strong>が損害賠償責任を負います（工作物責任）。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、A所有の建物をBが賃借していたとします。その建物の塀の一部が崩れて通行人Cにケガをさせた場合、その建物の占有者であるBは損害賠償責任を負います（工作物責任）。ただし、占有者Bが損害防止のために必要な注意をしていた場合には、所有者Aが損害賠償責任を負います。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>工作物責任のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①第1次的責任</span><div class="sd-rb">土地の工作物（壁、塀など）の設置・保存に瑕疵があり、他人に損害を与えたときは、工作物の<strong>占有者</strong>Bが損害賠償責任を負う。ただし、占有者が損害防止のために必要な注意をしていたなら、<em>免責される</em></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②第2次的責任</span><div class="sd-rb">占有者Bが損害防止に必要な注意をしていたときは、所有者Aが責任を負う。所有者は<strong>過失の有無にかかわらず</strong>責任を負う（＝<strong>無過失責任</strong>）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">占有者・所有者の求償権</span></div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">損害賠償をした占有者や所有者は、損害の原因について他に責任を負うべき者（＝工作物の施工者や前の占有者など）があるときは、その者に対して求償することができます。</p>'
+  },
+  {
+    tag:'民法等', sec:'16 不法行為', no:'5', title:'注文者の責任',
+    keywords:['注文者の責任','請負人','注文または指図の過失'],
+    body:'注文者が請負人に対して、仕事を依頼した場合で、請負人がその仕事について他人に損害を与えた場合には、<strong>請負人</strong>のみが損害賠償責任を負います。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>請負人が建設作業中に木材を落として通行人にケガをさせた、という場合には、請負人のみが責任を負い、注文者は責任を負いません。</div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">ただし、<strong>注文者の指示または注文に過失</strong>があった場合には、注文者も責任を負います</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>注文者が請負人に指示し、監督する権限を有しており、その者の指示または注文者に過失があるにもかかわらず、その指示を怠ったことにより通行人が損害を被ったときは、注文者も責任を負います。</div>'
   },
   {
     tag:'民法等', title:'相続の基本（法定相続分）',
