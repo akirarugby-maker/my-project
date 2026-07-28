@@ -3303,19 +3303,51 @@ const slides = [
       + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※借地借家法欄は、普通借地権、普通借家権について記載</div>'
   },
   {
-    tag:'民法等', title:'請負契約',
-    keywords:['請負','完成物','瑕疵担保','下請け'],
-    body:'<strong>請負</strong>は、仕事の完成を約束して報酬をもらう契約。建設工事・リフォーム・ソフトウェア開発などが代表例。完成と引渡しが報酬支払の原則。',
-    points:[
-      '<strong>請負の成立</strong>：仕事の完成（成果）が約束の対象。完成前は報酬請求不可（原則）',
-      '<strong>目的物の引渡し</strong>：引渡しが必要な仕事は引渡しと同時に報酬を請求できる',
-      '<strong>契約不適合責任</strong>：完成した仕事が契約内容と異なる場合→修補・代金減額・解除・損害賠償の4手段',
-      '<strong>注文者の解除権</strong>：仕事完成前ならいつでも解除可能。ただし請負人の損害は賠償する',
-      '請負人の<strong>先取特権</strong>：報酬に関して注文者の動産上に先取特権を持つ'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>請負</th><th>委任（参考）</th></tr></thead><tbody><tr><td>約束の対象</td><td class="warn">仕事の完成（結果）</td><td>事務の処理（過程）</td></tr><tr><td>報酬の発生</td><td class="warn">完成・引渡し時</td><td>委任事務の処理</td></tr><tr><td>完成義務</td><td class="ok">あり（結果責任）</td><td class="ng">なし（善管注意義務のみ）</td></tr></tbody></table>',
-    example:'<strong>請負の例：</strong>AがB建設会社に「自宅のリフォームを300万円で」と依頼。完成・引渡し後に「壁にひびが入っている」と判明した場合 → <em>AはBに修補を請求（追完請求）でき、修補が難しければ代金減額・損害賠償も可能。契約不適合を知った時から1年以内の通知が必要。</em>',
-    reason:'<strong>趣旨：</strong>完成物を期待して代金を払う注文者を保護しつつ、請負人の仕事の専門性も尊重する。完成物が契約どおりでない場合に救済手段を与えることで、<strong>取引の公正と品質確保</strong>を図る。注文者の途中解除権は、完成が不要になった場合に不必要な仕事の継続を強いるのは不合理だから。'
+    tag:'民法等', sec:'15 請負', no:'1', title:'請負とは',
+    keywords:['請負','報酬請求権','同時履行'],
+    body:'請負とは、請負人が仕事を完成させ、注文者がその仕事に対して報酬を与える契約をいいます。請負において、請負人は完成した目的物を引き渡す義務が、注文者は報酬の支払いをする義務が生じます。この「目的物の引渡し」と「報酬の支払い」は同時履行の関係にあります。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>同時履行とは「いっせーのせ！」で、同時にやりましょうということですね。ですから、請負人は、注文者が報酬を支払わなければ目的物の引渡しを拒むことができますし、注文者は請負人が目的物を引き渡さなければ報酬の支払いを拒むことができます。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>請負契約</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">請負人は<strong>仕事が完成していない場合</strong>には報酬を請求することが<span class="hl-red">できない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">以下の場合には報酬を請求することが<strong>できる</strong>（「土台までできた」とかいうとき＝<em>可分</em>）<ul class="sd-list"><li><span class="sd-ln">1</span>注文者の責めに帰することができない事由によって仕事を完成することができなくなったとき</li><li><span class="sd-ln">2</span>請負が仕事の完成前に解除されたとき</li></ul>この場合、請負人がすでにした仕事の結果のうち可分な部分の給付によって注文者が利益を受けるとき、その部分を仕事の完成とみなし、請負人は、注文者が受ける利益の割合に応じて報酬を請求することができる</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'15 請負', no:'2', title:'請負人の担保責任',
+    keywords:['請負人の担保責任','履行の追完請求','報酬減額請求','損害賠償請求','契約の解除'],
+    body:'目的物に契約不適合がある場合（種類・品質が契約の内容に適合しない仕事の目的物を注文者に引き渡した場合を含む）には、注文者は請負人に対して、次のことができます。これは、売買契約における売主の担保責任と同じ内容です。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>売主 → 請負人、買主 → 注文者、と読み替えて理解しましょう。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>目的物に契約不適合がある場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">履行の追完請求（修補請求を含む）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">報酬減額請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">損害賠償請求</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">契約の解除</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'15 請負', no:'3', title:'請負人の担保責任の制限',
+    keywords:['担保責任の制限','注文者が供した材料','担保責任の期間','通知'],
+    body:'当事者間で、請負人は担保責任を負わない旨の特約を結ぶことができます。ただし、請負人が担保責任を知りながら（また、担保責任を負わないとする事実を知りながら）告げなかった場合には、請負人は担保責任を免れることはできません。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>当事者間で「担保責任を負わないよ」という契約をしたとしても、欠陥があったら、注文者は文句をいえないというのはアタリマェな話ですね。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>注文者が供した材料または指図によって生じた不適合</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">原則</span></div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">請負人が種類または品質に関して契約の内容に適合しない仕事の目的物を注文者に引き渡した場合、その不適合が<strong>注文者が供した材料の性質</strong>または<strong>注文者の与えた指図</strong>によって生じた不適合を理由に、<span class="hl-red">請負人の担保責任を追及できない</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">請負人がその材料または指図が不適当であることを<strong>知りながら告げなかった</strong>ときは、請負人に担保責任を追及することが<strong>できる</strong></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">担保責任の期間</span></div>'
+      + '<table class="diagram-table"><thead><tr><th>ケース</th><th>期間</th></tr></thead><tbody>'
+      + '<tr><td>請負人が種類または品質に関して契約の内容に適合しない仕事の目的物を注文者に引き渡した場合</td><td>不適合を知った時から<strong>1年以内</strong>に請負人に通知しなければ、担保責任を追及することができない<span style="font-size:0.7rem;color:var(--muted)">（不適合の種類と大体の範囲の通知が必要）</span></td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">例外</span>この期間制限はない</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">☆ 請負人が不適合を知っていたときや、重大な過失によって知らなかったときは、この期間制限はない<br>☆ 引渡し時とは別に消滅時効による制限がある（仕事が終了した時から10年、または権利を行使できることを知った時から5年のいずれか早い方）<br>☆ 引渡しが不要な場合は、仕事が終了した時に契約の内容に適合しないときにこれらのルールが適用される</div></div>'
+      + '</div></div>',
+    qa:[{cite:'H18-問6④改', q:'請負契約の目的物たる建物の欠陥について、請負人Bが担保責任を負わない旨の特約をしていたとしても、注文者Aは当該特約の欠陥の存在を知りながら告げなかったことを知っていたとしても、注文者Aは請負人Bに対して責任を追及することができなくなる。', mark:'✕', a:'請負人が欠陥を知りながら告げなかったときは、担保責任を負わない旨の特約があっても、注文者は請負人に責任を追及できる。'}]
+  },
+  {
+    tag:'民法等', sec:'15 請負', no:'4', title:'注文者と請負人の解除権',
+    keywords:['注文者の解除権','破産手続開始の決定'],
+    body:'注文者が仕事を完成させる前であれば、注文者はいつでも損害賠償をして、請負人との契約を解除することができます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>また、請負人が仕事を完成させる前に、注文者が破産手続開始の決定を受けたときは、請負人または破産管財人は、契約を解除することができます。</div>'
   },
   {
     tag:'民法等', title:'不法行為・使用者責任・土地工作物責任',
