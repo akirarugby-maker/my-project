@@ -1629,6 +1629,15 @@
     <button class="sum-fbtn" onclick="showSummary('01',this)">制限行為能力者</button>
     <button class="sum-fbtn" onclick="showSummary('02',this)">意思表示</button>
     <button class="sum-fbtn" onclick="showSummary('03',this)">代理</button>
+    <button class="sum-fbtn" onclick="showSummary('04',this)">時効</button>
+    <button class="sum-fbtn" onclick="showSummary('05',this)">債務不履行・解除</button>
+    <button class="sum-fbtn" onclick="showSummary('06',this)">危険負担</button>
+    <button class="sum-fbtn" onclick="showSummary('07',this)">弁済・相殺・債権譲渡</button>
+    <button class="sum-fbtn" onclick="showSummary('08',this)">売買</button>
+    <button class="sum-fbtn" onclick="showSummary('09',this)">物権変動</button>
+    <button class="sum-fbtn" onclick="showSummary('10',this)">抵当権</button>
+    <button class="sum-fbtn" onclick="showSummary('11',this)">連帯債務・保証</button>
+    <button class="sum-fbtn" onclick="showSummary('12',this)">賃貸借</button>
   </div>
 
   <!-- ===== SEC 01 ===== -->
@@ -1753,6 +1762,224 @@
       <li>① 代理権授与の表示（<b>109条</b>）</li>
       <li>② 権限外の行為（<b>110条</b>）</li>
       <li>③ 代理権消滅後（<b>112条</b>）</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 04 時効 ===== -->
+  <div class="sum-block" data-sec="04">
+    <div class="sum-sec-head">SECTION 04　時効</div>
+
+    <div class="sum-h">取得時効・消滅時効の期間 早見表</div>
+    <table class="diagram-table"><thead><tr><th>種類</th><th>短い期間</th><th>長い期間</th></tr></thead><tbody>
+      <tr><td>取得時効（所有権）</td><td>善意無過失：<b>10年</b></td><td>それ以外：<b>20年</b></td></tr>
+      <tr><td>消滅時効（通常の債権）</td><td>知った時から<b>5年</b></td><td>行使できる時から<b>10年</b></td></tr>
+      <tr><td>不法行為の損害賠償請求権</td><td>知った時から<b>3年</b>（生命身体は<b>5年</b>）</td><td>不法行為の時から<b>20年</b></td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span><b>所有権は消滅時効にかからない！</b></div>
+
+    <div class="sum-h">完成猶予・更新の早見表</div>
+    <table class="diagram-table"><thead><tr><th>事由</th><th>効果</th></tr></thead><tbody>
+      <tr><td>裁判上の請求・強制執行等</td><td>完成猶予＋（確定すれば）更新</td></tr>
+      <tr><td>仮差押え・仮処分</td><td>完成猶予のみ（終了時から6ヵ月）</td></tr>
+      <tr><td>催告</td><td>完成猶予のみ（<b>6ヵ月</b>、再度の催告は効力なし）</td></tr>
+      <tr><td>協議を行う旨の合意（書面）</td><td>完成猶予のみ（最長<b>5年</b>まで）</td></tr>
+      <tr><td>承認</td><td>更新のみ（時効完成後の承認は援用不可）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">効力・援用・放棄</div>
+    <ul class="sum-list">
+      <li>時効の効力は<b>起算日にさかのぼる</b>（遡及効）</li>
+      <li>援用しないと時効の効果は生じない（援用権者：債務者・保証人・物上保証人・第三取得者等）</li>
+      <li>時効利益の<b>事前放棄は不可</b>（完成後の放棄は可）</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 05 債務不履行・解除 ===== -->
+  <div class="sum-block" data-sec="05">
+    <div class="sum-sec-head">SECTION 05　債務不履行、解除</div>
+
+    <div class="sum-h">損害賠償と解除の要件比較</div>
+    <table class="diagram-table"><thead><tr><th></th><th>債務者の帰責事由</th></tr></thead><tbody>
+      <tr><td>損害賠償請求</td><td class="warn">原則<b>必要</b></td></tr>
+      <tr><td>契約の解除</td><td class="ok"><b>不要</b>（債権者の帰責事由による不履行のときは解除不可）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">催告解除・無催告解除 早見表</div>
+    <table class="diagram-table"><thead><tr><th>ケース</th><th>解除方法</th></tr></thead><tbody>
+      <tr><td>不履行が軽微</td><td class="ng">催告しても解除不可</td></tr>
+      <tr><td>通常の履行遅滞</td><td>催告して相当期間経過後に解除</td></tr>
+      <tr><td>全部履行不能／履行拒絶の明確な意思表示／定期行為の徒過</td><td class="ok">無催告で直ちに全部解除</td></tr>
+      <tr><td>一部履行不能／一部履行拒絶</td><td class="ok">無催告で一部解除</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 金銭債務の特則</span>金銭債務に<b>履行不能はない</b>（常に履行遅滞）。帰責事由不要・損害の証明不要で賠償請求できる。</div>
+
+    <div class="sum-h">解除の効果</div>
+    <ul class="sum-list">
+      <li>各当事者は<b>原状回復義務</b>を負う（金銭は利息付き、物は使用利益も返還）</li>
+      <li>原状回復義務は<b>同時履行の関係</b></li>
+      <li>解除しても損害賠償請求は可能</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 06 危険負担 ===== -->
+  <div class="sum-block" data-sec="06">
+    <div class="sum-sec-head">SECTION 06　危険負担</div>
+    <div class="sum-h">滅失原因による結論の分岐</div>
+    <table class="diagram-table"><thead><tr><th>滅失の原因</th><th>買主の扱い</th></tr></thead><tbody>
+      <tr><td>売主に帰責事由あり</td><td class="warn">債務不履行による解除・損害賠償請求</td></tr>
+      <tr><td>双方に帰責事由なし（天災等）</td><td class="ng">買主は代金支払を<b>拒絶できる</b>（履行拒絶権）</td></tr>
+      <tr><td>買主に帰責事由あり</td><td class="ok">代金を支払う（売主は免れた利益を償還）</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ ポイント</span>代金支払<b>債務そのものを消滅</b>させるには契約の解除が必要（拒絶できるだけでは債務は残る）。</div>
+  </div>
+
+  <!-- ===== SEC 07 弁済・相殺・債権譲渡 ===== -->
+  <div class="sum-block" data-sec="07">
+    <div class="sum-sec-head">SECTION 07　弁済、相殺、債権譲渡</div>
+
+    <div class="sum-h">第三者弁済の可否 早見表</div>
+    <table class="diagram-table"><thead><tr><th></th><th>正当な利益のない第三者</th><th>正当な利益のある第三者</th></tr></thead><tbody>
+      <tr><td>債務者の意思に反する</td><td class="ng">✕（債権者が知らなければ可）</td><td class="ok">⭕</td></tr>
+      <tr><td>債権者の意思に反する</td><td class="ng">✕（委託を知っていれば可）</td><td class="ok">⭕</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">相殺できる場合（相殺適状）の4要件</div>
+    <ul class="sum-list">
+      <li>①双方が債権を有する ②双方が有効に成立 ③目的が同種 ④双方の弁済期到来（自働債権の弁済期到来でOK）</li>
+    </ul>
+    <div class="sum-mnemonic"><span class="ml">▼ 相殺できない場合</span>①相殺禁止の意思表示（悪意重過失の第三者には対抗可）②悪意の不法行為・生命身体侵害の損害賠償（<b>受働債権</b>のとき）③差押え禁止債権が受働債権 ④差押え<b>後</b>に取得した債権（自働債権）</div>
+
+    <div class="sum-h">債権譲渡の対抗要件 早見表</div>
+    <table class="diagram-table"><thead><tr><th>対抗する相手</th><th>必要な要件</th></tr></thead><tbody>
+      <tr><td>債務者</td><td>通知（口頭可）または承諾</td></tr>
+      <tr><td>債務者以外の第三者</td><td><b>確定日付</b>のある証書による通知または承諾</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 二重譲渡</span>両方に確定日付証書があるときは、<b>通知が到達した日時の先後</b>で決まる（確定日付の先後ではない！）</div>
+  </div>
+
+  <!-- ===== SEC 08 売買 ===== -->
+  <div class="sum-block" data-sec="08">
+    <div class="sum-sec-head">SECTION 08　売買</div>
+
+    <div class="sum-h">売主の担保責任等のまとめ</div>
+    <table class="diagram-table"><thead><tr><th>ケース</th><th>買主が追及できること</th><th>期間の制限</th></tr></thead><tbody>
+      <tr><td>種類・品質・数量の不適合、一部他人物、抵当権付き</td><td>追完請求・代金減額請求・損害賠償・解除</td><td>種類/品質は知った時から<b>1年以内</b>に通知（数量・権利は制限なし）</td></tr>
+      <tr><td>全部他人物売買</td><td>損害賠償・解除のみ</td><td>一般の債務不履行の問題（制限なし）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">追完請求・代金減額請求の違い</div>
+    <ul class="sum-list">
+      <li><b>追完請求</b>：不適合なら直ちに請求可</li>
+      <li><b>代金減額請求</b>：原則<b>催告</b>してから（履行不能等の5類型は無催告でOK）</li>
+      <li>いずれも<b>買主の帰責事由</b>によるものは請求不可</li>
+    </ul>
+
+    <div class="sum-h">手付解除 早見表</div>
+    <table class="diagram-table"><thead><tr><th></th><th>方法</th></tr></thead><tbody>
+      <tr><td>買主から解除</td><td>手付を<b>放棄</b></td></tr>
+      <tr><td>売主から解除</td><td>手付の<b>倍額を現実に提供</b></td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 重要</span><b>相手方が履行に着手した後</b>は手付解除できない（自分が着手していても、相手が未着手なら解除できる）。手付解除では損害賠償請求はできない。</div>
+  </div>
+
+  <!-- ===== SEC 09 物権変動 ===== -->
+  <div class="sum-block" data-sec="09">
+    <div class="sum-sec-head">SECTION 09　物権変動</div>
+
+    <div class="sum-h">時効・取消し・解除と登記の統一ルール</div>
+    <table class="diagram-table"><thead><tr><th></th><th>時効の完成</th><th>取消し</th><th>解除</th></tr></thead><tbody>
+      <tr><td>「前」に第三者が登場</td><td colspan="3" class="ok">時効取得者・取消権者・解除権者の勝ち</td></tr>
+      <tr><td>「後」に第三者が登場</td><td colspan="3" class="warn">先に登記した人が勝ち（対抗関係）</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 例外</span>詐欺の場合、第三者が<b>善意無過失</b>なら第三者の勝ち。<b>強迫</b>の場合は第三者が善意でも取消権者の勝ち（強迫は最強）。</div>
+
+    <div class="sum-h">登記なしで対抗できる相手（177条の第三者に当たらない）</div>
+    <ul class="sum-list">
+      <li>①詐欺・強迫で登記の申請を妨げた者 ②登記を申請する義務がある者 ③<b>背信的悪意者</b> ④無権利者 ⑤不法占有者</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 10 抵当権 ===== -->
+  <div class="sum-block" data-sec="10">
+    <div class="sum-sec-head">SECTION 10　抵当権</div>
+
+    <div class="sum-h">抵当権の性質 4つ</div>
+    <ul class="sum-list">
+      <li><b>付従性</b>：被担保債権があってこそ／消えれば抵当権も消える</li>
+      <li><b>随伴性</b>：債権が移転すれば抵当権も一緒に移転</li>
+      <li><b>不可分性</b>：債権全部消滅まで不動産全部に効力</li>
+      <li><b>物上代位性</b>：保険金等にも効力が及ぶ（ただし<b>差押え</b>が必要）</li>
+    </ul>
+
+    <div class="sum-h">法定地上権の成立要件（すべて必要）</div>
+    <ul class="sum-list">
+      <li>①抵当権設定当時に土地上に建物が存在 ②設定当時、土地建物が<b>同一所有者</b> ③土地建物の一方または双方に抵当権設定 ④実行により所有者が別々になる</li>
+    </ul>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>1番抵当権設定時に要件を満たさなければ、2番抵当権設定時に満たしても法定地上権は<b>成立しない</b>。</div>
+
+    <div class="sum-h">抵当不動産の第三取得者が抵当権を消滅させる方法</div>
+    <table class="diagram-table"><thead><tr><th>方法</th><th>ポイント</th></tr></thead><tbody>
+      <tr><td>弁済・代価弁済</td><td>抵当権者の請求に応じて代価を弁済</td></tr>
+      <tr><td>抵当権消滅請求</td><td>抵当権者が<b>承諾</b>すれば消滅。競売の差押え効力発生<b>前</b>に請求。抵当権者は<b>2ヵ月以内</b>に競売申立てしないと承諾したとみなす</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>債務者・保証人は第三取得者になっても抵当権消滅請求は<b>できない</b>。</div>
+
+    <div class="sum-h">賃借権との関係・明渡し猶予</div>
+    <ul class="sum-list">
+      <li>抵当権設定登記<b>前</b>の賃借権：対抗要件があれば対抗できる</li>
+      <li>設定登記<b>後</b>の賃借権：原則対抗不可（全抵当権者の同意＋登記があれば対抗可）</li>
+      <li>建物賃借人は買受人の買受けから<b>6ヵ月</b>は明渡し猶予</li>
+    </ul>
+  </div>
+
+  <!-- ===== SEC 11 連帯債務・保証・連帯債権 ===== -->
+  <div class="sum-block" data-sec="11">
+    <div class="sum-sec-head">SECTION 11　連帯債務、保証、連帯債権</div>
+
+    <div class="sum-h">連帯債務：相対効・絶対効 早見表</div>
+    <table class="diagram-table"><thead><tr><th>事由</th><th>効力</th></tr></thead><tbody>
+      <tr><td>相殺・更改・混同</td><td class="warn">絶対効（他の債務者にも効果）</td></tr>
+      <tr><td>請求</td><td>原則相対効（別段の合意で絶対効にできる）</td></tr>
+      <tr><td>それ以外（免除・時効の完成・承認等）</td><td class="ng">相対効（他の債務者に影響しない）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">連帯保証 vs 一般保証</div>
+    <table class="diagram-table"><thead><tr><th></th><th>一般保証</th><th>連帯保証</th></tr></thead><tbody>
+      <tr><td>催告の抗弁権</td><td class="ok">あり</td><td class="ng">なし</td></tr>
+      <tr><td>検索の抗弁権</td><td class="ok">あり</td><td class="ng">なし</td></tr>
+      <tr><td>分別の利益（共同保証時）</td><td class="ok">あり</td><td class="ng">なし</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">保証債務の性質3つ</div>
+    <ul class="sum-list">
+      <li><b>付従性</b>：主債務があってこそ成立／主債務者に生じた事由は保証人に及ぶが、逆は原則及ばない</li>
+      <li><b>随伴性</b>：主債務が移転すれば保証債務も移転</li>
+      <li><b>補充性</b>：催告・検索の抗弁権で担保</li>
+    </ul>
+    <div class="sum-mnemonic"><span class="ml">▼ 連帯債権との比較</span>連帯債務は原則<b>相対効</b>だが、連帯債権は原則<b>絶対効</b>（真逆！）。</div>
+  </div>
+
+  <!-- ===== SEC 12 賃貸借 ===== -->
+  <div class="sum-block" data-sec="12">
+    <div class="sum-sec-head">SECTION 12　賃貸借</div>
+
+    <div class="sum-h">必要費・有益費の違い</div>
+    <table class="diagram-table"><thead><tr><th></th><th>意味</th><th>請求時期</th></tr></thead><tbody>
+      <tr><td>必要費</td><td>現状維持のための支出</td><td class="ok"><b>直ちに</b>請求可</td></tr>
+      <tr><td>有益費</td><td>価値増加のための支出</td><td class="warn">賃貸借<b>終了時</b>（賃貸人が支出額 or 増価額を選択）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">賃貸借の解除と転貸借</div>
+    <table class="diagram-table"><thead><tr><th>解除の原因</th><th>転借人への対抗</th></tr></thead><tbody>
+      <tr><td>合意解除</td><td class="ng">対抗できない（転借人は保護される）</td></tr>
+      <tr><td>賃借人の債務不履行による解除</td><td class="ok">対抗できる（明渡し請求できる）</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">敷金のポイント</div>
+    <ul class="sum-list">
+      <li>返還時期は<b>賃貸物の明渡し後</b>（明渡しと敷金返還は同時履行の関係に<b>ない</b>）</li>
+      <li>賃貸人が変わった場合：敷金債務は新賃貸人に<b>当然承継</b></li>
+      <li>賃借人が変わった場合（賃借権の譲渡）：敷金は新賃借人に<b>承継されない</b></li>
     </ul>
   </div>
 </section>
