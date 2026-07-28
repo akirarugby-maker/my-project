@@ -3180,18 +3180,127 @@ const slides = [
     qa:[{cite:'H22-問11②', q:'存続期間を10年以上20年未満とする短期の事業用定期借地権の設定を目的とする契約は、公正証書によらなくとも、書面又は電磁的記録によって適法に締結することができる。', mark:'✕', a:'事業用定期借地権の設定は、存続期間の長短にかかわらず<strong>公正証書</strong>によって行わなければならない。'}]
   },
   {
-    tag:'民法等', title:'建物賃貸借（借家権）',
-    keywords:['定期建物賃貸借'],
-    body:'建物の賃貸借に関するルール。<strong>普通借家</strong>（貸主から解約しにくい）と<strong>定期借家</strong>（期間満了で終了）の違いが最重要。定期借家の手続きを正確に覚えよう。',
-    points:[
-      '<strong>普通借家</strong>：期間1年未満の定めは「期間の定めなし」とみなす',
-      '貸主からの更新拒絶：正当事由が必要＋<strong>6か月前</strong>通知',
-      '<strong>定期建物賃貸借</strong>：更新なし。<em>書面</em>（公正証書でなくてもよい）で事前説明が必要',
-      '1年以上の定期借家：期間満了の<strong>1年前〜6か月前</strong>に貸主から終了通知が必要',
-      '<strong>居住用で床面積200㎡未満</strong>の定期借家：やむを得ない事情があれば借家人から中途解約可'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>普通借家</th><th>定期借家</th></tr></thead><tbody><tr><td>更新</td><td class="ok">あり（正当事由必要）</td><td class="ng">なし（再契約制度あり）</td></tr><tr><td>契約方式</td><td>制限なし</td><td class="warn">書面＋事前説明必須</td></tr><tr><td>1年未満の定め</td><td class="warn">期間の定めなしとみなす</td><td class="ok">有効</td></tr></tbody></table>',
-    example:'<strong>定期借家の注意点：</strong>貸主が「1年後には必ず返してほしい」と思うなら定期借家契約にすべき。普通借家だと正当事由がないと解約できない。<br>→ <em>定期借家は契約前に「この契約は更新がない」と書面で説明しなければならない。口頭だけでは定期借家の効力がなく普通借家になってしまう（重要！）。</em>'
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'1', title:'借地借家法（借家）の適用範囲',
+    keywords:['借家権','建物賃貸借','一時使用'],
+    body:'建物の賃貸借に関しては、借地借家法が適用されます。ただし、一時使用のために建物を賃貸したことが明らかな場合には、借地借家法は適用されません。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>ちなみに、建物の賃借権を借家権といいます。</div>'
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'2', title:'借家契約の存続期間',
+    keywords:['借家契約の存続期間','期間の定めのない賃貸借'],
+    body:'民法上の賃貸借の存続期間は最長50年でしたが、借地借家法における借家契約の存続期間には最長期間の制限がありません。なお、期間を1年未満とする建物の賃貸借は、期間の定めのない賃貸借とみなされます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>ちなみに、建物の賃借権を借家権といいます。</div>'
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'3', title:'契約の更新と解約①：期間の定めがある場合',
+    keywords:['契約の更新と解約','法定更新','正当事由'],
+    body:'期間の定めがある場合、期間満了の<strong>1年前から6ヵ月前</strong>までの間に、相手方に対し、「更新をしない」旨の通知をしなかったときは、従前の契約と同一の条件（ただし、期間については定めがないものとなる）で契約を更新したものとみなされます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>期間の定めがある場合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">期間満了の<strong>1年前から6ヵ月前</strong>までの間に、賃貸人から賃借人に対して「更新をしない」旨の通知をしなかったときは、法定更新される<span class="sd-note">賃借人からの通知は不要</span></div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">①の通知があった場合でも、期間が満了したあとに賃借人がその建物の使用を継続しているときは、賃貸人が遅滞なく異議を述べないと、更新されたものとみなされる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">要件</span><div class="sd-rb">賃貸人からの通知・異議には<strong>正当事由</strong>が必要（賃借人からの解約申入れには不要）</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>民法では「解約の申入れ」から3ヵ月／6ヵ月経過後に賃貸借が終了しますが、借地借家法では、賃貸人を保護するため、「6ヵ月」に伸ばしています。</div>'
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'4', title:'契約の更新と解約②：期間の定めがない場合・正当事由',
+    keywords:['解約の申入れ','正当事由の判断'],
+    body:'期間の定めがない場合、賃貸人から解約の申入れをする場合には、正当事由が必要で、解約の申入れの日から<strong>6ヵ月</strong>経過後に賃貸借が終了します。一方、賃借人から解約の申入れをする場合には、正当事由は不要で、解約の申入れの日から<strong>3ヵ月</strong>経過後に賃貸借が終了します。',
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>賃貸人からの解約申入れ</th><th>賃借人からの解約申入れ</th></tr></thead><tbody>'
+      + '<tr><td>正当事由</td><td class="warn">必要</td><td class="ok">不要</td></tr>'
+      + '<tr><td>終了日</td><td>申入れから<strong>6ヵ月</strong>経過後</td><td>申入れから<strong>3ヵ月</strong>経過後</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>正当事由の判断</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">賃貸人からの解約の申入れで必要な「正当事由」は、以下の内容を総合的に考慮して判断されます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">正当事由の判断</span></div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">賃貸人および賃借人（転借人を含む）が建物の使用を必要とする事情</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">建物の賃貸借に関する従前の経過</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">建物の利用状況、建物の現況</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">建物の賃貸人が明渡しと引換えに財産上の給付（立退料の給付）の申出をした場合の、その申出</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>上記の内容を総合的に考慮して「正当事由」があるかないかが判断されます。したがって、たとえば、賃貸人から高額な立退料の申出があった場合でも、それだけでは、「正当事由があるとただちに判断されるものではありません。</div>'
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'5', title:'造作買取請求権',
+    keywords:['造作買取請求権','造作'],
+    body:'借地借家法では、賃貸人の同意を得て取り付けた造作（畳や建具など）がある場合、賃借人は契約が終了する時に、賃貸人に対して、造作を時価で買い取ることを請求できます。ただし、賃借人の債務不履行によって契約が解除された場合には、造作買取請求権は認められません。なお、造作買取請求権を認めない旨の特約は有効に定めることができます。',
+    diagram:''
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'6', title:'建物賃借権（借家権）の対抗力',
+    keywords:['建物賃借権の対抗力','建物の引渡し'],
+    body:'民法上、建物賃借権の登記が第三者に対抗するためには登記が必要ですが、借地借家法では、建物賃借権の登記がない場合でも、<strong>建物の引渡し</strong>があれば、建物賃借権を第三者に対抗することができるとしています。',
+    diagram:'<table class="diagram-table"><thead><tr><th>民法上は…</th><th>借地借家法では…</th></tr></thead><tbody>'
+      + '<tr><td>建物賃借権の登記が必要</td><td>登記がなくても、<strong>建物の引渡し</strong>があれば対抗できる</td></tr>'
+      + '</tbody></table>',
+    qa:[{cite:'H22-問12①', q:'Aは、B所有の甲建物につき、居住を目的として、期間2年、賃料月額10万円と定めた賃貸借契約をBと締結した。本契約期間中にBが甲建物をCに売却した場合、Aは甲建物に賃借権の登記をしていなくても、建物の引渡しを受けていれば、甲建物の賃借権があることをCに対して主張することができる。', mark:'○', a:'借地借家法では、建物の引渡しがあれば、賃借権の登記がなくても第三者に対抗することができる。'}]
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'7', title:'家賃の増減額請求権',
+    keywords:['家賃の増減額請求権','増額請求','減額請求'],
+    body:'建物の家賃（借賃）が、近隣の建物の家賃と比較して不相当となった場合等は、当事者（賃貸人、賃借人のいずれも）は、将来に向かって家賃の増減額を請求することができます。ただし、一定の期間、家賃を増額しない旨の特約がある場合には、その期間内については増額請求はできません（減額しない旨の特約は無効です。賃借人に不利となるため）。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>増額・減額について協議が調わないとき</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">増額について協議が調わないとき</span><div class="sd-rb">①賃借人は、増額の裁判が確定するまで、自己が相当と認める家賃を支払えばよい ②増額請求が確定した場合に不足があれば、不足額に年<strong>1割</strong>の支払期後利息を付して支払う</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">減額について協議が調わないとき</span><div class="sd-rb">①賃貸人は、減額の裁判が確定するまで、自己が相当と認める家賃の支払いを請求できる ②減額請求が確定した場合、受取済みの金額に超過があれば、超過額に年<strong>1割</strong>の利息を付して返還する</div></div>'
+      + '</div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>「一定の期間、家賃を減額しない」旨の特約は無効です（賃借人に不利となるため）。ただし、この期間内については増額請求をすることができない、という特約は有効です。</div>',
+    qa:[{cite:'H16-問14④', q:'貸主Aおよび借主Bの建物賃貸借契約において、賃料減額請求権を行使しないことを行使したが、AB間に協議が調わないため、Bが賃料増額請求額を支払わなければならないとき、Aが増額請求の裁判の確定するまで、Bは、増額を正当と認める家賃を支払えばよい。', mark:'○', a:'家賃増額請求について協議が調わない場合、増額の裁判が確定するまでは、賃借人（B）は自己が相当と認める家賃を支払えばよい。'}]
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'8', title:'建物賃借権の譲渡・借家の転貸',
+    keywords:['建物賃借権の譲渡','借家の転貸','債務不履行による解除','合意による解除'],
+    body:'建物の賃借人が建物賃借権を譲渡したり、借家の転貸をしたりする場合には、賃貸人の承諾が必要です（民法の規定どおり）。賃貸人の承諾なく、建物賃借権の譲渡等が行われた場合には、賃貸人は賃貸借契約を解除することができます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>期間の定めのある賃貸借が終了したときの転貸</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">建物が転貸されている場合、賃貸人と賃借人（転貸人）で建物賃貸借契約が終了したときの転借人との関係は、終了事由によって異なります。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">1</span>期間の満了または解約申入れによる終了</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">賃貸人が転借人にその旨を通知しなければ、その終了を転借人に対抗できません。通知をした場合、通知がされた日から<strong>6ヵ月</strong>経過後に転貸借が終了します</div></div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">2</span>債務不履行による解除</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">賃貸借が、賃借人（B）の債務不履行（賃料を支払わなかった等）により解除された場合、原則として、賃貸人は転借人（C）に対して建物の明渡しを請求した時に転貸借は終了します（賃貸人は転借人に対して通知等をする必要はありません）</div></div></div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">3</span>合意による解除</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-rb">賃貸人（A）、賃借人（B）の合意によって解除された場合でも、原則として、賃貸人（A）は転借人（C）に対抗しません（賃貸人（A）は転借人（C）に「出て行け！」といえません）</div></div></div>'
+      + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>基本的に、賃貸人（A）は転借人（C）に「出て行け！」とはいえません。</div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>借地上の建物の賃借人の保護</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">借地権の存続期間が満了することを知らなかった場合、借地上の建物の賃借人にとって酷です。そこで、借地借家法では以下の規定を設けて保護しています。</p>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">借地権の存続期間が満了する<strong>1年前</strong>までに、その借地権者から建物を賃借している者が、その1年前までにそのことを知らなかったときは、建物の賃借人の請求により、裁判所は、建物の賃貸借がその借地権の存続期間内において土地の明渡しにつき相当の期限を許与することができる。</p>',
+    qa:[{cite:'H25-問11②', q:'Aは、A所有の甲建物につき、Bとの間で賃貸借契約を締結し、Bの承諾を得て甲建物をCに転貸した。この場合において、Bの債務不履行を理由にAが賃貸借契約を解除した場合、AがCに対して当該建物の明渡しを請求したときには、AはCに対して転貸借の終了を主張することができる。', mark:'○', a:'賃借人の債務不履行によって賃貸借契約が解除された場合、賃貸人が転借人に対して建物の明渡しを請求した時に転貸借は終了する。'}]
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'9', title:'定期建物賃貸借（定期借家権）等',
+    keywords:['定期建物賃貸借','定期借家権','取壊し予定建物の賃貸借'],
+    body:'これまでは一般的な借家権（普通借家権）についてみてきましたが、特殊な借家権として<strong>定期建物賃貸借（定期借家権）</strong>があります。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅰ</span>定期建物賃貸借（定期借家権）</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">期間の定めがある建物の賃貸借をする場合、<strong>公正証書</strong>などの<strong>書面</strong>または<strong>電磁的記録</strong>によって契約をすることで、契約の更新がないこととする（定期建物賃貸借）ことができます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>定期建物賃貸借（定期借家権）のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">公正証書などの<strong>書面</strong>または契約の内容を記録した<strong>電磁的記録</strong>によって契約をすることが必要</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">建物の賃貸人は、定期建物賃貸借の契約締結前に、賃借人に対して、「契約の更新がなく、期間満了で終了する」旨を<strong>書面</strong>を交付して<strong>説明</strong>しなければならない（書面の交付に代えて、賃借人の承諾を得て、書面に記載すべき事項を電磁的方法により提供することができる）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">期間が<strong>1年以上</strong>の場合、賃貸人が、期間満了の<strong>1年前から6ヵ月前</strong>までの間に賃借人に対して期間満了により賃貸借の終了の<strong>通知</strong>をしなければならない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">床面積が<strong>200㎡未満</strong>の居住用建物においては、転勤等やむを得ない事情により、賃借人が建物を自己の生活の本拠として使用することが困難となった場合には、賃借人は<strong>解約の申入れ</strong>をすることができる（この場合、解約の申入れの日から<strong>1ヵ月経過後</strong>に賃貸借が終了する）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">⑤</span><div class="sd-rb">家賃の改定に関する<strong>特約がある場合</strong>には、家賃の増減額請求に関する規定は<strong>適用されない</strong>（「家賃の増減額請求ができない」という特約をつければ、家賃の増減額請求ができなくなる、ということ）</div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅱ</span>取壊し予定建物の賃貸借</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">法令や契約によって、一定の期間を経過した後に建物を取り壊すことが明らかな場合には、建物の取壊し時に賃貸借が終了する旨の特約を定めることができます。</p>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0">この特約は、建物を取り壊すべき事由を記載した<strong>書面</strong>によって行う必要があります。なお、この特約は、書面の内容および特約の内容および取壊しをすべき事由を記載した<strong>電磁的記録</strong>によって行うこともできます。</p>',
+    qa:[{cite:'H20-問14②改', q:'公正証書によって定期建物賃貸借契約を締結するときは、賃貸人は、賃借人に対し、賃借人の承諾がなく、期間の満了により賃貸借は終了することについて、あらかじめ、その旨を記載した書面を交付して説明しなければならない。また、この説明については、賃借人の承諾を得て、その書面に記載すべき事項を電磁的方法により提供することもできる。', mark:'✕', a:'公正証書によって契約を締結するか否かにかかわらず、定期建物賃貸借契約を締結するときは、賃貸人は賃借人に対し、あらかじめ「契約の更新がなく、期間の満了により賃貸借は終了する」旨を記載した書面を交付して説明しなければならない。'}]
+  },
+  {
+    tag:'民法等', sec:'14 借地借家法（借家）', no:'10', title:'民法と借地借家法の比較（まとめ）',
+    keywords:['民法と借地借家法の比較','存続期間','更新','対抗要件'],
+    body:'民法の賃貸借と、借地借家法（借地）、借地借家法（借家）の規定を比較すると、次のようになります。試験直前の総復習に使いましょう。',
+    diagram:'<div class="sd-roman"><span class="rn">存続期間</span></div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>民法の賃貸借</th><th>借地借家法（借地）</th><th>借地借家法（借家）</th></tr></thead><tbody>'
+      + '<tr><td>期間の定めがある場合</td><td>最長50年</td><td>【当初の存続期間】30年以上<br>【最初の更新】20年以上<br>【2回目以降の更新】10年以上</td><td>制限なし<br>（1年未満は期間の定めなしとみなす）</td></tr>'
+      + '<tr><td>期間の定めがない場合</td><td>解約申入れから、土地は1年、建物は3ヵ月経過後に終了</td><td>（借地権は期間の定めのない借地権はない）</td><td>【賃貸人から解約申入れ】正当事由必要・6ヵ月経過後に終了<br>【賃借人から解約申入れ】正当事由不要・3ヵ月経過後に終了</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">更新</span></div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>民法の賃貸借</th><th>借地借家法（借地）</th><th>借地借家法（借家）</th></tr></thead><tbody>'
+      + '<tr><td>更新方法</td><td>①当事者の合意 ②期間満了後、賃貸人が賃借人の使用継続を知りながら異議を述べなかった場合、同一の条件で更新されたものと推定される</td><td>①合意更新 ②請求更新（借地権者が更新を請求し、建物がある場合は借地権設定者が正当事由をもって遅滞なく異議を述べないと更新） ③法定更新（存続期間満了後も土地の使用を継続し、借地権設定者が正当事由をもって遅滞なく異議を述べないと更新）</td><td>法定更新（期間の定めがある場合、【★の通知がない場合】更新したものとみなす／【★の通知があった場合でも】賃貸人が異議を述べないと更新したものとみなす）</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-roman"><span class="rn">対抗要件・その他</span></div>'
+      + '<table class="diagram-table"><thead><tr><th></th><th>民法の賃貸借</th><th>借地借家法（借地）</th><th>借地借家法（借家）</th></tr></thead><tbody>'
+      + '<tr><td>対抗要件</td><td>賃借権の登記</td><td>賃借権の登記または借地上の建物の登記</td><td>賃借権の登記または建物の引渡し</td></tr>'
+      + '<tr><td>その他</td><td>①必要費・有益費</td><td>①同左 ②一定の場合には建物買取請求権が認められる</td><td>①同左 ②一定の場合には造作買取請求権が認められる</td></tr>'
+      + '</tbody></table>'
+      + '<div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">※借地借家法欄は、普通借地権、普通借家権について記載</div>'
   },
   {
     tag:'民法等', title:'請負契約',
