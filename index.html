@@ -1642,6 +1642,7 @@
     <button class="sum-fbtn" onclick="showSummary('14',this)">借地借家法（借家）</button>
     <button class="sum-fbtn" onclick="showSummary('15',this)">請負</button>
     <button class="sum-fbtn" onclick="showSummary('16',this)">不法行為</button>
+    <button class="sum-fbtn" onclick="showSummary('17',this)">相続</button>
   </div>
 
   <!-- ===== SEC 01 ===== -->
@@ -2086,6 +2087,50 @@
       <li><b>共同不法行為</b>：各加害者が<b>連帯</b>して責任（被害者はどの加害者にも全額請求可）</li>
       <li><b>注文者の責任</b>：原則<b>請負人のみ</b>が責任を負う（注文者の指図に過失があれば注文者も責任）</li>
     </ul>
+  </div>
+
+  <!-- ===== SEC 17 相続 ===== -->
+  <div class="sum-block" data-sec="17">
+    <div class="sum-sec-head">SECTION 17　相続</div>
+
+    <div class="sum-h">法定相続分 早見表</div>
+    <table class="diagram-table"><thead><tr><th>相続人の組み合わせ</th><th>配偶者</th><th>血族相続人</th></tr></thead><tbody>
+      <tr><td>配偶者のみ</td><td class="ok">すべて</td><td>—</td></tr>
+      <tr><td>配偶者＋子</td><td>1/2</td><td>1/2（人数で分割）</td></tr>
+      <tr><td>配偶者＋直系尊属</td><td>2/3</td><td>1/3（人数で分割）</td></tr>
+      <tr><td>配偶者＋兄弟姉妹</td><td>3/4</td><td>1/4（人数で分割、半血は全血の1/2）</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 語呂</span>配偶者の取り分は「子→<b>1/2</b>」「直系尊属→<b>2/3</b>」「兄弟姉妹→<b>3/4</b>」と、遠い血族になるほど配偶者の取り分が増える。</div>
+
+    <div class="sum-h">代襲相続 早見表</div>
+    <table class="diagram-table"><thead><tr><th>血族の種類</th><th>代襲</th><th>再代襲</th></tr></thead><tbody>
+      <tr><td>子（直系卑属）</td><td class="ok">あり</td><td class="ok">あり（曾孫も可）</td></tr>
+      <tr><td>兄弟姉妹</td><td class="ok">あり（甥・姪まで）</td><td class="ng">なし</td></tr>
+      <tr><td>直系尊属</td><td colspan="2">代襲という考え方がない</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span>相続<b>放棄</b>には代襲相続は生じない（欠格・廃除とは異なる）。</div>
+
+    <div class="sum-h">相続の承認・放棄 早見表</div>
+    <table class="diagram-table"><thead><tr><th>方式</th><th>期間</th><th>単独／全員</th></tr></thead><tbody>
+      <tr><td>単純承認</td><td>3ヵ月以内に他を選択しなければみなされる</td><td>—</td></tr>
+      <tr><td>限定承認</td><td>3ヵ月以内に家裁へ申述</td><td class="warn">相続人<b>全員</b>で行う</td></tr>
+      <tr><td>相続放棄</td><td>3ヵ月以内に家裁へ申述</td><td class="ok"><b>単独</b>でできる</td></tr>
+    </tbody></table>
+
+    <div class="sum-h">遺言3種の比較</div>
+    <table class="diagram-table"><thead><tr><th></th><th>自筆証書</th><th>公正証書</th><th>秘密証書</th></tr></thead><tbody>
+      <tr><td>自書</td><td>必須（財産目録は自書不要）</td><td class="ng">不要</td><td class="ng">不要</td></tr>
+      <tr><td>証人</td><td class="ng">不要</td><td class="ok">2人以上</td><td class="ok">2人以上</td></tr>
+      <tr><td>検認</td><td class="warn">必要（法務局保管なら不要）</td><td class="ng">不要</td><td class="warn">必要</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ ポイント</span>遺言は満<b>15歳</b>以上・意思能力があれば誰でもできる（行為能力は不要）。</div>
+
+    <div class="sum-h">遺留分 早見表</div>
+    <table class="diagram-table"><thead><tr><th>相続人の組み合わせ</th><th>遺留分割合</th></tr></thead><tbody>
+      <tr><td>直系尊属のみ</td><td class="warn">1/3</td></tr>
+      <tr><td>それ以外（配偶者・子を含む）</td><td>1/2</td></tr>
+    </tbody></table>
+    <div class="sum-mnemonic"><span class="ml">▼ 注意</span><b>兄弟姉妹には遺留分がない！</b> 遺留分侵害額請求の期間は「知った時から<b>1年</b>」または「相続開始から<b>10年</b>」。遺留分は相続開始<b>前</b>でも家裁の許可を得れば放棄できる（相続放棄は事前放棄不可なのと対照的）。</div>
   </div>
 </section>
 
@@ -3508,33 +3553,108 @@ const slides = [
       + '<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>注文者が請負人に指示し、監督する権限を有しており、その者の指示または注文者に過失があるにもかかわらず、その指示を怠ったことにより通行人が損害を被ったときは、注文者も責任を負います。</div>'
   },
   {
-    tag:'民法等', title:'相続の基本（法定相続分）',
-    keywords:['代襲相続','相続放棄'],
-    body:'被相続人が死亡すると相続が開始し、財産と負債を一括で引き継ぐ。<strong>法定相続分の数字</strong>（1/2・1/3・1/4）は試験に必ず出る。表で整理しよう。',
-    points:[
-      '第1順位：子（なければ孫→ひ孫）＋配偶者 → 各<strong>1/2</strong>',
-      '第2順位：直系尊属（親・祖父母）＋配偶者 → 配偶者<strong>2/3</strong>・尊属<strong>1/3</strong>',
-      '第3順位：兄弟姉妹＋配偶者 → 配偶者<strong>3/4</strong>・兄弟姉妹<strong>1/4</strong>',
-      '<strong>代襲相続</strong>：子が先死・欠格・廃除の場合→その子（孫）が代襲。放棄は代襲不可',
-      '<strong>相続放棄</strong>：相続開始を知った時から<strong>3か月</strong>以内に家裁へ申述'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th>相続人の組合せ</th><th>配偶者の取り分</th><th>その他の取り分</th></tr></thead><tbody><tr><td>配偶者＋子</td><td class="warn">1/2</td><td class="warn">1/2（子で均等割）</td></tr><tr><td>配偶者＋直系尊属</td><td class="warn">2/3</td><td class="warn">1/3</td></tr><tr><td>配偶者＋兄弟姉妹</td><td class="warn">3/4</td><td class="warn">1/4</td></tr></tbody></table>',
-    example:'<strong>法定相続分の例：</strong>Aが遺言なしで死亡。遺産は3000万円。相続人は配偶者B・子C・子D（Cは先死しており孫Eがいる）の場合。<br>→ <em>B（配偶者）が1500万円。C・Dで残り1500万円を均等割→各750万円のはずだが、Cは死亡のため孫Eが代襲相続で750万円取得。</em>',
-    reason:'<strong>趣旨：</strong>被相続人の財産は家族全員で協力して形成されたものという観点から、配偶者・子等の近い血族に優先的に分配する。<strong>遺族の生活保障と財産分散の防止</strong>（家業や資産の継承）が目的。法定相続分は「遺言がない場合のデフォルトルール」であり、当事者の意思で変更可能。'
+    tag:'民法等', sec:'17 相続', no:'1', title:'相続とは・相続人',
+    keywords:['相続','被相続人','法定相続人','相続人の範囲と順位'],
+    body:'相続とは、死亡した人（被相続人）の財産（資産および負債）を、残された人（相続人）が承継することをいいます。民法では、相続人となる者と一定の血族に限っています（法定相続人）。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>相続人の範囲と順位</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">被相続人の<strong>配偶者</strong>は常に相続人となります。また、被相続人（被相続人）の血族関係にある一定の相続人（血族相続人）には優先順位があります。</p>'
+      + '<table class="diagram-table"><thead><tr><th>順位</th><th>相続人</th></tr></thead><tbody>'
+      + '<tr><td>常に</td><td class="ok">配偶者</td></tr>'
+      + '<tr><td>第1順位</td><td>子</td></tr>'
+      + '<tr><td>第2順位</td><td>直系尊属（父母）</td></tr>'
+      + '<tr><td>第3順位</td><td>兄弟姉妹</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag chui">子について</span><div class="sd-rb">嫡出子（正式な婚姻関係にある人との間に生まれた子）、非嫡出子（正式な婚姻関係にない人との間に生まれた子）、養子、胎児が含まれる</div></div>'
   },
   {
-    tag:'民法等', title:'遺言と遺留分',
-    keywords:['自筆証書遺言','公正証書遺言','遺留分'],
-    body:'遺言は自分の財産を自由に分配するための制度。ただし相続人には最低限の取り分（<strong>遺留分</strong>）が保障されており、遺言でも侵害できない。',
-    points:[
-      '<strong>自筆証書遺言</strong>：全文・日付・氏名を自書＋押印。財産目録のみパソコン可。法務局保管→検認不要',
-      '<strong>公正証書遺言</strong>：公証人が作成＋証人2人。最も確実。検認不要',
-      '秘密証書遺言：自書でなくてもよいが家裁の<strong>検認が必要</strong>',
-      '<strong>遺留分</strong>：直系尊属のみが相続人＝遺産の<strong>1/3</strong>、それ以外＝遺産の<strong>1/2</strong>',
-      '兄弟姉妹には<strong>遺留分なし</strong>。遺留分侵害額請求権は金銭支払を求める請求権（改正民法）'
-    ],
-    diagram:'<table class="diagram-table"><thead><tr><th></th><th>自筆証書</th><th>公正証書</th><th>秘密証書</th></tr></thead><tbody><tr><td>自書</td><td class="ok">必須（目録除く）</td><td class="ng">不要</td><td class="ng">不要</td></tr><tr><td>証人</td><td class="ng">不要</td><td class="ok">2人以上</td><td class="ok">2人以上</td></tr><tr><td>家裁の検認</td><td class="warn">原則必要<br>（法務局保管は不要）</td><td class="ok">不要</td><td class="ng">必要</td></tr></tbody></table>',
-    example:'<strong>遺留分の例：</strong>Aが「全財産6000万円を愛人Dに遺贈する」という遺言を残して死亡。相続人は配偶者Bと子C。<br>→ <em>B・Cには遺留分（遺産の1/2）がある。B：6000万×1/2×1/2＝1500万円、C：同じく1500万円分を遺留分侵害額請求でDに金銭請求できる。</em>'
+    tag:'民法等', sec:'17 相続', no:'2', title:'代襲相続',
+    keywords:['代襲相続','再代襲','欠格','廃除','相続放棄'],
+    body:'代襲相続とは、相続の開始時に、相続人となることができる人がすでに死亡していたり、相続権がなくなっている場合に、その人の子（たとえば、被相続人の子が死亡している場合、その子の子＝被相続人の孫）が代わりに相続することをいいます。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>欠格…被相続人を殺害したり、詐欺や強迫によって遺言書を書かせたりした場合に、相続権がなくなること。廃除…被相続人を虐待するなど、著しい非行があった場合に、被相続人が家庭裁判所に申し立てることにより、相続権をなくすこと。</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>代襲相続のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">子（直系卑属）の場合</span><div class="sd-rb">代襲・再代襲がある（被相続人の孫→さらにその子＝曾孫も再代襲）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">兄弟姉妹の場合</span><div class="sd-rb">代襲は認められるが、<span class="hl-red">再代襲は認められない</span>（被相続人の甥・姪まで＝被相続人の甥・姪の子には及ばない）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">直系尊属について</span><div class="sd-rb">代襲という考え方がない</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">相続放棄の場合</span><div class="sd-rb">相続を放棄した者の子には代襲相続は<span class="hl-red">生じない</span>（欠格・廃除とは異なる点に注意）</div></div>'
+      + '</div></div>'
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'3', title:'相続分',
+    keywords:['相続分','指定相続分','法定相続分'],
+    body:'相続分とは、複数の相続人がいる場合の、各相続人が遺産を相続する割合をいいます。相続分には、遺言で各相続人の相続分を指定する<strong>指定相続分</strong>と、民法で定められた<strong>法定相続分</strong>があります。指定相続分は法定相続分より<strong>優先</strong>されます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>法定相続分</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">法定相続分は以下のとおりです（同順位に複数の相続人がいる場合は、その順位の相続分をさらに人数で均等に分割）。</p>'
+      + '<table class="diagram-table"><thead><tr><th>相続人の組み合わせ</th><th>配偶者</th><th>血族相続人</th></tr></thead><tbody>'
+      + '<tr><td>配偶者のみ</td><td class="ok">すべて相続</td><td>—</td></tr>'
+      + '<tr><td>配偶者＋子</td><td class="warn">1/2</td><td class="warn">1/2（子の数で均等分割）</td></tr>'
+      + '<tr><td>配偶者＋直系尊属</td><td class="warn">2/3</td><td class="warn">1/3（人数で均等分割）</td></tr>'
+      + '<tr><td>配偶者＋兄弟姉妹</td><td class="warn">3/4</td><td class="warn">1/4（人数で均等分割）</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">養子の相続分は<strong>実子と同じ</strong>／非嫡出子の相続分は嫡出子と<strong>同じ</strong>（改正民法）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">半血兄弟姉妹</span><div class="sd-rb">父母の一方のみを同じくする兄弟姉妹（半血兄弟姉妹）の相続分は、父母の双方を同じくする兄弟姉妹（全血兄弟姉妹）の<strong>2分の1</strong></div></div>',
+    qa:[{cite:'H24-問10③改', q:'Aは未婚で子供がなく、父親Bが所有する甲建物にBと同居している。Aの母Cはすでに死亡しており、AにはBとCの実子である兄Dがいて、DはEと婚姻して実子Fがいたが、Dはすでに死亡している。この場合において、Aが死亡した場合の法定相続分は、Bが4分の3、Fが4分の1である。', mark:'○', a:'Aには配偶者も子もないため、直系尊属（B）のみが相続人となる。この場合、Bがすべてを相続するが、兄D（すでに死亡）の子Fが代襲相続することはない（兄弟姉妹の代襲相続は、直系尊属より後順位のため、直系尊属Bがいる限り兄弟姉妹・その代襲相続人は相続人にならない）。'}]
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'4', title:'相続による権利の承継と対抗要件',
+    keywords:['相続と対抗要件','登記'],
+    body:'相続による権利の承継については、<strong>自己の法定相続分</strong>については登記などの対抗要件がなくても第三者に対抗することができますが、法定相続分を<strong>超える部分</strong>については、登記などの対抗要件を備えなければ、第三者に対抗することができません。',
+    diagram:'<div class="sd-hitokoto"><span class="ht-label">ひとこと</span>たとえば、不動産をAとBが法定相続分2分の1ずつで相続した場合、Bが勝手に単独相続の登記をして、第三者に売却した場合、一方、AとBの法定相続分が2分の1だけであれば、第三者に主張できます。しかしAがある不動産を単独で相続することになる場合、Aは、その登記をしておかなければ、その登記を超える部分（2分の1を超える部分）は、法定の登記があったとしても、Aは主張できません。これは債権を相続した場合も同様です。</div>'
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'5', title:'相続の承認と放棄',
+    keywords:['単純承認','限定承認','相続放棄','3ヵ月'],
+    body:'相続人は、被相続人の財産を相続するかどうかを選択することができます。民法では、<strong>単純承認</strong>が原則ですが、<strong>限定承認</strong>や<strong>相続の放棄</strong>も認められています。',
+    diagram:'<table class="diagram-table"><thead><tr><th>方式</th><th>内容</th><th>期間・要件</th></tr></thead><tbody>'
+      + '<tr><td><strong>単純承認</strong>（原則）</td><td>被相続人の財産（資産および負債）をすべて承継すること</td><td>（自己のために）相続の開始があったことを知った日から<strong>3ヵ月以内</strong>に、下記の限定承認や放棄を行わなかった場合等には、単純承認したものとみなされる</td></tr>'
+      + '<tr><td><strong>限定承認</strong></td><td>相続によって取得した資産（プラスの財産）の範囲内で、負債（マイナスの財産）を返済すればよいということ</td><td>（自己のために）相続の開始があったことを知った日から<strong>3ヵ月以内</strong>に、家庭裁判所に申し出る／<strong>相続人全員</strong>で行う必要がある</td></tr>'
+      + '<tr><td><strong>相続の放棄</strong></td><td>被相続人の財産（資産および負債）をすべて承継しないこと</td><td>（自己のために）相続の開始があったことを知った日から<strong>3ヵ月以内</strong>に、家庭裁判所に申し出る／<strong>単独</strong>でできる（相続人全員である必要はない）／放棄をした場合には、<span class="hl-red">代襲相続は発生しない</span></td></tr>'
+      + '</tbody></table>',
+    qa:[{cite:'H30-問10②', q:'共同相続財産に属する不動産について、ある共同相続人が法定相続分を超える割合で単独の所有権移転登記をしたうえで、その持分を第三者に譲渡した場合、他の共同相続人は、自己の持分を登記なくして、その第三者に対抗することができる。', mark:'○', a:'共同相続人は、自己の法定相続分については、登記なくして第三者に対抗することができる。'}]
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'6', title:'遺言とは',
+    keywords:['遺言','意思能力','行為能力','撤回','停止条件'],
+    body:'遺言とは、生前に自分の意思を、法定の方式にしたがって表示しておくことをいいます。',
+    diagram:'<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>遺言のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">①</span><div class="sd-rb">満<strong>15歳</strong>以上で、意思能力があれば誰でも行うことができる（<em>行為能力</em>は不要）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">②</span><div class="sd-rb">いつでも（遺言の方式に従って）全部または一部を変更・撤回することができる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">③</span><div class="sd-rb">遺言者が前にした遺言と抵触する遺言をしたときは、抵触する部分について、後の遺言で前の遺言を撤回したものとみなされる</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">④</span><div class="sd-rb">遺言は遺言者が<strong>死亡した時</strong>から効力を生じる。ただし、遺言に停止条件（「〇〇したときに、△△をあげる」等）がある場合は、その条件が成就した時から効力を生じる</div></div>'
+      + '</div></div>'
+      + '<div class="sd-glossary"><div class="sd-gt">📘 法律用語</div><dl>'
+      + '<dt>意思能力</dt><dd>有効に意思表示をする能力。</dd>'
+      + '<dt>行為能力</dt><dd>単独で有効な法律行為ができる能力。</dd>'
+      + '</dl></div>'
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'7', title:'遺言の種類',
+    keywords:['自筆証書遺言','公正証書遺言','秘密証書遺言','証人','検認'],
+    body:'遺言（普通方式遺言）には、<strong>自筆証書遺言</strong>・<strong>公正証書遺言</strong>・<strong>秘密証書遺言</strong>の3種類があります。',
+    diagram:'<table class="diagram-table"><thead><tr><th></th><th>自筆証書遺言</th><th>公正証書遺言</th><th>秘密証書遺言</th></tr></thead><tbody>'
+      + '<tr><td>作成方法</td><td>遺言者が全文・日付・氏名を自書し押印。<strong>財産目録</strong>は自書不要（毎葉に署名・押印すれば可）</td><td>遺言者が口述し、公証人が筆記または電磁的記録で作成</td><td>遺言者が署名・押印し、封印。公証人が日付等を記入し、証人が証明する</td></tr>'
+      + '<tr><td>証人</td><td class="ng">不要</td><td class="ok"><strong>2人以上</strong>必要（未成年者・推定相続人や受遺者・配偶者や直系血族等は証人になれない）</td><td class="ok"><strong>2人以上</strong>必要（同上）</td></tr>'
+      + '<tr><td>検認</td><td class="warn">必要（法務局保管制度を利用すれば不要）</td><td class="ng">不要</td><td class="warn">必要</td></tr>'
+      + '</tbody></table>'
+      + '<div class="sd-row"><span class="sd-tag point">ポイント</span><div class="sd-rb">原本は、自筆証書遺言（法務局保管制度を利用した場合）と公正証書遺言は<strong>法務局・公証役場に保管</strong>される。偽造・変造の防止のため</div></div>',
+    qa:[{cite:'H22-問10④改', q:'自筆証書遺言（これと一体のものとして添付する相続財産の全部又は一部の目録を除く）は、その全文を自書しなければならない（自筆証書遺言に添付する目録については、その各葉に署名し、印をすれば、自書でなくてもよい）。', mark:'○', a:'自筆証書遺言の本文は全文を自書しなければならない。ただし、添付する相続財産の目録については自書不要で、その各葉に署名・押印すれば有効となる。'}]
+  },
+  {
+    tag:'民法等', sec:'17 相続', no:'8', title:'遺留分・遺留分侵害額請求',
+    keywords:['遺留分','遺留分侵害額請求','遺留分割合','消滅時効'],
+    body:'遺言によって、被相続人の全財産を特定の人に遺贈することができますが、そうすると残された家族には何も財産が残らなくなります。そこで、民法は、相続人のうち一定の者が最低限の財産を受け取れるように配慮しています。この、一定の相続人に最低限保障された取り分を<strong>遺留分</strong>といいます。',
+    diagram:'<div class="sd-roman"><span class="rn">Ⅱ</span>遺留分割合</div>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>遺留分割合</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag gensoku">原則</span><div class="sd-rb">遺留分を算定するための財産の価額の<strong>2分の1</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag reigai">例外</span><div class="sd-rb">相続人が<strong>直系尊属のみ</strong>のときは<strong>3分の1</strong></div></div>'
+      + '<div class="sd-row"><span class="sd-tag chui">注意</span><div class="sd-rb"><span class="hl-red">兄弟姉妹には遺留分はない</span></div></div>'
+      + '</div></div>'
+      + '<div class="sd-roman"><span class="rn">Ⅲ</span>遺留分侵害額請求</div>'
+      + '<p style="font-size:0.84rem;line-height:1.8;margin:0 0 0.6rem">遺言によって、遺留分が侵害された遺留分権利者は、遺留分侵害額に相当する金銭の支払いを請求することができます。これを<strong>遺留分侵害額請求</strong>といいます。</p>'
+      + '<div class="sd-checkbox"><div class="sd-checkbox-h"><span class="chk">チェック</span>遺留分侵害額請求のポイント</div><div class="sd-checkbox-b">'
+      + '<div class="sd-row"><span class="sd-tag point">期間制限</span><div class="sd-rb">①相続の開始および遺留分の侵害を知った日から<strong>1年</strong>（消滅時効）または②相続開始から<strong>10年</strong>（除斥期間）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">事前放棄</span><div class="sd-rb">遺留分は、<strong>相続開始前</strong>に放棄することができる（ただし<strong>家庭裁判所の許可</strong>が必要）</div></div>'
+      + '<div class="sd-row"><span class="sd-tag point">相続放棄との違い</span><div class="sd-rb">相続を放棄した者は、遺留分侵害額請求をすることは<span class="hl-red">できない</span>（相続を放棄したわけではないから、相続人になることはできる）</div></div>'
+      + '</div></div>'
   },
   {
     tag:'民法等', title:'共有（変更・管理・保存・分割）',
@@ -4754,21 +4874,36 @@ const quizData = [
   },
   {
     cat:'民法等', catClass:'civil',
-    q:'遺留分が認められない相続人はどれか。',
-    opts:['配偶者','子','直系尊属（親）','兄弟姉妹'], ans:3,
-    exp:'<strong>兄弟姉妹</strong>には遺留分が認められません（民法1042条）。配偶者・子・直系尊属には遺留分があります。'
+    q:'遺留分に関する次の記述のうち、正しいものはどれか。',
+    opts:[
+      '相続人が兄弟姉妹のみである場合、その兄弟姉妹には遺留分は認められない。',
+      '相続人が直系尊属のみである場合の遺留分割合は、遺産の2分の1である。',
+      '遺留分は、相続開始後でなければ放棄することができない。',
+      '相続を放棄した者は、相続人としての地位を失わないため、遺留分侵害額請求をすることができる。'
+    ], ans:0,
+    exp:'<strong>兄弟姉妹には遺留分がありません</strong>。相続人が<strong>直系尊属のみ</strong>の場合の遺留分割合は<strong>3分の1</strong>（それ以外は2分の1）。遺留分は<strong>相続開始前</strong>でも家庭裁判所の許可を得れば放棄できます。相続を放棄した者は相続人ではなくなるため、遺留分侵害額請求はできません。'
   },
   {
     cat:'民法等', catClass:'civil',
-    q:'AにはBC二人の子がいる。BがAより先に死亡しており、BにはDという子（Aの孫）がいる。Aが死亡した場合、Dの法定相続分はいくらか。',
-    opts:['0（相続できない）','1/4','1/2','2/3'], ans:1,
-    exp:'Bが先に死亡しているため<strong>代襲相続</strong>が発生し、Bの子DがBの相続分を代襲します。法定相続分は子全員で1/2を均等分割なので、DはBの相続分1/2の全部（Cの1/2と同等）。つまりD=<strong>1/2</strong>。ただし本問の選択肢は、AのすべてをB・Cで割ると各1/2、Bの代襲者Dは<strong>1/2</strong>（Cと同等）が正解。'
+    q:'Aには子BとCがいる。Bは、Aより先に死亡しており、Bには子D（Aの孫）がいる。Aが死亡した場合の法定相続分に関する次の記述のうち、正しいものはどれか（Aに配偶者はいないものとする）。',
+    opts:[
+      'Dは、Bを代襲して相続人となり、その法定相続分は2分の1である。',
+      'Bが死亡しているため、Dは相続人となることができず、Cが遺産の全部を相続する。',
+      'Dの法定相続分は、Cの法定相続分よりも小さくなる。',
+      'Dが代襲相続するには、Aの死亡後に家庭裁判所の許可を得る必要がある。'
+    ], ans:0,
+    exp:'Bが先に死亡しているため、Bの子Dが<strong>代襲相続</strong>し、Bの相続分をそのまま承継します。子が2人（B・C）のケースなので各2分の1ずつであり、Dは<strong>Bの地位を代襲して2分の1</strong>を相続します（Cと同額）。代襲相続に家庭裁判所の許可は不要です。'
   },
   {
     cat:'民法等', catClass:'civil',
-    q:'Aが死亡し、配偶者Bと子Cが相続人である場合、配偶者Bの法定相続分はいくらか。',
-    opts:['1/3','1/2','2/3','3/4'], ans:1,
-    exp:'配偶者と子が相続人の場合、法定相続分は<strong>配偶者1/2・子1/2</strong>です（民法900条1号）。子が複数いる場合は1/2をさらに均等分割します。'
+    q:'Aが死亡し、相続人が配偶者Bと直系尊属Cのみである場合（Aに子はいない）の法定相続分に関する次の記述のうち、正しいものはどれか。',
+    opts:[
+      '配偶者Bの法定相続分は3分の2であり、直系尊属Cの法定相続分は3分の1である。',
+      '配偶者Bの法定相続分は2分の1であり、直系尊属Cの法定相続分は2分の1である。',
+      '配偶者Bの法定相続分は4分の3であり、直系尊属Cの法定相続分は4分の1である。',
+      '配偶者と直系尊属が相続人である場合、直系尊属には法定相続分が認められない。'
+    ], ans:0,
+    exp:'相続人が<strong>配偶者と直系尊属</strong>の場合、法定相続分は<strong>配偶者3分の2・直系尊属3分の1</strong>です。（参考：配偶者と子なら1/2ずつ、配偶者と兄弟姉妹なら配偶者3/4・兄弟姉妹1/4）'
   },
   {
     cat:'民法等', catClass:'civil',
